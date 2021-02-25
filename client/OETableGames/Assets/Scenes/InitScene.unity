@@ -176,5 +176,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114670301303842616, guid: e5787b37e8f1ca94d832cd9725b51d4b,
+        type: 3}
+      propertyPath: m_EnabledProcedureTypeNames.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114670301303842616, guid: e5787b37e8f1ca94d832cd9725b51d4b,
+        type: 3}
+      propertyPath: m_StartProcedureTypeName
+      value: LaunchProcedure
+      objectReference: {fileID: 0}
+    - target: {fileID: 114670301303842616, guid: e5787b37e8f1ca94d832cd9725b51d4b,
+        type: 3}
+      propertyPath: m_EnabledProcedureTypeNames.Array.data[0]
+      value: CheckVersionProcedure
+      objectReference: {fileID: 0}
+    - target: {fileID: 114670301303842616, guid: e5787b37e8f1ca94d832cd9725b51d4b,
+        type: 3}
+      propertyPath: m_EnabledProcedureTypeNames.Array.data[1]
+      value: LaunchProcedure
+      objectReference: {fileID: 0}
+    - target: {fileID: 114670301303842616, guid: e5787b37e8f1ca94d832cd9725b51d4b,
+        type: 3}
+      propertyPath: m_EditorPath
+      value: None+Assets/Downloads/
+      objectReference: {fileID: 0}
+    - target: {fileID: 114670301303842616, guid: e5787b37e8f1ca94d832cd9725b51d4b,
+        type: 3}
+      propertyPath: m_EnabledProcedureTypeNames.Array.data[2]
+      value: SplashProcedure
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5787b37e8f1ca94d832cd9725b51d4b, type: 3}
