@@ -6,6 +6,7 @@
 using DrbFramework.Internal;
 using DrbFramework.Resource;
 using DrbFramework.UI;
+using System;
 using System.IO;
 using XLua;
 
@@ -31,5 +32,13 @@ public static class UISystemExtensions
                 callback(form);
             }
         }, null);
+    }
+
+    public static void ShowMessage(this UISystem uiSystem, string title, string message, float countDown = 0f,
+        MessageForm.AutoClickType autoType = MessageForm.AutoClickType.None, MessageForm.MessageViewType type = MessageForm.MessageViewType.Ok,
+        Action okAction = null, Action cancelAction = null)
+    {
+        MessageForm form = (MessageForm)OpenInternalForm(uiSystem, "UI/Forms/MessageForm", "BackGround");
+        form.Show(title, message, countDown, autoType, type, okAction, cancelAction);
     }
 }
