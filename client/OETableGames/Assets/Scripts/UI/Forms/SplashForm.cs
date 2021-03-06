@@ -20,7 +20,7 @@ public class SplashForm : UGUIForm
     {
         base.OnInit();
 
-        m_Text = string.Format("Designed by\n{0}", ConstDefine.FrameworkName);
+        m_Text = string.Format("Designed by\n{0}", DrbFramework.ConstDefine.FrameworkName);
     }
 
     public override void OnOpen()
