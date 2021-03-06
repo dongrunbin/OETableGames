@@ -7,7 +7,7 @@ using System.Text;
 
 namespace DrbFramework.Internal.Editor
 {
-    public class DefaultProtocolCreater : IProtocolCreater
+    public class CSharpProtocolCreater : IProtocolCreater
     {
         public void CreateProtocol(Menu menu, Protocol protocol, string outputPath)
         {
@@ -410,6 +410,7 @@ namespace DrbFramework.Internal.Editor
 
         private static void CreateFile(string menuName, StringBuilder sbr, Protocol protocol, string path)
         {
+            path += "/csharp/";
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
@@ -544,7 +545,7 @@ namespace DrbFramework.Internal.Editor
             return sbr;
         }
 
-        public static void CreateCodeDef(List<Menu> menus, string path)
+        public void CreateCodeDef(List<Menu> menus, string path)
         {
             StringBuilder sbr = new StringBuilder();
 
@@ -604,7 +605,8 @@ namespace DrbFramework.Internal.Editor
             sbr.Append("    }\r\n");
 
             sbr.AppendFormat("}}\r\n");
-            
+
+            path += "/csharp/";
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);

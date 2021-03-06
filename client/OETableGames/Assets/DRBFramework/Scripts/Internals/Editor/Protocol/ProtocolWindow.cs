@@ -1,4 +1,9 @@
-﻿
+//===================================================
+//Author      : DRB
+//CreateTime  ：2021/3/6 23:38:54
+//Description ：
+//===================================================
+
 using DrbFramework.Extensions;
 using System;
 using System.Collections.Generic;
@@ -55,7 +60,7 @@ namespace DrbFramework.Internal.Editor
         {
             if (GUILayout.Button("Load Protocol Config"))
             {
-                m_ConfigPath = EditorUtility.OpenFilePanel("Select Protocol Config", Application.dataPath, "xml");
+                m_ConfigPath = EditorUtility.OpenFilePanel("Select Protocol Config", PlayerPrefs.GetString("ProtocolWindow.ConfigPath", Application.dataPath), "xml");
                 if (!string.IsNullOrEmpty(m_ConfigPath))
                 {
                     if (File.Exists(m_ConfigPath))
@@ -65,6 +70,8 @@ namespace DrbFramework.Internal.Editor
                             XmlSerializer xmldes = new XmlSerializer(m_Menus.GetType());
                             m_Menus = (List<Menu>)xmldes.Deserialize(fs);
                         }
+
+                        PlayerPrefs.SetString("ProtocolWindow.ConfigPath", m_ConfigPath);
                     }
                 }
             }
@@ -269,6 +276,8 @@ namespace DrbFramework.Internal.Editor
                         XmlSerializer serializer = new XmlSerializer(m_Menus.GetType());
                         serializer.Serialize(fs, m_Menus);
                     }
+
+                    PlayerPrefs.SetString("ProtocolWindow.ConfigPath", m_ConfigPath);
                 }
             }
 
@@ -333,6 +342,8 @@ namespace DrbFramework.Internal.Editor
                             m_Creater.CreateProtocol(m_Menus[i], m_Menus[i].ProtocolInfos[j], m_OutputPath);
                         }
                     }
+                    m_Creater.CreateCodeDef(m_Menus, m_OutputPath);
+
                     EditorUtility.ClearProgressBar();
                 }
             }
