@@ -179,7 +179,7 @@ PrefabInstance:
     - target: {fileID: 114670301303842616, guid: e5787b37e8f1ca94d832cd9725b51d4b,
         type: 3}
       propertyPath: m_EnabledProcedureTypeNames.Array.size
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 114670301303842616, guid: e5787b37e8f1ca94d832cd9725b51d4b,
         type: 3}
@@ -204,6 +204,21 @@ PrefabInstance:
     - target: {fileID: 114670301303842616, guid: e5787b37e8f1ca94d832cd9725b51d4b,
         type: 3}
       propertyPath: m_EnabledProcedureTypeNames.Array.data[2]
+      value: LoginProcedure
+      objectReference: {fileID: 0}
+    - target: {fileID: 114670301303842616, guid: e5787b37e8f1ca94d832cd9725b51d4b,
+        type: 3}
+      propertyPath: m_LocalizationLanguage
+      value: English
+      objectReference: {fileID: 0}
+    - target: {fileID: 114670301303842616, guid: e5787b37e8f1ca94d832cd9725b51d4b,
+        type: 3}
+      propertyPath: m_EnabledProcedureTypeNames.Array.data[3]
+      value: MainMenuProcedure
+      objectReference: {fileID: 0}
+    - target: {fileID: 114670301303842616, guid: e5787b37e8f1ca94d832cd9725b51d4b,
+        type: 3}
+      propertyPath: m_EnabledProcedureTypeNames.Array.data[4]
       value: SplashProcedure
       objectReference: {fileID: 0}
     m_RemovedComponents: []
