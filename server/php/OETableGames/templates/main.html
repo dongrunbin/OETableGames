@@ -1,0 +1,185 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>oegame wiki</title>
+<!-- 新 Bootstrap 核心 CSS 文件 -->
+<link rel="stylesheet"
+	href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script src="http://wiki.oegame.com/js/jquery.pin.js"></script>
+
+</head>
+<body>
+
+	<div style="padding: 0px 20px;">
+
+		<h2>Game</h2>
+		<ol class="breadcrumb">
+			<!--{foreach from=$game item=item}-->
+			<li><a href="javascript:build_game('<!--{$item.name}-->');">
+					<!--{$item.name}-->
+			</a></li>
+			<!--{/foreach}-->
+		</ol>
+
+		<h2>Passport</h2>
+		<ol class="breadcrumb">
+			<!--{foreach from=$passport item=item}-->
+			<li><a href="javascript:build_passport('<!--{$item.name}-->');">
+					<!--{$item.name}-->
+			</a></li>
+			<!--{/foreach}-->
+		</ol>
+
+		<h2>Agent</h2>
+		<ol class="breadcrumb">
+			<!--{foreach from=$agent item=item}-->
+			<li><a href="javascript:build_agent('<!--{$item.name}-->');">
+					<!--{$item.name}-->
+			</a></li>
+			<!--{/foreach}-->
+		</ol>
+
+		<h2>Weixin</h2>
+		<ol class="breadcrumb">
+			<!--{foreach from=$weixin item=item}-->
+			<li><a href="javascript:build_weixin('<!--{$item.name}-->');">
+					<!--{$item.name}-->
+			</a></li>
+			<!--{/foreach}-->
+		</ol>
+
+		<h2>Pay</h2>
+		<ol class="breadcrumb">
+			<!--{foreach from=$pay item=item}-->
+			<li><a href="javascript:build_pay('<!--{$item.name}-->');">
+					<!--{$item.name}-->
+			</a></li>
+			<!--{/foreach}-->
+		</ol>
+
+		<h2>Apple</h2>
+		<ol class="breadcrumb">
+			<!--{foreach from=$apple item=item}-->
+			<li><a href="javascript:build_apple('<!--{$item.name}-->');">
+					<!--{$item.name}-->
+			</a></li>
+			<!--{/foreach}-->
+		</ol>
+	</div>
+
+	<div id="form-horizontal" style="display: none;">
+		<form class="form-horizontal" action="/api/doPost/" method="post">
+			<div id="form-body"></div>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<input class="btn btn-default" type="submit" value="submit" />
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<div id="res" style="padding: 30px;"></div>
+	<script>
+	function build(ctrl, action, args) {
+		var html = "";
+		for(var i=0; i<args.length; i++) {
+			html += '<div class="form-group">';
+			html += '<label class="col-sm-2 control-label">' + args[i][1];
+			html += '</label>';
+			html += '<div class="col-sm-6">';
+			html += '<input type="text" class="form-control" name="' + args[i][1] + '"/>';
+			html += '</div>';
+			html += '</div>';
+		}
+		
+		$("#res").html('');
+		
+		$("#form-body").html(html);
+		$("#form-horizontal").show();
+		
+		$(".form-horizontal").unbind('submit');
+		$(".form-horizontal").bind('submit', function(elem) {
+			
+			var key = [];
+			var val = [];
+			
+			$.each($(".form-horizontal").find(":input"), function(index, elem) {
+				if(elem.type == 'text') {
+					key.push(elem.name);
+					val.push(elem.value);
+				}
+			});
+			
+			
+			var data = {
+				'ctrl':ctrl,
+				'url':action,
+				'key':key,
+				'val':val
+			};
+			
+			$("#res").html('loading...');
+			
+			$.post('/api/doPost/', data, function(html) {
+				$("#res").html(html);
+			});
+				
+			return false;
+		});
+	}
+
+		function build_game(name) {
+			var args = new Array();
+			<!--{foreach from=$game item=item}-->
+			args['<!--{$item.name}-->'] = <!--{json_encode($item.args)}-->;
+			<!--{/foreach}-->
+			build('game', name, args[name]);
+		}
+		function build_passport(name) {
+			var args = new Array();
+			<!--{foreach from=$passport item=item}-->
+			args['<!--{$item.name}-->'] = <!--{json_encode($item.args)}-->;
+			<!--{/foreach}-->
+			build('passport', name, args[name]);
+		}
+		function build_agent(name) {
+			var args = new Array();
+			<!--{foreach from=$agent item=item}-->
+			args['<!--{$item.name}-->'] = <!--{json_encode($item.args)}-->;
+			<!--{/foreach}-->
+			build('agent', name, args[name]);
+		}
+		function build_apple(name) {
+			var args = new Array();
+			<!--{foreach from=$apple item=item}-->
+			args['<!--{$item.name}-->'] = <!--{json_encode($item.args)}-->;
+			<!--{/foreach}-->
+			build('apple', name, args[name]);
+		}
+		function build_weixin(name) {
+			var args = new Array();
+			<!--{foreach from=$weixin item=item}-->
+			args['<!--{$item.name}-->'] = <!--{json_encode($item.args)}-->;
+			<!--{/foreach}-->
+			build('weixin', name, args[name]);
+		}
+		function build_pay(name) {
+			var args = new Array();
+			<!--{foreach from=$pay item=item}-->
+			args['<!--{$item.name}-->'] = <!--{json_encode($item.args)}-->;
+			<!--{/foreach}-->
+			build('pay', name, args[name]);
+		}
+	</script>
