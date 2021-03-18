@@ -1,0 +1,6 @@
+﻿Menu.StartGame:Empezar
+Menu.English:Ingles
+Menu.Chinese:Chino
+Menu.Spanish:Espanol
+MessageForm.Cancel:Cancela
+MessageForm.Ok:Bien

@@ -6,11 +6,13 @@
 using DrbFramework;
 using DrbFramework.Download;
 using DrbFramework.Extensions;
+using DrbFramework.Http;
 using DrbFramework.Internal;
 using DrbFramework.Procedure;
 using DrbFramework.Utility;
-using System;
 using System.Collections.Generic;
+using System.Text;
+using UnityEngine;
 
 public class CheckVersionProcedure : Procedure
 {
@@ -29,7 +31,7 @@ public class CheckVersionProcedure : Procedure
     private int m_CurrentCount, m_TotalCount, m_CurrentSize, m_TotalSize;
 
     private const string VERSION_FILE_NAME= "VersionInfo.txt";
-    private const string DOWNLOAD_URL = "";
+    private string m_DownloadUrl;
 
     public override void OnEnter(object userData)
     {
@@ -40,7 +42,7 @@ public class CheckVersionProcedure : Procedure
 
         m_InitForm = (InitForm)DrbComponent.UISystem.OpenInternalForm("UI/Forms/InitForm", "BackGround");
 
-        CheckResources();
+        RequestDownloadURL();
     }
 
     public override void OnLeave()
@@ -53,6 +55,52 @@ public class CheckVersionProcedure : Procedure
         DrbComponent.UISystem.DestroyForm(m_InitForm);
     }
 
+    #region RequestDownloadURL 获取下载地址
+    /// <summary>
+    /// 获取下载地址
+    /// </summary>
+    private void RequestDownloadURL()
+    {
+        Dictionary<string, object> dic = new Dictionary<string, object>();
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+        dic["platform"] = "windows";
+#elif UNITY_ANDROID
+        dic["platform"] = "android";
+#elif UNITY_IPHONE
+        dic["platform"] = "ios";
+#endif
+        DrbComponent.HttpSystem.Request(ConstDefine.WebUrl, "game/init/", dic, OnRequestDownloadURLCallBack);
+    }
+    #endregion
+
+    #region OnRequestDownloadURLCallBack 获取下载地址回调
+    /// <summary>
+    /// 获取下载地址回调
+    /// </summary>
+    /// <param name="args"></param>
+    private void OnRequestDownloadURLCallBack(object sender, HttpRequestCompleteEventArgs args)
+    {
+        if (args.HasError)
+        {
+            DrbComponent.UISystem.ShowMessage("错误", "网络连接失败", type: MessageForm.MessageViewType.OkAndCancel, okAction: RequestDownloadURL, cancelAction:Application.Quit);
+        }
+        else
+        {
+            Log.Info(Encoding.UTF8.GetString(args.Data));
+            LitJson.JsonData jsonData = LitJson.JsonMapper.ToObject(Encoding.UTF8.GetString(args.Data));
+            if (jsonData["code"].ToString().ToInt() < 0)
+            {
+                DrbComponent.UISystem.ShowMessage("提示", jsonData["msg"].ToString(), type: MessageForm.MessageViewType.OkAndCancel, okAction: RequestDownloadURL, cancelAction: Application.Quit);
+                return;
+            }
+
+            m_DownloadUrl = jsonData["data"]["downloadUrl"].ToString();
+
+            CheckResources();
+        }
+    }
+    #endregion
+
     /// <summary>
     /// 检查资源更新
     /// </summary>
@@ -62,7 +110,7 @@ public class CheckVersionProcedure : Procedure
         ChangeState<LoginProcedure>();
 #else
         string versionPath = DrbComponent.ResourceSystem.PersistentPath + VERSION_FILE_NAME;
-        DrbComponent.DownloadSystem.Download(DOWNLOAD_URL + VERSION_FILE_NAME, string.Empty, versionPath);
+        DrbComponent.DownloadSystem.Download(m_DownloadUrl + VERSION_FILE_NAME, string.Empty, versionPath);
 #endif
 
     }
@@ -208,7 +256,7 @@ public class CheckVersionProcedure : Procedure
         }
         for (int i = 0; i < needDownloadDataList.Count; ++i)
         {
-            DrbComponent.DownloadSystem.Download(DOWNLOAD_URL + needDownloadDataList[i].FullName, DrbComponent.ResourceSystem.PersistentPath + needDownloadDataList[i].FullName);
+            DrbComponent.DownloadSystem.Download(m_DownloadUrl + needDownloadDataList[i].FullName, DrbComponent.ResourceSystem.PersistentPath + needDownloadDataList[i].FullName);
         }
     }
 }

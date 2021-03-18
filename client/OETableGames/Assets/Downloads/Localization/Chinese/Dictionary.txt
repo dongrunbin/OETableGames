@@ -1,0 +1,6 @@
+﻿Menu.StartGame:开始游戏
+Menu.English:英语
+Menu.Chinese:中文
+Menu.Spanish:西班牙语
+MessageForm.Cancel:取消
+MessageForm.Ok:确定

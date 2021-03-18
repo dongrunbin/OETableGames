@@ -6,5 +6,5 @@
 
 public class ConstDefine
 {
-    public static string WebUrl = "";
+    public static string WebUrl = "http://oetablegames.lanserver.com:8888";
 }
