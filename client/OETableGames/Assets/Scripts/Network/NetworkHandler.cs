@@ -48,7 +48,7 @@ public class NetworkHandler : INetworkHandler
             }
             else
             {
-                //DrbComponent.GetEventSystem<int>().Dispatch(this, protoCode, protoContent);
+                DrbComponent.GetEventSystem<int>().Dispatch(this, protoCode, new NetworkEventArgs(protoCode, protoContent));
             }
         }
     }
@@ -61,6 +61,8 @@ public class NetworkHandler : INetworkHandler
     public void OnConnected(INetworkChannel channel)
     {
         Log.Info(channel.Name + "Connected");
+
+        DrbComponent.GetEventSystem<int>().Dispatch(this, CodeDef.System_HeartBeatProto - 1, new NetworkEventArgs(CodeDef.System_HeartBeatProto - 1, null));
     }
 
     public void OnExceptionCaught(INetworkChannel channel, Exception exception)

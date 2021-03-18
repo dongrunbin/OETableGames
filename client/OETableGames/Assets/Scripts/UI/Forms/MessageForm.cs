@@ -5,14 +5,10 @@
 //===================================================
 
 using UnityEngine;
-using System.Collections;
 using UnityEngine.UI;
 using System;
 using DrbFramework.Internal;
 
-/// <summary>
-/// 消息提示窗口视图
-/// </summary>
 public class MessageForm : UGUIForm
 {
     public enum AutoClickType
@@ -61,8 +57,8 @@ public class MessageForm : UGUIForm
             m_fCountDown -= Time.deltaTime;
             if (m_fCountDown < 0)
             {
-                m_TextCancel.text = "取消";
-                m_TextOk.text = "确定";
+                m_TextCancel.text = DrbComponent.LocalizationSystem.GetString("MessageForm.Cancel");
+                m_TextOk.text = DrbComponent.LocalizationSystem.GetString("MessageForm.Ok");
                 switch (m_AutoType)
                 {
                     case AutoClickType.Cancel:
@@ -76,10 +72,10 @@ public class MessageForm : UGUIForm
             switch (m_AutoType)
             {
                 case AutoClickType.Cancel:
-                    m_TextCancel.SafeSetText(string.Format("取消({0})", m_fCountDown.ToString("0")));
+                    m_TextCancel.SafeSetText(string.Format("{0}({1})", DrbComponent.LocalizationSystem.GetString("MessageForm.Cancel"), m_fCountDown.ToString("0")));
                     break;
                 case AutoClickType.Ok:
-                    m_TextOk.SafeSetText(string.Format("确定({0})", m_fCountDown.ToString("0")));
+                    m_TextOk.SafeSetText(string.Format("{0}({1})", DrbComponent.LocalizationSystem.GetString("MessageForm.Ok"), m_fCountDown.ToString("0")));
                     break;
             }
 
@@ -132,19 +128,9 @@ public class MessageForm : UGUIForm
         }
         m_AutoType = autoType;
         m_fCountDown = countDown;
-        switch (autoType)
-        {
-            case AutoClickType.None:
-                m_TextOk.SafeSetText("确定");
-                m_TextCancel.SafeSetText("取消");
-                break;
-            case AutoClickType.Cancel:
-                m_TextOk.SafeSetText("确定");
-                break;
-            case AutoClickType.Ok:
-                m_TextCancel.SafeSetText("取消");
-                break;
-        }
+
+        m_TextOk.SafeSetText(DrbComponent.LocalizationSystem.GetString("MessageForm.Ok"));
+        m_TextCancel.SafeSetText(DrbComponent.LocalizationSystem.GetString("MessageForm.Cancel"));
 
         OnOkClickHandler = okAction;
         OnCancelHandler = cancelAction;
