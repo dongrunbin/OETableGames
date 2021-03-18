@@ -9,3 +9,4 @@ $m_cfg_data = $m_cfg->node("where `id` = 1" ,"*");
 define('INIT_CARDS', $m_cfg_data['cards']);
 
 define('GUEST_CARDS', 0);
+define('GUEST_GOLD', 5000);

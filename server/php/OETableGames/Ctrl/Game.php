@@ -37,7 +37,7 @@ class Game extends BaseCtrl {
             exit();
         }
 
-        $url = "https://wangqueshenhe.oss-cn-beijing.aliyuncs.com/";
+        $url = RESOURCE_URL;
         
         $ret = array ();
         $ret['code'] = 1;

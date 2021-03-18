@@ -18,7 +18,7 @@ define('DB_PORT', 3306);
  *
  * @var string
 */
-define('DB_NAME', 'passport');
+define('DB_NAME', 'oetablegames');
 
 /**
  * 数据库用户名
@@ -39,5 +39,5 @@ define('DB_PSWD', 'c2=Tpgi;=rRr');
  *
  * @var string
 */
-define('DB_DATA_PREFIX', 'sys_');
+define('DB_DATA_PREFIX', '');
 ?>

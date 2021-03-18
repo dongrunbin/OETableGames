@@ -36,14 +36,6 @@ class Server extends BaseEntity
      *
      * @var string
      */
-    var $gameId;
-
-    /**
-     *
-     *
-     *
-     * @var string
-     */
     var $host;
 
     /**

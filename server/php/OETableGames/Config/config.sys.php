@@ -57,10 +57,7 @@ define('REQUEST_TIME', $_SERVER['REQUEST_TIME']);
  */
 define('SERVER_KEY', 'mj12321jm');
 
-/**
- * 游戏名称
- */
-define('GAME_NAME', 'OETableGames');
+define('RESOURCE_URL', 'https://wangqueshenhe.oss-cn-beijing.aliyuncs.com/');
 
 define('EXCEPTION_LEVEL', 1);
 

@@ -27,14 +27,6 @@ class Player extends BaseEntity
 	
 	/**
 	 *
-	 * 头像
-	 *
-	 * @var string
-	 */
-	var $avatar;
-	
-	/**
-	 *
 	 * 性别
 	 *
 	 * @var int
@@ -75,14 +67,6 @@ class Player extends BaseEntity
 	
 	/**
 	 *
-	 * 积分
-	 *
-	 * @var int
-	 */
-	var $score;
-	
-	/**
-	 *
 	 * 状态
 	 *
 	 * @var int
@@ -104,14 +88,6 @@ class Player extends BaseEntity
 	 * @var bigint
 	 */
 	var $ipaddr;
-	
-	/**
-	 *
-	 * 宝箱钥匙
-	 *
-	 * @var int
-	 */
-	var $box_key;
 
     /**
      *

@@ -36,8 +36,6 @@ class Passport extends BaseCtrl {
         $array['passport'] = uniqid();
         $array['password'] = uniqid();
         
-        $array['phone'] = 'UN' . uniqid();
-        
         $array['token'] = $token;
         $array['tokenExpire'] = REQUEST_TIME + 60 * 60 * 24;
         
