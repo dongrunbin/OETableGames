@@ -63,3 +63,8 @@ define('EXCEPTION_LEVEL', 1);
 
 define('SESSION_MODE', 'redis');
 
+define('INIT_CARDS', 5);
+
+define('GUEST_CARDS', 0);
+define('GUEST_GOLD', 5000);
+

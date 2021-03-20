@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/OETableGames.iml" filepath="$PROJECT_DIR$/.idea/OETableGames.iml" />
-      <module fileurl="file://D:/svnroot/wangque/trunk/server/php/api.wangque.com/.idea/api.wqmajiang.com.iml" filepath="D:/svnroot/wangque/trunk/server/php/api.wangque.com/.idea/api.wqmajiang.com.iml" />
     </modules>
   </component>
 </project>

@@ -27,7 +27,7 @@ class Game extends BaseCtrl {
         $sign = $this->getString("sign", true);
         
         $md5 = md5("init" . $platform . $unixtime . ApiTools::$key);
-        
+
         if (strtolower($md5) != strtolower($sign)) {
             $ret = array ();
             $ret['code'] = ERR_SIGN_ERROR;
