@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 1825166711078586257}
   - component: {fileID: 4727269903148854568}
   - component: {fileID: 9016700569718216927}
+  - component: {fileID: 6871730303670705724}
   m_Layer: 5
   m_Name: LoginForm
   m_TagString: Untagged
@@ -154,6 +155,23 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &6871730303670705724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 421989387114602362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38a6a678fa73b874ca27a3e1be3afbc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_isLua: 0
+  m_hasMask: 0
+  m_MaskColor: {r: 0, g: 0, b: 0, a: 0.6}
+  m_MaskCanClose: 1
+  m_BtnGuestLogin: {fileID: 311498083366009864}
 --- !u!1 &6630581644977177637
 GameObject:
   m_ObjectHideFlags: 0

@@ -69,7 +69,7 @@ public class CheckVersionProcedure : Procedure
 #elif UNITY_IPHONE
         dic["platform"] = "ios";
 #endif
-        DrbComponent.HttpSystem.Request(ConstDefine.WebUrl, "game/init/", dic, OnRequestDownloadURLCallBack);
+        DrbComponent.HttpSystem.EncryptedRequest(ConstDefine.WebUrl, "game/init", dic, OnRequestDownloadURLCallBack);
     }
     #endregion
 
@@ -106,7 +106,7 @@ public class CheckVersionProcedure : Procedure
     /// </summary>
     private void CheckResources()
     {
-#if UNITY_EDITOR && DISABLE_ASSETBUNDLE
+#if UNITY_EDITOR && !ASSETBUNDLE
         ChangeState<LoginProcedure>();
 #else
         string versionPath = DrbComponent.ResourceSystem.PersistentPath + VERSION_FILE_NAME;

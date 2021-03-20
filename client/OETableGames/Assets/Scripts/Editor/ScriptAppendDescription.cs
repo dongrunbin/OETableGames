@@ -12,6 +12,7 @@ public class ScriptAppendDescription : UnityEditor.AssetModificationProcessor
         if (path.EndsWith(".cs"))
         {
             string strContent = File.ReadAllText(path);
+            if (strContent.StartsWith("//=")) return;
             System.Text.StringBuilder strNote1 = new System.Text.StringBuilder();
             strNote1.Append("//===================================================\r\n");
             strNote1.AppendFormat("//Author      : {0}\r\n", CustomMenu.AuthorName);

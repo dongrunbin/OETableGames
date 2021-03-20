@@ -10,13 +10,13 @@ using UnityEngine;
 [XLua.LuaCallCSharp]
 public static class ResourceSystemExtensions
 {
-    public static void LoadAssetAsync(this ResourceSystem resourceSyste, string assetPath, LoadAssetCompleteEventHandler onComplete, object userData)
+    public static void LoadAssetAsync(this ResourceSystem resourceSystem, string assetPath, LoadAssetCompleteEventHandler onComplete, object userData)
     {
 #if UNITY_EDITOR
-        resourceSyste.LoadAssetAsync(assetPath, LoadMode.Editor, onComplete, userData);
+        resourceSystem.LoadAssetAsync(assetPath, LoadMode.Editor, onComplete, userData);
 #else
             string assetName = Path.GetFileNameWithoutExtension(assetPath);
-            resourceSyste.LoadAssetFromAssetBundleAsync(assetPath, assetName, LoadMode.Persistent, onComplete, userData);
+            resourceSystem.LoadAssetFromAssetBundleAsync(assetPath, assetName, LoadMode.Persistent, onComplete, userData);
 #endif
     }
 

@@ -25,7 +25,7 @@ public class CustomMenu
         }
     }
 
-    [MenuItem("DRB/Setting")]
+    [MenuItem("OETableGames/Setting")]
     public static void OpenSettingTool()
     {
         SettingWindow win = EditorWindow.GetWindow<SettingWindow>();
@@ -35,20 +35,20 @@ public class CustomMenu
         win.Show();
     }
 
-    [MenuItem("DRB/Clear Cache")]
+    [MenuItem("OETableGames/Clear Cache")]
     public static void ClearCache()
     {
         PlayerPrefs.DeleteAll();
     }
 
-    [MenuItem("DRB/Run Game")]
+    [MenuItem("OETableGames/Run Game")]
     public static void RunGame()
     {
         EditorApplication.OpenScene("Assets/Scenes/InitScene.unity");
         EditorApplication.isPlaying = true;
     }
 
-    [MenuItem("DRB/Calculate Code Lines")]
+    [MenuItem("OETableGames/Calculate Code Lines")]
     public static void CalculateCount()
     {
         int count = 0;
@@ -72,8 +72,6 @@ public class CustomMenu
                     foreach (string filePath in arrFile)
                     {
                         if (filePath.IndexOf(".meta") > -1) continue;
-                        //if (filePath.IndexOf(@"\Proto\") > -1) continue;
-                        if (filePath.IndexOf("/protobuf\\") > -1) continue;
                         string content = IOUtil.GetFileText(filePath);
                         string[] result = content.Split(new string[1] { "\n" }, StringSplitOptions.None);
                         count += result.Length;

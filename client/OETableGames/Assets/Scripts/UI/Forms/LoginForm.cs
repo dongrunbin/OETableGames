@@ -14,6 +14,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using DrbFramework.Internal.Network;
 using DrbFramework.Network;
+using DrbFramework;
 
 public class LoginForm : FormBase
 {
@@ -29,10 +30,20 @@ public class LoginForm : FormBase
         }
     }
 
+    public override void OnOpen()
+    {
+        base.OnOpen();
+        AccountEntity entity = DrbComponent.SettingSystem.GetObject<AccountEntity>("AccountInfo");
+        if (entity != null)
+        {
+            AccountLogin(entity.passportId, entity.token);
+        }
+    }
+
     private void GuestLogin()
     {
         Dictionary<string, object> dic = new Dictionary<string, object>();
-        DrbComponent.HttpSystem.Request(ConstDefine.WebUrl + "guest", dic, Encoding.UTF8, 1000, OnGuestLoginCallBack);
+        DrbComponent.HttpSystem.EncryptedRequest(ConstDefine.WebUrl, "passport/guest", dic, OnGuestLoginCallBack);
     }
 
     private void OnGuestLoginCallBack(object sender, HttpRequestCompleteEventArgs args)
@@ -61,8 +72,8 @@ public class LoginForm : FormBase
         Dictionary<string, object> dic = new Dictionary<string, object>();
         dic["passportId"] = passportId;
         dic["token"] = token;
-
-        DrbComponent.HttpSystem.Request(ConstDefine.WebUrl + "relogin", dic, Encoding.UTF8, 1000, OnGuestLoginCallBack);
+        dic["device"] = DeviceUtil.GetOssPlatform();
+        DrbComponent.HttpSystem.EncryptedRequest(ConstDefine.WebUrl, "passport/relogin", dic, OnLoginCallBack);
     }
 
     private void OnLoginCallBack(object sender, HttpRequestCompleteEventArgs args)
@@ -103,8 +114,7 @@ public class LoginForm : FormBase
         Dictionary<string, object> dic = new Dictionary<string, object>();
         dic["passportId"] = entity.passportId;
         dic["token"] = entity.token;
-
-        DrbComponent.HttpSystem.Request(ConstDefine.WebUrl + "passport/server", dic, Encoding.UTF8, 1000, OnGuestLoginCallBack);
+        DrbComponent.HttpSystem.EncryptedRequest(ConstDefine.WebUrl, "passport/server", dic, RequestServerCallBack);
     }
 
     private void RequestServerCallBack(object sender, HttpRequestCompleteEventArgs args)
