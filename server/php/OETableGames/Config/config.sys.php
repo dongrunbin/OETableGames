@@ -40,7 +40,7 @@ define('WEB_MIX', 'mChP3nasOeA1');
 /**
  * COOKIE作用域
  */
-define('COOKIE_DOMAIN', '.zyhzmj.com');
+define('COOKIE_DOMAIN', '.oetablegames.com');
 
 /**
  * MySQL SQL Log Path

@@ -17,7 +17,7 @@ define('FILE_SERVER_HOST', 'localhost');
  *
  * @var string
  */
-define('FILE_SITE', 'tools.zyhzmj.com');
+define('FILE_SITE', '');
 
 /**
  * 文件服务器IP
@@ -52,7 +52,7 @@ define('FILE_SIZE', 2048000);
  *
  * @var string
  */
-define('FILE_TAGS', 'wqmajiang');
+define('FILE_TAGS', '');
 
 /**
  * 文件保存目录
