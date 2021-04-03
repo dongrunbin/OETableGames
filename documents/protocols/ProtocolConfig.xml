@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<ArrayOfMenu xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Menu>
+    <Id>637506709989584617</Id>
+    <Name>System</Name>
+    <isFoldout>true</isFoldout>
+    <ProtocolInfos>
+      <Protocol>
+        <Id>637506710011593939</Id>
+        <Code>10001</Code>
+        <EnName>HeartBeat</EnName>
+        <CnName>HeartBeat</CnName>
+        <Description>Check the connection of network</Description>
+        <FieldInfos />
+      </Protocol>
+      <Protocol>
+        <Id>637506710382800876</Id>
+        <Code>10002</Code>
+        <EnName>Disconnect</EnName>
+        <CnName>Disconnect</CnName>
+        <Description>Before server actively disconnect</Description>
+        <FieldInfos />
+      </Protocol>
+    </ProtocolInfos>
+  </Menu>
+</ArrayOfMenu>
