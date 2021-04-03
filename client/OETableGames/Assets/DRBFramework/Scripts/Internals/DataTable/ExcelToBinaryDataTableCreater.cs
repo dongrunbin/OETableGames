@@ -35,6 +35,22 @@ namespace DrbFramework.Internal.DataTable
             {
                 int row = dtData.Rows.Count;
                 int columns = dtData.Columns.Count;
+                for (int i = 0; i < row; ++i)
+                {
+                    if (string.IsNullOrEmpty(dtData.Rows[i][0].ToString().Trim()))
+                    {
+                        row = i;
+                        break;
+                    }
+                }
+                for (int i = 0; i < columns; ++i)
+                {
+                    if (string.IsNullOrEmpty(dtData.Rows[0][i].ToString().Trim()))
+                    {
+                        columns = i;
+                        break;
+                    }
+                }
 
                 dataArr = new string[columns, 3];
 
