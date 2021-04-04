@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: ff396e993c827724f987c1b11a10a3e4
+timeCreated: 1516098235
+licenseType: Pro
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: STXingkai
+  fontNames:
+  - STXingkai
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: download/wangque/source/font/stxingka_0
+  assetBundleVariant: drb
