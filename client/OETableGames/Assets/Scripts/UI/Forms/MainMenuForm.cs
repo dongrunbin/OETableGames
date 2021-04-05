@@ -12,32 +12,21 @@ public class MainMenuForm : FormBase
 {
     [SerializeField]
     private RawImage m_Avatar;
-
     [SerializeField]
     private Text m_TextNickname;
-
     [SerializeField]
     private Text m_TextPassportId;
-
     [SerializeField]
     private Text m_TextRoomCardCount;
-
     [SerializeField]
     private Text m_TextGold;
+    [SerializeField]
+    private Button m_BtnCreateRoom;
+    [SerializeField]
+    private Button m_BtnJoinRoom;
+    [SerializeField]
+    private Button m_BtnSetting;
 
-    [SerializeField]
-    private Transform m_GameContainer;
-
-    [SerializeField]
-    private Image m_ImgRechargeDouble;
-    [SerializeField]
-    private Image m_ImgBoy;
-    [SerializeField]
-    private Image m_ImgGirl;
-    [SerializeField]
-    private RawImage m_ImgIcon;
-    [SerializeField]
-    private Button btn_return;
     public override void OnInit()
     {
         base.OnInit();
@@ -47,14 +36,17 @@ public class MainMenuForm : FormBase
     protected override void OnBtnClick(GameObject go)
     {
         base.OnBtnClick(go);
-        switch (go.name)
+        if (go == m_BtnCreateRoom.gameObject)
         {
-            case "btnCreateRoom":
-                DrbComponent.UISystem.OpenFormAsync("UI/Forms/CreateRoomForm", "Form", null);
-                break;
-            case "btnJoinRoom":
-                DrbComponent.UISystem.OpenFormAsync("UI/Forms/JoinRoomForm", "Form", null);
-                break;
+            DrbComponent.UISystem.OpenFormAsync("UI/Forms/CreateRoomForm", "Form", null);
+        }
+        else if (go == m_BtnJoinRoom.gameObject)
+        {
+            DrbComponent.UISystem.OpenFormAsync("UI/Forms/JoinRoomForm", "Form", null);
+        }
+        else if (go == m_BtnSetting.gameObject)
+        {
+            DrbComponent.UISystem.OpenFormAsync("UI/Forms/SettingForm", "Form", null);
         }
     }
 }
