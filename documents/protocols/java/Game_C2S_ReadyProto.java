@@ -1,21 +1,21 @@
 //===================================================
 //作    者：DRB
-//创建时间：2021-03-06 23:48:45
+//创建时间：2021-04-05 20:52:14
 //备    注：
 //===================================================
-package com.zhenyi.wangque.protocol.gen;
+package com.oegame.tablegames.protocol.gen;
 import java.util.ArrayList;
-import com.zhenyi.wangque.common.io.*;
+import com.oegame.tablegames.common.io.*;
 import java.io.ByteArrayOutputStream;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
 /// <summary>
-/// Disconnect
+/// C2S_Ready
 /// </summary>
-public class System_DisconnectProto
+public class Game_C2S_ReadyProto
 {
-    public static final int CODE = 10002; 
+    public static final int CODE = 20006; 
 
 
     public byte[] toArray()
@@ -35,10 +35,10 @@ public class System_DisconnectProto
         return ret;
     }
 
-    public static System_DisconnectProto getProto(byte[] buffer)
+    public static Game_C2S_ReadyProto getProto(byte[] buffer)
     {
         if(buffer == null) return null;
-        System_DisconnectProto proto = new System_DisconnectProto();
+        Game_C2S_ReadyProto proto = new Game_C2S_ReadyProto();
         return proto;
     }
 }

@@ -1,21 +1,21 @@
 //===================================================
 //作    者：DRB
-//创建时间：2021-03-06 23:48:45
+//创建时间：2021-04-05 20:52:14
 //备    注：
 //===================================================
-package com.zhenyi.wangque.protocol.gen;
+package com.oegame.tablegames.protocol.gen;
 import java.util.ArrayList;
-import com.zhenyi.wangque.common.io.*;
+import com.oegame.tablegames.common.io.*;
 import java.io.ByteArrayOutputStream;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
 /// <summary>
-/// HeartBeat
+/// C2S_Disconnect
 /// </summary>
-public class System_HeartBeatProto
+public class System_C2S_DisconnectProto
 {
-    public static final int CODE = 10001; 
+    public static final int CODE = 10002; 
 
 
     public byte[] toArray()
@@ -35,10 +35,10 @@ public class System_HeartBeatProto
         return ret;
     }
 
-    public static System_HeartBeatProto getProto(byte[] buffer)
+    public static System_C2S_DisconnectProto getProto(byte[] buffer)
     {
         if(buffer == null) return null;
-        System_HeartBeatProto proto = new System_HeartBeatProto();
+        System_C2S_DisconnectProto proto = new System_C2S_DisconnectProto();
         return proto;
     }
 }
