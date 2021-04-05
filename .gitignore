@@ -1,3 +1,8 @@
 Library
 Logs
 Temp
+/client/OETableGames/.vs
+/client/OETableGames/obj
+/client/OETableGames/Assembly-CSharp-Editor.csproj
+/client/OETableGames/OETableGames.sln
+/client/OETableGames/Assembly-CSharp.csproj
