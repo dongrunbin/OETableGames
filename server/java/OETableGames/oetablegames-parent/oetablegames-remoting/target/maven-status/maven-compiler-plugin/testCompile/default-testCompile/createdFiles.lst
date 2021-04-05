@@ -1,0 +1,8 @@
+com\zhenyi\remoting\test\MainServer.class
+com\zhenyi\remoting\test\AppTest.class
+com\zhenyi\remoting\test\Hello2Service.class
+com\zhenyi\remoting\test\MainClient.class
+com\zhenyi\remoting\test\HelloServiceImpl.class
+com\zhenyi\remoting\test\TestEntity.class
+com\zhenyi\remoting\test\Hello2ServiceImpl.class
+com\zhenyi\remoting\test\HelloService.class

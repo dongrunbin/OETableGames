@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:AresServer="http://www.wangque-remoting.com/schema/remote-service"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+       http://www.wangque-remoting.com/schema/remote-service http://www.wangque-remoting.com/schema/remote-service.xsd">
+
+    <!-- 发布远程服务 -->
+    <bean id="helloService" class="com.zhenyi.remoting.test.HelloServiceImpl"/>
+    <AresServer:service id="helloServiceRegister"
+                        interface="com.zhenyi.remoting.test.HelloService"
+                        ref="helloService"
+                        groupName="default"
+                        weight="2"
+                        appKey="hello"
+                        workerThreads="100"
+                        serverPort="8082"
+                        timeout="600"
+                        paramIndex="0"
+                        minParam="101"
+                        maxParam="200"/>
+
+
+</beans>

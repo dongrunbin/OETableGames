@@ -8,6 +8,9 @@
     <file url="file://$PROJECT_DIR$/oetablegames-protocol" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/oetablegames-remoting" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/oetablegames-service" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/oetablegames-service-proxy" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oetablegames-service/oetablegames-service-game" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/oetablegames-service-game-mahjong" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oetablegames-service/oetablegames-service-player" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oetablegames-service/oetablegames-service-proxy" charset="UTF-8" />
   </component>
 </project>

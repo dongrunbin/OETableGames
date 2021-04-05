@@ -40,6 +40,11 @@
       <version>${project.version}</version>
     </dependency>
     <dependency>
+      <groupId>com.oegame.tablegames</groupId>
+      <artifactId>oetablegames-service</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
       <groupId>cn.featherfly</groupId>
       <artifactId>bccs-api</artifactId>
       <version>3.0.1</version>

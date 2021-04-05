@@ -1,0 +1,939 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="aee15e99-af13-40e2-a0c7-ee9d425015c2" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../client/OETableGames/Assets/Scenes/InitScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../client/OETableGames/Assets/Scenes/InitScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../client/OETableGames/Assets/Scripts/UI/Forms/MainMenuForm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../client/OETableGames/Assets/Scripts/UI/Forms/MainMenuForm.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OETableGames.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/oetablegames-service-game-mahjong/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/oetablegames-service-game-mahjong/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-service/oetablegames-service-proxy/oetablegames-service-proxy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-service/oetablegames-service-proxy/oetablegames-service-proxy.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-service/oetablegames-service-proxy/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-service/oetablegames-service-proxy/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wangque-parent/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wangque-parent/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wangque-parent/.idea/vcs.xml" beforeDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/oetablegames-main/target/" />
+    <ignored path="$PROJECT_DIR$/oetablegames-protocol/target/" />
+    <ignored path="$PROJECT_DIR$/oetablegames-remoting/target/" />
+    <ignored path="$PROJECT_DIR$/oetablegames-common/target/" />
+    <ignored path="$PROJECT_DIR$/oetablegames-model/target/" />
+    <ignored path="$PROJECT_DIR$/oetablegames-service/target/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <ignored path="$PROJECT_DIR$/oetablegames-service/oetablegames-service-proxy/target/" />
+    <ignored path="$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/target/" />
+    <ignored path="$PROJECT_DIR$/oetablegames-service/oetablegames-service-player/target/" />
+    <ignored path="$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/oetablegames-service-game-mahjong/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="442703386">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="3" />
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.12" value="1" />
+          <entry key="project.open.time.35" value="1" />
+          <entry key="project.opened" value="4" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="java" value="168" />
+          <entry key="json" value="4" />
+          <entry key="properties" value="1" />
+          <entry key="xml" value="53" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="168" />
+          <entry key="JSON" value="4" />
+          <entry key="Properties" value="1" />
+          <entry key="XML" value="53" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="1349" />
+          <entry key="properties" value="12" />
+          <entry key="xml" value="200" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="1349" />
+          <entry key="Properties" value="12" />
+          <entry key="XML" value="200" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/src/main/java/com/oegame/tablegames/service/game/RoomCtrlBase.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="19">
+              <caret line="21" column="22" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/oetablegames-service-game-mahjong/src/main/java/com/oegame/tablegames/service/game/mahjong/MahjongServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="329">
+              <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/oetablegames-service/oetablegames-service-player/src/main/java/com/oegame/tablegames/service/player/PlayerServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="684">
+              <caret line="36" column="9" lean-forward="true" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>zhenyi.wangque</find>
+      <find>com.zhenyi.wangque</find>
+      <find>canLeaveInGaming</find>
+      <find>sitdown</find>
+      <find>DisbandStatus</find>
+      <find>service</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>oegame.tablegames</replace>
+      <replace>com.oegame.tablegames</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>D:\projects\unityProjects\OETableGames\server\java\OETableGames\oetablegames-parent\oetablegames-main</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/oetablegames-main/src/main/resources/player-service.xml" />
+        <option value="$PROJECT_DIR$/oetablegames-main/src/main/resources/proxy-reference.xml" />
+        <option value="$PROJECT_DIR$/oetablegames-service/oetablegames-service-proxy/src/main/java/ProxyService.java" />
+        <option value="$PROJECT_DIR$/oetablegames-main/pom.xml" />
+        <option value="$PROJECT_DIR$/oetablegames-service/oetablegames-service-proxy/src/main/java/ProxyServiceImpl.java" />
+        <option value="$PROJECT_DIR$/oetablegames-service/pom.xml" />
+        <option value="$PROJECT_DIR$/oetablegames-service/src/main/java/com/oegame/tablegames/service/ServiceUtil.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/oetablegames-service/oetablegames-service-player/pom.xml" />
+        <option value="$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/src/main/java/com/oegame/tablegames/game/GameService.java" />
+        <option value="$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/src/main/java/com/oegame/tablegames/game/RoomCtrlBase.java" />
+        <option value="$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/src/main/java/com/oegame/tablegames/game/RoomBase.java" />
+        <option value="$PROJECT_DIR$/oetablegames-service/oetablegames-service-proxy/pom.xml" />
+        <option value="$PROJECT_DIR$/oetablegames-service/oetablegames-service-proxy/src/main/java/com/oegame/tablegames/service/proxy/SocketHandler.java" />
+        <option value="$PROJECT_DIR$/oetablegames-main/src/main/resources/proxy-service.xml" />
+        <option value="$PROJECT_DIR$/oetablegames-protocol/src/main/java/com/oegame/tablegames/protocol/gen/Game_C2S_ApplyDisbandProto.java" />
+        <option value="$PROJECT_DIR$/oetablegames-service/oetablegames-service-player/src/main/java/com/oegame/tablegames/service/player/PlayerService.java" />
+        <option value="$PROJECT_DIR$/oetablegames-service/oetablegames-service-proxy/src/main/java/com/oegame/tablegames/service/proxy/SocketRoute.java" />
+        <option value="$PROJECT_DIR$/oetablegames-service/oetablegames-service-player/src/main/java/com/oegame/tablegames/service/player/Player.java" />
+        <option value="$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/oetablegames-service-game-mahjong/src/main/java/mahjong/MahjongService.java" />
+        <option value="$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/oetablegames-service-game-mahjong/pom.xml" />
+        <option value="$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/pom.xml" />
+        <option value="$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/src/main/java/com/oegame/tablegames/service/game/GameService.java" />
+        <option value="$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/src/main/java/com/oegame/tablegames/service/game/GameServiceImpl.java" />
+        <option value="$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/oetablegames-service-game-mahjong/src/main/java/com/oegame/tablegames/service/game/mahjong/MahjongService.java" />
+        <option value="$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/src/main/java/com/oegame/tablegames/service/game/RoomCtrlBase.java" />
+        <option value="$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/src/main/java/com/oegame/tablegames/service/game/PokerBase.java" />
+        <option value="$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/oetablegames-service-game-mahjong/src/main/java/com/oegame/tablegames/service/game/mahjong/model/Poker.java" />
+        <option value="$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/src/main/java/com/oegame/tablegames/service/game/SeatBase.java" />
+        <option value="$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/src/main/java/com/oegame/tablegames/service/game/RoomBase.java" />
+        <option value="$PROJECT_DIR$/oetablegames-model/src/main/resources/model.properties" />
+        <option value="$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/oetablegames-service-game-mahjong/src/main/java/com/oegame/tablegames/service/game/mahjong/Room.java" />
+        <option value="$PROJECT_DIR$/oetablegames-model/src/main/java/com/oegame/tablegames/model/local/AbstractEntity.java" />
+        <option value="$PROJECT_DIR$/oetablegames-model/src/main/java/com/oegame/tablegames/model/local/AbstractDBModel.java" />
+        <option value="$PROJECT_DIR$/oetablegames-model/src/main/java/com/oegame/tablegames/model/local/gen/MahjongSettingsDBModel.java" />
+        <option value="$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/src/main/java/com/oegame/tablegames/service/game/RoomSettingBase.java" />
+        <option value="$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/oetablegames-service-game-mahjong/src/main/java/com/oegame/tablegames/service/game/mahjong/RoomCtrl.java" />
+        <option value="$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/oetablegames-service-game-mahjong/src/main/java/com/oegame/tablegames/service/game/mahjong/MahjongServiceImpl.java" />
+        <option value="$PROJECT_DIR$/oetablegames-model/src/main/java/com/oegame/tablegames/model/gen/sys_playerCacheModel.java" />
+        <option value="$PROJECT_DIR$/oetablegames-model/src/main/java/com/oegame/tablegames/model/gen/sys_playerDBModel.java" />
+        <option value="$PROJECT_DIR$/oetablegames-model/src/main/java/com/oegame/tablegames/model/gen/sys_playerEntity.java" />
+        <option value="$PROJECT_DIR$/oetablegames-model/src/main/java/com/oegame/tablegames/model/gen/PlayerCacheModel.java" />
+        <option value="$PROJECT_DIR$/oetablegames-model/src/main/java/com/oegame/tablegames/model/gen/sys_passportEntity.java" />
+        <option value="$PROJECT_DIR$/oetablegames-model/src/main/java/com/oegame/tablegames/model/gen/sys_passportDBModel.java" />
+        <option value="$PROJECT_DIR$/oetablegames-model/src/main/java/com/oegame/tablegames/model/gen/sys_passportCacheModel.java" />
+        <option value="$PROJECT_DIR$/oetablegames-service/oetablegames-service-player/src/main/java/com/oegame/tablegames/service/player/PlayerServiceImpl.java" />
+        <option value="$PROJECT_DIR$/oetablegames-model/src/main/java/com/oegame/tablegames/model/gen/PassportEntity.java" />
+        <option value="$PROJECT_DIR$/oetablegames-model/src/main/java/com/oegame/tablegames/model/gen/PassportDBModel.java" />
+        <option value="$PROJECT_DIR$/oetablegames-model/src/main/java/com/oegame/tablegames/model/gen/PassportCacheModel.java" />
+        <option value="$PROJECT_DIR$/oetablegames-model/src/main/java/com/oegame/tablegames/model/gen/PlayerEntity.java" />
+        <option value="$PROJECT_DIR$/oetablegames-model/src/main/java/com/oegame/tablegames/model/gen/PlayerDBModel.java" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-5" />
+    <option name="width" value="1935" />
+    <option name="height" value="1090" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="oetablegames-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oetablegames-parent" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oetablegames-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oetablegames-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="oetablegames-model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oetablegames-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oetablegames-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="oetablegames-model" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oetablegames-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oetablegames-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="oetablegames-model" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oetablegames-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oetablegames-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="oetablegames-model" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oetablegames-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oetablegames-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="oetablegames-model" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oetablegames-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oetablegames-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="oetablegames-model" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="gen" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oetablegames-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oetablegames-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="oetablegames-service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oetablegames-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oetablegames-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="oetablegames-service" type="462c0819:PsiDirectoryNode" />
+              <item name="oetablegames-service-game" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oetablegames-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oetablegames-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="oetablegames-service" type="462c0819:PsiDirectoryNode" />
+              <item name="oetablegames-service-game" type="462c0819:PsiDirectoryNode" />
+              <item name="oetablegames-service-game-mahjong" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oetablegames-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oetablegames-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="oetablegames-service" type="462c0819:PsiDirectoryNode" />
+              <item name="oetablegames-service-game" type="462c0819:PsiDirectoryNode" />
+              <item name="oetablegames-service-game-mahjong" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oetablegames-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oetablegames-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="oetablegames-service" type="462c0819:PsiDirectoryNode" />
+              <item name="oetablegames-service-game" type="462c0819:PsiDirectoryNode" />
+              <item name="oetablegames-service-game-mahjong" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oetablegames-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oetablegames-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="oetablegames-service" type="462c0819:PsiDirectoryNode" />
+              <item name="oetablegames-service-game" type="462c0819:PsiDirectoryNode" />
+              <item name="oetablegames-service-game-mahjong" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1617666357628" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/oetablegames-main/src/main/java/com" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.completion" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\projects\unityProjects\OETableGames\server\java\OETableGames\oetablegames-parent\oetablegames-service-proxy\src\main\java" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\projects\unityProjects\OETableGames\server\java\OETableGames\oetablegames-parent\oetablegames-service\oetablegames-service-game\oetablegames-service-game-mahjong\src\main\java" />
+      <recent name="D:\projects\unityProjects\OETableGames\server\java\OETableGames\oetablegames-parent\oetablegames-service\oetablegames-service-proxy\src\main\java" />
+      <recent name="D:\projects\unityProjects\OETableGames\server\java\OETableGames\oetablegames-parent\oetablegames-service\oetablegames-service-player\src\main\java" />
+      <recent name="D:\projects\unityProjects\OETableGames\server\java\OETableGames\oetablegames-parent\oetablegames-service\oetablegames-service-game\src\main\java\entity" />
+      <recent name="D:\projects\unityProjects\OETableGames\server\java\OETableGames\oetablegames-parent\oetablegames-service\oetablegames-service-game\src\main\java" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="RunConfig" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.oegame.tablegames.main.App" />
+      <module name="oetablegames-main" />
+      <option name="PROGRAM_PARAMETERS" value="player-reference.xml proxy-reference.xml player-service.xml proxy-service.xml" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="aee15e99-af13-40e2-a0c7-ee9d425015c2" name="Default Changelist" comment="" />
+      <created>1616212391042</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1616212391042</updated>
+      <workItem from="1616212392370" duration="2917000" />
+      <workItem from="1616215753169" duration="4450000" />
+      <workItem from="1617544129955" duration="3405000" />
+      <workItem from="1617641163352" duration="12707000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="23479000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2600536" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32871014" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32871014" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Spring" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Tool Output" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32871014" />
+      <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="13" show_stripe_button="false" />
+      <window_info anchor="bottom" id="ANTLR Preview" order="14" />
+      <window_info anchor="bottom" id="LuaCheck" order="15" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Maven Projects" order="5" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/oetablegames-protocol/src/main/java/com/oegame/tablegames/protocol/gen/Game_C2S_ApplyDisbandProto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-service/oetablegames-service-player/src/main/java/com/oegame/tablegames/service/player/PlayerService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="68" lean-forward="true" selection-start-line="6" selection-start-column="68" selection-end-line="6" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-service/oetablegames-service-player/src/main/java/com/oegame/tablegames/service/player/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="33" column="29" lean-forward="true" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-service/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="30" column="17" lean-forward="true" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-service/oetablegames-service-proxy/src/main/java/com/oegame/tablegames/service/proxy/SocketRoute.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="75" column="9" selection-start-line="75" selection-start-column="9" selection-end-line="75" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-service/oetablegames-service-proxy/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="798">
+          <caret line="42" column="46" lean-forward="true" selection-start-line="42" selection-start-column="46" selection-end-line="42" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/oetablegames-service-game-mahjong/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-service/src/main/java/com/oegame/tablegames/service/ServiceUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="14" column="47" lean-forward="true" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="63" column="51" selection-start-line="63" selection-start-column="51" selection-end-line="63" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/src/main/java/com/oegame/tablegames/service/game/DisbandStatus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/src/main/java/com/oegame/tablegames/service/game/GameService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="21" column="52" lean-forward="true" selection-start-line="21" selection-start-column="52" selection-end-line="21" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/src/main/java/com/oegame/tablegames/service/game/GameServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/src/main/java/com/oegame/tablegames/service/game/IGameAI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/src/main/java/com/oegame/tablegames/service/game/MessageType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/oetablegames-service-game-mahjong/src/main/java/com/oegame/tablegames/service/game/mahjong/model/Poker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="52" lean-forward="true" selection-start-line="5" selection-start-column="52" selection-end-line="5" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/src/main/java/com/oegame/tablegames/service/game/PokerBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/src/main/java/com/oegame/tablegames/service/game/RoomStatus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/src/main/java/com/oegame/tablegames/service/game/SeatBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="519">
+          <caret line="35" column="21" lean-forward="true" selection-start-line="35" selection-start-column="21" selection-end-line="35" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/src/main/java/com/oegame/tablegames/service/game/RoomBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1064">
+          <caret line="86" column="20" lean-forward="true" selection-start-line="86" selection-start-column="20" selection-end-line="86" selection-end-column="20" />
+          <folding>
+            <element signature="e#1036#1045#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-model/src/test/java/com/oegame/tablegames/model/AppTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-model/src/main/resources/model.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" column="27" lean-forward="true" selection-start-line="1" selection-start-column="27" selection-end-line="1" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-model/src/main/resources/json/wangque/setting.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-model/src/main/resources/json/wangque/pay.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-model/src/main/resources/json/wangque/config.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-model/src/main/java/com/oegame/tablegames/model/AbstractCacheModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2090">
+          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-model/src/main/java/com/oegame/tablegames/model/local/SettleVO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="6" column="16" lean-forward="true" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-model/src/main/java/com/oegame/tablegames/model/local/SettingVO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-887">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-model/src/main/java/com/oegame/tablegames/model/local/Const.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1178">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-model/src/main/java/com/oegame/tablegames/model/local/LocalDataParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-735">
+          <caret line="68" column="17" lean-forward="true" selection-start-line="68" selection-start-column="17" selection-end-line="68" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-model/src/main/java/com/oegame/tablegames/model/local/gen/cfg_configDBModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-model/src/main/java/com/oegame/tablegames/model/local/gen/cfg_chatExpressionDBModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-model/src/main/java/com/oegame/tablegames/model/local/gen/cfg_configEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-model/src/main/java/com/oegame/tablegames/model/local/LocalDBFacade.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="35" column="44" lean-forward="true" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/oetablegames-service-game-mahjong/src/main/java/com/oegame/tablegames/service/game/mahjong/Room.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-931">
+          <caret line="6" column="21" lean-forward="true" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-model/src/main/java/com/oegame/tablegames/model/local/AbstractEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="18" lean-forward="true" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-model/src/main/java/com/oegame/tablegames/model/local/gen/MahjongSettingsEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-model/src/main/java/com/oegame/tablegames/model/local/AbstractDBModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="823">
+          <caret line="54" column="5" lean-forward="true" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-remoting/src/main/java/com/zhenyi/remoting/framework/zookeeper/ServiceCenter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="56" selection-start-line="56" selection-end-line="59" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-model/src/main/java/com/oegame/tablegames/model/local/gen/MahjongSettingsDBModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#588#589#0" expanded="true" />
+            <element signature="e#618#619#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/src/main/java/com/oegame/tablegames/service/game/RoomSettingBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="31" lean-forward="true" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/src/main/java/com/oegame/tablegames/service/game/RoomCtrlBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="21" column="22" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/oetablegames-service-game-mahjong/src/main/java/com/oegame/tablegames/service/game/mahjong/RoomCtrl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="703">
+          <caret line="49" column="42" lean-forward="true" selection-start-line="49" selection-start-column="42" selection-end-line="49" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1987#1988#0" expanded="true" />
+            <element signature="e#2010#2011#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/oetablegames-service-game-mahjong/src/main/java/com/oegame/tablegames/service/game/mahjong/MahjongService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/oetablegames-service-game-mahjong/src/main/java/com/oegame/tablegames/service/game/mahjong/MahjongServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-model/src/main/java/com/oegame/tablegames/model/gen/PassportEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="122" column="43" selection-start-line="122" selection-start-column="43" selection-end-line="122" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-model/src/main/java/com/oegame/tablegames/model/gen/PassportDBModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="443">
+          <caret line="136" column="48" selection-start-line="136" selection-start-column="48" selection-end-line="136" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-model/src/main/java/com/oegame/tablegames/model/gen/PassportCacheModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-627">
+          <caret line="107" column="63" selection-start-line="107" selection-start-column="63" selection-end-line="107" selection-end-column="63" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-model/src/main/java/com/oegame/tablegames/model/gen/PlayerEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="120" column="49" lean-forward="true" selection-start-line="120" selection-start-column="49" selection-end-line="120" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-model/src/main/java/com/oegame/tablegames/model/gen/PlayerDBModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1482">
+          <caret line="84" column="79" selection-start-line="84" selection-start-column="79" selection-end-line="84" selection-end-column="79" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-model/src/main/java/com/oegame/tablegames/model/gen/PlayerCacheModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-836">
+          <caret line="30" column="63" selection-start-line="30" selection-start-column="63" selection-end-line="30" selection-end-column="63" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-service/oetablegames-service-player/src/main/java/com/oegame/tablegames/service/player/PlayerServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="684">
+          <caret line="36" column="9" lean-forward="true" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Spring</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>oetablegames-model</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: aopalliance:aopalliance:1.0</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

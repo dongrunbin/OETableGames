@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:AresServer="http://www.wangque-remoting.com/schema/remote-service"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.wangque-remoting.com/schema/remote-service http://www.wangque-remoting.com/schema/remote-service.xsd">
+
+    <!-- 发布远程服务 -->
+    <bean id="mahjongService" class="MahjongServiceImpl"/>
+    <AresServer:service id="mahjongServiceRegister"
+                        interface="MahjongService"
+                        ref="mahjongService"
+                        groupName="default"
+                        weight="2"
+                        appKey="wangque"
+                        workerThreads="100"
+                        serverPort="9994"
+                        timeout="600"
+                        minParam="0"
+                        maxParam="0"/>
+
+
+</beans>

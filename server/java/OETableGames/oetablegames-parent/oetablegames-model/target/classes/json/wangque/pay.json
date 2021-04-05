@@ -1,0 +1,8 @@
+{
+"1":{"id":1,"name":"1张","iosCode":"ITEM_ROOM_CARDS_0003_0001","money":3,"amount":1,"give":0},
+"2":{"id":2,"name":"6张","iosCode":"ITEM_ROOM_CARDS_0018_0006","money":18,"amount":6,"give":0},
+"3":{"id":3,"name":"10张","iosCode":"ITEM_ROOM_CARDS_0030_0010","money":30,"amount":10,"give":0},
+"4":{"id":4,"name":"50张","iosCode":"ITEM_ROOM_CARDS_0128_0050","money":128,"amount":50,"give":0},
+"5":{"id":5,"name":"100张","iosCode":"ITEM_ROOM_CARDS_0198_0100","money":198,"amount":100,"give":0},
+"6":{"id":6,"name":"200张","iosCode":"ITEM_ROOM_CARDS_0238_0200","money":238,"amount":200,"give":0}
+}
