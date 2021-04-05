@@ -5,6 +5,7 @@
 //===================================================
 
 using DrbFramework.Extensions;
+using DrbFramework.Utility;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -345,6 +346,7 @@ namespace DrbFramework.Internal.Editor
                     m_Creater.CreateCodeDef(m_Menus, m_OutputPath);
 
                     EditorUtility.ClearProgressBar();
+                    FolderUtil.OpenFolder(m_OutputPath);
                 }
             }
         }

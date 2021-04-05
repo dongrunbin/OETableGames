@@ -33,9 +33,9 @@ namespace DrbFramework.Internal.Editor
             sbr.AppendFormat("//创建时间：{0}\r\n", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
             sbr.AppendFormat("//备    注：\r\n");
             sbr.AppendFormat("//===================================================\r\n");
-            sbr.AppendFormat("package com.zhenyi.wangque.protocol.gen;\r\n");
+            sbr.AppendFormat("package com.oegame.tablegames.protocol.gen;\r\n");
             sbr.AppendFormat("import java.util.ArrayList;\r\n");
-            sbr.AppendFormat("import com.zhenyi.wangque.common.io.*;\r\n");
+            sbr.AppendFormat("import com.oegame.tablegames.common.io.*;\r\n");
             sbr.AppendFormat("import java.io.ByteArrayOutputStream;\r\n");
             sbr.AppendFormat("import java.io.ByteArrayInputStream;\r\n");
             sbr.AppendFormat("import java.io.IOException;\r\n");
@@ -697,7 +697,7 @@ namespace DrbFramework.Internal.Editor
             sbr.AppendFormat("//创建时间：{0}\r\n", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
             sbr.AppendFormat("//备    注：\r\n");
             sbr.AppendFormat("//===================================================\r\n");
-            sbr.AppendFormat("package com.zhenyi.wangque.protocol.gen;\r\n");
+            sbr.AppendFormat("package com.oegame.tablegames.protocol.gen;\r\n");
             sbr.AppendFormat("import java.util.HashMap;\r\n");
             sbr.AppendFormat("\r\n");
             sbr.AppendFormat("/// <summary>\r\n");
