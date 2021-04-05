@@ -40,13 +40,6 @@ public class NetworkHandler : INetworkHandler
                 Log.Info("Server actively disconnected");
                 channel.Close();
             }
-            else if (protoCode == CodeDef.System_S2C_HeartBeatProto)
-            {
-                System_S2C_HeartBeatProto proto = new System_S2C_HeartBeatProto();
-                proto.Deserialize(protoContent);
-                //lastHeart.clientTimestamp = proto.clientTimestamp;
-                //lastHeart.serverTimestamp = proto.serverTimestamp;
-            }
             else
             {
                 DrbComponent.GetEventSystem<int>().Dispatch(this, protoCode, new NetworkEventArgs(protoCode, protoContent));
@@ -57,13 +50,13 @@ public class NetworkHandler : INetworkHandler
     public void OnClosed(INetworkChannel channel)
     {
         Log.Info(channel.Name + "Disconnected");
+
+        DrbComponent.GetEventSystem<int>().Dispatch(this, CodeDef.System_C2S_HeartBeatProto - 2, new NetworkEventArgs(CodeDef.System_C2S_HeartBeatProto - 2, null));
     }
 
     public void OnConnected(INetworkChannel channel)
     {
         Log.Info(channel.Name + "Connected");
-
-        //Thread thread = new Thread();
 
         DrbComponent.GetEventSystem<int>().Dispatch(this, CodeDef.System_C2S_HeartBeatProto - 1, new NetworkEventArgs(CodeDef.System_C2S_HeartBeatProto - 1, null));
     }

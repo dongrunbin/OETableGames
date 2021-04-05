@@ -15,6 +15,7 @@ public class MainMenuProcedure : Procedure
     public override void OnEnter(object userData)
     {
         base.OnEnter(userData);
+
         DrbComponent.UISystem.OpenFormAsync("UI/Forms/MainMenuForm", "BackGround", (IUIForm form)=> 
         {
             m_MainMenuForm = (MainMenuForm)form;
