@@ -26,24 +26,22 @@ public class JoinRoomForm : FormBase
     protected override void OnBtnClick(GameObject go)
     {
         base.OnBtnClick(go);
-        //for (int i = 0; i < m_Buttons.Length; ++i)
-        //{
-        //    if (m_Buttons[i].name.Equals(go.name))
-        //    {
-        //        if (m_nAlreadyInputCount == m_Texts.Length) return;
-        //        m_RoomId += i.ToString();
-        //        m_Texts[m_nAlreadyInputCount].SafeSetText(i.ToString());
-        //        ++m_nAlreadyInputCount;
+        for (int i = 0; i < m_Buttons.Length; ++i)
+        {
+            if (m_Buttons[i].name.Equals(go.name))
+            {
+                if (m_nAlreadyInputCount == m_Texts.Length) return;
+                m_RoomId += i.ToString();
+                m_Texts[m_nAlreadyInputCount].SafeSetText(i.ToString());
+                ++m_nAlreadyInputCount;
 
-        //        if (m_nAlreadyInputCount == m_Texts.Length)
-        //        {
-        //            TransferData data = new TransferData();
-        //            data.SetValue("RoomId", m_RoomId.ToInt());
-        //            SendNotification(ConstDefine.BtnJoinRoomViewJoin, data);
-        //        }
-        //        return;
-        //    }
-        //}
+                if (m_nAlreadyInputCount == m_Texts.Length)
+                {
+                    ClientSendJoinRoom(m_RoomId.ToInt());
+                }
+                return;
+            }
+        }
         switch (go.name)
         {
             case "btnResetRoomId":
@@ -78,5 +76,13 @@ public class JoinRoomForm : FormBase
     {
         base.OnFocus();
         ResetUI();
+    }
+
+
+    private void ClientSendJoinRoom(int roomId)
+    {
+        //C2S_Game_RoomEnterProto proto = new C2S_Game_RoomEnterProto();
+        //proto.roomId = roomId;
+        //NetWorkSocket.Instance.Send(proto.ToArray(), GameCtrl.Instance.SocketHandle);
     }
 }

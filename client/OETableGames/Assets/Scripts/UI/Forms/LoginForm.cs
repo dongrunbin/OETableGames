@@ -7,12 +7,10 @@
 using DrbFramework.Extensions;
 using DrbFramework.Http;
 using DrbFramework.Internal;
-using System;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
-using DrbFramework.Internal.Network;
 using DrbFramework.Network;
 using DrbFramework;
 
@@ -133,8 +131,8 @@ public class LoginForm : FormBase
             }
             string ip = jsonData["data"]["ip"].ToString();
             int port = jsonData["data"]["port"].ToString().ToInt();
-
-            INetworkChannel channel = DrbComponent.NetworkSystem.CreateChannel("MainServer", new ExampleHandler(), new ExampleEncoder(), new ExampleDecoder());
+            Log.Info(ip + ":" + port);
+            INetworkChannel channel = DrbComponent.NetworkSystem.CreateChannel("MainServer", new NetworkHandler(), new NetworkEncoder(), new NetworkDecoder());
             channel.Connect(System.Net.IPAddress.Parse(ip), port);
         }
     }

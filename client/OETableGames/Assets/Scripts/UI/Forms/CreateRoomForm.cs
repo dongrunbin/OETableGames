@@ -343,6 +343,6 @@ public class CreateRoomForm : FormBase
         //}
         //proto.clubId = GroupId;
         //proto.gameId = gameId;
-        //DrbComponent.NetworkSystem.GetChannel("game").Send(proto.ToArray());
+        //DrbComponent.NetworkSystem.GetChannel("MainServer").Send(proto.ToArray());
     }
 }
