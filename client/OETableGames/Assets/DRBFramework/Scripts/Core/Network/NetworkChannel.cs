@@ -16,6 +16,11 @@ namespace DrbFramework.Network
         private Queue<byte[]> m_SendQueue = new Queue<byte[]>();
         private Queue<object> m_ReceivedQueue = new Queue<object>();
 
+        private bool isConnected;
+        private bool isConnectedSuccess;
+
+        private bool isClose;
+
         private INetworkHandler m_Handler;
         private INetworkEncoder m_Encoder;
         private INetworkDecoder m_Decoder;
@@ -165,19 +170,17 @@ namespace DrbFramework.Network
         private void ConnectCallBack(IAsyncResult ar)
         {
             Socket client = (Socket)ar.AsyncState;
+
+            isConnected = true;
             try
             {
                 client.EndConnect(ar);
-
-                if (m_Handler != null)
-                    m_Handler.OnConnected(this);
-
+                isConnectedSuccess = true;
                 Receive();
             }
-            catch (Exception e)
+            catch
             {
-                if (m_Handler != null)
-                    m_Handler.OnExceptionCaught(this, e);
+                isConnectedSuccess = false;
             }
         }
 
@@ -217,7 +220,7 @@ namespace DrbFramework.Network
             }
             if (receivedLength <= 0)
             {
-                Close();
+                isClose = true;
                 return;
             }
             m_ReceiveBuffer.SetLength(m_ReceiveBuffer.Length + receivedLength);
@@ -351,6 +354,18 @@ namespace DrbFramework.Network
         public void Update(float elapseSeconds, float realElapseSeconds)
         {
             m_Counter = 0;
+            if (isConnected)
+            {
+                if (m_Handler != null)
+                    m_Handler.OnConnected(this, isConnectedSuccess);
+                isConnected = false;
+                isConnectedSuccess = false;
+            }
+            if (isClose)
+            {
+                Close();
+                isClose = false;
+            }
             while (m_ReceivedQueue.Count > 0 && m_Counter < HANDLE_PER_FRAME)
             {
                 if (m_Handler != null)
