@@ -4,13 +4,14 @@ import org.apache.mina.core.session.IoSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.oegame.tablegames.common.net.socket.IRout;
+import com.oegame.tablegames.common.net.socket.IRoute;
 import com.oegame.tablegames.common.util.TimeUtil;
 import com.oegame.tablegames.protocol.gen.*;
 import com.oegame.tablegames.service.player.Player;
 import com.oegame.tablegames.service.ServiceUtil;
 
-public class SocketRoute implements IRout {
+public class SocketRoute implements IRoute
+{
 	private static final Logger logger = LoggerFactory.getLogger(SocketRoute.class);
 
 	public SocketRoute() {
@@ -24,6 +25,7 @@ public class SocketRoute implements IRout {
 					ProtoCodeDef.getEn(code), ProtoCodeDef.getCn(code)));
 		}
 		if (code == ProtoCodeDef.System_C2S_ConnectProto) {
+			logger.info("wtffffffff");
 			if (session.getAttribute("TokenMark") != null) {
 				logger.info("重复握手");
 				session.closeNow();

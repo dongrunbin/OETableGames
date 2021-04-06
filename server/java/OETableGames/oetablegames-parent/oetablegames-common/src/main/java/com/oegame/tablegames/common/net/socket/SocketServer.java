@@ -31,7 +31,7 @@ public class SocketServer
 	 * 启动
 	 * 
 	 */
-	public void start(IoHandlerAdapter handler, IRout rout, int port) 
+	public void start(IoHandlerAdapter handler, IRoute rout, int port)
 	{
 		LoggingFilter log = new LoggingFilter();
 		log.setMessageReceivedLogLevel(LogLevel.NONE);

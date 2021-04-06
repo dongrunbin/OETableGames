@@ -15,7 +15,7 @@ public class SocketClient
 	
 	IoSession session = null;
 	
-	public void connect(String host, int port, IoHandlerAdapter handler, IRout route)
+	public void connect(String host, int port, IoHandlerAdapter handler, IRoute route)
 	{
 		if(session != null)
 		{

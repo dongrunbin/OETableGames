@@ -2,24 +2,204 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aee15e99-af13-40e2-a0c7-ee9d425015c2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../../../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../client/OETableGames/Assets/DRBFramework/Scripts/Core/Network/INetworkHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../client/OETableGames/Assets/DRBFramework/Scripts/Core/Network/INetworkHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../client/OETableGames/Assets/DRBFramework/Scripts/Core/Network/NetworkChannel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../client/OETableGames/Assets/DRBFramework/Scripts/Core/Network/NetworkChannel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../client/OETableGames/Assets/DRBFramework/Scripts/Internals/Network/ExampleHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../client/OETableGames/Assets/DRBFramework/Scripts/Internals/Network/ExampleHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../client/OETableGames/Assets/Downloads/Scenes/Game1.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../client/OETableGames/Assets/Downloads/Scenes/Game1.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../client/OETableGames/Assets/Downloads/UI/Forms/LoginForm.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../client/OETableGames/Assets/Downloads/UI/Forms/LoginForm.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../client/OETableGames/Assets/Downloads/UI/Source/Init/login_bg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../client/OETableGames/Assets/Downloads/UI/Source/Init/login_bg.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../client/OETableGames/Assets/Resources/UI/Forms/MessageForm.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../client/OETableGames/Assets/Resources/UI/Forms/MessageForm.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../client/OETableGames/Assets/Scenes/InitScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../client/OETableGames/Assets/Scenes/InitScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../client/OETableGames/Assets/Scripts/UI/Forms/MainMenuForm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../client/OETableGames/Assets/Scripts/UI/Forms/MainMenuForm.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OETableGames.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/oetablegames-service-game-mahjong/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/oetablegames-service-game-mahjong/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oetablegames-service/oetablegames-service-proxy/oetablegames-service-proxy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-service/oetablegames-service-proxy/oetablegames-service-proxy.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oetablegames-service/oetablegames-service-proxy/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-service/oetablegames-service-proxy/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wangque-parent/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wangque-parent/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wangque-parent/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../client/OETableGames/Assets/Scripts/Extensions/NetworkSystemExtension.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../client/OETableGames/Assets/Scripts/Extensions/NetworkSystemExtension.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../client/OETableGames/Assets/Scripts/Extensions/UISystemExtension.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../client/OETableGames/Assets/Scripts/Extensions/UISystemExtension.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../client/OETableGames/Assets/Scripts/Network/NetworkHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../client/OETableGames/Assets/Scripts/Network/NetworkHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../client/OETableGames/Assets/Scripts/Procedures/CheckVersionProcedure.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../client/OETableGames/Assets/Scripts/Procedures/CheckVersionProcedure.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../client/OETableGames/Assets/Scripts/Procedures/LoginProcedure.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../client/OETableGames/Assets/Scripts/Procedures/LoginProcedure.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../client/OETableGames/Assets/Scripts/UI/Forms/LoginForm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../client/OETableGames/Assets/Scripts/UI/Forms/LoginForm.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../client/OETableGames/Assets/Scripts/Utility/DeviceUtil.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../client/OETableGames/Assets/Scripts/Utility/DeviceUtil.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-common/src/main/java/com/oegame/tablegames/common/net/socket/IRout.java" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-common/src/main/java/com/oegame/tablegames/common/net/socket/IRoute.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-common/src/main/java/com/oegame/tablegames/common/net/socket/SocketClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-common/src/main/java/com/oegame/tablegames/common/net/socket/SocketClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-common/src/main/java/com/oegame/tablegames/common/net/socket/SocketDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-common/src/main/java/com/oegame/tablegames/common/net/socket/SocketDecoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-common/src/main/java/com/oegame/tablegames/common/net/socket/SocketServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-common/src/main/java/com/oegame/tablegames/common/net/socket/SocketServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-common/target/classes/com/oegame/tablegames/common/net/rpc/RpcFrameworkNew.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-common/target/classes/com/oegame/tablegames/common/net/rpc/RpcFrameworkNew.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-common/target/classes/com/oegame/tablegames/common/net/socket/IRout.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-common/target/classes/com/oegame/tablegames/common/net/socket/SocketClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-common/target/classes/com/oegame/tablegames/common/net/socket/SocketClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-common/target/classes/com/oegame/tablegames/common/net/socket/SocketDecoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-common/target/classes/com/oegame/tablegames/common/net/socket/SocketDecoder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-common/target/classes/com/oegame/tablegames/common/net/socket/SocketServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-common/target/classes/com/oegame/tablegames/common/net/socket/SocketServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-main/target/classes/mahjong-reference.xml" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-main/target/classes/mahjong-reference.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-main/target/classes/mahjong-service.xml" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-main/target/classes/mahjong-service.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/com/oegame/tablegames/model/gen/sys_passportCacheModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/com/oegame/tablegames/model/gen/sys_passportDBModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/com/oegame/tablegames/model/gen/sys_passportEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/com/oegame/tablegames/model/gen/sys_playerCacheModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/com/oegame/tablegames/model/gen/sys_playerDBModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/com/oegame/tablegames/model/gen/sys_playerEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/com/oegame/tablegames/model/gen/sys_roomCacheModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/com/oegame/tablegames/model/gen/sys_roomDBModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/com/oegame/tablegames/model/gen/sys_roomEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/com/oegame/tablegames/model/gen/sys_room_playerCacheModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/com/oegame/tablegames/model/gen/sys_room_playerDBModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/com/oegame/tablegames/model/gen/sys_room_playerEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/com/oegame/tablegames/model/gen/sys_room_recordCacheModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/com/oegame/tablegames/model/gen/sys_room_recordDBModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/com/oegame/tablegames/model/gen/sys_room_recordEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/com/oegame/tablegames/model/gen/sys_serverCacheModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/com/oegame/tablegames/model/gen/sys_serverDBModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/com/oegame/tablegames/model/gen/sys_serverEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/com/oegame/tablegames/model/local/AbstractDBModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-model/target/classes/com/oegame/tablegames/model/local/AbstractDBModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/com/oegame/tablegames/model/local/ConfigVO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/com/oegame/tablegames/model/local/Const$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/com/oegame/tablegames/model/local/Const$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/com/oegame/tablegames/model/local/Const.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/com/oegame/tablegames/model/local/LocalDBFacade.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/com/oegame/tablegames/model/local/PokerVO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/com/oegame/tablegames/model/local/ResultVO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/com/oegame/tablegames/model/local/SettingVO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/com/oegame/tablegames/model/local/SettleVO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/com/oegame/tablegames/model/local/gen/cfg_chatExpressionDBModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/com/oegame/tablegames/model/local/gen/cfg_chatExpressionEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/com/oegame/tablegames/model/local/gen/cfg_commonMessageDBModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/com/oegame/tablegames/model/local/gen/cfg_commonMessageEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/com/oegame/tablegames/model/local/gen/cfg_configDBModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/com/oegame/tablegames/model/local/gen/cfg_configEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/com/oegame/tablegames/model/local/gen/cfg_gameDBModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/com/oegame/tablegames/model/local/gen/cfg_gameEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/com/oegame/tablegames/model/local/gen/cfg_goldDBModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/com/oegame/tablegames/model/local/gen/cfg_goldEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/com/oegame/tablegames/model/local/gen/cfg_interactiveExpressionDBModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/com/oegame/tablegames/model/local/gen/cfg_interactiveExpressionEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/com/oegame/tablegames/model/local/gen/cfg_payDBModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/com/oegame/tablegames/model/local/gen/cfg_payEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/com/oegame/tablegames/model/local/gen/cfg_serviceDBModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/com/oegame/tablegames/model/local/gen/cfg_serviceEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/com/oegame/tablegames/model/local/gen/cfg_settingDBModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/com/oegame/tablegames/model/local/gen/cfg_settingEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/com/oegame/tablegames/model/local/gen/cfg_shareDBModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/com/oegame/tablegames/model/local/gen/cfg_shareEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/data/cfg_chatExpression.drb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/data/cfg_commonMessage.drb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/data/cfg_config.drb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/data/cfg_game.drb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/data/cfg_gold.drb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/data/cfg_interactiveExpression.drb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/data/cfg_pay.drb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/data/cfg_service.drb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/data/cfg_setting.drb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/data/cfg_share.drb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/json/wangque/config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/json/wangque/pay.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/json/wangque/setting.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/classes/model.properties" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-model/target/classes/model.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/C2S_Game_AfkProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/C2S_Game_QueryRoomProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/C2S_Game_QuickCreateProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/C2S_Game_RoomCreateProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/C2S_Game_RoomDisbandApplyProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/C2S_Game_RoomEnterProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/C2S_Game_RoomInfoProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/C2S_Game_RoomLeaveProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/C2S_Game_RoomReadyProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/C2S_Game_RoomUnreadyProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/C2S_Game_SendMessageProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/C2S_Game_SitdownProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/C2S_Game_StandProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/C2S_Game_TrusteeProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/C2S_Mahjong_ChooseHorseResultProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/C2S_Mahjong_DiscardProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/C2S_Mahjong_DriftProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/C2S_Mahjong_OperateProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/C2S_Mahjong_PassProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/C2S_Mahjong_RobHorseResultProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/C2S_Mahjong_SwapSettingProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/C2S_Mahjong_TingProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/C2S_Niuniu_BeginProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/C2S_Niuniu_BetProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/C2S_Niuniu_RobBankerProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/C2S_Niuniu_ShowPokerProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/C2S_Niuniu_ShuffleProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/C2S_System_CloseProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/C2S_System_ConnectProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/C2S_System_ErrorProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/C2S_System_HeartProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/C2S_System_OssInfoProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/ProtoCodeDef.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/ProtoCodeDef.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Game_AfkProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Game_CostGoldProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Game_CountDownProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Game_EnterGameProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Game_OwnerChangeProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Game_RoomDisbandNotifyProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Game_RoomDisbandProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Game_RoomEnterProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Game_RoomExpireProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Game_RoomInfoProto$Seat.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Game_RoomInfoProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Game_RoomLeaveProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Game_RoomReadyProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Game_RoomUnreadyProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Game_SendMessageProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Game_SitdownProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Game_StandProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Game_TrusteeProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Mahjong_ChooseHorseProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Mahjong_DealProto$Poker.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Mahjong_DealProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Mahjong_DiscardProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Mahjong_DrawProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Mahjong_DriftScoreProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Mahjong_GameBeginProto$Poker.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Mahjong_GameBeginProto$Seat.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Mahjong_GameBeginProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Mahjong_GameResultProto$Description.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Mahjong_GameResultProto$Seat.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Mahjong_GameResultProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Mahjong_GameSettleProto$Poker.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Mahjong_GameSettleProto$PokerGroup.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Mahjong_GameSettleProto$Seat.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Mahjong_GameSettleProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Mahjong_GoldProto$Seat.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Mahjong_GoldProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Mahjong_LuckPokerProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Mahjong_OperateAskProto$Poker.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Mahjong_OperateAskProto$PokerGroup.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Mahjong_OperateAskProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Mahjong_OperateProto$Poker.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Mahjong_OperateProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Mahjong_OperateWaitProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Mahjong_PassProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Mahjong_RefreshAllChooseHorseProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Mahjong_RefreshAllIsRobProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Mahjong_RefreshAllRobHorseResultProto$Seat.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Mahjong_RefreshAllRobHorseResultProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Mahjong_RobHorseProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Mahjong_RoomInfoProto$Poker.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Mahjong_RoomInfoProto$PokerGroup.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Mahjong_RoomInfoProto$Seat.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Mahjong_RoomInfoProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Mahjong_RoomStatusProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Mahjong_ShowLastProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Mahjong_SwapProto$Poker.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Mahjong_SwapProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Mahjong_SwapSettingProto$Poker.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Mahjong_SwapSettingProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Mahjong_TingProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_Player_CardsProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_System_CloseProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_System_ConnectProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_System_ErrorProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_System_HeartProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/classes/com/oegame/tablegames/protocol/gen/S2C_System_OssInfoProto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-service/oetablegames-service-player/target/classes/com/oegame/tablegames/service/player/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-service/oetablegames-service-player/target/classes/com/oegame/tablegames/service/player/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-service/oetablegames-service-player/target/classes/com/oegame/tablegames/service/player/PlayerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-service/oetablegames-service-player/target/classes/com/oegame/tablegames/service/player/PlayerService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-service/oetablegames-service-player/target/classes/com/oegame/tablegames/service/player/PlayerServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-service/oetablegames-service-player/target/classes/com/oegame/tablegames/service/player/PlayerServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-service/oetablegames-service-proxy/src/main/java/com/oegame/tablegames/service/proxy/ProxyServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-service/oetablegames-service-proxy/src/main/java/com/oegame/tablegames/service/proxy/ProxyServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-service/oetablegames-service-proxy/src/main/java/com/oegame/tablegames/service/proxy/SocketRoute.java" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-service/oetablegames-service-proxy/src/main/java/com/oegame/tablegames/service/proxy/SocketRoute.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-service/oetablegames-service-proxy/target/classes/com/oegame/tablegames/service/proxy/ProxyServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-service/oetablegames-service-proxy/target/classes/com/oegame/tablegames/service/proxy/ProxyServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-service/oetablegames-service-proxy/target/classes/com/oegame/tablegames/service/proxy/SocketRoute.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-service/oetablegames-service-proxy/target/classes/com/oegame/tablegames/service/proxy/SocketRoute.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../php/OETableGames/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../php/OETableGames/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/oetablegames-main/target/" />
     <ignored path="$PROJECT_DIR$/oetablegames-protocol/target/" />
@@ -42,17 +222,17 @@
     <session id="442703386">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="4" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.12" value="1" />
-          <entry key="project.open.time.35" value="1" />
-          <entry key="project.opened" value="4" />
+          <entry key="project.open.time.35" value="2" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="168" />
+          <entry key="java" value="184" />
           <entry key="json" value="4" />
           <entry key="properties" value="1" />
           <entry key="xml" value="53" />
@@ -60,7 +240,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="168" />
+          <entry key="JAVA" value="184" />
           <entry key="JSON" value="4" />
           <entry key="Properties" value="1" />
           <entry key="XML" value="53" />
@@ -68,14 +248,16 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="1349" />
+          <entry key="dummy" value="1" />
+          <entry key="java" value="1411" />
           <entry key="properties" value="12" />
           <entry key="xml" value="200" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="1349" />
+          <entry key="JAVA" value="1411" />
+          <entry key="PLAIN_TEXT" value="1" />
           <entry key="Properties" value="12" />
           <entry key="XML" value="200" />
         </counts>
@@ -84,38 +266,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/src/main/java/com/oegame/tablegames/service/game/RoomCtrlBase.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="21" column="22" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/oetablegames-service-game-mahjong/src/main/java/com/oegame/tablegames/service/game/mahjong/MahjongServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/oetablegames-service/oetablegames-service-player/src/main/java/com/oegame/tablegames/service/player/PlayerServiceImpl.java">
+        <entry file="file://$PROJECT_DIR$/oetablegames-service/oetablegames-service-proxy/src/main/java/com/oegame/tablegames/service/proxy/ProxyServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="684">
-              <caret line="36" column="9" lean-forward="true" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="9" />
+            <state relative-caret-position="171">
+              <caret line="15" column="79" lean-forward="true" selection-start-line="15" selection-start-column="79" selection-end-line="15" selection-end-column="79" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/oetablegames-common/src/main/java/com/oegame/tablegames/common/net/socket/SocketDecoder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="361">
+              <caret line="65" column="41" lean-forward="true" selection-start-line="65" selection-start-column="41" selection-end-line="65" selection-end-column="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/oetablegames-common/src/main/java/com/oegame/tablegames/common/net/socket/SocketServer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="111">
+              <caret line="61" column="60" lean-forward="true" selection-start-line="61" selection-start-column="60" selection-end-line="61" selection-end-column="60" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/oetablegames-service/oetablegames-service-proxy/src/main/java/com/oegame/tablegames/service/proxy/SocketHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="190">
+              <caret line="17" column="30" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -152,9 +337,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/oetablegames-main/src/main/resources/player-service.xml" />
-        <option value="$PROJECT_DIR$/oetablegames-main/src/main/resources/proxy-reference.xml" />
-        <option value="$PROJECT_DIR$/oetablegames-service/oetablegames-service-proxy/src/main/java/ProxyService.java" />
         <option value="$PROJECT_DIR$/oetablegames-main/pom.xml" />
         <option value="$PROJECT_DIR$/oetablegames-service/oetablegames-service-proxy/src/main/java/ProxyServiceImpl.java" />
         <option value="$PROJECT_DIR$/oetablegames-service/pom.xml" />
@@ -169,7 +351,6 @@
         <option value="$PROJECT_DIR$/oetablegames-main/src/main/resources/proxy-service.xml" />
         <option value="$PROJECT_DIR$/oetablegames-protocol/src/main/java/com/oegame/tablegames/protocol/gen/Game_C2S_ApplyDisbandProto.java" />
         <option value="$PROJECT_DIR$/oetablegames-service/oetablegames-service-player/src/main/java/com/oegame/tablegames/service/player/PlayerService.java" />
-        <option value="$PROJECT_DIR$/oetablegames-service/oetablegames-service-proxy/src/main/java/com/oegame/tablegames/service/proxy/SocketRoute.java" />
         <option value="$PROJECT_DIR$/oetablegames-service/oetablegames-service-player/src/main/java/com/oegame/tablegames/service/player/Player.java" />
         <option value="$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/oetablegames-service-game-mahjong/src/main/java/mahjong/MahjongService.java" />
         <option value="$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/oetablegames-service-game-mahjong/pom.xml" />
@@ -203,6 +384,10 @@
         <option value="$PROJECT_DIR$/oetablegames-model/src/main/java/com/oegame/tablegames/model/gen/PassportCacheModel.java" />
         <option value="$PROJECT_DIR$/oetablegames-model/src/main/java/com/oegame/tablegames/model/gen/PlayerEntity.java" />
         <option value="$PROJECT_DIR$/oetablegames-model/src/main/java/com/oegame/tablegames/model/gen/PlayerDBModel.java" />
+        <option value="$PROJECT_DIR$/oetablegames-service/oetablegames-service-proxy/src/main/java/com/oegame/tablegames/service/proxy/SocketRoute.java" />
+        <option value="$PROJECT_DIR$/oetablegames-common/src/main/java/com/oegame/tablegames/common/net/socket/IRoute.java" />
+        <option value="$PROJECT_DIR$/oetablegames-common/src/main/java/com/oegame/tablegames/common/net/socket/SocketDecoder.java" />
+        <option value="$PROJECT_DIR$/oetablegames-service/oetablegames-service-proxy/src/main/java/com/oegame/tablegames/service/proxy/ProxyServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -223,6 +408,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -234,25 +420,79 @@
             <path>
               <item name="oetablegames-parent" type="b2602c69:ProjectViewProjectNode" />
               <item name="oetablegames-parent" type="462c0819:PsiDirectoryNode" />
-              <item name="oetablegames-model" type="462c0819:PsiDirectoryNode" />
+              <item name="oetablegames-common" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="oetablegames-parent" type="b2602c69:ProjectViewProjectNode" />
               <item name="oetablegames-parent" type="462c0819:PsiDirectoryNode" />
-              <item name="oetablegames-model" type="462c0819:PsiDirectoryNode" />
+              <item name="oetablegames-common" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="oetablegames-parent" type="b2602c69:ProjectViewProjectNode" />
               <item name="oetablegames-parent" type="462c0819:PsiDirectoryNode" />
-              <item name="oetablegames-model" type="462c0819:PsiDirectoryNode" />
+              <item name="oetablegames-common" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="oetablegames-parent" type="b2602c69:ProjectViewProjectNode" />
               <item name="oetablegames-parent" type="462c0819:PsiDirectoryNode" />
-              <item name="oetablegames-model" type="462c0819:PsiDirectoryNode" />
+              <item name="oetablegames-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oetablegames-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oetablegames-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="oetablegames-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oetablegames-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oetablegames-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="oetablegames-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="net" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oetablegames-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oetablegames-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="oetablegames-service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oetablegames-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oetablegames-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="oetablegames-service" type="462c0819:PsiDirectoryNode" />
+              <item name="oetablegames-service-proxy" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oetablegames-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oetablegames-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="oetablegames-service" type="462c0819:PsiDirectoryNode" />
+              <item name="oetablegames-service-proxy" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oetablegames-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oetablegames-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="oetablegames-service" type="462c0819:PsiDirectoryNode" />
+              <item name="oetablegames-service-proxy" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oetablegames-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oetablegames-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="oetablegames-service" type="462c0819:PsiDirectoryNode" />
+              <item name="oetablegames-service-proxy" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -260,78 +500,23 @@
             <path>
               <item name="oetablegames-parent" type="b2602c69:ProjectViewProjectNode" />
               <item name="oetablegames-parent" type="462c0819:PsiDirectoryNode" />
-              <item name="oetablegames-model" type="462c0819:PsiDirectoryNode" />
+              <item name="oetablegames-service" type="462c0819:PsiDirectoryNode" />
+              <item name="oetablegames-service-proxy" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="oetablegames-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="oetablegames-parent" type="462c0819:PsiDirectoryNode" />
-              <item name="oetablegames-model" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-              <item name="gen" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="oetablegames-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="oetablegames-parent" type="462c0819:PsiDirectoryNode" />
-              <item name="oetablegames-service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="oetablegames-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="oetablegames-parent" type="462c0819:PsiDirectoryNode" />
-              <item name="oetablegames-service" type="462c0819:PsiDirectoryNode" />
-              <item name="oetablegames-service-game" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="oetablegames-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="oetablegames-parent" type="462c0819:PsiDirectoryNode" />
-              <item name="oetablegames-service" type="462c0819:PsiDirectoryNode" />
-              <item name="oetablegames-service-game" type="462c0819:PsiDirectoryNode" />
-              <item name="oetablegames-service-game-mahjong" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="oetablegames-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="oetablegames-parent" type="462c0819:PsiDirectoryNode" />
-              <item name="oetablegames-service" type="462c0819:PsiDirectoryNode" />
-              <item name="oetablegames-service-game" type="462c0819:PsiDirectoryNode" />
-              <item name="oetablegames-service-game-mahjong" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="oetablegames-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="oetablegames-parent" type="462c0819:PsiDirectoryNode" />
-              <item name="oetablegames-service" type="462c0819:PsiDirectoryNode" />
-              <item name="oetablegames-service-game" type="462c0819:PsiDirectoryNode" />
-              <item name="oetablegames-service-game-mahjong" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="oetablegames-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="oetablegames-parent" type="462c0819:PsiDirectoryNode" />
-              <item name="oetablegames-service" type="462c0819:PsiDirectoryNode" />
-              <item name="oetablegames-service-game" type="462c0819:PsiDirectoryNode" />
-              <item name="oetablegames-service-game-mahjong" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="proxy" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1617666357628" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1617747520728" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/oetablegames-main/src/main/java/com" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -391,17 +576,18 @@
       <workItem from="1616215753169" duration="4450000" />
       <workItem from="1617544129955" duration="3405000" />
       <workItem from="1617641163352" duration="12707000" />
+      <workItem from="1617741029577" duration="3783000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23479000" />
+    <option name="totallyTimeSpent" value="27262000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2600536" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26340482" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -442,71 +628,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/oetablegames-protocol/src/main/java/com/oegame/tablegames/protocol/gen/Game_C2S_ApplyDisbandProto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oetablegames-service/oetablegames-service-player/src/main/java/com/oegame/tablegames/service/player/PlayerService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="68" lean-forward="true" selection-start-line="6" selection-start-column="68" selection-end-line="6" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oetablegames-service/oetablegames-service-player/src/main/java/com/oegame/tablegames/service/player/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="33" column="29" lean-forward="true" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oetablegames-service/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="30" column="17" lean-forward="true" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oetablegames-service/oetablegames-service-proxy/src/main/java/com/oegame/tablegames/service/proxy/SocketRoute.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="75" column="9" selection-start-line="75" selection-start-column="9" selection-end-line="75" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oetablegames-service/oetablegames-service-proxy/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="798">
-          <caret line="42" column="46" lean-forward="true" selection-start-line="42" selection-start-column="46" selection-end-line="42" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/oetablegames-service-game-mahjong/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oetablegames-service/src/main/java/com/oegame/tablegames/service/ServiceUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="14" column="47" lean-forward="true" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="690">
@@ -525,9 +646,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="353">
           <caret line="21" column="52" lean-forward="true" selection-start-line="21" selection-start-column="52" selection-end-line="21" selection-end-column="52" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -562,13 +680,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/src/main/java/com/oegame/tablegames/service/game/PokerBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/src/main/java/com/oegame/tablegames/service/game/PokerBase.java" />
     <entry file="file://$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/src/main/java/com/oegame/tablegames/service/game/RoomStatus.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
@@ -580,9 +692,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="519">
           <caret line="35" column="21" lean-forward="true" selection-start-line="35" selection-start-column="21" selection-end-line="35" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -610,15 +719,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/oetablegames-model/src/main/resources/json/wangque/setting.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oetablegames-model/src/main/resources/json/wangque/pay.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oetablegames-model/src/main/resources/json/wangque/config.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-model/src/main/resources/json/wangque/setting.json" />
+    <entry file="file://$PROJECT_DIR$/oetablegames-model/src/main/resources/json/wangque/pay.json" />
+    <entry file="file://$PROJECT_DIR$/oetablegames-model/src/main/resources/json/wangque/config.json" />
     <entry file="file://$PROJECT_DIR$/oetablegames-model/src/main/java/com/oegame/tablegames/model/AbstractCacheModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2090">
@@ -626,27 +729,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/oetablegames-model/src/main/java/com/oegame/tablegames/model/local/SettleVO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="6" column="16" lean-forward="true" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oetablegames-model/src/main/java/com/oegame/tablegames/model/local/SettingVO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-887">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oetablegames-model/src/main/java/com/oegame/tablegames/model/local/Const.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1178">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-model/src/main/java/com/oegame/tablegames/model/local/SettleVO.java" />
+    <entry file="file://$PROJECT_DIR$/oetablegames-model/src/main/java/com/oegame/tablegames/model/local/SettingVO.java" />
+    <entry file="file://$PROJECT_DIR$/oetablegames-model/src/main/java/com/oegame/tablegames/model/local/Const.java" />
     <entry file="file://$PROJECT_DIR$/oetablegames-model/src/main/java/com/oegame/tablegames/model/local/LocalDataParser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-735">
@@ -654,34 +739,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/oetablegames-model/src/main/java/com/oegame/tablegames/model/local/gen/cfg_configDBModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oetablegames-model/src/main/java/com/oegame/tablegames/model/local/gen/cfg_chatExpressionDBModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oetablegames-model/src/main/java/com/oegame/tablegames/model/local/gen/cfg_configEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oetablegames-model/src/main/java/com/oegame/tablegames/model/local/LocalDBFacade.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="35" column="44" lean-forward="true" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-model/src/main/java/com/oegame/tablegames/model/local/gen/cfg_configDBModel.java" />
+    <entry file="file://$PROJECT_DIR$/oetablegames-model/src/main/java/com/oegame/tablegames/model/local/gen/cfg_chatExpressionDBModel.java" />
+    <entry file="file://$PROJECT_DIR$/oetablegames-model/src/main/java/com/oegame/tablegames/model/local/gen/cfg_configEntity.java" />
+    <entry file="file://$PROJECT_DIR$/oetablegames-model/src/main/java/com/oegame/tablegames/model/local/LocalDBFacade.java" />
     <entry file="file://$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/oetablegames-service-game-mahjong/src/main/java/com/oegame/tablegames/service/game/mahjong/Room.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-931">
@@ -721,11 +782,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="13" selection-start-line="13" selection-end-line="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#588#589#0" expanded="true" />
-            <element signature="e#618#619#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -733,16 +789,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
           <caret line="5" column="31" lean-forward="true" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/src/main/java/com/oegame/tablegames/service/game/RoomCtrlBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="21" column="22" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -762,19 +808,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
           <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/oetablegames-service-game-mahjong/src/main/java/com/oegame/tablegames/service/game/mahjong/MahjongServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -792,9 +825,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="443">
           <caret line="136" column="48" selection-start-line="136" selection-start-column="48" selection-end-line="136" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -802,9 +832,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-627">
           <caret line="107" column="63" selection-start-line="107" selection-start-column="63" selection-end-line="107" selection-end-column="63" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -822,9 +849,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1482">
           <caret line="84" column="79" selection-start-line="84" selection-start-column="79" selection-end-line="84" selection-end-column="79" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -832,16 +856,95 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-836">
           <caret line="30" column="63" selection-start-line="30" selection-start-column="63" selection-end-line="30" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/src/main/java/com/oegame/tablegames/service/game/RoomCtrlBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="21" column="22" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-service/oetablegames-service-proxy/src/main/java/com/oegame/tablegames/service/proxy/ClientRole.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/oetablegames-service/oetablegames-service-player/src/main/java/com/oegame/tablegames/service/player/PlayerServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="684">
-          <caret line="36" column="9" lean-forward="true" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="9" />
+        <state relative-caret-position="633">
+          <caret line="36" column="9" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/oetablegames-service-game-mahjong/src/main/java/com/oegame/tablegames/service/game/mahjong/MahjongServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/repository/org/apache/mina/mina-core/2.0.19/mina-core-2.0.19-sources.jar!/org/apache/mina/core/service/IoHandlerAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-361">
+          <caret line="33" column="13" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-common/src/main/java/com/oegame/tablegames/common/net/socket/IRoute.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-service/oetablegames-service-proxy/src/main/java/com/oegame/tablegames/service/proxy/SocketRoute.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="27" column="38" lean-forward="true" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-common/src/main/java/com/oegame/tablegames/common/net/socket/SocketServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="61" column="60" lean-forward="true" selection-start-line="61" selection-start-column="60" selection-end-line="61" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-service/oetablegames-service-proxy/src/main/java/com/oegame/tablegames/service/proxy/SocketHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="17" column="30" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-common/src/main/java/com/oegame/tablegames/common/net/socket/SocketDecoder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="65" column="41" lean-forward="true" selection-start-line="65" selection-start-column="41" selection-end-line="65" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-service/oetablegames-service-proxy/src/main/java/com/oegame/tablegames/service/proxy/ProxyServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="15" column="79" lean-forward="true" selection-start-line="15" selection-start-column="79" selection-end-line="15" selection-end-column="79" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

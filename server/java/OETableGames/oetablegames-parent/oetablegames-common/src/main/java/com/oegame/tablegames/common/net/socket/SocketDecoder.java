@@ -27,8 +27,8 @@ public class SocketDecoder extends CumulativeProtocolDecoder
 	
 	private static final int MAX_LENGTH = 10240000;
 	
-	private IRout rout;
-	public SocketDecoder(IRout rout)
+	private IRoute rout;
+	public SocketDecoder(IRoute rout)
 	{
 		this.rout = rout;
 	}
@@ -62,7 +62,7 @@ public class SocketDecoder extends CumulativeProtocolDecoder
 		else
 		{
 			int len = in.getInt();
-			// System.out.println("消息长度：" + len + "================(不含头)");
+//			 System.out.println("消息长度：" + len + "================(不含头)");
 			byte[] bytes = new byte[len];
 
 			in.get(bytes, 0, len);

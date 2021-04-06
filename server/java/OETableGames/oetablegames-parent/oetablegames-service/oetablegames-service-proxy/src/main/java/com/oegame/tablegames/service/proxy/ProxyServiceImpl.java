@@ -6,14 +6,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.oegame.tablegames.common.net.socket.SocketServer;
 import com.oegame.tablegames.protocol.gen.ProtoCodeDef;
-import com.oegame.tablegames.protocol.gen.S2C_System_ErrorProto;
+//import com.oegame.tablegames.protocol.gen.S2C_System_ErrorProto;
 
 public class ProxyServiceImpl implements ProxyService
 {
 	private static final Logger logger = LoggerFactory.getLogger(ProxyServiceImpl.class);
 	public ProxyServiceImpl()
 	{
-		new SocketServer().start(new SocketHandler(), new SocketRoute(),11494);
+		new SocketServer().start(new SocketHandler(), new SocketRoute(),10917);
 	}
 
 	@Override
@@ -30,10 +30,10 @@ public class ProxyServiceImpl implements ProxyService
 			int c = (data[2] & 0xff) << 8;
 			int d = data[3] & 0xff;
 			int code = a | b | c | d;
-			if(code != ProtoCodeDef.S2C_System_HeartProto)
-			{
-				logger.info(String.format("服务器发送消息给%d:%d, %s, %s",session.getAttribute("playerId"),code, ProtoCodeDef.getEn(code), ProtoCodeDef.getCn(code)));
-			}
+//			if(code != ProtoCodeDef.S2C_System_HeartProto)
+//			{
+//				logger.info(String.format("服务器发送消息给%d:%d, %s, %s",session.getAttribute("playerId"),code, ProtoCodeDef.getEn(code), ProtoCodeDef.getCn(code)));
+//			}
 		}
 		session.write(data);
 	}
@@ -41,10 +41,10 @@ public class ProxyServiceImpl implements ProxyService
 	@Override
 	public void sendError(long playerId, int errorCode, String message)
 	{
-		S2C_System_ErrorProto proto = new S2C_System_ErrorProto();
-		proto.setCode(errorCode);
-		proto.setMessage(message);
-		sendMessage(playerId,proto.toArray());
+//		S2C_System_ErrorProto proto = new S2C_System_ErrorProto();
+//		proto.setCode(errorCode);
+//		proto.setMessage(message);
+//		sendMessage(playerId,proto.toArray());
 	}
 
 }
