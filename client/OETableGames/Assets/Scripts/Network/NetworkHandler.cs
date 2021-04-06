@@ -10,12 +10,13 @@ using DrbFramework.Network;
 using System;
 using System.IO;
 using System.Threading;
+using UnityEngine;
 
 public class NetworkHandler : INetworkHandler
 {
     public void OnChannelSent(INetworkChannel channel, int sentLength)
     {
-        Log.Info("received:" + sentLength + " bytes");
+        Log.Info("sent:" + sentLength + " bytes");
     }
 
     public void OnChannelReceived(INetworkChannel channel, object obj)
@@ -54,15 +55,21 @@ public class NetworkHandler : INetworkHandler
         DrbComponent.GetEventSystem<int>().Dispatch(this, CodeDef.System_C2S_HeartBeatProto - 2, new NetworkEventArgs(CodeDef.System_C2S_HeartBeatProto - 2, null));
     }
 
-    public void OnConnected(INetworkChannel channel)
+    public void OnConnected(INetworkChannel channel, bool isSuccess)
     {
-        Log.Info(channel.Name + "Connected");
-
-        DrbComponent.GetEventSystem<int>().Dispatch(this, CodeDef.System_C2S_HeartBeatProto - 1, new NetworkEventArgs(CodeDef.System_C2S_HeartBeatProto - 1, null));
+        if (isSuccess)
+        {
+            Log.Info(channel.Name + "Connected");
+            DrbComponent.GetEventSystem<int>().Dispatch(this, CodeDef.System_C2S_HeartBeatProto - 1, new NetworkEventArgs(CodeDef.System_C2S_HeartBeatProto - 1, null));
+        }
+        else
+        {
+            Log.Warn("connected fail.");
+        }
     }
 
     public void OnExceptionCaught(INetworkChannel channel, Exception exception)
     {
-        Log.Warn("channel name:" + channel.Name + "   exception:" + exception.Message);
+        //Debug.Log("channel name:" + channel.Name + "   exception:" + exception.Message);
     }
 }
