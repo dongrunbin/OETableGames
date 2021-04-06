@@ -17,21 +17,4 @@ public static class DeviceUtil
     {
         return Application.platform;
     }
-
-    public static int GetOssPlatform()
-    {
-        int ret = 0;
-        RuntimePlatform platform = GetPlatform();
-        switch (platform)
-        {
-            case RuntimePlatform.Android:
-                ret = 3;
-                break;
-            case RuntimePlatform.IPhonePlayer:
-                ret = 4;
-                break;
-        }
-
-        return ret;
-    }
 }

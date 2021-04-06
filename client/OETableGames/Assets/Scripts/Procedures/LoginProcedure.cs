@@ -6,11 +6,15 @@
 
 using DrbFramework;
 using DrbFramework.Event;
+using DrbFramework.Extensions;
+using DrbFramework.Http;
 using DrbFramework.Internal;
 using DrbFramework.Procedure;
 using DrbFramework.Timer;
 using DrbFramework.UI;
 using System;
+using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 
 public class LoginProcedure : Procedure
@@ -27,7 +31,15 @@ public class LoginProcedure : Procedure
     {
         base.OnEnter(userData);
 
-        DrbComponent.UISystem.OpenFormAsync("UI/Forms/LoginForm", "BackGround", OnLoadUIComplete);
+        AccountEntity entity = DrbComponent.SettingSystem.GetObject<AccountEntity>("AccountInfo");
+        DrbComponent.UISystem.OpenFormAsync("UI/Forms/LoginForm", "BackGround", (IUIForm form)=>{
+            m_LoginForm = (LoginForm)form;
+            m_LoginForm.OnGuestLoginClick = GuestLogin;
+        });
+        if (entity != null)
+        {
+            AccountLogin(entity.passportId, entity.token);
+        }
         DrbComponent.GetEventSystem<int>().AddEventListener(CodeDef.System_C2S_HeartBeatProto - 1, OnConnected);
         DrbComponent.GetEventSystem<int>().AddEventListener(CodeDef.System_C2S_HeartBeatProto - 2, OnDisconnected);
         DrbComponent.GetEventSystem<int>().AddEventListener(CodeDef.System_S2C_ConnectProto, OnHandShaked);
@@ -37,16 +49,110 @@ public class LoginProcedure : Procedure
     public override void OnLeave()
     {
         base.OnLeave();
-
-        DrbComponent.UISystem.DestroyForm(m_LoginForm);
+        if (m_LoginForm != null)
+        {
+            DrbComponent.UISystem.DestroyForm(m_LoginForm);
+        }
         DrbComponent.GetEventSystem<int>().RemoveEventListener(CodeDef.System_C2S_HeartBeatProto - 1, OnConnected);
         DrbComponent.GetEventSystem<int>().RemoveEventListener(CodeDef.System_C2S_HeartBeatProto - 2, OnDisconnected);
         DrbComponent.GetEventSystem<int>().RemoveEventListener(CodeDef.System_S2C_ConnectProto, OnHandShaked);
     }
 
-    private void OnLoadUIComplete(IUIForm form)
+    private void GuestLogin()
     {
-        m_LoginForm = (LoginForm)form;
+        Dictionary<string, object> dic = new Dictionary<string, object>();
+        DrbComponent.HttpSystem.EncryptedRequest(ConstDefine.WebUrl, "passport/guest", dic, OnGuestLoginCallBack);
+    }
+
+    private void OnGuestLoginCallBack(object sender, HttpRequestCompleteEventArgs args)
+    {
+        if (args.HasError)
+        {
+            DrbComponent.UISystem.ShowMessage("错误", "网络连接失败");
+        }
+        else
+        {
+            LitJson.JsonData jsonData = LitJson.JsonMapper.ToObject(Encoding.UTF8.GetString(args.Data));
+            if (jsonData["code"].ToString().ToInt() < 0)
+            {
+                DrbComponent.UISystem.ShowMessage("错误", jsonData["msg"].ToString());
+                return;
+            }
+
+            int passportId = jsonData["data"]["passportId"].ToString().ToInt();
+            string token = jsonData["data"]["token"].ToString();
+            AccountLogin(passportId, token);
+        }
+    }
+
+    private void AccountLogin(int passportId, string token)
+    {
+        Dictionary<string, object> dic = new Dictionary<string, object>();
+        dic["passportId"] = passportId;
+        dic["token"] = token;
+        dic["device"] = DeviceUtil.GetPlatform();
+        DrbComponent.HttpSystem.EncryptedRequest(ConstDefine.WebUrl, "passport/relogin", dic, OnLoginCallBack);
+    }
+
+    private void OnLoginCallBack(object sender, HttpRequestCompleteEventArgs args)
+    {
+        if (args.HasError)
+        {
+            DrbComponent.UISystem.ShowMessage("错误", "网络连接失败");
+        }
+        else
+        {
+            LitJson.JsonData jsonData = LitJson.JsonMapper.ToObject(Encoding.UTF8.GetString(args.Data));
+            Log.Info(jsonData.ToJson());
+            if (jsonData["code"].ToString().ToInt() < 0)
+            {
+                DrbComponent.UISystem.ShowMessage("Error", jsonData["msg"].ToString());
+                ;
+                if (DrbComponent.SettingSystem.HasSetting("AccountInfo"))
+                {
+                    DrbComponent.SettingSystem.DeleteSetting("AccountInfo");
+                }
+                return;
+            }
+
+            AccountEntity entity = LitJson.JsonMapper.ToObject<AccountEntity>(LitJson.JsonMapper.ToJson(jsonData["data"]));
+
+            DrbComponent.SettingSystem.SetObject("AccountInfo", entity);
+            RequestServer();
+        }
+    }
+
+    private void RequestServer()
+    {
+        AccountEntity entity = DrbComponent.SettingSystem.GetObject<AccountEntity>("AccountInfo");
+        Dictionary<string, object> dic = new Dictionary<string, object>();
+        dic["passportId"] = entity.passportId;
+        dic["token"] = entity.token;
+        DrbComponent.HttpSystem.EncryptedRequest(ConstDefine.WebUrl, "passport/server", dic, RequestServerCallBack);
+    }
+
+    private void RequestServerCallBack(object sender, HttpRequestCompleteEventArgs args)
+    {
+        if (args.HasError)
+        {
+            DrbComponent.UISystem.ShowMessage("错误", "网络连接失败", type: MessageForm.MessageViewType.Ok, okAction: RequestServer);
+        }
+        else
+        {
+            LitJson.JsonData jsonData = LitJson.JsonMapper.ToObject(Encoding.UTF8.GetString(args.Data));
+            if (jsonData["code"].ToString().ToInt() < 0)
+            {
+                DrbComponent.UISystem.ShowMessage("错误", jsonData["msg"].ToString());
+                return;
+            }
+            string ip = jsonData["data"]["ip"].ToString();
+            int port = jsonData["data"]["port"].ToString().ToInt();
+            DrbComponent.SettingSystem.SetString("IP", ip);
+            DrbComponent.SettingSystem.SetInt("Port", port);
+            Log.Info(ip + ":" + port);
+
+            Connect();
+        }
     }
 
     private void OnConnected(object sender, EventArgs<int> args)
@@ -57,7 +163,15 @@ public class LoginProcedure : Procedure
 
     private void OnDisconnected(object sender, EventArgs<int> args)
     {
-        DrbComponent.UISystem.ShowMessage("Error", "Network was disconnected", okAction: DrbComponent.NetworkSystem.Reconnect);
+        DrbComponent.UISystem.ShowMessage("Error", "Network was disconnected", okAction: Connect);
+
+    }
+
+    private void Connect()
+    {
+        string ip = DrbComponent.SettingSystem.GetString("IP");
+        int port = DrbComponent.SettingSystem.GetInt("Port");
+        DrbComponent.NetworkSystem.Connect(ip, port);
     }
 
     public override void OnUpdate(float elapseSeconds, float realElapseSeconds)
@@ -68,6 +182,7 @@ public class LoginProcedure : Procedure
         if (m_SendHandShakeClientTime > 0 && TimeUtil.GetTimestampMS() - m_SendHandShakeClientTime > HAND_SHAKE_TIME_OUT)
         {
             Log.Info("hand shake time out");
+            m_SendHandShakeClientTime = 0;
             DrbComponent.NetworkSystem.Close();
         }
     }

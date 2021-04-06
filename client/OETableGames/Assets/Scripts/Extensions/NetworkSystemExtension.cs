@@ -12,14 +12,17 @@ public static class NetworkSystemExtension
 
     public static void Connect(this NetworkSystem system, string ip, int port)
     {
-        INetworkChannel channel = system.CreateChannel(SERVER_CHANNEL, new NetworkHandler(), new NetworkEncoder(), new NetworkDecoder());
-        channel.Connect(IPAddress.Parse(ip), port);
-    }
+        INetworkChannel channel;
+        if (!system.HasChannel(SERVER_CHANNEL))
+        {
+            channel = system.CreateChannel(SERVER_CHANNEL, new NetworkHandler(), new NetworkEncoder(), new NetworkDecoder());
+        }
+        else
+        {
+            channel = system.GetChannel(SERVER_CHANNEL);
+        }
 
-    public static void Reconnect(this NetworkSystem system)
-    {
-        INetworkChannel channel = system.GetChannel(SERVER_CHANNEL);
-        channel.Connect(channel.RemoteIpAddress, channel.RemotePort);
+        channel.Connect(IPAddress.Parse(ip), port);
     }
 
     public static void Send(this NetworkSystem system, object data)

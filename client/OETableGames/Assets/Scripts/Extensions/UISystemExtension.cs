@@ -31,10 +31,7 @@ public static class UISystemExtensions
         DrbComponent.ResourceSystem.LoadAssetAsync(assetPath, (LoadAssetCompleteEventArgs args) =>
         {
             IUIForm form = uiSystem.OpenForm(args.AssetName, args.Asset, groupName);
-            if (args.UserData != null)
-            {
-                callback(form);
-            }
+            callback(form);
         }, null);
     }
 
@@ -42,7 +39,7 @@ public static class UISystemExtensions
         MessageForm.AutoClickType autoType = MessageForm.AutoClickType.None, MessageForm.MessageViewType type = MessageForm.MessageViewType.Ok,
         Action okAction = null, Action cancelAction = null)
     {
-        MessageForm form = (MessageForm)OpenInternalForm(uiSystem, "UI/Forms/MessageForm", "BackGround");
+        MessageForm form = (MessageForm)OpenInternalForm(uiSystem, "UI/Forms/MessageForm", "Form");
         form.Show(title, message, countDown, autoType, type, okAction, cancelAction);
     }
 }

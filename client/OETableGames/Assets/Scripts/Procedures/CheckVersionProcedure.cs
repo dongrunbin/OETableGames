@@ -55,10 +55,6 @@ public class CheckVersionProcedure : Procedure
         DrbComponent.UISystem.DestroyForm(m_InitForm);
     }
 
-    #region RequestDownloadURL 获取下载地址
-    /// <summary>
-    /// 获取下载地址
-    /// </summary>
     private void RequestDownloadURL()
     {
         Dictionary<string, object> dic = new Dictionary<string, object>();
@@ -71,13 +67,7 @@ public class CheckVersionProcedure : Procedure
 #endif
         DrbComponent.HttpSystem.EncryptedRequest(ConstDefine.WebUrl, "game/init", dic, OnRequestDownloadURLCallBack);
     }
-    #endregion
 
-    #region OnRequestDownloadURLCallBack 获取下载地址回调
-    /// <summary>
-    /// 获取下载地址回调
-    /// </summary>
-    /// <param name="args"></param>
     private void OnRequestDownloadURLCallBack(object sender, HttpRequestCompleteEventArgs args)
     {
         if (args.HasError)
@@ -86,7 +76,6 @@ public class CheckVersionProcedure : Procedure
         }
         else
         {
-            Log.Info(Encoding.UTF8.GetString(args.Data));
             LitJson.JsonData jsonData = LitJson.JsonMapper.ToObject(Encoding.UTF8.GetString(args.Data));
             if (jsonData["code"].ToString().ToInt() < 0)
             {
@@ -99,11 +88,7 @@ public class CheckVersionProcedure : Procedure
             CheckResources();
         }
     }
-    #endregion
 
-    /// <summary>
-    /// 检查资源更新
-    /// </summary>
     private void CheckResources()
     {
 #if UNITY_EDITOR && !ASSETBUNDLE
@@ -212,7 +197,6 @@ public class CheckVersionProcedure : Procedure
     private void DownloadResources(string versionPath, List<DownloadDataEntity> serverList)
     {
         List<DownloadDataEntity> needDownloadDataList = new List<DownloadDataEntity>();
-        //如果本地有版本文件
         if (IOUtil.FileExists(versionPath))
         {
             Log.Info("exists local version file.");
@@ -220,7 +204,6 @@ public class CheckVersionProcedure : Procedure
             Dictionary<string, string> localDic = PackDownloadDataDic(content);
             List<DownloadDataEntity> localList = PackDownloadData(content);
 
-            //更新资源
             for (int i = 0; i < serverList.Count; ++i)
             {
                 if (!localDic.ContainsKey(serverList[i].FullName.Trim()))
