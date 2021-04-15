@@ -1,6 +1,6 @@
 //===================================================
 //作    者：DRB
-//创建时间：2021-04-05 20:52:14
+//创建时间：2021-04-15 03:55:31
 //备    注：
 //===================================================
 package com.oegame.tablegames.protocol.gen;
@@ -146,6 +146,31 @@ public class ProtoCodeDef
     /// </summary>
     public static final int Mahjong_S2C_ResultProto = 30009;
 
+    /// <summary>
+    /// S2C_RoomInfo
+    /// </summary>
+    public static final int Mahjong_S2C_RoomInfoProto = 30010;
+
+    /// <summary>
+    /// S2C_AskOperation
+    /// </summary>
+    public static final int Mahjong_S2C_AskOperationProto = 30011;
+
+    /// <summary>
+    /// C2S_Pass
+    /// </summary>
+    public static final int Mahjong_C2S_PassProto = 30012;
+
+    /// <summary>
+    /// S2C_Pass
+    /// </summary>
+    public static final int Mahjong_S2C_PassProto = 30013;
+
+    /// <summary>
+    /// S2C_OperationWait
+    /// </summary>
+    public static final int Mahjong_S2C_OperationWaitProto = 30014;
+
     private static final HashMap<Integer,String> DicCn = new HashMap<Integer,String>();
     private static final HashMap<Integer,String> DicEn = new HashMap<Integer,String>();
 
@@ -205,6 +230,16 @@ public class ProtoCodeDef
         DicEn.put(Mahjong_S2C_SettleProto,"Mahjong_S2C_SettleProto");
         DicCn.put(Mahjong_S2C_ResultProto,"S2C_Result");
         DicEn.put(Mahjong_S2C_ResultProto,"Mahjong_S2C_ResultProto");
+        DicCn.put(Mahjong_S2C_RoomInfoProto,"S2C_RoomInfo");
+        DicEn.put(Mahjong_S2C_RoomInfoProto,"Mahjong_S2C_RoomInfoProto");
+        DicCn.put(Mahjong_S2C_AskOperationProto,"S2C_AskOperation");
+        DicEn.put(Mahjong_S2C_AskOperationProto,"Mahjong_S2C_AskOperationProto");
+        DicCn.put(Mahjong_C2S_PassProto,"C2S_Pass");
+        DicEn.put(Mahjong_C2S_PassProto,"Mahjong_C2S_PassProto");
+        DicCn.put(Mahjong_S2C_PassProto,"S2C_Pass");
+        DicEn.put(Mahjong_S2C_PassProto,"Mahjong_S2C_PassProto");
+        DicCn.put(Mahjong_S2C_OperationWaitProto,"S2C_OperationWait");
+        DicEn.put(Mahjong_S2C_OperationWaitProto,"Mahjong_S2C_OperationWaitProto");
     }
     public static String getCn(int code)
     {
