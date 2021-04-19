@@ -1,6 +1,6 @@
 //===================================================
 //作    者：DRB
-//创建时间：2021-04-05 20:52:14
+//创建时间：2021-04-15 03:55:31
 //备    注：
 //===================================================
 package com.oegame.tablegames.protocol.gen;
@@ -17,50 +17,22 @@ public class Mahjong_S2C_ResultProto
 {
     public static final int CODE = 30009; 
 
-    private Seat seat; //
-    private int pos; //
-    private int playerId; //
-    private int gold; //
-    private boolean isWinner; //
-    public Seat getSeat(){
-        return this.seat;
-    }
+    private ArrayList<Seat> seats = new ArrayList<Seat>(); //
+    public ArrayList<Seat> getseatsList(){
+        return this.seats;
+    };
 
-    public void setSeat(Seat value){
-        this.seat = value;
-    }
+    public Seat getSeats(int index){
+        return this.seats.get(index);
+    };
 
-    public int getPos(){
-        return this.pos;
-    }
+    public int seatsCount(){
+        return this.seats.size();
+    };
 
-    public void setPos(int value){
-        this.pos = value;
-    }
-
-    public int getPlayerId(){
-        return this.playerId;
-    }
-
-    public void setPlayerId(int value){
-        this.playerId = value;
-    }
-
-    public int getGold(){
-        return this.gold;
-    }
-
-    public void setGold(int value){
-        this.gold = value;
-    }
-
-    public boolean getIsWinner(){
-        return this.isWinner;
-    }
-
-    public void setIsWinner(boolean value){
-        this.isWinner = value;
-    }
+    public void addSeats(Seat value){
+        this.seats.add(value);
+    };
 
 
     /// <summary>
@@ -68,12 +40,52 @@ public class Mahjong_S2C_ResultProto
     /// </summary>
     public static class Seat
     {
+        private int pos; //
+        private int playerId; //
+        private int gold; //
+        private boolean isWinner; //
+        public int getPos(){
+            return this.pos;
+        }
+
+        public void setPos(int value){
+            this.pos = value;
+        }
+
+        public int getPlayerId(){
+            return this.playerId;
+        }
+
+        public void setPlayerId(int value){
+            this.playerId = value;
+        }
+
+        public int getGold(){
+            return this.gold;
+        }
+
+        public void setGold(int value){
+            this.gold = value;
+        }
+
+        public boolean getIsWinner(){
+            return this.isWinner;
+        }
+
+        public void setIsWinner(boolean value){
+            this.isWinner = value;
+        }
+
         public byte[] toArray()
         {
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             DataOutputStreamExt dos = new DataOutputStreamExt(baos);
             byte[] ret = null;
             try{
+                dos.writeInt(pos);
+                dos.writeInt(playerId);
+                dos.writeInt(gold);
+                dos.writeBoolean(isWinner);
                 ret = baos.toByteArray();
                 dos.close();
                 baos.close();
@@ -88,6 +100,19 @@ public class Mahjong_S2C_ResultProto
         {
             if(buffer == null) return null;
             Seat proto = new Seat();
+            ByteArrayInputStream bais = new ByteArrayInputStream(buffer);
+            DataInputStreamExt dis = new DataInputStreamExt(bais);
+            try{
+                proto.pos = dis.readInt();
+                proto.playerId = dis.readInt();
+                proto.gold = dis.readInt();
+                proto.isWinner = dis.readBoolean();
+                dis.close();
+                bais.close();
+            }
+            catch(IOException e){
+                e.printStackTrace();
+            }
             return proto;
         }
     }
@@ -98,18 +123,18 @@ public class Mahjong_S2C_ResultProto
         byte[] ret = null;
         try{
             dos.writeInt(CODE);
-            if(seat != null)
+            dos.writeShort(seats.size());
+            for (int i = 0; i < seats.size(); ++i)
             {
-                dos.writeBytes(seat.toArray());
+                if(seats != null)
+                {
+                    dos.writeBytes(seats.get(i).toArray());
+                }
+                else
+                {
+                    dos.writeInt(0);
+                }
             }
-            else
-            {
-                dos.writeInt(0);
-            }
-            dos.writeInt(pos);
-            dos.writeInt(playerId);
-            dos.writeInt(gold);
-            dos.writeBoolean(isWinner);
             ret = baos.toByteArray();
             dos.close();
             baos.close();
@@ -127,11 +152,11 @@ public class Mahjong_S2C_ResultProto
         ByteArrayInputStream bais = new ByteArrayInputStream(buffer);
         DataInputStreamExt dis = new DataInputStreamExt(bais);
         try{
-            proto.seat = Seat.getProto(dis.readBytes());
-            proto.pos = dis.readInt();
-            proto.playerId = dis.readInt();
-            proto.gold = dis.readInt();
-            proto.isWinner = dis.readBoolean();
+            short seatsLength = dis.readShort();
+            for (int i = 0; i < seatsLength; ++i)
+            {
+                proto.seats.add(Seat.getProto(dis.readBytes()));
+            }
             dis.close();
             bais.close();
         }

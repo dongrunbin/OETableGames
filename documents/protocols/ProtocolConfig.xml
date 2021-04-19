@@ -116,7 +116,7 @@
   <Menu>
     <Id>637532458639314455</Id>
     <Name>Game</Name>
-    <isFoldout>false</isFoldout>
+    <isFoldout>true</isFoldout>
     <ProtocolInfos>
       <Protocol>
         <Id>637532458661781115</Id>
@@ -446,7 +446,7 @@
   <Menu>
     <Id>637532475537083529</Id>
     <Name>Mahjong</Name>
-    <isFoldout>false</isFoldout>
+    <isFoldout>true</isFoldout>
     <ProtocolInfos>
       <Protocol>
         <Id>637532475674998349</Id>
@@ -918,7 +918,7 @@
             <Type>int</Type>
             <EnName>index</EnName>
             <CnName />
-            <IsLoop>false</IsLoop>
+            <IsLoop>true</IsLoop>
             <AttachToCondition />
             <AttachToResult>0</AttachToResult>
             <AttachToCustom />
@@ -1231,9 +1231,9 @@
         <FieldInfos>
           <Field>
             <Type>Seat</Type>
-            <EnName>seat</EnName>
+            <EnName>seats</EnName>
             <CnName />
-            <IsLoop>false</IsLoop>
+            <IsLoop>true</IsLoop>
             <AttachToCondition />
             <AttachToResult>0</AttachToResult>
             <AttachToCustom />
@@ -1245,7 +1245,7 @@
             <IsLoop>false</IsLoop>
             <AttachToCondition />
             <AttachToResult>0</AttachToResult>
-            <AttachToCustom />
+            <AttachToCustom>Seat</AttachToCustom>
           </Field>
           <Field>
             <Type>int</Type>
@@ -1254,7 +1254,7 @@
             <IsLoop>false</IsLoop>
             <AttachToCondition />
             <AttachToResult>0</AttachToResult>
-            <AttachToCustom />
+            <AttachToCustom>Seat</AttachToCustom>
           </Field>
           <Field>
             <Type>int</Type>
@@ -1263,7 +1263,7 @@
             <IsLoop>false</IsLoop>
             <AttachToCondition />
             <AttachToResult>0</AttachToResult>
-            <AttachToCustom />
+            <AttachToCustom>Seat</AttachToCustom>
           </Field>
           <Field>
             <Type>bool</Type>
@@ -1272,9 +1272,501 @@
             <IsLoop>false</IsLoop>
             <AttachToCondition />
             <AttachToResult>0</AttachToResult>
+            <AttachToCustom>Seat</AttachToCustom>
+          </Field>
+        </FieldInfos>
+      </Protocol>
+      <Protocol>
+        <Id>637540487523532039</Id>
+        <Code>30010</Code>
+        <EnName>S2C_RoomInfo</EnName>
+        <CnName>S2C_RoomInfo</CnName>
+        <Description>server returns room info to the client</Description>
+        <FieldInfos>
+          <Field>
+            <Type>byte</Type>
+            <EnName>roomStatus</EnName>
+            <CnName />
+            <IsLoop>false</IsLoop>
+            <AttachToCondition />
+            <AttachToResult>0</AttachToResult>
+            <AttachToCustom />
+          </Field>
+          <Field>
+            <Type>int</Type>
+            <EnName>roomId</EnName>
+            <CnName />
+            <IsLoop>false</IsLoop>
+            <AttachToCondition />
+            <AttachToResult>0</AttachToResult>
+            <AttachToCustom />
+          </Field>
+          <Field>
+            <Type>int</Type>
+            <EnName>settingIds</EnName>
+            <CnName />
+            <IsLoop>true</IsLoop>
+            <AttachToCondition />
+            <AttachToResult>0</AttachToResult>
+            <AttachToCustom />
+          </Field>
+          <Field>
+            <Type>int</Type>
+            <EnName>pokerAmount</EnName>
+            <CnName />
+            <IsLoop>false</IsLoop>
+            <AttachToCondition />
+            <AttachToResult>0</AttachToResult>
+            <AttachToCustom />
+          </Field>
+          <Field>
+            <Type>int</Type>
+            <EnName>loop</EnName>
+            <CnName />
+            <IsLoop>false</IsLoop>
+            <AttachToCondition />
+            <AttachToResult>0</AttachToResult>
+            <AttachToCustom />
+          </Field>
+          <Field>
+            <Type>int</Type>
+            <EnName>maxLoop</EnName>
+            <CnName />
+            <IsLoop>false</IsLoop>
+            <AttachToCondition />
+            <AttachToResult>0</AttachToResult>
+            <AttachToCustom />
+          </Field>
+          <Field>
+            <Type>int</Type>
+            <EnName>pokerTotal</EnName>
+            <CnName />
+            <IsLoop>false</IsLoop>
+            <AttachToCondition />
+            <AttachToResult>0</AttachToResult>
+            <AttachToCustom />
+          </Field>
+          <Field>
+            <Type>int</Type>
+            <EnName>baseScore</EnName>
+            <CnName />
+            <IsLoop>false</IsLoop>
+            <AttachToCondition />
+            <AttachToResult>0</AttachToResult>
+            <AttachToCustom />
+          </Field>
+          <Field>
+            <Type>int</Type>
+            <EnName>diceFirst</EnName>
+            <CnName />
+            <IsLoop>false</IsLoop>
+            <AttachToCondition />
+            <AttachToResult>0</AttachToResult>
+            <AttachToCustom />
+          </Field>
+          <Field>
+            <Type>int</Type>
+            <EnName>diceSecond</EnName>
+            <CnName />
+            <IsLoop>false</IsLoop>
+            <AttachToCondition />
+            <AttachToResult>0</AttachToResult>
+            <AttachToCustom />
+          </Field>
+          <Field>
+            <Type>int</Type>
+            <EnName>diceFirstA</EnName>
+            <CnName />
+            <IsLoop>false</IsLoop>
+            <AttachToCondition />
+            <AttachToResult>0</AttachToResult>
+            <AttachToCustom />
+          </Field>
+          <Field>
+            <Type>int</Type>
+            <EnName>diceFirstB</EnName>
+            <CnName />
+            <IsLoop>false</IsLoop>
+            <AttachToCondition />
+            <AttachToResult>0</AttachToResult>
+            <AttachToCustom />
+          </Field>
+          <Field>
+            <Type>int</Type>
+            <EnName>diceSecondA</EnName>
+            <CnName />
+            <IsLoop>false</IsLoop>
+            <AttachToCondition />
+            <AttachToResult>0</AttachToResult>
+            <AttachToCustom />
+          </Field>
+          <Field>
+            <Type>int</Type>
+            <EnName>diceSecondB</EnName>
+            <CnName />
+            <IsLoop>false</IsLoop>
+            <AttachToCondition />
+            <AttachToResult>0</AttachToResult>
+            <AttachToCustom />
+          </Field>
+          <Field>
+            <Type>long</Type>
+            <EnName>dismissMaxTime</EnName>
+            <CnName />
+            <IsLoop>false</IsLoop>
+            <AttachToCondition />
+            <AttachToResult>0</AttachToResult>
+            <AttachToCustom />
+          </Field>
+          <Field>
+            <Type>long</Type>
+            <EnName>dismissTime</EnName>
+            <CnName />
+            <IsLoop>false</IsLoop>
+            <AttachToCondition />
+            <AttachToResult>0</AttachToResult>
+            <AttachToCustom />
+          </Field>
+          <Field>
+            <Type>MahjongGroup</Type>
+            <EnName>askPokerGroups</EnName>
+            <CnName />
+            <IsLoop>true</IsLoop>
+            <AttachToCondition />
+            <AttachToResult>0</AttachToResult>
+            <AttachToCustom />
+          </Field>
+          <Field>
+            <Type>Seat</Type>
+            <EnName>seats</EnName>
+            <CnName />
+            <IsLoop>true</IsLoop>
+            <AttachToCondition />
+            <AttachToResult>0</AttachToResult>
+            <AttachToCustom />
+          </Field>
+          <Field>
+            <Type>byte</Type>
+            <EnName>status</EnName>
+            <CnName />
+            <IsLoop>false</IsLoop>
+            <AttachToCondition />
+            <AttachToResult>0</AttachToResult>
+            <AttachToCustom>Seat</AttachToCustom>
+          </Field>
+          <Field>
+            <Type>byte</Type>
+            <EnName>gender</EnName>
+            <CnName />
+            <IsLoop>false</IsLoop>
+            <AttachToCondition />
+            <AttachToResult>0</AttachToResult>
+            <AttachToCustom>Seat</AttachToCustom>
+          </Field>
+          <Field>
+            <Type>byte</Type>
+            <EnName>disbandtatus</EnName>
+            <CnName />
+            <IsLoop>false</IsLoop>
+            <AttachToCondition />
+            <AttachToResult>0</AttachToResult>
+            <AttachToCustom>Seat</AttachToCustom>
+          </Field>
+          <Field>
+            <Type>bool</Type>
+            <EnName>isBanker</EnName>
+            <CnName />
+            <IsLoop>false</IsLoop>
+            <AttachToCondition />
+            <AttachToResult>0</AttachToResult>
+            <AttachToCustom>Seat</AttachToCustom>
+          </Field>
+          <Field>
+            <Type>int</Type>
+            <EnName>playerId</EnName>
+            <CnName />
+            <IsLoop>false</IsLoop>
+            <AttachToCondition />
+            <AttachToResult>0</AttachToResult>
+            <AttachToCustom>Seat</AttachToCustom>
+          </Field>
+          <Field>
+            <Type>int</Type>
+            <EnName>pos</EnName>
+            <CnName />
+            <IsLoop>false</IsLoop>
+            <AttachToCondition />
+            <AttachToResult>0</AttachToResult>
+            <AttachToCustom>Seat</AttachToCustom>
+          </Field>
+          <Field>
+            <Type>int</Type>
+            <EnName>handCount</EnName>
+            <CnName />
+            <IsLoop>false</IsLoop>
+            <AttachToCondition />
+            <AttachToResult>0</AttachToResult>
+            <AttachToCustom>Seat</AttachToCustom>
+          </Field>
+          <Field>
+            <Type>int</Type>
+            <EnName>pokerAmount</EnName>
+            <CnName />
+            <IsLoop>false</IsLoop>
+            <AttachToCondition />
+            <AttachToResult>0</AttachToResult>
+            <AttachToCustom>Seat</AttachToCustom>
+          </Field>
+          <Field>
+            <Type>int</Type>
+            <EnName>gold</EnName>
+            <CnName />
+            <IsLoop>false</IsLoop>
+            <AttachToCondition />
+            <AttachToResult>0</AttachToResult>
+            <AttachToCustom>Seat</AttachToCustom>
+          </Field>
+          <Field>
+            <Type>Mahjong</Type>
+            <EnName>hitPoker</EnName>
+            <CnName />
+            <IsLoop>false</IsLoop>
+            <AttachToCondition />
+            <AttachToResult>0</AttachToResult>
+            <AttachToCustom>Seat</AttachToCustom>
+          </Field>
+          <Field>
+            <Type>Mahjong</Type>
+            <EnName>desktop</EnName>
+            <CnName />
+            <IsLoop>true</IsLoop>
+            <AttachToCondition />
+            <AttachToResult>0</AttachToResult>
+            <AttachToCustom>Seat</AttachToCustom>
+          </Field>
+          <Field>
+            <Type>Mahjong</Type>
+            <EnName>mahjongs</EnName>
+            <CnName />
+            <IsLoop>true</IsLoop>
+            <AttachToCondition />
+            <AttachToResult>0</AttachToResult>
+            <AttachToCustom>Seat</AttachToCustom>
+          </Field>
+          <Field>
+            <Type>Mahjong</Type>
+            <EnName>universal</EnName>
+            <CnName />
+            <IsLoop>true</IsLoop>
+            <AttachToCondition />
+            <AttachToResult>0</AttachToResult>
+            <AttachToCustom>Seat</AttachToCustom>
+          </Field>
+          <Field>
+            <Type>MahjongGroup</Type>
+            <EnName>usedPokerGroup</EnName>
+            <CnName />
+            <IsLoop>true</IsLoop>
+            <AttachToCondition />
+            <AttachToResult>0</AttachToResult>
+            <AttachToCustom>Seat</AttachToCustom>
+          </Field>
+          <Field>
+            <Type>string</Type>
+            <EnName>nickname</EnName>
+            <CnName />
+            <IsLoop>false</IsLoop>
+            <AttachToCondition />
+            <AttachToResult>0</AttachToResult>
+            <AttachToCustom>Seat</AttachToCustom>
+          </Field>
+          <Field>
+            <Type>string</Type>
+            <EnName>avatar</EnName>
+            <CnName />
+            <IsLoop>false</IsLoop>
+            <AttachToCondition />
+            <AttachToResult>0</AttachToResult>
+            <AttachToCustom>Seat</AttachToCustom>
+          </Field>
+          <Field>
+            <Type>int</Type>
+            <EnName>index</EnName>
+            <CnName />
+            <IsLoop>false</IsLoop>
+            <AttachToCondition />
+            <AttachToResult>0</AttachToResult>
+            <AttachToCustom>Mahjong</AttachToCustom>
+          </Field>
+          <Field>
+            <Type>int</Type>
+            <EnName>color</EnName>
+            <CnName />
+            <IsLoop>false</IsLoop>
+            <AttachToCondition />
+            <AttachToResult>0</AttachToResult>
+            <AttachToCustom>Mahjong</AttachToCustom>
+          </Field>
+          <Field>
+            <Type>int</Type>
+            <EnName>number</EnName>
+            <CnName />
+            <IsLoop>false</IsLoop>
+            <AttachToCondition />
+            <AttachToResult>0</AttachToResult>
+            <AttachToCustom>Mahjong</AttachToCustom>
+          </Field>
+          <Field>
+            <Type>int</Type>
+            <EnName>typeId</EnName>
+            <CnName />
+            <IsLoop>false</IsLoop>
+            <AttachToCondition />
+            <AttachToResult>0</AttachToResult>
+            <AttachToCustom>MahjongGroup</AttachToCustom>
+          </Field>
+          <Field>
+            <Type>int</Type>
+            <EnName>subTypeId</EnName>
+            <CnName />
+            <IsLoop>false</IsLoop>
+            <AttachToCondition />
+            <AttachToResult>0</AttachToResult>
+            <AttachToCustom>MahjongGroup</AttachToCustom>
+          </Field>
+          <Field>
+            <Type>int</Type>
+            <EnName>playerId</EnName>
+            <CnName />
+            <IsLoop>false</IsLoop>
+            <AttachToCondition />
+            <AttachToResult>0</AttachToResult>
+            <AttachToCustom>MahjongGroup</AttachToCustom>
+          </Field>
+          <Field>
+            <Type>Mahjong</Type>
+            <EnName>pokers</EnName>
+            <CnName />
+            <IsLoop>true</IsLoop>
+            <AttachToCondition />
+            <AttachToResult>0</AttachToResult>
+            <AttachToCustom>MahjongGroup</AttachToCustom>
+          </Field>
+        </FieldInfos>
+      </Protocol>
+      <Protocol>
+        <Id>637540494282991453</Id>
+        <Code>30011</Code>
+        <EnName>S2C_AskOperation</EnName>
+        <CnName>S2C_AskOperation</CnName>
+        <Description>when a player can operate</Description>
+        <FieldInfos>
+          <Field>
+            <Type>MahjongGroup</Type>
+            <EnName>askMahjongGroups</EnName>
+            <CnName />
+            <IsLoop>true</IsLoop>
+            <AttachToCondition />
+            <AttachToResult>0</AttachToResult>
+            <AttachToCustom />
+          </Field>
+          <Field>
+            <Type>byte</Type>
+            <EnName>typeId</EnName>
+            <CnName />
+            <IsLoop>false</IsLoop>
+            <AttachToCondition />
+            <AttachToResult>0</AttachToResult>
+            <AttachToCustom>MahjongGroup</AttachToCustom>
+          </Field>
+          <Field>
+            <Type>byte</Type>
+            <EnName>subTypeId</EnName>
+            <CnName />
+            <IsLoop>false</IsLoop>
+            <AttachToCondition />
+            <AttachToResult>0</AttachToResult>
+            <AttachToCustom>MahjongGroup</AttachToCustom>
+          </Field>
+          <Field>
+            <Type>int</Type>
+            <EnName>playerId</EnName>
+            <CnName />
+            <IsLoop>false</IsLoop>
+            <AttachToCondition />
+            <AttachToResult>0</AttachToResult>
+            <AttachToCustom>MahjongGroup</AttachToCustom>
+          </Field>
+          <Field>
+            <Type>Mahjong</Type>
+            <EnName>mahjongs</EnName>
+            <CnName />
+            <IsLoop>true</IsLoop>
+            <AttachToCondition />
+            <AttachToResult>0</AttachToResult>
+            <AttachToCustom>MahjongGroup</AttachToCustom>
+          </Field>
+          <Field>
+            <Type>int</Type>
+            <EnName>index</EnName>
+            <CnName />
+            <IsLoop>false</IsLoop>
+            <AttachToCondition />
+            <AttachToResult>0</AttachToResult>
+            <AttachToCustom>Mahjong</AttachToCustom>
+          </Field>
+          <Field>
+            <Type>int</Type>
+            <EnName>color</EnName>
+            <CnName />
+            <IsLoop>false</IsLoop>
+            <AttachToCondition />
+            <AttachToResult>0</AttachToResult>
+            <AttachToCustom>Mahjong</AttachToCustom>
+          </Field>
+          <Field>
+            <Type>int</Type>
+            <EnName>number</EnName>
+            <CnName />
+            <IsLoop>false</IsLoop>
+            <AttachToCondition />
+            <AttachToResult>0</AttachToResult>
+            <AttachToCustom>Mahjong</AttachToCustom>
+          </Field>
+          <Field>
+            <Type>long</Type>
+            <EnName>countdown</EnName>
+            <CnName />
+            <IsLoop>false</IsLoop>
+            <AttachToCondition />
+            <AttachToResult>0</AttachToResult>
             <AttachToCustom />
           </Field>
         </FieldInfos>
+      </Protocol>
+      <Protocol>
+        <Id>637540555984145672</Id>
+        <Code>30012</Code>
+        <EnName>C2S_Pass</EnName>
+        <CnName>C2S_Pass</CnName>
+        <Description />
+        <FieldInfos />
+      </Protocol>
+      <Protocol>
+        <Id>637540556384798779</Id>
+        <Code>30013</Code>
+        <EnName>S2C_Pass</EnName>
+        <CnName>S2C_Pass</CnName>
+        <Description />
+        <FieldInfos />
+      </Protocol>
+      <Protocol>
+        <Id>637540556620626937</Id>
+        <Code>30014</Code>
+        <EnName>S2C_OperationWait</EnName>
+        <CnName>S2C_OperationWait</CnName>
+        <Description>when a player need to choice if operate, broadcast to others</Description>
+        <FieldInfos />
       </Protocol>
     </ProtocolInfos>
   </Menu>

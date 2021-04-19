@@ -1,6 +1,6 @@
 //===================================================
 //作    者：DRB
-//创建时间：2021-04-05 20:52:14
+//创建时间：2021-04-15 03:55:31
 //备    注：
 //===================================================
 package com.oegame.tablegames.protocol.gen;
@@ -18,7 +18,7 @@ public class Mahjong_C2S_OperateProto
     public static final int CODE = 30006; 
 
     private byte typeId; //
-    private int index; //
+    private ArrayList<Integer> index = new ArrayList<Integer>(); //
     public byte getTypeId(){
         return this.typeId;
     }
@@ -27,13 +27,21 @@ public class Mahjong_C2S_OperateProto
         this.typeId = value;
     }
 
-    public int getIndex(){
+    public ArrayList<Integer> getindexList(){
         return this.index;
-    }
+    };
 
-    public void setIndex(int value){
-        this.index = value;
-    }
+    public int getIndex(int index){
+        return this.index.get(index);
+    };
+
+    public int indexCount(){
+        return this.index.size();
+    };
+
+    public void addIndex(int value){
+        this.index.add(value);
+    };
 
 
     public byte[] toArray()
@@ -44,7 +52,11 @@ public class Mahjong_C2S_OperateProto
         try{
             dos.writeInt(CODE);
             dos.writeByte(typeId);
-            dos.writeInt(index);
+            dos.writeShort(index.size());
+            for (int i = 0; i < index.size(); ++i)
+            {
+                dos.writeInt(index.get(i));
+            }
             ret = baos.toByteArray();
             dos.close();
             baos.close();
@@ -63,7 +75,11 @@ public class Mahjong_C2S_OperateProto
         DataInputStreamExt dis = new DataInputStreamExt(bais);
         try{
             proto.typeId = dis.readByte();
-            proto.index = dis.readInt();
+            short indexLength = dis.readShort();
+            for (int i = 0; i < indexLength; ++i)
+            {
+                proto.index.add(dis.readInt());
+            }
             dis.close();
             bais.close();
         }
