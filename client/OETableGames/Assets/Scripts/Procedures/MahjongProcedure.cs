@@ -180,6 +180,12 @@ public class MahjongProcedure : Procedure
         m_Proxy.OperatePoker(type, playerId, subType, lst);
     }
 
+    public void Pass()
+    {
+        if (m_Proxy == null) return;
+        m_Proxy.Pass();
+    }
+
     public void Settle(Room room)
     {
         if (room == null) return;

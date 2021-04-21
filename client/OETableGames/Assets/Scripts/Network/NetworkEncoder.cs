@@ -21,66 +21,41 @@ public class NetworkEncoder : INetworkEncoder
     public void Encode(INetworkChannel channel, object inData, Stream outData)
     {
         byte[] data = (byte[])inData;
-        BinaryWriter writer = new BinaryWriter(outData);
-        byte[] length = BitConverter.GetBytes(data.Length);
-        Array.Reverse(length);
-        writer.Write(length);
-        writer.Write(data);
-
-
         int leng;
         bool isCompress;
-        if (inData == null)
+        ushort crc;
+
+        byte[] key2bytes = Encoding.Default.GetBytes(KEY);
+        int keyLength = key2bytes.Length;
+        int dataLength = data.Length;
+        int index = 0;
+        while (index < dataLength)
         {
-            leng = 7;
-            isCompress = false;
-        }
-        else
-        {
-            byte[] buffer = new byte[DATA_HEAD_LENGTH];
-            for (int i = buffer.Length - 1; i >= 0; --i)
-            {
-                buffer[i] = data[buffer.Length - 1 - i];
-            }
+            int currentKey = dataLength % keyLength;
+            currentKey = CORRECTED + currentKey;
+            currentKey = currentKey * currentKey % keyLength;
 
-            byte[] key2bytes = Encoding.Default.GetBytes(KEY);
-            int keyLength = key2bytes.Length;
-            int dataLength = data.Length;
+            int currentByte = key2bytes[currentKey];
+            data[index] = Convert.ToByte(data[index] ^ currentByte);
 
-            int index = 0;
-
-            while (index < dataLength)
-            {
-                int currentKey = dataLength % keyLength;
-                currentKey = CORRECTED + currentKey;
-                currentKey = currentKey * currentKey % keyLength;
-
-                int currentByte = key2bytes[currentKey];
-                data[index] = Convert.ToByte(data[index] ^ currentByte);
-
-                index++;
-            }
-
-
-            isCompress = data.Length >= COMPRESS_LENGTH;
-            if (isCompress)
-            {
-                data = GZipCompressUtil.Compress(data);
-            }
-            leng = data.Length + 3;
+            index++;
         }
 
-        ushort crc = EncryptUtil.CalculateCrc16(data);
-        using (MemoryStream ms = new MemoryStream())
+        crc = EncryptUtil.CalculateCrc16(data);
+
+        isCompress = data.Length >= COMPRESS_LENGTH;
+        if (isCompress)
         {
-            ms.WriteInt(leng);
-            ms.WriteBool(isCompress);
-            ms.WriteUShort(crc);
-            if (data != null)
-            {
-                ms.Write(data, 0, data.Length);
-            }
-            outData = ms;
+            data = GZipCompressUtil.Compress(data);
+        }
+        leng = data.Length + 3;
+
+        outData.WriteInt(leng);
+        outData.WriteBool(isCompress);
+        outData.WriteUShort(crc);
+        if (data != null)
+        {
+            outData.Write(data, 0, data.Length);
         }
     }
 }

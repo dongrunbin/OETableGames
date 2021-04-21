@@ -335,9 +335,9 @@ public class MahjongProxy
         }
     }
 
-    public void Pass(int playerId)
+    public void Pass()
     {
-        Seat seat = GetSeatByPlayerId(playerId);
+        Seat seat = Room.PlayerSeat;
         if (seat == null) return;
 
         Room.AskPokerGroup = null;

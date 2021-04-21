@@ -208,7 +208,7 @@ public class LoginProcedure : Procedure
         Log.Info("TimeDistance between client and server : " + timeDifference + "ms");
         m_PrevReceiveHeartTime = Time.realtimeSinceStartup;
 
-        DrbComponent.TimerSystem.RegisterTimer(0.0f, SEND_HEART_BEAT_SPACE, 0, null, CheckHeartBeat, null);
+        DrbComponent.TimerSystem.RegisterTimer(0.0f, SEND_HEART_BEAT_SPACE, -1, null, CheckHeartBeat, null);
 
 
         ChangeState<MainMenuProcedure>();
@@ -225,6 +225,8 @@ public class LoginProcedure : Procedure
         long fps = (localTime - sendTime) / 2;
         serverTime = serverTime + fps;
         DrbComponent.SettingSystem.SetLong("TimeDistance", localTime - serverTime);
+
+        Log.Info("wtf");
     }
 
     private void CheckHeartBeat(Timer timer)
@@ -240,6 +242,7 @@ public class LoginProcedure : Procedure
 
     private void ClientSendHeart()
     {
+        Log.Info("wtfff");
         System_C2S_HeartBeatProto proto = new System_C2S_HeartBeatProto();
         proto.clientTimestamp = TimeUtil.GetTimestampMS();
         DrbComponent.NetworkSystem.Send(proto.Serialize());

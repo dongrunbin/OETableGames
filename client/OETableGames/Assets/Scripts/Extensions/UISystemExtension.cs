@@ -31,7 +31,10 @@ public static class UISystemExtensions
         DrbComponent.ResourceSystem.LoadAssetAsync(assetPath, (LoadAssetCompleteEventArgs args) =>
         {
             IUIForm form = uiSystem.OpenForm(args.AssetName, args.Asset, groupName);
-            callback(form);
+            if (callback != null)
+            {
+                callback(form);
+            }
         }, null);
     }
 

@@ -17,8 +17,6 @@ public class MainMenuForm : FormBase
     [SerializeField]
     private Text m_TextPassportId;
     [SerializeField]
-    private Text m_TextRoomCardCount;
-    [SerializeField]
     private Text m_TextGold;
     [SerializeField]
     private Button m_BtnCreateRoom;

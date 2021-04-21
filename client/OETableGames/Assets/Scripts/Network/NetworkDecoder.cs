@@ -20,11 +20,14 @@ public class NetworkDecoder : INetworkDecoder
     public void Decode(INetworkChannel channel, Stream inData, out object outData)
     {
         outData = null;
+
+        int length = (int)inData.Position;
+
+
         inData.Position = 0;
-        inData.Read(m_HeadData, 0, DATA_HEAD_LENGTH);
-        int currentMsgLen = ((m_HeadData[0] & 0xff) << 24) + ((m_HeadData[1] & 0xff) << 16) + ((m_HeadData[2] & 0xff) << 8) + (m_HeadData[3] & 0xff);
+        int currentMsgLen = inData.ReadInt();
         int currentFullMsgLen = DATA_HEAD_LENGTH + currentMsgLen;
-        if (inData.Length >= currentFullMsgLen)
+        if (length >= currentFullMsgLen)
         {
             byte[] buffer = new byte[currentMsgLen];
             inData.Position = DATA_HEAD_LENGTH + 1;
@@ -60,22 +63,21 @@ public class NetworkDecoder : INetworkDecoder
                 outData = buffer;
             }
 
-            int remainLen = (int)inData.Length - currentFullMsgLen;
+            int remainLen = (int)length - currentFullMsgLen;
             if (remainLen > 0)
             {
                 inData.Position = currentFullMsgLen;
                 byte[] remainBuffer = new byte[remainLen];
                 inData.Read(remainBuffer, 0, remainLen);
                 inData.Position = 0;
-                inData.SetLength(0);
 
                 inData.Write(remainBuffer, 0, remainBuffer.Length);
             }
             else
             {
                 inData.Position = 0;
-                inData.SetLength(0);
             }
         }
+
     }
 }

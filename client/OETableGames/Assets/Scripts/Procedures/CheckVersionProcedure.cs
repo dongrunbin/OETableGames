@@ -52,7 +52,7 @@ public class CheckVersionProcedure : Procedure
         DrbComponent.DownloadSystem.OnDownloadUpdate -= OnDownloadUpdate;
         DrbComponent.DownloadSystem.OnDownloadFailure -= OnDownloadFailure;
 
-        DrbComponent.UISystem.DestroyForm(m_InitForm);
+        //DrbComponent.UISystem.DestroyForm(m_InitForm);
     }
 
     private void RequestDownloadURL()
@@ -92,7 +92,7 @@ public class CheckVersionProcedure : Procedure
     private void CheckResources()
     {
 #if UNITY_EDITOR && !ASSETBUNDLE
-        ChangeState<LoginProcedure>();
+        ChangeState<PreloadProcedure>();
 #else
         string versionPath = DrbComponent.ResourceSystem.PersistentPath + VERSION_FILE_NAME;
         DrbComponent.DownloadSystem.Download(m_DownloadUrl + VERSION_FILE_NAME, string.Empty, versionPath);

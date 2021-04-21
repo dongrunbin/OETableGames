@@ -5,6 +5,7 @@
 //===================================================
 using DrbFramework.Event;
 using DrbFramework.Internal;
+using System;
 using System.Collections.Generic;
 
 public class MahjongService
@@ -22,7 +23,6 @@ public class MahjongService
         DrbComponent.GetEventSystem<int>().AddEventListener(CodeDef.Game_S2C_LeaveRoomProto, OnServerBroadcastLeave);//服务器广播玩家离开消息
         DrbComponent.GetEventSystem<int>().AddEventListener(CodeDef.Game_S2C_ReadyProto, OnServerBroadcastReady);//服务器广播玩家准备消息
         DrbComponent.GetEventSystem<int>().AddEventListener(CodeDef.Game_S2C_DisbandProto, OnServerBroadcastDisband);//服务器广播解散房间
-        //DrbComponent.GetEventSystem<int>().AddEventListener(CodeDef.S2C_Game_CountDownProto, OnServerBroadcastCountDown);//服务器广播倒计时
         //DrbComponent.GetEventSystem<int>().AddEventListener(CodeDef.S2C_Game_RoomExpireProto, OnServerReturnRoomExpire);//服务器返回房间过期
         DrbComponent.GetEventSystem<int>().AddEventListener(CodeDef.Mahjong_S2C_RoomInfoProto, OnServerReturnRoomInfo);//服务器返回房间信息
         DrbComponent.GetEventSystem<int>().AddEventListener(CodeDef.Mahjong_S2C_ResultProto, OnServerReturnResult);//服务器返回结果消息
@@ -31,10 +31,8 @@ public class MahjongService
         DrbComponent.GetEventSystem<int>().AddEventListener(CodeDef.Mahjong_S2C_DiscardProto, OnServerBroadcastPlayPoker);//服务器广播出牌消息
         DrbComponent.GetEventSystem<int>().AddEventListener(CodeDef.Mahjong_S2C_AskOperationProto, OnServerPushAskOperation);//服务器询问是否吃碰杠胡
         DrbComponent.GetEventSystem<int>().AddEventListener(CodeDef.Mahjong_S2C_OperateProto, OnServerBroadcastOperation);//服务器广播吃碰杠胡消息
-        //DrbComponent.GetEventSystem<int>().AddEventListener(CodeDef.S2C_Mahjong_PassProto, OnServerReturnPass);//服务器返回过
-        //DrbComponent.GetEventSystem<int>().AddEventListener(CodeDef.S2C_Mahjong_OperateWaitProto, OnServerReturnOperateWait);//服务器返回吃碰杠胡等待
-        //DrbComponent.GetEventSystem<int>().AddEventListener(CodeDef.S2C_Mahjong_GameSettleProto, OnServerBroadcastSettle);//服务器广播结算
-        //DrbComponent.GetEventSystem<int>().AddEventListener(CodeDef.S2C_Mahjong_RoomStatusProto, OnServerBroadcastRoomStatus);//服务器广播房间状态
+        DrbComponent.GetEventSystem<int>().AddEventListener(CodeDef.Mahjong_S2C_PassProto, OnServerReturnPass);//服务器返回过
+        DrbComponent.GetEventSystem<int>().AddEventListener(CodeDef.Mahjong_S2C_SettleProto, OnServerBroadcastSettle);//服务器广播结算
     }
 
     public void RemoveListener()
@@ -44,7 +42,6 @@ public class MahjongService
         DrbComponent.GetEventSystem<int>().RemoveEventListener(CodeDef.Game_S2C_LeaveRoomProto, OnServerBroadcastLeave);//服务器广播玩家离开消息
         DrbComponent.GetEventSystem<int>().RemoveEventListener(CodeDef.Game_S2C_ReadyProto, OnServerBroadcastReady);//服务器广播玩家准备消息
         DrbComponent.GetEventSystem<int>().RemoveEventListener(CodeDef.Game_S2C_DisbandProto, OnServerBroadcastDisband);//服务器广播解散房间
-        //DrbComponent.GetEventSystem<int>().RemoveEventListener(CodeDef.S2C_Game_CountDownProto, OnServerBroadcastCountDown);//服务器广播倒计时
         //DrbComponent.GetEventSystem<int>().RemoveEventListener(CodeDef.S2C_Game_RoomExpireProto, OnServerReturnRoomExpire);//服务器返回房间过期
         DrbComponent.GetEventSystem<int>().RemoveEventListener(CodeDef.Mahjong_S2C_RoomInfoProto, OnServerReturnRoomInfo);//服务器返回房间信息
         DrbComponent.GetEventSystem<int>().RemoveEventListener(CodeDef.Mahjong_S2C_ResultProto, OnServerReturnResult);//服务器返回结果消息
@@ -53,10 +50,13 @@ public class MahjongService
         DrbComponent.GetEventSystem<int>().RemoveEventListener(CodeDef.Mahjong_S2C_DiscardProto, OnServerBroadcastPlayPoker);//服务器广播出牌消息
         DrbComponent.GetEventSystem<int>().RemoveEventListener(CodeDef.Mahjong_S2C_AskOperationProto, OnServerPushAskOperation);//服务器询问是否吃碰杠胡
         DrbComponent.GetEventSystem<int>().RemoveEventListener(CodeDef.Mahjong_S2C_OperateProto, OnServerBroadcastOperation);//服务器广播吃碰杠胡消息
-        //DrbComponent.GetEventSystem<int>().RemoveEventListener(CodeDef.S2C_Mahjong_PassProto, OnServerReturnPass);//服务器返回过
-        //DrbComponent.GetEventSystem<int>().RemoveEventListener(CodeDef.S2C_Mahjong_OperateWaitProto, OnServerReturnOperateWait);//服务器返回吃碰杠胡等待
-        //DrbComponent.GetEventSystem<int>().RemoveEventListener(CodeDef.S2C_Mahjong_GameSettleProto, OnServerBroadcastSettle);//服务器广播结算
-        //DrbComponent.GetEventSystem<int>().RemoveEventListener(CodeDef.S2C_Mahjong_RoomStatusProto, OnServerBroadcastRoomStatus);//服务器广播房间状态
+        DrbComponent.GetEventSystem<int>().RemoveEventListener(CodeDef.Mahjong_S2C_PassProto, OnServerReturnPass);//服务器返回过
+        DrbComponent.GetEventSystem<int>().RemoveEventListener(CodeDef.Mahjong_S2C_SettleProto, OnServerBroadcastSettle);//服务器广播结算
+    }
+
+    private void OnServerReturnOperateWait(object sender, EventArgs<int> args)
+    {
+        throw new NotImplementedException();
     }
 
     private void OnConnected(object sender, EventArgs<int> args)
@@ -171,11 +171,6 @@ public class MahjongService
         m_Procedure.Disband();
     }
 
-    private void OnServerBroadcastCountDown(object sender, EventArgs<int> args)
-    {
-        //S2C_Game_CountDownProto proto = S2C_Game_CountDownProto.GetProto(((NetworkEventArgs)args).Data);
-    }
-
     private void OnServerReturnRoomExpire(object sender, EventArgs<int> args)
     {
 
@@ -284,7 +279,7 @@ public class MahjongService
 
     private void OnServerReturnPass(object sender, EventArgs<int> args)
     {
-
+        m_Procedure.Pass();
     }
 
     private void OnServerBroadcastSettle(object sender, EventArgs<int> args)
@@ -483,10 +478,5 @@ public class MahjongService
         }
 
         m_Procedure.Init(room);
-    }
-
-    private void OnServerBroadcastRoomStatus(object sender, EventArgs<int> args)
-    {
-        //S2C_Mahjong_RoomStatusProto proto = S2C_Mahjong_RoomStatusProto.GetProto(((NetworkEventArgs)args).Data);
     }
 }

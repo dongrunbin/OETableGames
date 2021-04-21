@@ -11,19 +11,18 @@ using DrbFramework.Internal.Network;
 using DrbFramework.Extensions;
 
 /// <summary>
-/// S2C_Connect
+/// S2C_Pass
 /// </summary>
-public class System_S2C_ConnectProto : IProto
+public class Mahjong_S2C_PassProto : IProto
 {
-    public int Code { get { return 10006; } }
+    public int Code { get { return 30013; } }
 
-    public long timestamp; //timestamp
 
-    public System_S2C_ConnectProto()
+    public Mahjong_S2C_PassProto()
     {
     }
 
-    public System_S2C_ConnectProto(byte[] bytes)
+    public Mahjong_S2C_PassProto(byte[] bytes)
     {
         Deserialize(bytes);
     }
@@ -33,7 +32,6 @@ public class System_S2C_ConnectProto : IProto
         using (MemoryStream ms = new MemoryStream())
         {
             ms.WriteInt(Code);
-            ms.WriteLong(timestamp);
             return ms.ToArray();
         }
     }
@@ -43,7 +41,6 @@ public class System_S2C_ConnectProto : IProto
         if (buffer == null) return;
         using (MemoryStream ms = new MemoryStream(buffer))
         {
-            timestamp = ms.ReadLong();
         }
     }
 }

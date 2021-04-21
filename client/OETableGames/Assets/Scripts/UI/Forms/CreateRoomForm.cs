@@ -43,9 +43,9 @@ public class CreateRoomForm : FormBase
 
     protected UIItemToggleGame m_CurrentGame;
 
-    public override void OnFocus()
+    public override void OnInit()
     {
-        base.OnFocus();
+        base.OnInit();
         InitView();
     }
 
@@ -70,7 +70,8 @@ public class CreateRoomForm : FormBase
                 allType.Add(entity.GameType);
             }
             GameObject go = Instantiate(m_GamePrefab);
-            go.transform.SetParent(m_GameContainer.transform);
+            go.SetActive(true);
+            go.SetParentAndReset(m_GameContainer.transform);
             UIItemToggleGame item = go.GetComponent<UIItemToggleGame>();
             item.GameName = entity.GameName;
             item.GameType = entity.GameType;
@@ -84,7 +85,8 @@ public class CreateRoomForm : FormBase
             for (int i = 0; i < allType.Count; ++i)
             {
                 GameObject go = Instantiate(m_TypePrefab);
-                go.transform.SetParent(m_TypeContainer.transform);
+                go.SetActive(true);
+                go.SetParentAndReset(m_TypeContainer.transform);
                 UIItemGameType item = go.GetComponent<UIItemGameType>();
                 item.GameType = allType[i];
                 item.onValueChanged = OnTypeChanged;
@@ -199,11 +201,11 @@ public class CreateRoomForm : FormBase
 
             if (!isExists)
             {
-                GameObject GroupGo = Instantiate(m_GroupPrefab);
-                GroupGo.transform.SetParent(m_SettingContainer);
-                UIItemSettingGroup Group = GroupGo.GetComponent<UIItemSettingGroup>();
+                GameObject groupGO = Instantiate(m_GroupPrefab);
+                groupGO.SetActive(true);
+                groupGO.SetParentAndReset(m_SettingContainer);
+                UIItemSettingGroup Group = groupGO.GetComponent<UIItemSettingGroup>();
                 Group.GroupName = option.Label;
-                Group.SafeSetActive(false);
                 m_ListGroup.Add(Group);
             }
 
@@ -229,6 +231,7 @@ public class CreateRoomForm : FormBase
                 if (isExists) continue;
             }
             GameObject go = Instantiate(m_OptionPrefab);
+            go.SetActive(true);
             UIItemOption item = go.GetComponent<UIItemOption>();
             item.OptionId = option.Id;
             item.OptionName = option.Name;
@@ -255,7 +258,7 @@ public class CreateRoomForm : FormBase
             {
                 if (m_ListGroup[j].GroupName.Equals(option.Label))
                 {
-                    item.gameObject.transform.SetParent(m_ListGroup[j].ToggleGroup.transform);
+                    item.gameObject.SetParentAndReset(m_ListGroup[j].ToggleGroup.transform);
                     if (item.Mode == SelectMode.Single)
                     {
                         item.SetGroup(m_ListGroup[j].ToggleGroup);
@@ -335,14 +338,13 @@ public class CreateRoomForm : FormBase
 
     private void ClientSendCreateRoom(int gameId, List<int> settingIds)
     {
-        //C2S_Game_RoomCreateProto proto = new C2S_Game_RoomCreateProto();
-        //proto.settingIdList = new List<int>();
-        //for (int i = 0; i < settingIds.Count; ++i)
-        //{
-        //    proto.settingIdList.Add(settingIds[i]);
-        //}
-        //proto.clubId = GroupId;
-        //proto.gameId = gameId;
-        //DrbComponent.NetworkSystem.GetChannel("MainServer").Send(proto.ToArray());
+        Game_C2S_CreateRoomProto proto = new Game_C2S_CreateRoomProto();
+        proto.settingIdsList = new List<int>();
+        for (int i = 0; i < settingIds.Count; ++i)
+        {
+            proto.settingIdsList.Add(settingIds[i]);
+        }
+        proto.gameId = gameId;
+        DrbComponent.NetworkSystem.Send(proto.Serialize());
     }
 }
