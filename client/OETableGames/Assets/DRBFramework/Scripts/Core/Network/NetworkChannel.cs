@@ -31,6 +31,8 @@ namespace DrbFramework.Network
             m_Handler = handler;
             m_Encoder = encoder;
             m_Decoder = decoder;
+
+            m_ReceiveBuffer.SetLength(m_ReceiveBuffer.Capacity);
         }
 
         public string Name { get; private set; }
@@ -198,6 +200,7 @@ namespace DrbFramework.Network
             {
                 if (m_Handler != null)
                     m_Handler.OnExceptionCaught(this, e);
+                isClose = true;
             }
         }
 
@@ -209,21 +212,18 @@ namespace DrbFramework.Network
             {
                 receivedLength = socket.EndReceive(ar);
             }
-            catch (ObjectDisposedException)
-            {
-                return;
-            }
             catch (Exception e)
             {
                 if (m_Handler != null)
                     m_Handler.OnExceptionCaught(this, e);
+                isClose = true;
             }
             if (receivedLength <= 0)
             {
                 isClose = true;
                 return;
             }
-            m_ReceiveBuffer.SetLength(m_ReceiveBuffer.Length + receivedLength);
+            m_ReceiveBuffer.Position += receivedLength;
             if (m_Decoder != null)
             {
                 object obj;
@@ -285,6 +285,7 @@ namespace DrbFramework.Network
             {
                 if (m_Handler != null)
                     m_Handler.OnExceptionCaught(this, e);
+                isClose = true;
             }
         }
 
@@ -305,6 +306,7 @@ namespace DrbFramework.Network
             {
                 if (m_Handler != null)
                     m_Handler.OnExceptionCaught(this, e);
+                isClose = true;
             }
             CheckSendQueue();
         }
