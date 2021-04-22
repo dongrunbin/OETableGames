@@ -59,11 +59,6 @@ public class CameraCtrl : MonoBehaviour
             m_Pos[i].gameObject.SetActive(index == i);
         }
         gameObject.transform.SetParent(m_Pos[index]);
-
-        if (m_HandPokerCameraContainers != null && m_HandPokerCameraContainers.Length > index)
-        {
-            HandPokerCamera.gameObject.transform.SetParent(m_HandPokerCameraContainers[index]);
-        }
     }
 
     public virtual void SetPos(int seatId, Action onComplete)

@@ -94,6 +94,12 @@ public class MahjongForm : FormBase
         }
     }
 
+    public void Enter(Seat seat)
+    {
+        UIItemSeat item = GetItemSeatByIndex(seat.Index);
+        item.SafeSetActive(true);
+        item.SetSeat(seat);
+    }
 
     public void CloseOperator()
     {
