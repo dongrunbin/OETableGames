@@ -60,8 +60,8 @@ public class SocketEncoder implements ProtocolEncoder
 
 		pack.putInt(crypt.length);
 		pack.put(crypt);
-		
-//		System.out.println("服务器发送了一个长度为" + pack.limit() + "的消息");
+
+		System.out.println("服务器发送了一个长度为" + pack.limit() + "的消息");
 		
 		pack.flip();
 		out.write(pack);

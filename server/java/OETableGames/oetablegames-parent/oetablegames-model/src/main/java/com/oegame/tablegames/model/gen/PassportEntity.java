@@ -12,6 +12,9 @@ public class PassportEntity extends AbstractMySqlEntity
     //管理员账户 
     public String passport;
 
+    //密码
+    public String password;
+
     //令牌 
     public String token;
 
@@ -33,12 +36,17 @@ public class PassportEntity extends AbstractMySqlEntity
     //登录IP 
     public long log_ip;
 
+    //登录次数
+    public int log_count;
+
     //设备 
     public int device;
 
     public long getId(){ return this.id;}
 
     public String getPassport(){ return this.passport;}
+
+    public String getPassword(){ return this.password;}
 
     public String getToken(){ return this.token;}
 
@@ -54,11 +62,15 @@ public class PassportEntity extends AbstractMySqlEntity
 
     public long getLog_ip(){ return this.log_ip;}
 
+    public int getLog_count(){ return this.log_count;}
+
     public int getDevice(){ return this.device;}
 
     public void setId(long value){ this.id = value;}
 
     public void setPassport(String value){ this.passport = value;}
+
+    public void setPassword(String value){ this.password = value;}
 
     public void setToken(String value){ this.token = value;}
 
@@ -74,6 +86,8 @@ public class PassportEntity extends AbstractMySqlEntity
 
     public void setLog_ip(long value){ this.log_ip = value;}
 
+    public void setLog_count(int value){ this.log_count = value;}
+
     public void setDevice(int value){ this.device = value;}
 
     public byte[] serialize()
@@ -85,6 +99,7 @@ public class PassportEntity extends AbstractMySqlEntity
         {
             dos.writeLong(id);
             dos.writeUTF(passport);
+            dos.writeUTF(password);
             dos.writeUTF(token);
             dos.writeLong(tokenExpire);
             dos.writeByte(status);
@@ -92,6 +107,7 @@ public class PassportEntity extends AbstractMySqlEntity
             dos.writeLong(reg_ip);
             dos.writeLong(log_time);
             dos.writeLong(log_ip);
+            dos.writeInt(log_count);
             dos.writeInt(device);
             ret = baos.toByteArray();
             dos.close();
@@ -114,6 +130,7 @@ public class PassportEntity extends AbstractMySqlEntity
         {
             entity.id = dis.readLong();
             entity.passport = dis.readUTF();
+            entity.password = dis.readUTF();
             entity.token = dis.readUTF();
             entity.tokenExpire = dis.readLong();
             entity.status = dis.readByte();
@@ -121,6 +138,7 @@ public class PassportEntity extends AbstractMySqlEntity
             entity.reg_ip = dis.readLong();
             entity.log_time = dis.readLong();
             entity.log_ip = dis.readLong();
+            entity.log_count = dis.readInt();
             entity.device = dis.readInt();
             dis.close();
             bais.close();

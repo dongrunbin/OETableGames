@@ -5,7 +5,7 @@ import com.oegame.tablegames.service.game.GameService;
 
 public interface MahjongService extends GameService
 {
-	public void discard(int roomId,long playerId, int index,boolean isTing);
+	public void discard(int roomId,long playerId, int index);
 
 	public void pass(int roomId,long playerId);
 

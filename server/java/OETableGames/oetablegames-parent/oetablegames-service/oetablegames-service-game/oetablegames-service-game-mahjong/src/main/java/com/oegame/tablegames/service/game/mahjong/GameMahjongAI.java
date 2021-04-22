@@ -225,7 +225,7 @@ public class GameMahjongAI implements IGameAI {
 			// 出牌
 			else if (seat.gameStatus == MahjongSeatStatus.SEAT_STATUS_OPERATE) {
 				int index = discardAi.discardPoker(seat, ctrl.getRoom().roomSetting);
-				ctrl.discard(seat.playerId, index, false);
+				ctrl.discard(seat.playerId, index);
 				return;
 			}
 		}
@@ -265,11 +265,11 @@ public class GameMahjongAI implements IGameAI {
 		if (seat.gameStatus == MahjongSeatStatus.SEAT_STATUS_OPERATE) {
 			logger.info("操作时间到,自动出牌" + seat.playerId);
 			if (seat.hitPoker != null) {
-				ctrl.discard(seat.playerId, seat.hitPoker.index, false);
+				ctrl.discard(seat.playerId, seat.hitPoker.index);
 				return;
 			}else {
 				for (Entry<Integer, Poker> entry : seat.poker.entrySet()) {
-					ctrl.discard(seat.playerId, entry.getValue().index, false);
+					ctrl.discard(seat.playerId, entry.getValue().index);
 					return;
 				}
 			}			

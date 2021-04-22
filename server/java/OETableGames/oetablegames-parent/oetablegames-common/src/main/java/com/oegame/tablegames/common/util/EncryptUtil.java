@@ -50,7 +50,7 @@ public class EncryptUtil
         {
             int crcIndex = crcHi ^ buffer[i];
             if(crcIndex < 0) crcIndex += 256;
-            
+
             crcHi = (byte)(crcLo ^ _auchCRCHi[crcIndex]);
             crcLo = _auchCRCLo[crcIndex];
         }

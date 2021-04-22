@@ -15,9 +15,6 @@ public class PlayerEntity extends AbstractMySqlEntity
     //昵称 
     public String nickname;
 
-    //头像 
-    public String avatar;
-
     //性别 
     public byte gender;
 
@@ -30,13 +27,16 @@ public class PlayerEntity extends AbstractMySqlEntity
     //游戏id 
     public int gameId;
 
+    //比赛id
+    public int matchId;
+
     //状态 
     public byte status;
 
     //在线时间 
     public long online;
 
-    //在线IP 
+    //在线IP
     public long ipaddr;
 
     //金币 
@@ -45,8 +45,6 @@ public class PlayerEntity extends AbstractMySqlEntity
     public long getId(){ return this.id;}
 
     public String getNickname(){ return this.nickname;}
-
-    public String getAvatar(){ return this.avatar;}
 
     public byte getGender(){ return this.gender;}
 
@@ -67,8 +65,6 @@ public class PlayerEntity extends AbstractMySqlEntity
     public void setId(long value){ this.id = value;}
 
     public void setNickname(String value){ this.nickname = value;}
-
-    public void setAvatar(String value){ this.avatar = value;}
 
     public void setGender(byte value){ this.gender = value;}
 
@@ -95,11 +91,11 @@ public class PlayerEntity extends AbstractMySqlEntity
         {
             dos.writeLong(id);
             dos.writeUTF(nickname);
-            dos.writeUTF(avatar);
             dos.writeByte(gender);
             dos.writeInt(cards);
             dos.writeInt(roomId);
             dos.writeInt(gameId);
+            dos.writeInt(matchId);
             dos.writeByte(status);
             dos.writeLong(online);
             dos.writeLong(ipaddr);
@@ -125,11 +121,11 @@ public class PlayerEntity extends AbstractMySqlEntity
         {
             entity.id = dis.readLong();
             entity.nickname = dis.readUTF();
-            entity.avatar = dis.readUTF();
             entity.gender = dis.readByte();
             entity.cards = dis.readInt();
             entity.roomId = dis.readInt();
             entity.gameId = dis.readInt();
+            entity.matchId = dis.readInt();
             entity.status = dis.readByte();
             entity.online = dis.readLong();
             entity.ipaddr = dis.readLong();

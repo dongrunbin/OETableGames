@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.oegame.tablegames.model.local.LocalDBFacade;
-import com.oegame.tablegames.model.local.gen.cfg_settingEntity;
+import com.oegame.tablegames.model.local.gen.MahjongSettingsEntity;
+import com.oegame.tablegames.model.local.gen.MahjongSettingsDBModel;
 import com.oegame.tablegames.service.player.Player;
 import com.oegame.tablegames.service.ServiceUtil;
 
@@ -60,37 +60,12 @@ public abstract class GameServiceImpl implements GameService
 			return;
 		}
 
-		for(Integer id : setting)
-		{
-			System.out.print(id);
-			cfg_settingEntity entity = LocalDBFacade.getcfg_settingEntity(id);
-			if (entity.precondition != null && !entity.precondition.equals("")) {
-				String[] str = entity.precondition.split(";");
-				ArrayList<Integer> set = new ArrayList<Integer>();
-				if (str.length > 0)
-				{
-					for (int i = 0; i < str.length; i++)
-					{
-						if (!str[i].equals("") )
-						{
-							set.add(Integer.valueOf(str[i]).intValue());
-						}
-					}
-				}
-				if (!setting.containsAll(set))
-				{
-					ServiceUtil.getProxyService().sendError(playerId, -1, "room setting error");
-					return;
-				}
-			}
-		}
-
 		this.addRoom(roomId, setting, playerId);
 		RoomCtrlBase roomCtrl = this.getRoom(roomId);
 		logger.info("create room "+roomId);
 		RoomSettingBase roomSetting = roomCtrl.getRoom().getRoomSetting();
 
-		if (roomSetting.cost > ServiceUtil.getPlayerService().getPlayer(playerId).cards)
+		if (roomSetting.cost > ServiceUtil.getPlayerService().getPlayer(playerId).gold)
 		{
 			ServiceUtil.getProxyService().sendError(playerId, -1, "cards not enough");
 			return;
@@ -99,8 +74,7 @@ public abstract class GameServiceImpl implements GameService
 		if (roomCtrl != null)
 		{
 			roomCtrl.getRoom().baseScore = roomCtrl.getRoom().getRoomSetting().baseScore;
-			ServiceUtil.getPlayerService().addCards(playerId, 
-					-roomCtrl.getRoom().getRoomSetting().cost, 1, "create room");
+			ServiceUtil.getPlayerService().addGold(playerId, -roomCtrl.getRoom().getRoomSetting().cost);
 			this.enter(roomId, player, 0);
 		}
 	}
@@ -178,12 +152,12 @@ public abstract class GameServiceImpl implements GameService
 	}
 	
 	@Override
-	public void disbandApply(int roomId, long playerId, DisbandStatus status)
+	public void disbandApply(int roomId, long playerId, byte status)
 	{
 		RoomCtrlBase room = this.getRoom(roomId);
 		if(room == null) return;
 		
-		room.disbandApply(playerId, status);
+		room.disbandApply(playerId, DisbandStatus.values()[status]);
 	}
 	
 	@Override

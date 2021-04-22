@@ -29,6 +29,16 @@
 		</dependency>
 		<dependency>
 			<groupId>com.oegame.tablegames</groupId>
+			<artifactId>oetablegames-service-game</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.oegame.tablegames</groupId>
+			<artifactId>oetablegames-service-game-mahjong</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.oegame.tablegames</groupId>
 			<artifactId>oetablegames-remoting</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<scope>compile</scope>

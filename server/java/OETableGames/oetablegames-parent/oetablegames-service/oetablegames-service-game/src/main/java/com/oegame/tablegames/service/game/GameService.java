@@ -25,7 +25,7 @@ public interface GameService
 	
 	public void message(int roomId, long playerId, byte messageType, byte[] message, long toPlayerId);
 	
-	public void disbandApply(int roomId, long playerId, DisbandStatus status);
+	public void disbandApply(int roomId, long playerId, byte status);
 	
 	public boolean disband(int roomId, long playerId);
 	

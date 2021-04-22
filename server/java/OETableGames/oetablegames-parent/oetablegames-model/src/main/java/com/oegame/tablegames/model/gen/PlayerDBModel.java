@@ -40,7 +40,7 @@ public class PlayerDBModel extends AbstractMySqlDBModel<PlayerEntity>
     @Override
     protected String getTableName()
     {
-        return "sys_player";
+        return "player";
     }
 
     private ArrayList<String> _columnList = null;
@@ -53,19 +53,14 @@ public class PlayerDBModel extends AbstractMySqlDBModel<PlayerEntity>
             _columnList = new ArrayList<String>();
             _columnList.add("id");
             _columnList.add("nickname");
-            _columnList.add("avatar");
             _columnList.add("gender");
             _columnList.add("cards");
             _columnList.add("roomId");
             _columnList.add("gameId");
             _columnList.add("matchId");
-            _columnList.add("score");
             _columnList.add("status");
             _columnList.add("online");
             _columnList.add("ipaddr");
-            _columnList.add("box_key");
-            _columnList.add("longitude");
-            _columnList.add("latitude");
             _columnList.add("gold");
         }
         return _columnList;
@@ -78,11 +73,11 @@ public class PlayerDBModel extends AbstractMySqlDBModel<PlayerEntity>
         MySqlParameter[] parameters = new MySqlParameter[] {
                 new MySqlParameter("id", entity.id, Types.BIGINT, 20),
                 new MySqlParameter("nickname", entity.nickname, Types.VARCHAR, 32),
-                new MySqlParameter("avatar", entity.avatar, Types.VARCHAR, 255),
                 new MySqlParameter("gender", entity.gender, Types.TINYINT, 3),
                 new MySqlParameter("cards", entity.cards, Types.INTEGER, 11),
                 new MySqlParameter("roomId", entity.roomId, Types.INTEGER, 11),
                 new MySqlParameter("gameId", entity.gameId, Types.INTEGER, 11),
+                new MySqlParameter("matchId", entity.matchId, Types.INTEGER, 11),
                 new MySqlParameter("status", entity.status, Types.TINYINT, 3),
                 new MySqlParameter("online", entity.online, Types.BIGINT, 10),
                 new MySqlParameter("ipaddr", entity.ipaddr, Types.BIGINT, 10),
@@ -99,11 +94,11 @@ public class PlayerDBModel extends AbstractMySqlDBModel<PlayerEntity>
         PlayerEntity entity = new PlayerEntity();
         entity.id = (long)map.get("id");
         entity.nickname = (String)map.get("nickname");
-        entity.avatar = (String)map.get("avatar");
         entity.gender = (byte)map.get("gender");
         entity.cards = (int)map.get("cards");
         entity.roomId = (int)map.get("roomId");
         entity.gameId = (int)map.get("gameId");
+        entity.matchId = (int)map.get("matchId");
         entity.status = (byte)map.get("status");
         entity.online = (long)map.get("online");
         entity.ipaddr = (long)map.get("ipaddr");

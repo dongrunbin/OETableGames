@@ -12,9 +12,9 @@
                         ref="proxyService"
                         groupName="default"
                         weight="2"
-                        appKey="wangque"
+                        appKey="oetablegames"
                         workerThreads="100"
-                        serverPort="10917"
+                        serverPort="9995"
                         timeout="600"
                         minParam="0"
                         maxParam="0"/>

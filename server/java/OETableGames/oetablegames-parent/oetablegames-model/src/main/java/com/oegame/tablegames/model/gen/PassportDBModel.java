@@ -47,7 +47,7 @@ public class PassportDBModel extends AbstractMySqlDBModel<PassportEntity>
     @Override
     protected String getTableName()
     {
-        return "sys_passport";
+        return "passport";
     }
 
     private ArrayList<String> _columnList = null;
@@ -59,43 +59,18 @@ public class PassportDBModel extends AbstractMySqlDBModel<PassportEntity>
         {
             _columnList = new ArrayList<String>();
             _columnList.add("id");
-            _columnList.add("apiId");
-            _columnList.add("unionId");
-            _columnList.add("openId");
-            _columnList.add("groupId");
             _columnList.add("passport");
             _columnList.add("password");
-            _columnList.add("phone");
             _columnList.add("token");
             _columnList.add("tokenExpire");
             _columnList.add("access_token");
             _columnList.add("refresh_token");
-            _columnList.add("verifyCode");
-            _columnList.add("verifyExpire");
             _columnList.add("status");
             _columnList.add("reg_time");
             _columnList.add("reg_ip");
             _columnList.add("log_time");
             _columnList.add("log_ip");
-            _columnList.add("bind_time");
-            _columnList.add("bind_ip");
             _columnList.add("log_count");
-            _columnList.add("bind_gift");
-            _columnList.add("urlbind");
-            _columnList.add("urlbind_time");
-            _columnList.add("urlbind_ip");
-            _columnList.add("codebind");
-            _columnList.add("codebind_time");
-            _columnList.add("codebind_ip");
-            _columnList.add("codebind_gift");
-            _columnList.add("first_pay");
-            _columnList.add("agentbind");
-            _columnList.add("contact_name");
-            _columnList.add("contact_phone");
-            _columnList.add("contact_address");
-            _columnList.add("idCard");
-            _columnList.add("realName");
-            _columnList.add("baiduChannelId");
             _columnList.add("device");
         }
         return _columnList;
@@ -108,6 +83,7 @@ public class PassportDBModel extends AbstractMySqlDBModel<PassportEntity>
         MySqlParameter[] parameters = new MySqlParameter[] {
                 new MySqlParameter("id", entity.id, Types.BIGINT, 20),
                 new MySqlParameter("passport", entity.passport, Types.VARCHAR, 64),
+                new MySqlParameter("password", entity.password, Types.VARCHAR, 32),
                 new MySqlParameter("token", entity.token, Types.VARCHAR, 255),
                 new MySqlParameter("tokenExpire", entity.tokenExpire, Types.BIGINT, 10),
                 new MySqlParameter("status", entity.status, Types.TINYINT, 3),
@@ -115,6 +91,7 @@ public class PassportDBModel extends AbstractMySqlDBModel<PassportEntity>
                 new MySqlParameter("reg_ip", entity.reg_ip, Types.BIGINT, 10),
                 new MySqlParameter("log_time", entity.log_time, Types.BIGINT, 10),
                 new MySqlParameter("log_ip", entity.log_ip, Types.BIGINT, 10),
+                new MySqlParameter("log_count", entity.log_count, Types.INTEGER, 11),
                 new MySqlParameter("device", entity.device, Types.INTEGER, 11),
                 new MySqlParameter("retValue", Types.TINYINT, 11)
             };
@@ -128,6 +105,7 @@ public class PassportDBModel extends AbstractMySqlDBModel<PassportEntity>
         PassportEntity entity = new PassportEntity();
         entity.id = (long)map.get("id");
         entity.passport = (String)map.get("passport");
+        entity.password = (String)map.get("password");
         entity.token = (String)map.get("token");
         entity.tokenExpire = (long)map.get("tokenExpire");
         entity.status = (byte)map.get("status");
@@ -135,6 +113,7 @@ public class PassportDBModel extends AbstractMySqlDBModel<PassportEntity>
         entity.reg_ip = (long)map.get("reg_ip");
         entity.log_time = (long)map.get("log_time");
         entity.log_ip = (long)map.get("log_ip");
+        entity.log_count = (int)map.get("log_count");
         entity.device = (int)map.get("device");
         return entity;
    }

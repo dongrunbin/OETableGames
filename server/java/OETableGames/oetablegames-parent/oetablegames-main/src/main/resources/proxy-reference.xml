@@ -10,7 +10,7 @@
     <AresClient:reference id="proxyService"
                           interface="com.oegame.tablegames.service.proxy.ProxyService"
                           clusterStrategy="Parameter"
-                          remoteAppKey="wangque"
+                          remoteAppKey="oetablegames"
                           groupName="default"
                           timeout="6000"/>
                           

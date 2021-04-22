@@ -1,5 +1,6 @@
 package com.oegame.tablegames.service;
 
+import com.oegame.tablegames.service.game.mahjong.MahjongService;
 import com.zhenyi.remoting.framework.context.ApplicationContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,6 +17,8 @@ public class ServiceUtil
 
     private static ProxyService proxyService;
 
+    private static MahjongService mahjongService;
+
     public static void init(String... names)
     {
         if(context != null) return;
@@ -28,6 +31,10 @@ public class ServiceUtil
         {
             proxyService = context.getBean("proxyService");
         }
+        if(mahjongService == null && context.containsBean("mahjongService"))
+        {
+            mahjongService = context.getBean("mahjongService");
+        }
     }
 
     public static ProxyService getProxyService()
@@ -35,8 +42,7 @@ public class ServiceUtil
         return proxyService;
     }
 
-    public static PlayerService getPlayerService()
-    {
-        return playerService;
-    }
+    public static PlayerService getPlayerService() { return playerService; }
+
+    public static MahjongService getMahjongService() { return mahjongService; }
 }

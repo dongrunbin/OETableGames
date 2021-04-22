@@ -1,5 +1,6 @@
 package com.oegame.tablegames.main;
 
+import com.oegame.tablegames.service.ServiceUtil;
 import java.util.ArrayList;
 import com.zhenyi.remoting.framework.context.ApplicationContext;
 
@@ -35,6 +36,7 @@ public class App
     	ApplicationContext context = new ApplicationContext(ser);
     	System.out.println("all of services started");
 		refContex = new ApplicationContext(ref);
+		ServiceUtil.init(ref);
     	System.out.println("all of services referenced");
     }
 }

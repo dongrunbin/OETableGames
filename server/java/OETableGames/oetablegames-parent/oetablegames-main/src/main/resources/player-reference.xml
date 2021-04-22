@@ -10,7 +10,7 @@
     <AresClient:reference id="playerService"
                           interface="com.oegame.tablegames.service.player.PlayerService"
                           clusterStrategy="Parameter"
-                          remoteAppKey="wangque"
+                          remoteAppKey="oetablegames"
                           groupName="default"
                           timeout="6000"/>
                           

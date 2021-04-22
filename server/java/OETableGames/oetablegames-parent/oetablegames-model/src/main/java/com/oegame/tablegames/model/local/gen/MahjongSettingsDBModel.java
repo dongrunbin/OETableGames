@@ -18,7 +18,7 @@ public class MahjongSettingsDBModel extends AbstractDBModel<MahjongSettingsEntit
     }
     private MahjongSettingsDBModel() { }
     // 文件名称
-    protected String getFileName() {return "MahjongSettings.drb";}
+    protected String getFileName() {return "MahjongSettings.bytes";}
 
     /// 创建实体
     protected MahjongSettingsEntity makeEntity(LocalDataParser parse)

@@ -137,7 +137,7 @@ public class RoomCtrl extends RoomCtrlBase {
 	/**
 	 * 出牌
 	 */
-	public synchronized void discard(long playerId, int index, boolean isTing) {
+	public synchronized void discard(long playerId, int index) {
 
 		if (!room.player.containsKey(playerId)) {
 			logger.debug("玩家不存在");
@@ -171,7 +171,7 @@ public class RoomCtrl extends RoomCtrlBase {
 			}
 		}
 		// 出牌
-		model.discard(pos, index, isTing);
+		model.discard(pos, index);
 
 		// 广播给所有人出牌
 		s2c.discard(playerId);

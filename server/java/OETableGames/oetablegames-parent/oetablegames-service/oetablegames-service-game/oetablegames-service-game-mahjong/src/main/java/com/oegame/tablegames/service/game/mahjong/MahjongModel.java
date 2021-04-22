@@ -258,7 +258,7 @@ public class MahjongModel {
 	/**
 	 * 出一张牌
 	 */
-	public void discard(int pos, int index, boolean isTing) {
+	public void discard(int pos, int index) {
 
 		// 取自己的状态
 		Seat selfSeat = room.seat.get(pos);

@@ -8,9 +8,9 @@
 
     <!-- 引入远程服务 -->
     <AresClient:reference id="mahjongService"
-                          interface="MahjongService"
+                          interface="com.oegame.tablegames.service.game.mahjong.MahjongService"
                           clusterStrategy="Parameter"
-                          remoteAppKey="wangque"
+                          remoteAppKey="oetablegames"
                           groupName="default"
                           timeout="6000"/>
                           

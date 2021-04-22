@@ -71,14 +71,6 @@ public class MahjongAlgorithm {
 		Mahjong mahjong = new Mahjong();
 
 		SettleVO res = new SettleVO();
-		
-		//四个癞子直接胡
-		if (roomSetting != null && roomSetting.isLaizihu) {
-			if (mahjong.laizihu(hand, universal, test)) {
-				res.code = 1;
-				return res;
-			}
-		}
 
 		// 判断七小对
 		if (roomSetting != null && roomSetting.isQxd) {
@@ -703,22 +695,6 @@ public class MahjongAlgorithm {
 				}
 			}
 
-			return false;
-		}
-		
-		public boolean laizihu(HashMap<Integer, Poker> hand, ArrayList<Poker> universal, Poker test) {
-			int sprite = 0;
-			if (test != null && this.isUniversal(universal, test)) {
-				sprite++;
-			}
-			for (Entry<Integer, Poker> entry : hand.entrySet()) {
-				if (this.isUniversal(universal, entry.getValue())) {
-					sprite++;
-				}
-			}
-			if (sprite >= 4) {
-				return true;
-			}
 			return false;
 		}
 

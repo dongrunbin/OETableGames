@@ -12,7 +12,7 @@
                         ref="playerService"
                         groupName="default"
                         weight="2"
-                        appKey="wangque"
+                        appKey="oetablegames"
                         workerThreads="100"
                         serverPort="9996"
                         timeout="600"

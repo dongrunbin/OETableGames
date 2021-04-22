@@ -72,7 +72,7 @@ public class MahjongServiceImpl extends GameServiceImpl implements MahjongServic
 	}
 	
 	//出牌
-	public void discard(int roomId,long playerId, int index,boolean isTing)
+	public void discard(int roomId,long playerId, int index)
 	{
 		if (!this.room.containsKey(roomId))
 		{
@@ -81,7 +81,7 @@ public class MahjongServiceImpl extends GameServiceImpl implements MahjongServic
 		RoomCtrl room = this.getRoom(roomId);
 		synchronized (room.getRoom().LOCK)
 		{
-			room.discard(playerId, index,isTing);
+			room.discard(playerId, index);
 		}
 	}
 	

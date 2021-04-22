@@ -12,8 +12,6 @@ import java.util.TimerTask;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.oegame.tablegames.common.util.TimeUtil;
-import com.oegame.tablegames.model.gen.sys_roomCacheModel;
-import com.oegame.tablegames.model.gen.sys_roomEntity;
 import com.oegame.tablegames.service.player.Player;
 import com.oegame.tablegames.service.ServiceUtil;
 import java.util.ArrayList;
@@ -267,12 +265,6 @@ public abstract class RoomCtrlBase {
 			}
 		}
 
-		ArrayList<sys_roomEntity> lst = sys_roomCacheModel.getInstance().getListByRoomId(this.getRoom().roomId);
-		for (int i = 0; i < lst.size(); ++i)
-		{
-			sys_roomCacheModel.getInstance().delete(lst.get(i).id);
-		}
-
 		int cost = 0;
 		if (this.getRoom().loopCount <= 1)
 		{
@@ -468,12 +460,6 @@ public abstract class RoomCtrlBase {
 			{
 				ServiceUtil.getPlayerService().setRoomId(_player.playerId, 0, 0);
 			}
-		}
-
-		ArrayList<sys_roomEntity> lst = sys_roomCacheModel.getInstance().getListByRoomId(this.getRoom().roomId);
-		for (int i = 0; i < lst.size(); ++i)
-		{
-			sys_roomCacheModel.getInstance().delete(lst.get(i).id);
 		}
 	}
 }

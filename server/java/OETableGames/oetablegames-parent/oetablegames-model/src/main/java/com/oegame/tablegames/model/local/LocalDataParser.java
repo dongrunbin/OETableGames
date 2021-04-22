@@ -10,23 +10,9 @@ import com.oegame.tablegames.common.util.CompressUtil;
 
 public class LocalDataParser
 {
-    
-    // 异或因子
-    private byte[] xorScale = new byte[] {
-    		(byte)45, (byte)66, (byte)38, (byte)55, (byte)23, (byte)254, (byte)9, (byte)165, (byte)90, (byte)19, (byte)41, (byte)45, 
-    		(byte)201, (byte)58, (byte)55, (byte)37, (byte)254, (byte)185, (byte)165, (byte)169, (byte)19, (byte)171 };
-
-    
-    
     public LocalDataParser(byte[] buffer)
     {
         m_FieldNameDic = new HashMap<String, Integer>();
-        buffer = CompressUtil.zlibDecompress(buffer);
-        int iScaleLen = xorScale.length;
-        for (int i = 0; i < buffer.length; i++)
-        {
-            buffer[i] = (byte)(buffer[i] ^ xorScale[i % iScaleLen]);
-        }
     	ByteArrayInputStream bais = new ByteArrayInputStream(buffer);
         DataInputStreamExt dis = new DataInputStreamExt(bais);
         try
@@ -58,14 +44,15 @@ public class LocalDataParser
 					e.printStackTrace();
 				}
 
-                if (i == 2)
+                if (i == 0)
                 { 
                     //表示读取的是字段
-                    m_FieldName[j] = str;
-                    m_FieldNameDic.put(str, j);
+                    String fieldName = str.substring(0,1).toLowerCase() + str.substring(1);
+                    m_FieldName[j] = fieldName;
+                    m_FieldNameDic.put(fieldName, j);
 
                 }
-                else if (i > 2)
+                else
                 {
                     //表示读取的是内容
                     m_GameData[i][j] = str;
@@ -136,7 +123,7 @@ public class LocalDataParser
     /// <returns></returns>
     public String getFieldValue(String fieldName)
     {
-        if (m_CurRowNo < 3 || m_CurRowNo >= m_Row) return null;
+        if (m_CurRowNo == 0 || m_CurRowNo >= m_Row) return null;
         return m_GameData[m_CurRowNo][m_FieldNameDic.get(fieldName)];
     }
 }

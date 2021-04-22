@@ -35,7 +35,7 @@ public class PlayerServiceImpl implements PlayerService
 			logger.warn("用户token不正确:" + token + "正确的token:" + entity.token);
 			return null;
 		}
-		logger.info(passportId + "登录");
+		logger.info(passportId + " log in");
 		PlayerEntity sys_player = PlayerDBModel.getInstance().getEntity(passportId);
 		sys_player.online = TimeUtil.second();
 		if(StringUtil.isBlank(sys_player.nickname))
@@ -45,7 +45,7 @@ public class PlayerServiceImpl implements PlayerService
 		sys_player.setIpaddr(serverId);
 		PlayerDBModel.getInstance().update(sys_player);
 		
-		Player player = new Player(sys_player.id,sys_player.nickname,sys_player.avatar + "/132",sys_player.gender,sys_player.roomId,sys_player.online,sys_player.cards, sys_player.gameId,sys_player.gold);
+		Player player = new Player(sys_player.id,sys_player.nickname,"",sys_player.gender,sys_player.roomId,sys_player.online,sys_player.cards, sys_player.gameId,sys_player.gold);
 		players.put(passportId, player);
 		return player;
 	}
@@ -67,7 +67,7 @@ public class PlayerServiceImpl implements PlayerService
 //		{
 		PlayerEntity entity = PlayerDBModel.getInstance().getEntity(playerId);
 			if(entity == null) return null;
-			Player player = new Player(entity.id,entity.nickname,entity.avatar + "/132",entity.gender,entity.roomId,entity.online,entity.cards,entity.gameId,entity.gold);
+			Player player = new Player(entity.id,entity.nickname,"",entity.gender,entity.roomId,entity.online,entity.cards,entity.gameId,entity.gold);
 			this.players.put(playerId, player);
 //		}
 		return this.players.get(playerId);
@@ -159,7 +159,7 @@ public class PlayerServiceImpl implements PlayerService
 			for(int i = 0; i < lstPlayer.size(); ++i)
 			{
 				PlayerEntity entity = lstPlayer.get(i);
-				Player player = new Player(entity.id,entity.nickname,entity.avatar + "/132",entity.gender,entity.roomId,entity.online,entity.cards,entity.gameId,entity.gold);
+				Player player = new Player(entity.id,entity.nickname,"",entity.gender,entity.roomId,entity.online,entity.cards,entity.gameId,entity.gold);
 				this.players.put(entity.id, player);
 				ret.add(player);
 			}
