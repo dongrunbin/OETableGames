@@ -32,7 +32,10 @@ namespace DrbFramework.Internal.Localization
         {
             set
             {
-                m_Text.text = value;
+                if (m_Text != null)
+                {
+                    m_Text.text = value;
+                }
             }
         }
     }

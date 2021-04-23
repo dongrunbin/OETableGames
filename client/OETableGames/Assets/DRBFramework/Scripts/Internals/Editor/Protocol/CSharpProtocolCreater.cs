@@ -553,7 +553,9 @@ namespace DrbFramework.Internal.Editor
                 }
                 else
                 {
-                    sbr.AppendFormat("{0}List.Add(new {1}(ms.ReadBytes()));\r\n", item.EnName, item.Type);
+                    sbr.AppendFormat("byte[] {0}Bytes = ms.ReadBytes();\r\n", item.EnName);
+                    AppendSpace(sbr, deep + 1);
+                    sbr.AppendFormat("if({0}Bytes != null) {0}List.Add(new {1}({0}Bytes));\r\n", item.EnName, item.Type);
                 }
                 AppendSpace(sbr, deep);
                 sbr.Append("}\r\n");
@@ -567,7 +569,9 @@ namespace DrbFramework.Internal.Editor
                 }
                 else
                 {
-                    sbr.AppendFormat("{0} = new {1}(ms.ReadBytes());\r\n", item.EnName, item.Type);
+                    sbr.AppendFormat("byte[] {0}Bytes = ms.ReadBytes();\r\n", item.EnName);
+                    AppendSpace(sbr, deep);
+                    sbr.AppendFormat("if({0}Bytes != null) {0} = new {1}(ms.ReadBytes());\r\n", item.EnName, item.Type);
                 }
             }
             return sbr;
