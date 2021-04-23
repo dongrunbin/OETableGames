@@ -1,6 +1,17 @@
-﻿Menu.StartGame:Start Game
-Menu.English:English
-Menu.Chinese:Chinese
-Menu.Spanish:Spanish
+﻿MainMenu.CreateRoom:Create Room
+MainMenu.EnterRoom:Enter Room
 MessageForm.Cancel:Cancel
 MessageForm.Ok:Ok
+LoginForm.GuestLogin:Guest login
+EnterRoom.Tip:Please input room Id
+EnterRoom.Reset:Reset
+CreateRoom.Create:Create
+CreditForm.Design:Design
+CreditForm.Program:Program
+CreditForm.Art3D:Art 3D
+CreditForm.Art2D:Art 2D
+CreditForm.Audio:Audio
+SettingsForm.Language:Language
+SettingsForm.MusicVolume:Music Volume
+SettingsForm.SoundEffectVolume:Sound Effect Volume
+Mahjong:Mahjong

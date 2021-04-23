@@ -1,6 +1,17 @@
-﻿Menu.StartGame:Empezar
-Menu.English:Ingles
-Menu.Chinese:Chino
-Menu.Spanish:Espanol
+﻿MainMenu.CreateRoom:Crear sala
+MainMenu.EnterRoom:Entrar sala
 MessageForm.Cancel:Cancela
 MessageForm.Ok:Bien
+LoginForm.GuestLogin:Iniciar sesión como turista
+EnterRoom.Tip:Ingrese el Id de la sala
+EnterRoom.Reset:Reiniciar
+CreateRoom.Create:Crear
+CreditForm.Design:diseño
+CreditForm.Program:Programa
+CreditForm.Art3D:Arte 3D
+CreditForm.Art2D:Arte 2D
+CreditForm.Audio:Audio
+SettingsForm.Language:Lenguage
+SettingsForm.MusicVolume:Volumen de música
+SettingsForm.SoundEffectVolume:Volumen de efecto de sonido
+Mahjong:Mahjong
