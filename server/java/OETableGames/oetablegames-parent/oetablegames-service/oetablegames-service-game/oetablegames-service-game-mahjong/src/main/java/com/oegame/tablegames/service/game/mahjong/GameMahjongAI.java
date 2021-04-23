@@ -51,7 +51,7 @@ public class GameMahjongAI implements IGameAI {
 			if (seat == null || seat.playerId <= 0) {
 				continue;
 			}
-
+			if(!seat.player.isRobot) return;
 			if (ctrl.getRoom().status == RoomStatus.ROOM_STATUS_READY && seat.status != SeatStatus.SEAT_STATUS_READY
 					&& !seat.isLeave) {
 				ctrl.ready(seat.playerId);

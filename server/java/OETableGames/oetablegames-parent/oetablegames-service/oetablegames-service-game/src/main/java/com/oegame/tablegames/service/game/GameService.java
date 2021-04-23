@@ -17,11 +17,7 @@ public interface GameService
 	
 	public void ready(int roomId, long playerId);
 	
-	public void unready(int roomId, long playerId);
-	
 	public void roomInfo(int roomId, long playerId);
-	
-	public void afk(int roomId, long playerId, boolean isAfk);
 	
 	public void message(int roomId, long playerId, byte messageType, byte[] message, long toPlayerId);
 	

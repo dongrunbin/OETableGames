@@ -19,7 +19,6 @@ public class ProxyServiceImpl implements ProxyService
 	@Override
 	public void sendMessage(long playerId, byte[] data)
 	{
-		
 		ClientRole client = ClientManager.getInstance().getPlayer(playerId);
 		if (client == null) return;
 		IoSession session = client.getSession();
@@ -30,10 +29,10 @@ public class ProxyServiceImpl implements ProxyService
 			int c = (data[2] & 0xff) << 8;
 			int d = data[3] & 0xff;
 			int code = a | b | c | d;
-//			if(code != ProtoCodeDef.S2C_System_HeartProto)
-//			{
-//				logger.info(String.format("服务器发送消息给%d:%d, %s, %s",session.getAttribute("playerId"),code, ProtoCodeDef.getEn(code), ProtoCodeDef.getCn(code)));
-//			}
+			if(code != ProtoCodeDef.System_S2C_HeartBeatProto)
+			{
+				logger.info(String.format("服务器发送消息给%d:%d, %s, %s",session.getAttribute("playerId"),code, ProtoCodeDef.getEn(code), ProtoCodeDef.getCn(code)));
+			}
 		}
 		session.write(data);
 	}

@@ -1,6 +1,6 @@
 //===================================================
 //作    者：DRB
-//创建时间：2021-04-15 03:55:31
+//创建时间：2021-04-23 08:05:42
 //备    注：
 //===================================================
 package com.oegame.tablegames.protocol.gen;
@@ -20,7 +20,7 @@ public class Mahjong_S2C_OperateProto
     private byte typeId; //
     private byte subTypeId; //
     private int playerId; //
-    private ArrayList<Poker> pokers = new ArrayList<Poker>(); //
+    private ArrayList<Mahjong> mahjongs = new ArrayList<Mahjong>(); //
     public byte getTypeId(){
         return this.typeId;
     }
@@ -45,27 +45,27 @@ public class Mahjong_S2C_OperateProto
         this.playerId = value;
     }
 
-    public ArrayList<Poker> getpokersList(){
-        return this.pokers;
+    public ArrayList<Mahjong> getmahjongsList(){
+        return this.mahjongs;
     };
 
-    public Poker getPokers(int index){
-        return this.pokers.get(index);
+    public Mahjong getMahjongs(int index){
+        return this.mahjongs.get(index);
     };
 
-    public int pokersCount(){
-        return this.pokers.size();
+    public int mahjongsCount(){
+        return this.mahjongs.size();
     };
 
-    public void addPokers(Poker value){
-        this.pokers.add(value);
+    public void addMahjongs(Mahjong value){
+        this.mahjongs.add(value);
     };
 
 
     /// <summary>
     /// 
     /// </summary>
-    public static class Poker
+    public static class Mahjong
     {
         private int index; //
         private int color; //
@@ -123,10 +123,10 @@ public class Mahjong_S2C_OperateProto
             return ret;
         }
 
-        public static Poker getProto(byte[] buffer)
+        public static Mahjong getProto(byte[] buffer)
         {
             if(buffer == null) return null;
-            Poker proto = new Poker();
+            Mahjong proto = new Mahjong();
             ByteArrayInputStream bais = new ByteArrayInputStream(buffer);
             DataInputStreamExt dis = new DataInputStreamExt(bais);
             try{
@@ -153,12 +153,12 @@ public class Mahjong_S2C_OperateProto
             dos.writeByte(typeId);
             dos.writeByte(subTypeId);
             dos.writeInt(playerId);
-            dos.writeShort(pokers.size());
-            for (int i = 0; i < pokers.size(); ++i)
+            dos.writeShort(mahjongs.size());
+            for (int i = 0; i < mahjongs.size(); ++i)
             {
-                if(pokers != null)
+                if(mahjongs != null)
                 {
-                    dos.writeBytes(pokers.get(i).toArray());
+                    dos.writeBytes(mahjongs.get(i).toArray());
                 }
                 else
                 {
@@ -185,10 +185,10 @@ public class Mahjong_S2C_OperateProto
             proto.typeId = dis.readByte();
             proto.subTypeId = dis.readByte();
             proto.playerId = dis.readInt();
-            short pokersLength = dis.readShort();
-            for (int i = 0; i < pokersLength; ++i)
+            short mahjongsLength = dis.readShort();
+            for (int i = 0; i < mahjongsLength; ++i)
             {
-                proto.pokers.add(Poker.getProto(dis.readBytes()));
+                proto.mahjongs.add(Mahjong.getProto(dis.readBytes()));
             }
             dis.close();
             bais.close();

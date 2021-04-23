@@ -1,6 +1,6 @@
 //===================================================
 //作    者：DRB
-//创建时间：2021-04-15 03:55:31
+//创建时间：2021-04-23 08:05:42
 //备    注：
 //===================================================
 package com.oegame.tablegames.protocol.gen;
@@ -20,10 +20,10 @@ public class Mahjong_S2C_RoomInfoProto
     private byte roomStatus; //
     private int roomId; //
     private ArrayList<Integer> settingIds = new ArrayList<Integer>(); //
-    private int pokerAmount; //
+    private int mahjongAmount; //
     private int loop; //
     private int maxLoop; //
-    private int pokerTotal; //
+    private int mahjongTotal; //
     private int baseScore; //
     private int diceFirst; //
     private int diceSecond; //
@@ -33,7 +33,7 @@ public class Mahjong_S2C_RoomInfoProto
     private int diceSecondB; //
     private long dismissMaxTime; //
     private long dismissTime; //
-    private ArrayList<MahjongGroup> askPokerGroups = new ArrayList<MahjongGroup>(); //
+    private ArrayList<MahjongGroup> askMahjongGroups = new ArrayList<MahjongGroup>(); //
     private ArrayList<Seat> seats = new ArrayList<Seat>(); //
     public byte getRoomStatus(){
         return this.roomStatus;
@@ -67,12 +67,12 @@ public class Mahjong_S2C_RoomInfoProto
         this.settingIds.add(value);
     };
 
-    public int getPokerAmount(){
-        return this.pokerAmount;
+    public int getMahjongAmount(){
+        return this.mahjongAmount;
     }
 
-    public void setPokerAmount(int value){
-        this.pokerAmount = value;
+    public void setMahjongAmount(int value){
+        this.mahjongAmount = value;
     }
 
     public int getLoop(){
@@ -91,12 +91,12 @@ public class Mahjong_S2C_RoomInfoProto
         this.maxLoop = value;
     }
 
-    public int getPokerTotal(){
-        return this.pokerTotal;
+    public int getMahjongTotal(){
+        return this.mahjongTotal;
     }
 
-    public void setPokerTotal(int value){
-        this.pokerTotal = value;
+    public void setMahjongTotal(int value){
+        this.mahjongTotal = value;
     }
 
     public int getBaseScore(){
@@ -171,20 +171,20 @@ public class Mahjong_S2C_RoomInfoProto
         this.dismissTime = value;
     }
 
-    public ArrayList<MahjongGroup> getaskPokerGroupsList(){
-        return this.askPokerGroups;
+    public ArrayList<MahjongGroup> getaskMahjongGroupsList(){
+        return this.askMahjongGroups;
     };
 
-    public MahjongGroup getAskPokerGroups(int index){
-        return this.askPokerGroups.get(index);
+    public MahjongGroup getAskMahjongGroups(int index){
+        return this.askMahjongGroups.get(index);
     };
 
-    public int askPokerGroupsCount(){
-        return this.askPokerGroups.size();
+    public int askMahjongGroupsCount(){
+        return this.askMahjongGroups.size();
     };
 
-    public void addAskPokerGroups(MahjongGroup value){
-        this.askPokerGroups.add(value);
+    public void addAskMahjongGroups(MahjongGroup value){
+        this.askMahjongGroups.add(value);
     };
 
     public ArrayList<Seat> getseatsList(){
@@ -212,7 +212,7 @@ public class Mahjong_S2C_RoomInfoProto
         private int typeId; //
         private int subTypeId; //
         private int playerId; //
-        private ArrayList<Mahjong> pokers = new ArrayList<Mahjong>(); //
+        private ArrayList<Mahjong> mahjongs = new ArrayList<Mahjong>(); //
         public int getTypeId(){
             return this.typeId;
         }
@@ -237,20 +237,20 @@ public class Mahjong_S2C_RoomInfoProto
             this.playerId = value;
         }
 
-        public ArrayList<Mahjong> getpokersList(){
-            return this.pokers;
+        public ArrayList<Mahjong> getmahjongsList(){
+            return this.mahjongs;
         };
 
-        public Mahjong getPokers(int index){
-            return this.pokers.get(index);
+        public Mahjong getMahjongs(int index){
+            return this.mahjongs.get(index);
         };
 
-        public int pokersCount(){
-            return this.pokers.size();
+        public int mahjongsCount(){
+            return this.mahjongs.size();
         };
 
-        public void addPokers(Mahjong value){
-            this.pokers.add(value);
+        public void addMahjongs(Mahjong value){
+            this.mahjongs.add(value);
         };
 
         public byte[] toArray()
@@ -262,12 +262,12 @@ public class Mahjong_S2C_RoomInfoProto
                 dos.writeInt(typeId);
                 dos.writeInt(subTypeId);
                 dos.writeInt(playerId);
-                dos.writeShort(pokers.size());
-                for (int i = 0; i < pokers.size(); ++i)
+                dos.writeShort(mahjongs.size());
+                for (int i = 0; i < mahjongs.size(); ++i)
                 {
-                    if(pokers != null)
+                    if(mahjongs != null)
                     {
-                        dos.writeBytes(pokers.get(i).toArray());
+                        dos.writeBytes(mahjongs.get(i).toArray());
                     }
                     else
                     {
@@ -294,10 +294,10 @@ public class Mahjong_S2C_RoomInfoProto
                 proto.typeId = dis.readInt();
                 proto.subTypeId = dis.readInt();
                 proto.playerId = dis.readInt();
-                short pokersLength = dis.readShort();
-                for (int i = 0; i < pokersLength; ++i)
+                short mahjongsLength = dis.readShort();
+                for (int i = 0; i < mahjongsLength; ++i)
                 {
-                    proto.pokers.add(Mahjong.getProto(dis.readBytes()));
+                    proto.mahjongs.add(Mahjong.getProto(dis.readBytes()));
                 }
                 dis.close();
                 bais.close();
@@ -320,13 +320,13 @@ public class Mahjong_S2C_RoomInfoProto
         private int playerId; //
         private int pos; //
         private int handCount; //
-        private int pokerAmount; //
+        private int mahjongAmount; //
         private int gold; //
-        private Mahjong hitPoker; //
+        private Mahjong hitMahjong; //
         private ArrayList<Mahjong> desktop = new ArrayList<Mahjong>(); //
         private ArrayList<Mahjong> mahjongs = new ArrayList<Mahjong>(); //
         private ArrayList<Mahjong> universal = new ArrayList<Mahjong>(); //
-        private ArrayList<MahjongGroup> usedPokerGroup = new ArrayList<MahjongGroup>(); //
+        private ArrayList<MahjongGroup> usedMahjongGroup = new ArrayList<MahjongGroup>(); //
         private String nickname = ""; //
         private String avatar = ""; //
         public byte getStatus(){
@@ -385,12 +385,12 @@ public class Mahjong_S2C_RoomInfoProto
             this.handCount = value;
         }
 
-        public int getPokerAmount(){
-            return this.pokerAmount;
+        public int getMahjongAmount(){
+            return this.mahjongAmount;
         }
 
-        public void setPokerAmount(int value){
-            this.pokerAmount = value;
+        public void setMahjongAmount(int value){
+            this.mahjongAmount = value;
         }
 
         public int getGold(){
@@ -401,12 +401,12 @@ public class Mahjong_S2C_RoomInfoProto
             this.gold = value;
         }
 
-        public Mahjong getHitPoker(){
-            return this.hitPoker;
+        public Mahjong getHitMahjong(){
+            return this.hitMahjong;
         }
 
-        public void setHitPoker(Mahjong value){
-            this.hitPoker = value;
+        public void setHitMahjong(Mahjong value){
+            this.hitMahjong = value;
         }
 
         public ArrayList<Mahjong> getdesktopList(){
@@ -457,20 +457,20 @@ public class Mahjong_S2C_RoomInfoProto
             this.universal.add(value);
         };
 
-        public ArrayList<MahjongGroup> getusedPokerGroupList(){
-            return this.usedPokerGroup;
+        public ArrayList<MahjongGroup> getusedMahjongGroupList(){
+            return this.usedMahjongGroup;
         };
 
-        public MahjongGroup getUsedPokerGroup(int index){
-            return this.usedPokerGroup.get(index);
+        public MahjongGroup getUsedMahjongGroup(int index){
+            return this.usedMahjongGroup.get(index);
         };
 
-        public int usedPokerGroupCount(){
-            return this.usedPokerGroup.size();
+        public int usedMahjongGroupCount(){
+            return this.usedMahjongGroup.size();
         };
 
-        public void addUsedPokerGroup(MahjongGroup value){
-            this.usedPokerGroup.add(value);
+        public void addUsedMahjongGroup(MahjongGroup value){
+            this.usedMahjongGroup.add(value);
         };
 
         public String getNickname(){
@@ -502,11 +502,11 @@ public class Mahjong_S2C_RoomInfoProto
                 dos.writeInt(playerId);
                 dos.writeInt(pos);
                 dos.writeInt(handCount);
-                dos.writeInt(pokerAmount);
+                dos.writeInt(mahjongAmount);
                 dos.writeInt(gold);
-                if(hitPoker != null)
+                if(hitMahjong != null)
                 {
-                    dos.writeBytes(hitPoker.toArray());
+                    dos.writeBytes(hitMahjong.toArray());
                 }
                 else
                 {
@@ -548,12 +548,12 @@ public class Mahjong_S2C_RoomInfoProto
                         dos.writeInt(0);
                     }
                 }
-                dos.writeShort(usedPokerGroup.size());
-                for (int i = 0; i < usedPokerGroup.size(); ++i)
+                dos.writeShort(usedMahjongGroup.size());
+                for (int i = 0; i < usedMahjongGroup.size(); ++i)
                 {
-                    if(usedPokerGroup != null)
+                    if(usedMahjongGroup != null)
                     {
-                        dos.writeBytes(usedPokerGroup.get(i).toArray());
+                        dos.writeBytes(usedMahjongGroup.get(i).toArray());
                     }
                     else
                     {
@@ -586,9 +586,9 @@ public class Mahjong_S2C_RoomInfoProto
                 proto.playerId = dis.readInt();
                 proto.pos = dis.readInt();
                 proto.handCount = dis.readInt();
-                proto.pokerAmount = dis.readInt();
+                proto.mahjongAmount = dis.readInt();
                 proto.gold = dis.readInt();
-                proto.hitPoker = Mahjong.getProto(dis.readBytes());
+                proto.hitMahjong = Mahjong.getProto(dis.readBytes());
                 short desktopLength = dis.readShort();
                 for (int i = 0; i < desktopLength; ++i)
                 {
@@ -604,10 +604,10 @@ public class Mahjong_S2C_RoomInfoProto
                 {
                     proto.universal.add(Mahjong.getProto(dis.readBytes()));
                 }
-                short usedPokerGroupLength = dis.readShort();
-                for (int i = 0; i < usedPokerGroupLength; ++i)
+                short usedMahjongGroupLength = dis.readShort();
+                for (int i = 0; i < usedMahjongGroupLength; ++i)
                 {
-                    proto.usedPokerGroup.add(MahjongGroup.getProto(dis.readBytes()));
+                    proto.usedMahjongGroup.add(MahjongGroup.getProto(dis.readBytes()));
                 }
                 proto.nickname = dis.readUTF();
                 proto.avatar = dis.readUTF();
@@ -704,10 +704,10 @@ public class Mahjong_S2C_RoomInfoProto
             {
                 dos.writeInt(settingIds.get(i));
             }
-            dos.writeInt(pokerAmount);
+            dos.writeInt(mahjongAmount);
             dos.writeInt(loop);
             dos.writeInt(maxLoop);
-            dos.writeInt(pokerTotal);
+            dos.writeInt(mahjongTotal);
             dos.writeInt(baseScore);
             dos.writeInt(diceFirst);
             dos.writeInt(diceSecond);
@@ -717,12 +717,12 @@ public class Mahjong_S2C_RoomInfoProto
             dos.writeInt(diceSecondB);
             dos.writeLong(dismissMaxTime);
             dos.writeLong(dismissTime);
-            dos.writeShort(askPokerGroups.size());
-            for (int i = 0; i < askPokerGroups.size(); ++i)
+            dos.writeShort(askMahjongGroups.size());
+            for (int i = 0; i < askMahjongGroups.size(); ++i)
             {
-                if(askPokerGroups != null)
+                if(askMahjongGroups != null)
                 {
-                    dos.writeBytes(askPokerGroups.get(i).toArray());
+                    dos.writeBytes(askMahjongGroups.get(i).toArray());
                 }
                 else
                 {
@@ -765,10 +765,10 @@ public class Mahjong_S2C_RoomInfoProto
             {
                 proto.settingIds.add(dis.readInt());
             }
-            proto.pokerAmount = dis.readInt();
+            proto.mahjongAmount = dis.readInt();
             proto.loop = dis.readInt();
             proto.maxLoop = dis.readInt();
-            proto.pokerTotal = dis.readInt();
+            proto.mahjongTotal = dis.readInt();
             proto.baseScore = dis.readInt();
             proto.diceFirst = dis.readInt();
             proto.diceSecond = dis.readInt();
@@ -778,10 +778,10 @@ public class Mahjong_S2C_RoomInfoProto
             proto.diceSecondB = dis.readInt();
             proto.dismissMaxTime = dis.readLong();
             proto.dismissTime = dis.readLong();
-            short askPokerGroupsLength = dis.readShort();
-            for (int i = 0; i < askPokerGroupsLength; ++i)
+            short askMahjongGroupsLength = dis.readShort();
+            for (int i = 0; i < askMahjongGroupsLength; ++i)
             {
-                proto.askPokerGroups.add(MahjongGroup.getProto(dis.readBytes()));
+                proto.askMahjongGroups.add(MahjongGroup.getProto(dis.readBytes()));
             }
             short seatsLength = dis.readShort();
             for (int i = 0; i < seatsLength; ++i)

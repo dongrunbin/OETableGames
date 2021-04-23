@@ -91,7 +91,8 @@ public class SocketRoute implements IRoute
 			ServiceUtil.getMahjongService().leave(player.roomId, playerId);
 		} else if (code == ProtoCodeDef.Game_C2S_QueryRoomInfoProto) // 查询房间
 		{
-//			Game_C2S_QueryRoomInfoProto c2s = Game_C2S_QueryRoomInfoProto.getProto(data);
+			Game_C2S_QueryRoomInfoProto c2s = Game_C2S_QueryRoomInfoProto.getProto(data);
+			ServiceUtil.getMahjongService().roomInfo(player.roomId, playerId);
 		} else if (code == ProtoCodeDef.Game_C2S_ApplyDisbandProto) // 房间解散
 		{
 			Game_C2S_ApplyDisbandProto c2s = Game_C2S_ApplyDisbandProto.getProto(data);

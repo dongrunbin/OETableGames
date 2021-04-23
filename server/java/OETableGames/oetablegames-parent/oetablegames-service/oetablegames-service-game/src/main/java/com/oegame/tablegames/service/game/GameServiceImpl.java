@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.oegame.tablegames.model.local.gen.MahjongSettingsEntity;
-import com.oegame.tablegames.model.local.gen.MahjongSettingsDBModel;
 import com.oegame.tablegames.service.player.Player;
 import com.oegame.tablegames.service.ServiceUtil;
 
@@ -121,15 +119,6 @@ public abstract class GameServiceImpl implements GameService
 
 		room.ready(playerId);
 	}
-
-	@Override
-	public void unready(int roomId, long playerId)
-	{
-		RoomCtrlBase room = this.getRoom(roomId);
-		if(room == null) return;
-
-		room.unready(playerId);
-	}
 	
 	@Override
 	public void roomInfo(int roomId, long playerId)
@@ -140,15 +129,6 @@ public abstract class GameServiceImpl implements GameService
 			return;
 		}
 		room.sendRoomInfo(playerId);
-	}
-	
-	@Override
-	public void afk(int roomId, long playerId, boolean isAfk)
-	{
-		RoomCtrlBase room = this.getRoom(roomId);
-		if(room == null) return;
-		
-		room.afk(playerId, isAfk);
 	}
 	
 	@Override

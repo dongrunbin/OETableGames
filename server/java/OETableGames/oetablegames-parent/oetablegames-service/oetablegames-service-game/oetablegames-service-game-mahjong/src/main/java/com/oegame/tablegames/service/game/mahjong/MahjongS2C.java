@@ -13,11 +13,11 @@ import com.oegame.tablegames.service.ServiceUtil;
 import com.oegame.tablegames.protocol.gen.*;
 
 public class MahjongS2C {
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(MahjongS2C.class);
-	
+
 	private Room room;
-	
+
 	public MahjongS2C(Room room) {
 		this.room = room;
 	}
@@ -49,8 +49,8 @@ public class MahjongS2C {
 
 		s2c.setLoop(room.loopCount);
 		s2c.setMaxLoop(room.getRoomSetting().loop);
-		s2c.setPokerAmount(room.poker.size());
-		s2c.setPokerTotal(room.pokerTotal);
+		s2c.setMahjongAmount(room.poker.size());
+		s2c.setMahjongTotal(room.pokerTotal);
 		s2c.setRoomId(room.roomId);
 		s2c.setRoomStatus((byte) room.status.ordinal());
 		if (room.settingIds != null && room.settingIds.size() > 0) {
@@ -78,11 +78,11 @@ public class MahjongS2C {
 							poker.setIndex(group.poker.get(j).index);
 							poker.setColor(group.poker.get(j).color);
 							poker.setNumber(group.poker.get(j).size);
-							ask.addPokers(poker);
-						}					
+							ask.addMahjongs(poker);
+						}
 					}
 				}
-				s2c.addAskPokerGroups(ask);
+				s2c.addAskMahjongGroups(ask);
 			}
 		}
 
@@ -104,11 +104,11 @@ public class MahjongS2C {
 				hitPoker.setIndex(seat.hitPoker.index);
 				hitPoker.setColor(seat.hitPoker.color);
 				hitPoker.setNumber(seat.hitPoker.size);
-				pSeat.setHitPoker(hitPoker);
+				pSeat.setHitMahjong(hitPoker);
 			}
 
 			pSeat.setIsBanker(seat.isBanker);
-			pSeat.setPokerAmount(13);
+			pSeat.setMahjongAmount(13);
 			pSeat.setPos(seat.pos);
 			pSeat.setStatus((byte) seat.status.ordinal());
 
@@ -161,9 +161,9 @@ public class MahjongS2C {
 						pPoker.setIndex(seat.usePokerGroup.get(i).poker.get(j).index);
 						pPoker.setColor(seat.usePokerGroup.get(i).poker.get(j).color);
 						pPoker.setNumber(seat.usePokerGroup.get(i).poker.get(j).size);
-						use.addPokers(pPoker);
+						use.addMahjongs(pPoker);
 					}
-					pSeat.addUsedPokerGroup(use);
+					pSeat.addUsedMahjongGroup(use);
 				}
 			}
 			s2c.addSeats(pSeat);
@@ -186,8 +186,8 @@ public class MahjongS2C {
 		pb_room.addDices(room.firstDiceB);
 		pb_room.addDices(room.secondDiceA);
 		pb_room.addDices(room.secondDiceB);
-		pb_room.setPokerTotal(room.pokerTotal);
-		pb_room.setPokerAmount(room.poker.size());
+		pb_room.setMahjongTotal(room.pokerTotal);
+		pb_room.setMahjongAmount(room.poker.size());
 
 		for (int i = 1; i <= room.roomSetting.player; i++) {
 			Seat seat = room.seat.get(i);
@@ -196,16 +196,16 @@ public class MahjongS2C {
 			pSeat.setHandCount(seat.handCount);
 			if (seat.hitPoker != null) {
 				if (seat.playerId == playerId) {
-					Mahjong_S2C_GameBeginProto.Poker poker = new Mahjong_S2C_GameBeginProto.Poker();
-					poker.setColor(seat.hitPoker.color);
-					poker.setIndex(seat.hitPoker.index);
-					poker.setPos(seat.hitPoker.pos);
-					poker.setSize(seat.hitPoker.size);
-					pSeat.setHitPoker(poker);
+					Mahjong_S2C_GameBeginProto.Mahjong mahjong = new Mahjong_S2C_GameBeginProto.Mahjong();
+					mahjong.setColor(seat.hitPoker.color);
+					mahjong.setIndex(seat.hitPoker.index);
+					mahjong.setPos(seat.hitPoker.pos);
+					mahjong.setNumber(seat.hitPoker.size);
+					pSeat.setHitMahjong(mahjong);
 				} else {
-					Mahjong_S2C_GameBeginProto.Poker poker = new Mahjong_S2C_GameBeginProto.Poker();
-					poker.setIndex(seat.hitPoker.index);
-					pSeat.setHitPoker(poker);
+					Mahjong_S2C_GameBeginProto.Mahjong mahjong = new Mahjong_S2C_GameBeginProto.Mahjong();
+					mahjong.setIndex(seat.hitPoker.index);
+					pSeat.setHitMahjong(mahjong);
 				}
 			}
 
@@ -214,32 +214,32 @@ public class MahjongS2C {
 			if (seat.poker != null && seat.poker.size() > 0) {
 				if (seat.playerId == playerId) {
 					for (Entry<Integer, Poker> entry : seat.poker.entrySet()) {
-						Mahjong_S2C_GameBeginProto.Poker poker = new Mahjong_S2C_GameBeginProto.Poker();
-						poker.setColor(entry.getValue().color);
-						poker.setIndex(entry.getValue().index);
-						poker.setPos(entry.getValue().pos);
-						poker.setSize(entry.getValue().size);
-						pSeat.addPokers(poker);
+						Mahjong_S2C_GameBeginProto.Mahjong mahjong = new Mahjong_S2C_GameBeginProto.Mahjong();
+						mahjong.setColor(entry.getValue().color);
+						mahjong.setIndex(entry.getValue().index);
+						mahjong.setPos(entry.getValue().pos);
+						mahjong.setNumber(entry.getValue().size);
+						pSeat.addMahjongs(mahjong);
 					}
 				} else {
 					for (Entry<Integer, Poker> entry : seat.poker.entrySet()) {
-						Mahjong_S2C_GameBeginProto.Poker poker = new Mahjong_S2C_GameBeginProto.Poker();
-						poker.setIndex(entry.getValue().index);
-						pSeat.addPokers(poker);
+						Mahjong_S2C_GameBeginProto.Mahjong mahjong = new Mahjong_S2C_GameBeginProto.Mahjong();
+						mahjong.setIndex(entry.getValue().index);
+						pSeat.addMahjongs(mahjong);
 					}
 				}
 			}
 
-			pSeat.setPokerAmount(seat.poker.size());
+			pSeat.setMahjongAmount(seat.poker.size());
 			pSeat.setPos(seat.pos);
 			if (seat.universal != null && seat.universal.size() > 0) {
 				for (int j = 0; j < seat.universal.size(); ++j) {
-					Mahjong_S2C_GameBeginProto.Poker poker = new Mahjong_S2C_GameBeginProto.Poker();
-					poker.setColor(seat.universal.get(j).color);
-					poker.setIndex(seat.universal.get(j).index);
-					poker.setPos(seat.universal.get(j).pos);
-					poker.setSize(seat.universal.get(j).size);
-					pSeat.addUniversalPoker(poker);
+					Mahjong_S2C_GameBeginProto.Mahjong mahjong = new Mahjong_S2C_GameBeginProto.Mahjong();
+					mahjong.setColor(seat.universal.get(j).color);
+					mahjong.setIndex(seat.universal.get(j).index);
+					mahjong.setPos(seat.universal.get(j).pos);
+					mahjong.setNumber(seat.universal.get(j).size);
+					pSeat.addUniversalMahjongs(mahjong);
 				}
 			}
 			pb_room.addSeat(pSeat);
@@ -250,7 +250,7 @@ public class MahjongS2C {
 	}
 
 	public void draw( Seat seat,boolean isLast) {
-		
+
 		Mahjong_S2C_DrawProto s2c = new Mahjong_S2C_DrawProto();
 		s2c.setColor(seat.hitPoker.color);
 		s2c.setNumber(seat.hitPoker.size);
@@ -301,7 +301,7 @@ public class MahjongS2C {
 			pb_poker_group.setPlayerId((int) group.playerId);
 			ask_seat.addAskMahjongGroups(pb_poker_group);
 		}
-		
+
 		this.refreshOne(seat.player.playerId, ask_seat.toArray());
 	}
 
@@ -314,12 +314,12 @@ public class MahjongS2C {
 			Mahjong_S2C_SettleProto.Seat pSeat = new Mahjong_S2C_SettleProto.Seat();
 			pSeat.setGold(seat.gold);
 			if (seat.hitPoker != null) {
-				Mahjong_S2C_SettleProto.Poker poker = new Mahjong_S2C_SettleProto.Poker();
-				poker.setColor(seat.hitPoker.color);
-				poker.setIndex(seat.hitPoker.index);
-				poker.setNumber(seat.hitPoker.size);
-				poker.setPos(seat.hitPoker.pos);
-				pSeat.setHitPoker(poker);
+				Mahjong_S2C_SettleProto.Mahjong mahjong = new Mahjong_S2C_SettleProto.Mahjong();
+				mahjong.setColor(seat.hitPoker.color);
+				mahjong.setIndex(seat.hitPoker.index);
+				mahjong.setNumber(seat.hitPoker.size);
+				mahjong.setPos(seat.hitPoker.pos);
+				pSeat.setHitMahjong(mahjong);
 			}
 			pSeat.setIsLoser(seat.loser);
 			pSeat.setPlayerId((int) seat.playerId);
@@ -328,34 +328,34 @@ public class MahjongS2C {
 			pSeat.setSettle(seat.settle);
 			pSeat.setStatus((byte) seat.gameStatus.ordinal());
 			for (Entry<Integer, Poker> pokerEntry : seat.poker.entrySet()) {
-				Mahjong_S2C_SettleProto.Poker poker = new Mahjong_S2C_SettleProto.Poker();
-				poker.setColor(pokerEntry.getValue().color);
-				poker.setIndex(pokerEntry.getValue().index);
-				poker.setNumber(pokerEntry.getValue().size);
-				poker.setPos(pokerEntry.getValue().pos);
-				pSeat.addPokers(poker);
+				Mahjong_S2C_SettleProto.Mahjong mahjong = new Mahjong_S2C_SettleProto.Mahjong();
+				mahjong.setColor(pokerEntry.getValue().color);
+				mahjong.setIndex(pokerEntry.getValue().index);
+				mahjong.setNumber(pokerEntry.getValue().size);
+				mahjong.setPos(pokerEntry.getValue().pos);
+				pSeat.addMahjongs(mahjong);
 			}
 			for (int i = 0; i < seat.usePokerGroup.size(); i++) {
-				Mahjong_S2C_SettleProto.PokerGroup group = new Mahjong_S2C_SettleProto.PokerGroup();
+				Mahjong_S2C_SettleProto.MahjongGroup group = new Mahjong_S2C_SettleProto.MahjongGroup();
 				group.setTypeId((byte)seat.usePokerGroup.get(i).typeId.ordinal());
 				group.setSubTypeId((byte)seat.usePokerGroup.get(i).subTypeId);
 				for (int j = 0; j < seat.usePokerGroup.get(i).poker.size(); j++) {
-					Mahjong_S2C_SettleProto.Poker poker = new Mahjong_S2C_SettleProto.Poker();
-					poker.setColor(seat.usePokerGroup.get(i).poker.get(j).color);
-					poker.setIndex(seat.usePokerGroup.get(i).poker.get(j).index);
-					poker.setNumber(seat.usePokerGroup.get(i).poker.get(j).size);
-					poker.setPos(seat.usePokerGroup.get(i).poker.get(j).pos);
-					group.addPokers(poker);
+					Mahjong_S2C_SettleProto.Mahjong mahjong = new Mahjong_S2C_SettleProto.Mahjong();
+					mahjong.setColor(seat.usePokerGroup.get(i).poker.get(j).color);
+					mahjong.setIndex(seat.usePokerGroup.get(i).poker.get(j).index);
+					mahjong.setNumber(seat.usePokerGroup.get(i).poker.get(j).size);
+					mahjong.setPos(seat.usePokerGroup.get(i).poker.get(j).pos);
+					group.addMahjongs(mahjong);
 				}
-				pSeat.addUsedPokerGroup(group);
+				pSeat.addUsedMahjongGroup(group);
 			}
 			for (int i = 0; i < seat.desktop.size(); ++i) {
-				Mahjong_S2C_SettleProto.Poker poker = new Mahjong_S2C_SettleProto.Poker();
-				poker.setColor(seat.desktop.get(i).color);
-				poker.setIndex(seat.desktop.get(i).index);
-				poker.setNumber(seat.desktop.get(i).size);
-				poker.setPos(seat.desktop.get(i).pos);
-				pSeat.addDesktopPokers(poker);
+				Mahjong_S2C_SettleProto.Mahjong mahjong = new Mahjong_S2C_SettleProto.Mahjong();
+				mahjong.setColor(seat.desktop.get(i).color);
+				mahjong.setIndex(seat.desktop.get(i).index);
+				mahjong.setNumber(seat.desktop.get(i).size);
+				mahjong.setPos(seat.desktop.get(i).pos);
+				pSeat.addDesktopMahjongs(mahjong);
 			}
 
 			room_settle.addSeats(pSeat);
@@ -392,12 +392,12 @@ public class MahjongS2C {
 		proto.setTypeId((byte) group.typeId.ordinal());
 		for (int i = 0; i < group.poker.size(); ++i) {
 			Poker poker = group.poker.get(i);
-			Mahjong_S2C_OperateProto.Poker pPoker = new Mahjong_S2C_OperateProto.Poker();
-			pPoker.setColor(poker.color);
-			pPoker.setNumber(poker.size);
-			pPoker.setIndex(poker.index);
-			pPoker.setPos(poker.pos);
-			proto.addPokers(pPoker);
+			Mahjong_S2C_OperateProto.Mahjong pMahjong = new Mahjong_S2C_OperateProto.Mahjong();
+			pMahjong.setColor(poker.color);
+			pMahjong.setNumber(poker.size);
+			pMahjong.setIndex(poker.index);
+			pMahjong.setPos(poker.pos);
+			proto.addMahjongs(pMahjong);
 		}
 		this.refreshAll(0, proto.toArray());
 	}

@@ -72,7 +72,7 @@ public abstract class RoomCtrlBase {
 			this.getRoom().player.put(player.playerId, player);
 			if (!this.sitdown(player.playerId, pos, gold))
 			{
-				logger.info(this.roominfo+"金币场坐下失败" + player.playerId);
+				logger.info(this.roominfo+"坐下失败" + player.playerId);
 				return false;
 			}
 			if (!player.isRobot)
@@ -198,45 +198,6 @@ public abstract class RoomCtrlBase {
 		{
 			this.onBegin();
 		}
-	}
-
-	public boolean unready(long playerId) {
-
-		if (this.getRoom().status != RoomStatus.ROOM_STATUS_READY) {
-			logger.info(this.roominfo+"当前桌面不是准备状态");
-			return false;
-		}
-
-		// 取自己的位置
-		int pos = this.getRoom().getPos(playerId);
-
-		if (pos == 0) {
-			logger.info(this.roominfo+"你没有坐下，无法准备");
-			return false;
-		}
-
-		this.getRoom().getSeatByPos(pos).status = SeatStatus.SEAT_STATUS_IDLE;
-
-		return true;
-	}
-
-	public void afk(long playerId, boolean isAfk)
-	{
-		Player player = this.getRoom().player.get(playerId);
-		if (player == null)
-			return;
-
-		SeatBase seat = this.getRoom().getSeatByPlayerId(playerId);
-		if (seat == null)
-			return;
-
-		seat.isAfk = isAfk;
-
-		Game_S2C_AFKProto proto = new Game_S2C_AFKProto();
-		proto.setIsAfk(isAfk);
-		proto.setPlayerId((int) playerId);
-
-		this.refreshAll(0, proto.toArray());
 	}
 
 	public void disband()
