@@ -22,11 +22,11 @@ public class MahjongCtrl : MonoBehaviour
     /// 数据
     /// </summary>
     [SerializeField]
-    private Mahjong m_Poker;
+    private Mahjong m_Mahjong;
     public Mahjong Mahjong
     {
-        get { return m_Poker; }
-        private set { m_Poker = value; }
+        get { return m_Mahjong; }
+        private set { m_Mahjong = value; }
     }
     [SerializeField]
     private GameObject m_Tip;
@@ -56,10 +56,10 @@ public class MahjongCtrl : MonoBehaviour
         }
     }
 
-    public void ShowTip(bool isHandPoker)
+    public void ShowTip(bool isHandMahjong)
     {
         m_Tip.gameObject.SetActive(true);
-        if (isHandPoker)
+        if (isHandMahjong)
         {
             m_Tip.transform.localPosition = new Vector3(0f, 0f, 8f);
             m_Tip.transform.localScale = Vector3.one;

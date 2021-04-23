@@ -37,7 +37,7 @@ public class UIItemTingTip : UIItemBase
         this.SafeSetActive(false);
     }
 
-    public void ShowTip(List<Mahjong> lst, Dictionary<int, int> pokerCount)
+    public void ShowTip(List<Mahjong> lst, Dictionary<int, int> mahjongCount)
     {
         if (lst == null || lst.Count == 0)
         {
@@ -63,10 +63,10 @@ public class UIItemTingTip : UIItemBase
                 Text txt = go.GetComponentInChildren<Text>();
 
                 int hash = lst[i].GetHashCode();
-                int overplus = (4 - pokerCount[hash]);
+                int overplus = (4 - mahjongCount[hash]);
                 txt.SafeSetText(overplus.ToString());
                 Image img = go.GetOrCreatComponent<Image>();
-                //img.overrideSprite = MahjongManager.Instance.LoadPokerSprite(lst[i], false);
+                //img.overrideSprite = MahjongManager.Instance.LoadMahjongSprite(lst[i], false);
                 img.SetNativeSize();
                 if (overplus == 0)
                 {

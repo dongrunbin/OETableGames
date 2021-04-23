@@ -17,9 +17,9 @@ public class CameraCtrl : MonoBehaviour
     public Camera MainCamera;
 
     [SerializeField]
-    private Transform[] m_HandPokerCameraContainers;
+    private Transform[] m_HandMahjongCameraContainers;
     [SerializeField]
-    public Camera HandPokerCamera;
+    public Camera HandMahjongCamera;
 
 
     private void Awake()
@@ -30,11 +30,11 @@ public class CameraCtrl : MonoBehaviour
 
     private void Start()
     {
-        if (HandPokerCamera != null)
+        if (HandMahjongCamera != null)
         {
-            if (HandPokerCamera.aspect < 1920f / 1080f)
+            if (HandMahjongCamera.aspect < 1920f / 1080f)
             {
-                HandPokerCamera.aspect = 1920f / 1080f;
+                HandMahjongCamera.aspect = 1920f / 1080f;
             }
         }
     }

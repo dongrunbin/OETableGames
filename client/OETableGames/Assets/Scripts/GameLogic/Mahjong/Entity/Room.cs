@@ -28,8 +28,8 @@ public class Room
 
     public RoomSetting setting = new RoomSetting();
 
-    public int PokerTotal;
-    public int PokerAmount;
+    public int MahjongTotal;
+    public int MahjongAmount;
     public Dice FirstDice;
     public Dice SecondDice;
     public int PlayedTimes;
@@ -49,9 +49,8 @@ public class Room
         }
     }
 
-    public List<MahjongGroup> AskPokerGroup;
-    public List<Mahjong> WallList = new List<Mahjong>();
-    public Dictionary<int, int> PokerCount = new Dictionary<int, int>();
+    public List<MahjongGroup> AskMahjongGroup;
+    public Dictionary<int, int> MahjongCount = new Dictionary<int, int>();
 
     public Room(int roomId, int gameId, List<int> config)
     {

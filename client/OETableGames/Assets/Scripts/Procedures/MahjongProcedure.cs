@@ -24,9 +24,9 @@ public class MahjongProcedure : Procedure
 
         if (room.PlayerSeat.Status == SeatStatus.Operate)
         {
-            if (room.AskPokerGroup != null && room.AskPokerGroup.Count > 0)
+            if (room.AskMahjongGroup != null && room.AskMahjongGroup.Count > 0)
             {
-                AskOperation(room.AskPokerGroup);
+                AskOperation(room.AskMahjongGroup);
             }
         }
     }
@@ -153,7 +153,7 @@ public class MahjongProcedure : Procedure
     public void Operation(int playerId, OperationType type, int subType, List<Mahjong> lst)
     {
         if (m_Proxy == null) return;
-        m_Proxy.OperatePoker(type, playerId, subType, lst);
+        m_Proxy.OperateMahjong(type, playerId, subType, lst);
         Seat seat = m_Proxy.GetSeatByPlayerId(playerId);
         m_MahjongForm.Operation(seat);
         m_Logic.Operation(seat);
@@ -220,11 +220,11 @@ public class MahjongProcedure : Procedure
         Seat playerSeat = room.PlayerSeat;
         if (playerSeat == null) return;
 
-        if (room.PlayerSeat.Status == SeatStatus.PlayPoker && room.RoomStatus == RoomStatus.Gaming)
+        if (room.PlayerSeat.Status == SeatStatus.PlayMahjong && room.RoomStatus == RoomStatus.Gaming)
         {
             MahjongService.Instance.ClientSendPass();
-            MahjongService.Instance.ClientSendPlayPoker(mahjong);
-            m_MahjongForm.ShowTingTip(m_Proxy.GetHu(mahjong), room.PokerCount);
+            MahjongService.Instance.ClientSendPlayMahjong(mahjong);
+            m_MahjongForm.ShowTingTip(m_Proxy.GetHu(mahjong), room.MahjongCount);
         }
     }
 

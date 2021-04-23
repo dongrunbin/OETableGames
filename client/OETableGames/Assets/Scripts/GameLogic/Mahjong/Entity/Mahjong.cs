@@ -41,13 +41,13 @@ public class Mahjong : IComparable
         m_Number = size;
     }
 
-    public Mahjong(Mahjong poker)
+    public Mahjong(Mahjong mahjong)
     {
-        if (poker != null)
+        if (mahjong != null)
         {
-            m_Index = poker.index;
-            m_Color = poker.color;
-            m_Number = poker.number;
+            m_Index = mahjong.index;
+            m_Color = mahjong.color;
+            m_Number = mahjong.number;
         }
     }
 
@@ -65,16 +65,16 @@ public class Mahjong : IComparable
     {
         if (other == null) return -1;
         if (!(other is Mahjong)) return -1;
-        Mahjong otherPoker = other as Mahjong;
-        if (color != otherPoker.color) return color - otherPoker.color;
-        if (number != otherPoker.number) return number - otherPoker.number;
-        return index - otherPoker.index;
+        Mahjong otherMahjong = other as Mahjong;
+        if (color != otherMahjong.color) return color - otherMahjong.color;
+        if (number != otherMahjong.number) return number - otherMahjong.number;
+        return index - otherMahjong.index;
     }
 
-    public bool Equals(Mahjong poker)
+    public bool Equals(Mahjong mahjong)
     {
-        if (poker == null) return false;
-        return color == poker.color && number == poker.number;
+        if (mahjong == null) return false;
+        return color == mahjong.color && number == mahjong.number;
     }
 
     public override int GetHashCode()

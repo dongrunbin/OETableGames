@@ -52,7 +52,7 @@ public class UIItemSeat : UIItemBase
         m_Banker.SafeSetActive(seat.IsBanker);
         m_TextGold.SafeSetText(seat.Gold.ToString());
         m_Ready.SafeSetActive(seat.Status == SeatStatus.Ready);
-        m_ImgOperating.SafeSetActive(seat.Status == SeatStatus.PlayPoker);
+        m_ImgOperating.SafeSetActive(seat.Status == SeatStatus.PlayMahjong);
         m_TextNickname.SafeSetText(seat.Nickname);
     }
 

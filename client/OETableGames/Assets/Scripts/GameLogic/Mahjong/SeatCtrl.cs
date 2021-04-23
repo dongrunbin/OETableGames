@@ -13,7 +13,7 @@ using UnityEngine;
 
 public class SeatCtrl : MonoBehaviour
 {
-    private enum PokerState
+    private enum MahjongState
     {
         Normal,
         Hold,
@@ -82,18 +82,18 @@ public class SeatCtrl : MonoBehaviour
         }
         m_HandMahjong.Clear();
 
-        for (int i = 0; i < seat.PokerList.Count; ++i)
+        for (int i = 0; i < seat.MahjongList.Count; ++i)
         {
-            MahjongCtrl newMajiang = MahjongManager.Instance.SpawnMahjong(seat.PokerList[i], false);
+            MahjongCtrl newMajiang = MahjongManager.Instance.SpawnMahjong(seat.MahjongList[i], false);
             newMajiang.gameObject.transform.SetParent(m_HandContainer.transform);
             newMajiang.Show(false);
             m_HandContainer.gameObject.SetLayer("Peng" + m_nSeatPos);
             m_HandMahjong.Add(newMajiang);
         }
         m_HandContainer.Sort();
-        if (seat.HitPoker != null)
+        if (seat.HitMahjong != null)
         {
-            MahjongCtrl newMajiang = MahjongManager.Instance.SpawnMahjong(seat.HitPoker, false);
+            MahjongCtrl newMajiang = MahjongManager.Instance.SpawnMahjong(seat.HitMahjong, false);
             newMajiang.gameObject.transform.SetParent(m_DrawContainer.transform);
             newMajiang.Show(false);
             m_DrawContainer.gameObject.SetLayer("Peng" + m_nSeatPos);
@@ -112,21 +112,21 @@ public class SeatCtrl : MonoBehaviour
             m_PengCtrls[i].Reset();
         }
         m_UsedMahjong.Clear();
-        for (int i = 0; i < seat.UsedPokerList.Count; ++i)
+        for (int i = 0; i < seat.UsedMahjongGroups.Count; ++i)
         {
             List<MahjongCtrl> lst = new List<MahjongCtrl>();
-            for (int j = 0; j < seat.UsedPokerList[i].MahjongList.Count; ++j)
+            for (int j = 0; j < seat.UsedMahjongGroups[i].MahjongList.Count; ++j)
             {
-                MahjongCtrl ctrl = MahjongManager.Instance.SpawnMahjong(seat.UsedPokerList[i].MahjongList[j], MahjongHelper.HasMahjong(seat.UsedPokerList[i].MahjongList[j], seat.UniversalList));
+                MahjongCtrl ctrl = MahjongManager.Instance.SpawnMahjong(seat.UsedMahjongGroups[i].MahjongList[j], MahjongHelper.HasMahjong(seat.UsedMahjongGroups[i].MahjongList[j], seat.UniversalList));
                 lst.Add(ctrl);
             }
-            Combination3D combination = new Combination3D(seat.UsedPokerList[i].CombinationType, seat.UsedPokerList[i].SubType, lst);
+            Combination3D combination = new Combination3D(seat.UsedMahjongGroups[i].CombinationType, seat.UsedMahjongGroups[i].SubType, lst);
             m_UsedMahjong.Add(combination);
             m_PengCtrls[i].SetUI(combination, seat, false);
         }
 
-        SetDrawPokerState(PokerState.Normal);
-        SetHandPokerState(PokerState.Normal);
+        SetDrawMahjongState(MahjongState.Normal);
+        SetHandMahjongState(MahjongState.Normal);
     }
 
     public void SetUniversal(List<Mahjong> universal)
@@ -140,36 +140,36 @@ public class SeatCtrl : MonoBehaviour
         }
     }
 
-    private void SetHandPokerState(PokerState state)
+    private void SetHandMahjongState(MahjongState state)
     {
         switch (state)
         {
-            case PokerState.Normal:
+            case MahjongState.Normal:
                 m_HandContainer.transform.localEulerAngles = new Vector3(-90, 0, 0);
                 break;
-            case PokerState.Hold:
+            case MahjongState.Hold:
                 m_HandContainer.transform.localEulerAngles = new Vector3(-180, 0, 0);
                 m_HandContainer.gameObject.SetLayer("Peng" + m_nSeatPos.ToString());
                 break;
-            case PokerState.Show:
+            case MahjongState.Show:
                 m_HandContainer.transform.localEulerAngles = new Vector3(0, 0, 0);
                 m_HandContainer.gameObject.SetLayer("Peng" + m_nSeatPos.ToString());
                 break;
         }
     }
 
-    private void SetDrawPokerState(PokerState state)
+    private void SetDrawMahjongState(MahjongState state)
     {
         switch (state)
         {
-            case PokerState.Normal:
+            case MahjongState.Normal:
                 m_DrawContainer.transform.localEulerAngles = new Vector3(-90, 0, 0);
                 break;
-            case PokerState.Hold:
+            case MahjongState.Hold:
                 m_DrawContainer.transform.localEulerAngles = new Vector3(180, 0, 0);
                 m_DrawContainer.gameObject.SetLayer("Peng" + m_nSeatPos.ToString());
                 break;
-            case PokerState.Show:
+            case MahjongState.Show:
                 m_DrawContainer.transform.localEulerAngles = new Vector3(0, 0, 0);
                 m_DrawContainer.gameObject.SetLayer("Peng" + m_nSeatPos.ToString());
                 break;
@@ -240,37 +240,37 @@ public class SeatCtrl : MonoBehaviour
 
         Reset(room, seat);
 
-        for (int i = 0; i < seat.PokerList.Count; ++i)
+        for (int i = 0; i < seat.MahjongList.Count; ++i)
         {
-            MahjongCtrl ctrl = MahjongManager.Instance.SpawnMahjong(seat.PokerList[i], MahjongHelper.HasMahjong(seat.PokerList[i], seat.UniversalList));
+            MahjongCtrl ctrl = MahjongManager.Instance.SpawnMahjong(seat.MahjongList[i], MahjongHelper.HasMahjong(seat.MahjongList[i], seat.UniversalList));
             ctrl.gameObject.transform.SetParent(m_HandContainer.transform);
             ctrl.gameObject.SetLayer(m_HandContainer.gameObject.layer);
             m_HandMahjong.Add(ctrl);
         }
-        if (seat.HitPoker != null)
+        if (seat.HitMahjong != null)
         {
-            MahjongCtrl ctrl = MahjongManager.Instance.SpawnMahjong(seat.HitPoker, MahjongHelper.HasMahjong(seat.HitPoker, seat.UniversalList));
+            MahjongCtrl ctrl = MahjongManager.Instance.SpawnMahjong(seat.HitMahjong, MahjongHelper.HasMahjong(seat.HitMahjong, seat.UniversalList));
             ctrl.gameObject.transform.SetParent(m_DrawContainer.transform);
             ctrl.gameObject.SetLayer(m_DrawContainer.gameObject.layer);
             m_HandMahjong.Add(ctrl);
         }
-        for (int i = 0; i < seat.DeskTopPoker.Count; ++i)
+        for (int i = 0; i < seat.DeskTopMahjong.Count; ++i)
         {
-            MahjongCtrl ctrl = MahjongManager.Instance.SpawnMahjong(seat.DeskTopPoker[i], MahjongHelper.HasMahjong(seat.DeskTopPoker[i], seat.UniversalList));
+            MahjongCtrl ctrl = MahjongManager.Instance.SpawnMahjong(seat.DeskTopMahjong[i], MahjongHelper.HasMahjong(seat.DeskTopMahjong[i], seat.UniversalList));
             ctrl.gameObject.transform.SetParent(m_DeskTopContainer.transform);
             ctrl.gameObject.SetLayer(m_DeskTopContainer.gameObject.layer);
             m_DesktopMahjong.Add(ctrl);
         }
         m_DeskTopContainer.Sort();
-        for (int i = 0; i < seat.UsedPokerList.Count; ++i)
+        for (int i = 0; i < seat.UsedMahjongGroups.Count; ++i)
         {
             List<MahjongCtrl> lst = new List<MahjongCtrl>();
-            for (int j = 0; j < seat.UsedPokerList[i].MahjongList.Count; ++j)
+            for (int j = 0; j < seat.UsedMahjongGroups[i].MahjongList.Count; ++j)
             {
-                MahjongCtrl ctrl = MahjongManager.Instance.SpawnMahjong(seat.UsedPokerList[i].MahjongList[j], MahjongHelper.HasMahjong(seat.UsedPokerList[i].MahjongList[j], seat.UniversalList));
+                MahjongCtrl ctrl = MahjongManager.Instance.SpawnMahjong(seat.UsedMahjongGroups[i].MahjongList[j], MahjongHelper.HasMahjong(seat.UsedMahjongGroups[i].MahjongList[j], seat.UniversalList));
                 lst.Add(ctrl);
             }
-            Combination3D combination = new Combination3D(seat.UsedPokerList[i].CombinationType, seat.UsedPokerList[i].SubType, lst);
+            Combination3D combination = new Combination3D(seat.UsedMahjongGroups[i].CombinationType, seat.UsedMahjongGroups[i].SubType, lst);
             m_UsedMahjong.Add(combination);
             m_PengCtrls[i].SetUI(combination, seat);
         }
@@ -289,8 +289,8 @@ public class SeatCtrl : MonoBehaviour
             m_HandContainer.gameObject.SetLayer("Wall" + seat.Pos);
         }
 
-        SetDrawPokerState(PokerState.Normal);
-        SetHandPokerState(PokerState.Normal);
+        SetDrawMahjongState(MahjongState.Normal);
+        SetHandMahjongState(MahjongState.Normal);
         Reset();
     }
 
@@ -376,7 +376,7 @@ public class SeatCtrl : MonoBehaviour
         if (seat == null) return;
         if (seat.Pos != m_nSeatPos) return;
 
-        MahjongCtrl ctrl = MahjongManager.Instance.SpawnMahjong(seat.HitPoker, MahjongHelper.HasMahjong(seat.HitPoker, seat.UniversalList));
+        MahjongCtrl ctrl = MahjongManager.Instance.SpawnMahjong(seat.HitMahjong, MahjongHelper.HasMahjong(seat.HitMahjong, seat.UniversalList));
         ctrl.gameObject.transform.SetParent(m_DrawContainer.transform);
         ctrl.gameObject.SetLayer(m_DrawContainer.gameObject.layer);
         m_HandMahjong.Add(ctrl);
@@ -419,10 +419,10 @@ public class SeatCtrl : MonoBehaviour
 
         PlayAudio(discarded.color, discarded.number, seat.Gender);
 
-        StartCoroutine(PlayPokerAnimation(majiang, sourcePos, seat.IsPlayer));
+        StartCoroutine(PlayMahjongAnimation(majiang, sourcePos, seat.IsPlayer));
     }
 
-    private IEnumerator PlayPokerAnimation(MahjongCtrl majiang, Vector3 sourcePos, bool isPlayer)
+    private IEnumerator PlayMahjongAnimation(MahjongCtrl majiang, Vector3 sourcePos, bool isPlayer)
     {
         Vector3 destPos = majiang.transform.position;
         Vector3 destAng = majiang.transform.eulerAngles;
@@ -439,7 +439,7 @@ public class SeatCtrl : MonoBehaviour
         }
         if (isPlayer)
         {
-            Vector3 screenPos = m_Camera.HandPokerCamera.WorldToViewportPoint(sourcePos);
+            Vector3 screenPos = m_Camera.HandMahjongCamera.WorldToViewportPoint(sourcePos);
             sourcePos = m_Camera.MainCamera.ViewportToWorldPoint(screenPos + new Vector3(0f, 0f, 300f));
         }
 
@@ -551,11 +551,11 @@ public class SeatCtrl : MonoBehaviour
     {
         if (seat == null) return;
         MahjongCtrl ctrl = null;
-        if (seat.HitPoker != null)
+        if (seat.HitMahjong != null)
         {
             for (int i = 0; i < m_DesktopMahjong.Count; ++i)
             {
-                if (m_DesktopMahjong[i].Mahjong.index == seat.HitPoker.index)
+                if (m_DesktopMahjong[i].Mahjong.index == seat.HitMahjong.index)
                 {
                     ctrl = m_DesktopMahjong[i];
                     break;
@@ -564,7 +564,7 @@ public class SeatCtrl : MonoBehaviour
 
             for (int i = 0; i < m_HandMahjong.Count; ++i)
             {
-                if (m_HandMahjong[i].Mahjong.index == seat.HitPoker.index)
+                if (m_HandMahjong[i].Mahjong.index == seat.HitMahjong.index)
                 {
                     ctrl = m_HandMahjong[i];
                     break;
@@ -574,7 +574,7 @@ public class SeatCtrl : MonoBehaviour
             {
                 for (int j = 0; j < m_UsedMahjong[i].MahjongList.Count; ++j)
                 {
-                    if (m_UsedMahjong[i].MahjongList[j].Mahjong.index == seat.HitPoker.index)
+                    if (m_UsedMahjong[i].MahjongList[j].Mahjong.index == seat.HitMahjong.index)
                     {
                         ctrl = m_UsedMahjong[i].MahjongList[j];
                         break;
@@ -601,11 +601,11 @@ public class SeatCtrl : MonoBehaviour
 
         if (seat.Pos != m_nSeatPos) return;
 
-        for (int i = 0; i < seat.PokerList.Count; ++i)
+        for (int i = 0; i < seat.MahjongList.Count; ++i)
         {
             for (int j = 0; j < m_HandMahjong.Count; ++j)
             {
-                if (m_HandMahjong[j].Mahjong.index == seat.PokerList[i].index)
+                if (m_HandMahjong[j].Mahjong.index == seat.MahjongList[i].index)
                 {
                     m_HandMahjong[j].gameObject.transform.SetParent(m_HandContainer.transform);
                     m_HandMahjong[j].gameObject.SetLayer(m_HandContainer.gameObject.layer);
@@ -614,11 +614,11 @@ public class SeatCtrl : MonoBehaviour
                 }
             }
         }
-        if (seat.HitPoker != null)
+        if (seat.HitMahjong != null)
         {
             for (int i = 0; i < m_HandMahjong.Count; ++i)
             {
-                if (m_HandMahjong[i].Mahjong.index == seat.HitPoker.index)
+                if (m_HandMahjong[i].Mahjong.index == seat.HitMahjong.index)
                 {
                     m_HandMahjong[i].gameObject.transform.SetParent(m_DrawContainer.transform);
                     m_HandMahjong[i].gameObject.SetLayer(m_DrawContainer.gameObject.layer);

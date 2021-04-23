@@ -14,13 +14,13 @@ public class UIItemOperationDetail : UIItemBase
     [SerializeField]
     private Transform m_Container;
     [SerializeField]
-    private Image[] m_ImagePoker;
+    private Image[] m_ImageMahjong;
     [SerializeField]
     private Image m_BG;
 
-    private Action<List<Mahjong>> m_OnPokerClick;
+    private Action<List<Mahjong>> m_OnMahjongClick;
 
-    private List<Mahjong> m_PokerList;
+    private List<Mahjong> m_MahjongList;
 
     private void Awake()
     {
@@ -29,27 +29,27 @@ public class UIItemOperationDetail : UIItemBase
 
     private void OnBtnClick()
     {
-        if (m_OnPokerClick != null)
+        if (m_OnMahjongClick != null)
         {
-            m_OnPokerClick(m_PokerList);
+            m_OnMahjongClick(m_MahjongList);
         }
     }
 
     public void SetUI(List<Mahjong> lst, Action<List<Mahjong>> onClick)
     {
-        m_PokerList = lst;
-        for (int i = 0; i < m_ImagePoker.Length; ++i)
+        m_MahjongList = lst;
+        for (int i = 0; i < m_ImageMahjong.Length; ++i)
         {
-            m_ImagePoker[i].gameObject.SetActive(false);
+            m_ImageMahjong[i].gameObject.SetActive(false);
         }
 
         for (int i = 0; i < lst.Count; ++i)
         {
-            m_ImagePoker[i].gameObject.SetActive(true);
-            //m_ImagePoker[i].overrideSprite = MahjongManager.Instance.LoadPokerSprite(lst[i], false);
+            m_ImageMahjong[i].gameObject.SetActive(true);
+            //m_ImageMahjong[i].overrideSprite = MahjongManager.Instance.LoadMahjongSprite(lst[i], false);
         }
 
         m_BG.rectTransform.sizeDelta = new Vector2(86 * lst.Count + 100, m_BG.rectTransform.sizeDelta.y);
-        m_OnPokerClick = onClick;
+        m_OnMahjongClick = onClick;
     }
 }

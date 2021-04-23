@@ -27,8 +27,8 @@ public class MahjongService : Singleton<MahjongService>
         DrbComponent.GetEventSystem<int>().AddEventListener(CodeDef.Mahjong_S2C_RoomInfoProto, OnServerReturnRoomInfo);//服务器返回房间信息
         DrbComponent.GetEventSystem<int>().AddEventListener(CodeDef.Mahjong_S2C_ResultProto, OnServerReturnResult);//服务器返回结果消息
         DrbComponent.GetEventSystem<int>().AddEventListener(CodeDef.Mahjong_S2C_GameBeginProto, OnServerBroadcastBegin);//服务器广播开局消息
-        DrbComponent.GetEventSystem<int>().AddEventListener(CodeDef.Mahjong_S2C_DrawProto, OnServerBroadcastDrawPoker);//服务器广播摸牌消息
-        DrbComponent.GetEventSystem<int>().AddEventListener(CodeDef.Mahjong_S2C_DiscardProto, OnServerBroadcastPlayPoker);//服务器广播出牌消息
+        DrbComponent.GetEventSystem<int>().AddEventListener(CodeDef.Mahjong_S2C_DrawProto, OnServerBroadcastDrawMahjong);//服务器广播摸牌消息
+        DrbComponent.GetEventSystem<int>().AddEventListener(CodeDef.Mahjong_S2C_DiscardProto, OnServerBroadcastPlayMahjong);//服务器广播出牌消息
         DrbComponent.GetEventSystem<int>().AddEventListener(CodeDef.Mahjong_S2C_AskOperationProto, OnServerPushAskOperation);//服务器询问是否吃碰杠胡
         DrbComponent.GetEventSystem<int>().AddEventListener(CodeDef.Mahjong_S2C_OperateProto, OnServerBroadcastOperation);//服务器广播吃碰杠胡消息
         DrbComponent.GetEventSystem<int>().AddEventListener(CodeDef.Mahjong_S2C_PassProto, OnServerReturnPass);//服务器返回过
@@ -46,8 +46,8 @@ public class MahjongService : Singleton<MahjongService>
         DrbComponent.GetEventSystem<int>().RemoveEventListener(CodeDef.Mahjong_S2C_RoomInfoProto, OnServerReturnRoomInfo);//服务器返回房间信息
         DrbComponent.GetEventSystem<int>().RemoveEventListener(CodeDef.Mahjong_S2C_ResultProto, OnServerReturnResult);//服务器返回结果消息
         DrbComponent.GetEventSystem<int>().RemoveEventListener(CodeDef.Mahjong_S2C_GameBeginProto, OnServerBroadcastBegin);//服务器广播开局消息
-        DrbComponent.GetEventSystem<int>().RemoveEventListener(CodeDef.Mahjong_S2C_DrawProto, OnServerBroadcastDrawPoker);//服务器广播摸牌消息
-        DrbComponent.GetEventSystem<int>().RemoveEventListener(CodeDef.Mahjong_S2C_DiscardProto, OnServerBroadcastPlayPoker);//服务器广播出牌消息
+        DrbComponent.GetEventSystem<int>().RemoveEventListener(CodeDef.Mahjong_S2C_DrawProto, OnServerBroadcastDrawMahjong);//服务器广播摸牌消息
+        DrbComponent.GetEventSystem<int>().RemoveEventListener(CodeDef.Mahjong_S2C_DiscardProto, OnServerBroadcastPlayMahjong);//服务器广播出牌消息
         DrbComponent.GetEventSystem<int>().RemoveEventListener(CodeDef.Mahjong_S2C_AskOperationProto, OnServerPushAskOperation);//服务器询问是否吃碰杠胡
         DrbComponent.GetEventSystem<int>().RemoveEventListener(CodeDef.Mahjong_S2C_OperateProto, OnServerBroadcastOperation);//服务器广播吃碰杠胡消息
         DrbComponent.GetEventSystem<int>().RemoveEventListener(CodeDef.Mahjong_S2C_PassProto, OnServerReturnPass);//服务器返回过
@@ -95,7 +95,7 @@ public class MahjongService : Singleton<MahjongService>
         DrbComponent.NetworkSystem.Send(proto.Serialize());
     }
 
-    public void ClientSendPlayPoker(Mahjong mahjong)
+    public void ClientSendPlayMahjong(Mahjong mahjong)
     {
         if (mahjong == null) return;
         Mahjong_C2S_DiscardProto proto = new Mahjong_C2S_DiscardProto();
@@ -182,8 +182,8 @@ public class MahjongService : Singleton<MahjongService>
 
         Room room = new Room();
         room.currentLoop = proto.gamesCount;
-        room.PokerTotal = proto.pokerTotal;
-        room.PokerAmount = proto.pokerAmount;
+        room.MahjongTotal = proto.mahjongTotal;
+        room.MahjongAmount = proto.mahjongAmount;
 
         room.SeatList = new List<Seat>();
         for (int i = 0; i < proto.seatList.Count; ++i)
@@ -192,17 +192,17 @@ public class MahjongService : Singleton<MahjongService>
             Mahjong_S2C_GameBeginProto.Seat protoSeat = proto.seatList[i];
             entity.Pos = protoSeat.pos;
             entity.PlayerId = protoSeat.playerId;
-            for (int j = 0; j < protoSeat.pokersList.Count; ++j)
+            for (int j = 0; j < protoSeat.mahjongsList.Count; ++j)
             {
-                Mahjong_S2C_GameBeginProto.Poker protoPoker = protoSeat.pokersList[j];
-                entity.PokerList.Add(new Mahjong(protoPoker.index, protoPoker.color, protoPoker.size));
+                Mahjong_S2C_GameBeginProto.Mahjong protoMahjong = protoSeat.mahjongsList[j];
+                entity.MahjongList.Add(new Mahjong(protoMahjong.index, protoMahjong.color, protoMahjong.number));
             }
-            for (int j = 0; j < protoSeat.universalPokerList.Count; ++j)
+            for (int j = 0; j < protoSeat.universalMahjongsList.Count; ++j)
             {
-                Mahjong_S2C_GameBeginProto.Poker op_poker = protoSeat.universalPokerList[j];
-                entity.UniversalList.Add(new Mahjong(op_poker.index, op_poker.color, op_poker.size));
+                Mahjong_S2C_GameBeginProto.Mahjong op_mahjong = protoSeat.universalMahjongsList[j];
+                entity.UniversalList.Add(new Mahjong(op_mahjong.index, op_mahjong.color, op_mahjong.number));
             }
-            entity.PokerAmount = protoSeat.pokerAmount;
+            entity.MahjongAmount = protoSeat.mahjongAmount;
             entity.IsBanker = protoSeat.isBanker;
 
             room.SeatList.Add(entity);
@@ -224,14 +224,14 @@ public class MahjongService : Singleton<MahjongService>
         m_Procedure.Begin(room);
     }
 
-    private void OnServerBroadcastDrawPoker(object sender, EventArgs<int> args)
+    private void OnServerBroadcastDrawMahjong(object sender, EventArgs<int> args)
     {
         Mahjong_S2C_DrawProto proto = new Mahjong_S2C_DrawProto(((NetworkEventArgs)args).Data);
         Mahjong mahjong = new Mahjong(proto.index, proto.color, proto.number);
         m_Procedure.Draw(proto.playerId, mahjong, false);
     }
 
-    private void OnServerBroadcastPlayPoker(object sender, EventArgs<int> args)
+    private void OnServerBroadcastPlayMahjong(object sender, EventArgs<int> args)
     {
         Mahjong_S2C_DiscardProto proto = new Mahjong_S2C_DiscardProto(((NetworkEventArgs)args).Data);
         Mahjong mahjong = new Mahjong(proto.index, proto.color, proto.number);
@@ -252,8 +252,8 @@ public class MahjongService : Singleton<MahjongService>
                 Mahjong_S2C_AskOperationProto.MahjongGroup op_Group = proto.askMahjongGroupsList[i];
                 for (int j = 0; j < op_Group.mahjongsList.Count; ++j)
                 {
-                    Mahjong_S2C_AskOperationProto.Mahjong op_poker = op_Group.mahjongsList[j];
-                    lst.Add(new Mahjong(op_poker.index, op_poker.color, op_poker.number));
+                    Mahjong_S2C_AskOperationProto.Mahjong op_mahjong = op_Group.mahjongsList[j];
+                    lst.Add(new Mahjong(op_mahjong.index, op_mahjong.color, op_mahjong.number));
                 }
                 MahjongGroup combination = new MahjongGroup((OperationType)op_Group.typeId, op_Group.subTypeId, lst, 0);
                 groups.Add(combination);
@@ -267,11 +267,11 @@ public class MahjongService : Singleton<MahjongService>
     {
         Mahjong_S2C_OperateProto proto = new Mahjong_S2C_OperateProto(((NetworkEventArgs)args).Data);
 
-        List<Mahjong> lst = new List<Mahjong>(proto.pokersList.Count);
-        for (int i = 0; i < proto.pokersList.Count; ++i)
+        List<Mahjong> lst = new List<Mahjong>(proto.mahjongsList.Count);
+        for (int i = 0; i < proto.mahjongsList.Count; ++i)
         {
-            Mahjong_S2C_OperateProto.Poker op_poker = proto.pokersList[i];
-            lst.Add(new Mahjong(op_poker.index, op_poker.color, op_poker.number));
+            Mahjong_S2C_OperateProto.Mahjong op_mahjong = proto.mahjongsList[i];
+            lst.Add(new Mahjong(op_mahjong.index, op_mahjong.color, op_mahjong.number));
         }
 
         m_Procedure.Operation(proto.playerId, (OperationType)proto.typeId, proto.subTypeId, lst);
@@ -298,34 +298,34 @@ public class MahjongService : Singleton<MahjongService>
             seat.Gold = op_seat.gold;
             seat.isLoser = op_seat.isLoser;
             seat.isWiner = op_seat.isWinner;
-            seat.PokerList.Clear();
+            seat.MahjongList.Clear();
             seat.incomesDesc = op_seat.incomesDesc;
-            seat.UsedPokerList.Clear();
-            for (int j = 0; j < op_seat.usedPokerGroupList.Count; ++j)
+            seat.UsedMahjongGroups.Clear();
+            for (int j = 0; j < op_seat.usedMahjongGroupList.Count; ++j)
             {
-                Mahjong_S2C_SettleProto.PokerGroup op_combination = op_seat.usedPokerGroupList[j];
+                Mahjong_S2C_SettleProto.MahjongGroup op_combination = op_seat.usedMahjongGroupList[j];
                 List<Mahjong> lst = new List<Mahjong>();
-                for (int k = 0; k < op_combination.pokersList.Count; ++k)
+                for (int k = 0; k < op_combination.mahjongsList.Count; ++k)
                 {
-                    Mahjong_S2C_SettleProto.Poker op_poker = op_combination.pokersList[k];
-                    lst.Add(new Mahjong(op_poker.index, op_poker.color, op_poker.number));
+                    Mahjong_S2C_SettleProto.Mahjong op_mahjong = op_combination.mahjongsList[k];
+                    lst.Add(new Mahjong(op_mahjong.index, op_mahjong.color, op_mahjong.number));
                 }
                 MahjongGroup combination = new MahjongGroup((OperationType)op_combination.typeId, (int)op_combination.subTypeId, lst, seat.Pos);
                 combination.Sort();
-                seat.UsedPokerList.Add(combination);
+                seat.UsedMahjongGroups.Add(combination);
             }
-            for (int j = 0; j < op_seat.pokersList.Count; ++j)
+            for (int j = 0; j < op_seat.mahjongsList.Count; ++j)
             {
-                Mahjong_S2C_SettleProto.Poker op_Poker = op_seat.pokersList[j];
-                seat.PokerList.Add(new Mahjong(op_Poker.index, op_Poker.color, op_Poker.number));
+                Mahjong_S2C_SettleProto.Mahjong op_Mahjong = op_seat.mahjongsList[j];
+                seat.MahjongList.Add(new Mahjong(op_Mahjong.index, op_Mahjong.color, op_Mahjong.number));
             }
-            if (op_seat.hitPoker != null)
+            if (op_seat.hitMahjong != null)
             {
-                seat.HitPoker = new Mahjong(op_seat.hitPoker.index, op_seat.hitPoker.color, op_seat.hitPoker.number);
+                seat.HitMahjong = new Mahjong(op_seat.hitMahjong.index, op_seat.hitMahjong.color, op_seat.hitMahjong.number);
             }
             else
             {
-                seat.HitPoker = null;
+                seat.HitMahjong = null;
             }
             room.SeatList.Add(seat);
         }
@@ -362,8 +362,8 @@ public class MahjongService : Singleton<MahjongService>
         {
             BaseScore = proto.baseScore,
             currentLoop = proto.loop,
-            PokerAmount = proto.pokerAmount,
-            PokerTotal = proto.pokerTotal,
+            MahjongAmount = proto.mahjongAmount,
+            MahjongTotal = proto.mahjongTotal,
             roomId = proto.roomId,
             RoomStatus = (RoomStatus)proto.roomStatus,
             maxLoop = proto.maxLoop,
@@ -387,41 +387,41 @@ public class MahjongService : Singleton<MahjongService>
             seat.playedTimes = op_seat.handCount;
             room.PlayedTimes += seat.playedTimes;
             seat.DisbandState = (DisbandStatus)op_seat.disbandtatus;
-            if (op_seat.hitPoker != null)
+            if (op_seat.hitMahjong != null)
             {
-                seat.HitPoker = new Mahjong(op_seat.hitPoker.index, op_seat.hitPoker.color, op_seat.hitPoker.number);
+                seat.HitMahjong = new Mahjong(op_seat.hitMahjong.index, op_seat.hitMahjong.color, op_seat.hitMahjong.number);
             }
             for (int j = 0; j < op_seat.mahjongsList.Count; ++j)
             {
-                Mahjong_S2C_RoomInfoProto.Mahjong protoPoker = op_seat.mahjongsList[j];
-                seat.PokerList.Add(new Mahjong(protoPoker.index, protoPoker.color, protoPoker.number));
+                Mahjong_S2C_RoomInfoProto.Mahjong protoMahjong = op_seat.mahjongsList[j];
+                seat.MahjongList.Add(new Mahjong(protoMahjong.index, protoMahjong.color, protoMahjong.number));
             }
             for (int j = 0; j < op_seat.desktopList.Count; ++j)
             {
-                Mahjong_S2C_RoomInfoProto.Mahjong protoPoker = op_seat.desktopList[j];
-                Mahjong mahjong = new Mahjong(protoPoker.index, protoPoker.color, protoPoker.number);
-                seat.DeskTopPoker.Add(mahjong);
+                Mahjong_S2C_RoomInfoProto.Mahjong protoMahjong = op_seat.desktopList[j];
+                Mahjong mahjong = new Mahjong(protoMahjong.index, protoMahjong.color, protoMahjong.number);
+                seat.DeskTopMahjong.Add(mahjong);
             }
-            for (int j = 0; j < op_seat.usedPokerGroupList.Count; ++j)
+            for (int j = 0; j < op_seat.usedMahjongGroupList.Count; ++j)
             {
-                Mahjong_S2C_RoomInfoProto.MahjongGroup protoPoker = op_seat.usedPokerGroupList[j];
+                Mahjong_S2C_RoomInfoProto.MahjongGroup protoMahjong = op_seat.usedMahjongGroupList[j];
                 List<Mahjong> lst = new List<Mahjong>();
-                for (int k = 0; k < protoPoker.pokersList.Count; ++k)
+                for (int k = 0; k < protoMahjong.mahjongsList.Count; ++k)
                 {
-                    Mahjong_S2C_RoomInfoProto.Mahjong op_poker = protoPoker.pokersList[k];
-                    Mahjong mahjong = new Mahjong(op_poker.index, op_poker.color, op_poker.number);
+                    Mahjong_S2C_RoomInfoProto.Mahjong op_mahjong = protoMahjong.mahjongsList[k];
+                    Mahjong mahjong = new Mahjong(op_mahjong.index, op_mahjong.color, op_mahjong.number);
                     lst.Add(mahjong);
                 }
-                MahjongGroup combination = new MahjongGroup((OperationType)protoPoker.typeId, protoPoker.subTypeId, lst, seat.Pos);
+                MahjongGroup combination = new MahjongGroup((OperationType)protoMahjong.typeId, protoMahjong.subTypeId, lst, seat.Pos);
                 combination.Sort();
-                seat.UsedPokerList.Add(combination);
+                seat.UsedMahjongGroups.Add(combination);
             }
             for (int j = 0; j < op_seat.universalList.Count; ++j)
             {
-                Mahjong_S2C_RoomInfoProto.Mahjong op_poker = op_seat.universalList[j];
-                seat.UniversalList.Add(new Mahjong(op_poker.index, op_poker.color, op_poker.number));
+                Mahjong_S2C_RoomInfoProto.Mahjong op_mahjong = op_seat.universalList[j];
+                seat.UniversalList.Add(new Mahjong(op_mahjong.index, op_mahjong.color, op_mahjong.number));
             }
-            seat.PokerAmount = op_seat.pokerAmount;
+            seat.MahjongAmount = op_seat.mahjongAmount;
             seat.IsBanker = op_seat.isBanker;
             room.SeatList.Add(seat);
         }
@@ -455,26 +455,26 @@ public class MahjongService : Singleton<MahjongService>
             seatPos = proto.diceSecond,
         };
 
-        int askLeng = proto.askPokerGroupsList.Count;
+        int askLeng = proto.askMahjongGroupsList.Count;
         if (askLeng > 0)
         {
-            room.AskPokerGroup = new List<MahjongGroup>();
+            room.AskMahjongGroup = new List<MahjongGroup>();
             for (int i = 0; i < askLeng; ++i)
             {
-                Mahjong_S2C_RoomInfoProto.MahjongGroup op_Group = proto.askPokerGroupsList[i];
+                Mahjong_S2C_RoomInfoProto.MahjongGroup op_Group = proto.askMahjongGroupsList[i];
                 List<Mahjong> lst = new List<Mahjong>();
-                for (int j = 0; j < op_Group.pokersList.Count; ++j)
+                for (int j = 0; j < op_Group.mahjongsList.Count; ++j)
                 {
-                    Mahjong_S2C_RoomInfoProto.Mahjong op_poker = op_Group.pokersList[j];
-                    lst.Add(new Mahjong(op_poker.index, op_poker.color, op_poker.number));
+                    Mahjong_S2C_RoomInfoProto.Mahjong op_mahjong = op_Group.mahjongsList[j];
+                    lst.Add(new Mahjong(op_mahjong.index, op_mahjong.color, op_mahjong.number));
                 }
                 MahjongGroup combination = new MahjongGroup((OperationType)op_Group.typeId, op_Group.subTypeId, lst, 0);
-                room.AskPokerGroup.Add(combination);
+                room.AskMahjongGroup.Add(combination);
             }
         }
         else
         {
-            room.AskPokerGroup = null;
+            room.AskMahjongGroup = null;
         }
         m_Procedure.Init(room);
     }

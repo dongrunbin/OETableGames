@@ -113,11 +113,11 @@ public class MahjongProxy
         public int universalCount;
     }
 
-    public void CalculatePokerCount(bool containHandPoker)
+    public void CalculateMahjongCount(bool containHandMahjong)
     {
         if (Room == null) return;
         if (Room.SeatList == null) return;
-        Room.PokerCount.Clear();
+        Room.MahjongCount.Clear();
         for (int i = 1; i < 8; ++i)
         {
             for (int j = 1; j < 10; ++j)
@@ -125,41 +125,41 @@ public class MahjongProxy
                 if (i == 5 && j > 3) break;
                 if ((i == 4 || i > 5) && j > 4) break;
                 int hash = string.Format("{0}_{1}", i, j).GetHashCode();
-                Room.PokerCount[hash] = 0;
+                Room.MahjongCount[hash] = 0;
             }
         }
 
         for (int i = 0; i < Room.SeatList.Count; ++i)
         {
             Seat seat = Room.SeatList[i];
-            if (containHandPoker)
+            if (containHandMahjong)
             {
-                for (int j = 0; j < seat.PokerList.Count; ++j)
+                for (int j = 0; j < seat.MahjongList.Count; ++j)
                 {
-                    int hash = seat.PokerList[j].GetHashCode();
-                    if (!Room.PokerCount.ContainsKey(hash)) continue;
-                    ++Room.PokerCount[hash];
+                    int hash = seat.MahjongList[j].GetHashCode();
+                    if (!Room.MahjongCount.ContainsKey(hash)) continue;
+                    ++Room.MahjongCount[hash];
                 }
-                if (seat.HitPoker != null)
+                if (seat.HitMahjong != null)
                 {
-                    int hash = seat.HitPoker.GetHashCode();
-                    if (!Room.PokerCount.ContainsKey(hash)) continue;
-                    ++Room.PokerCount[hash];
+                    int hash = seat.HitMahjong.GetHashCode();
+                    if (!Room.MahjongCount.ContainsKey(hash)) continue;
+                    ++Room.MahjongCount[hash];
                 }
             }
-            for (int j = 0; j < seat.DeskTopPoker.Count; ++j)
+            for (int j = 0; j < seat.DeskTopMahjong.Count; ++j)
             {
-                int hash = seat.DeskTopPoker[j].GetHashCode();
-                if (!Room.PokerCount.ContainsKey(hash)) continue;
-                ++Room.PokerCount[hash];
+                int hash = seat.DeskTopMahjong[j].GetHashCode();
+                if (!Room.MahjongCount.ContainsKey(hash)) continue;
+                ++Room.MahjongCount[hash];
             }
-            for (int j = 0; j < seat.UsedPokerList.Count; ++j)
+            for (int j = 0; j < seat.UsedMahjongGroups.Count; ++j)
             {
-                for (int k = 0; k < seat.UsedPokerList[j].MahjongList.Count; ++k)
+                for (int k = 0; k < seat.UsedMahjongGroups[j].MahjongList.Count; ++k)
                 {
-                    int hash = seat.UsedPokerList[j].MahjongList[k].GetHashCode();
-                    if (!Room.PokerCount.ContainsKey(hash)) continue;
-                    ++Room.PokerCount[hash];
+                    int hash = seat.UsedMahjongGroups[j].MahjongList[k].GetHashCode();
+                    if (!Room.MahjongCount.ContainsKey(hash)) continue;
+                    ++Room.MahjongCount[hash];
                 }
             }
         }
@@ -170,22 +170,22 @@ public class MahjongProxy
         if (room == null) return;
         if (Room == null) return;
         Room.RoomStatus = RoomStatus.Gaming;
-        Room.PokerTotal = room.PokerTotal;
+        Room.MahjongTotal = room.MahjongTotal;
         Room.currentLoop = room.currentLoop;
-        Room.PokerAmount = room.PokerAmount;
+        Room.MahjongAmount = room.MahjongAmount;
         Room.FirstDice = room.FirstDice;
         Room.SecondDice = room.SecondDice;
         Room.PlayedTimes = 0;
-        Room.PokerCount.Clear();
+        Room.MahjongCount.Clear();
 
         for (int i = 0; i < room.SeatList.Count; ++i)
         {
             Seat tempSeat = room.SeatList[i];
             Seat entity = GetSeatBySeatId(tempSeat.Pos);
             entity.Reset();
-            entity.PokerList.AddRange(tempSeat.PokerList);
+            entity.MahjongList.AddRange(tempSeat.MahjongList);
             entity.UniversalList.AddRange(tempSeat.UniversalList);
-            entity.PokerAmount = tempSeat.PokerAmount;
+            entity.MahjongAmount = tempSeat.MahjongAmount;
             entity.IsBanker = tempSeat.IsBanker;
         }
     }
@@ -195,17 +195,17 @@ public class MahjongProxy
         Seat seat = GetSeatByPlayerId(playerId);
         if (seat == null) return;
 
-        if (seat.HitPoker != null)
+        if (seat.HitMahjong != null)
         {
-            seat.PokerList.Add(seat.HitPoker);
-            seat.HitPoker = mahjong;
+            seat.MahjongList.Add(seat.HitMahjong);
+            seat.HitMahjong = mahjong;
         }
         else
         {
-            seat.HitPoker = mahjong;
+            seat.HitMahjong = mahjong;
         }
 
-        seat.Status = SeatStatus.PlayPoker;
+        seat.Status = SeatStatus.PlayMahjong;
     }
 
     public void Discard(int playerId, Mahjong mahjong)
@@ -214,56 +214,56 @@ public class MahjongProxy
         if (seat == null) return;
         ++Room.PlayedTimes;
         seat.Status = SeatStatus.Wait;
-        CalculatePokerCount(false);
+        CalculateMahjongCount(false);
         ++seat.playedTimes;
 
-        if (seat.HitPoker != null)
+        if (seat.HitMahjong != null)
         {
-            if (seat.HitPoker.index == mahjong.index)
+            if (seat.HitMahjong.index == mahjong.index)
             {
-                seat.HitPoker = null;
+                seat.HitMahjong = null;
             }
             else
             {
-                for (int i = 0; i < seat.PokerList.Count; ++i)
+                for (int i = 0; i < seat.MahjongList.Count; ++i)
                 {
-                    if (seat.PokerList[i].index == mahjong.index)
+                    if (seat.MahjongList[i].index == mahjong.index)
                     {
-                        seat.PokerList.Remove(seat.PokerList[i]);
+                        seat.MahjongList.Remove(seat.MahjongList[i]);
                         break;
                     }
                 }
-                seat.PokerList.Add(seat.HitPoker);
-                seat.HitPoker = null;
+                seat.MahjongList.Add(seat.HitMahjong);
+                seat.HitMahjong = null;
             }
         }
         else
         {
-            for (int i = 0; i < seat.PokerList.Count; ++i)
+            for (int i = 0; i < seat.MahjongList.Count; ++i)
             {
-                if (seat.PokerList[i].index == mahjong.index)
+                if (seat.MahjongList[i].index == mahjong.index)
                 {
-                    seat.PokerList.Remove(seat.PokerList[i]);
+                    seat.MahjongList.Remove(seat.MahjongList[i]);
                     break;
                 }
             }
         }
-        seat.DeskTopPoker.Add(mahjong);
+        seat.DeskTopMahjong.Add(mahjong);
     }
 
     public void AskOperation(List<MahjongGroup> lst)
     {
         if (Room == null) return;
         if (Room.PlayerSeat == null) return;
-        Room.AskPokerGroup = lst;
+        Room.AskMahjongGroup = lst;
         Room.PlayerSeat.Status = SeatStatus.Operate;
     }
 
-    public void OperatePoker(OperationType type, int playerId, int subType, List<Mahjong> lst)
+    public void OperateMahjong(OperationType type, int playerId, int subType, List<Mahjong> lst)
     {
         Seat seat = GetSeatByPlayerId(playerId);
         if (seat == null) return;
-        seat.Status = SeatStatus.PlayPoker;
+        seat.Status = SeatStatus.PlayMahjong;
 
         MahjongGroup conbination = null;
         if (lst != null && lst.Count > 0)
@@ -279,43 +279,43 @@ public class MahjongProxy
                 Seat temp = Room.SeatList[w];
                 for (int i = 0; i < conbination.MahjongList.Count; ++i)
                 {
-                    for (int j = 0; j < temp.PokerList.Count; ++j)
+                    for (int j = 0; j < temp.MahjongList.Count; ++j)
                     {
-                        if (conbination.MahjongList[i].index == temp.PokerList[j].index)
+                        if (conbination.MahjongList[i].index == temp.MahjongList[j].index)
                         {
-                            temp.PokerList.RemoveAt(j);
+                            temp.MahjongList.RemoveAt(j);
                             break;
                         }
                     }
-                    if (temp.HitPoker != null)
+                    if (temp.HitMahjong != null)
                     {
-                        if (conbination.MahjongList[i].index == temp.HitPoker.index)
+                        if (conbination.MahjongList[i].index == temp.HitMahjong.index)
                         {
-                            temp.HitPoker = null;
+                            temp.HitMahjong = null;
                         }
                     }
-                    for (int j = 0; j < temp.DeskTopPoker.Count; ++j)
+                    for (int j = 0; j < temp.DeskTopMahjong.Count; ++j)
                     {
-                        if (conbination.MahjongList[i].index == temp.DeskTopPoker[j].index)
+                        if (conbination.MahjongList[i].index == temp.DeskTopMahjong[j].index)
                         {
-                            temp.DeskTopPoker.RemoveAt(j);
+                            temp.DeskTopMahjong.RemoveAt(j);
                             break;
                         }
                     }
-                    for (int j = temp.UsedPokerList.Count - 1; j >= 0; --j)
+                    for (int j = temp.UsedMahjongGroups.Count - 1; j >= 0; --j)
                     {
-                        for (int k = 0; k < temp.UsedPokerList[j].MahjongList.Count; ++k)
+                        for (int k = 0; k < temp.UsedMahjongGroups[j].MahjongList.Count; ++k)
                         {
-                            if (conbination.MahjongList[i].index == temp.UsedPokerList[j].MahjongList[k].index)
+                            if (conbination.MahjongList[i].index == temp.UsedMahjongGroups[j].MahjongList[k].index)
                             {
-                                temp.UsedPokerList[j].MahjongList.RemoveAt(k);
-                                temp.UsedPokerList[j].CombinationType = OperationType.Peng;
+                                temp.UsedMahjongGroups[j].MahjongList.RemoveAt(k);
+                                temp.UsedMahjongGroups[j].CombinationType = OperationType.Peng;
                                 break;
                             }
                         }
-                        if (temp.UsedPokerList[j].MahjongList.Count == 0)
+                        if (temp.UsedMahjongGroups[j].MahjongList.Count == 0)
                         {
-                            temp.UsedPokerList.RemoveAt(j);
+                            temp.UsedMahjongGroups.RemoveAt(j);
                         }
                     }
                 }
@@ -324,13 +324,13 @@ public class MahjongProxy
 
             if (conbination != null)
             {
-                seat.UsedPokerList.Add(conbination);
+                seat.UsedMahjongGroups.Add(conbination);
             }
 
-            if (seat.HitPoker != null)
+            if (seat.HitMahjong != null)
             {
-                seat.PokerList.Add(seat.HitPoker);
-                seat.HitPoker = null;
+                seat.MahjongList.Add(seat.HitMahjong);
+                seat.HitMahjong = null;
             }
         }
     }
@@ -340,8 +340,8 @@ public class MahjongProxy
         Seat seat = Room.PlayerSeat;
         if (seat == null) return;
 
-        Room.AskPokerGroup = null;
-        if (seat.HitPoker != null) seat.Status = SeatStatus.PlayPoker;
+        Room.AskMahjongGroup = null;
+        if (seat.HitMahjong != null) seat.Status = SeatStatus.PlayMahjong;
         else seat.Status = SeatStatus.Wait;
     }
 
@@ -353,32 +353,32 @@ public class MahjongProxy
         seat.Status = SeatStatus.Finish;
         if (mahjong != null)
         {
-            seat.HitPoker = mahjong;
+            seat.HitMahjong = mahjong;
 
             for (int i = 0; i < Room.SeatList.Count; ++i)
             {
                 bool isBreak = false;
-                for (int j = 0; j < Room.SeatList[i].DeskTopPoker.Count; ++j)
+                for (int j = 0; j < Room.SeatList[i].DeskTopMahjong.Count; ++j)
                 {
-                    if (Room.SeatList[i].DeskTopPoker[j].index == seat.HitPoker.index)
+                    if (Room.SeatList[i].DeskTopMahjong[j].index == seat.HitMahjong.index)
                     {
-                        Room.SeatList[i].DeskTopPoker.RemoveAt(j);
+                        Room.SeatList[i].DeskTopMahjong.RemoveAt(j);
                         isBreak = true;
                         break;
                     }
                 }
                 if (isBreak) break;
 
-                for (int j = 0; j < Room.SeatList[i].UsedPokerList.Count; ++j)
+                for (int j = 0; j < Room.SeatList[i].UsedMahjongGroups.Count; ++j)
                 {
-                    for (int k = 0; k < Room.SeatList[i].UsedPokerList[j].MahjongList.Count; ++k)
+                    for (int k = 0; k < Room.SeatList[i].UsedMahjongGroups[j].MahjongList.Count; ++k)
                     {
-                        if (Room.SeatList[i].UsedPokerList[j].MahjongList[k].index == seat.HitPoker.index)
+                        if (Room.SeatList[i].UsedMahjongGroups[j].MahjongList[k].index == seat.HitMahjong.index)
                         {
-                            Room.SeatList[i].UsedPokerList[j].MahjongList.RemoveAt(k);
-                            if (Room.SeatList[i].UsedPokerList[j].CombinationType == OperationType.Gang)
+                            Room.SeatList[i].UsedMahjongGroups[j].MahjongList.RemoveAt(k);
+                            if (Room.SeatList[i].UsedMahjongGroups[j].CombinationType == OperationType.Gang)
                             {
-                                Room.SeatList[i].UsedPokerList[j].CombinationType = OperationType.Peng;
+                                Room.SeatList[i].UsedMahjongGroups[j].CombinationType = OperationType.Peng;
                                 isBreak = true;
                                 break;
                             }
@@ -400,19 +400,19 @@ public class MahjongProxy
     {
         if (seat == null) return;
 
-        if (seat.PokerList.Count % 3 == 0 && seat.HitPoker != null)
+        if (seat.MahjongList.Count % 3 == 0 && seat.HitMahjong != null)
         {
-            seat.PokerList.Add(seat.HitPoker);
-            seat.HitPoker = null;
+            seat.MahjongList.Add(seat.HitMahjong);
+            seat.HitMahjong = null;
         }
 
-        MahjongHelper.SimpleSort(seat.PokerList);
+        MahjongHelper.SimpleSort(seat.MahjongList);
 
-        if (seat.Status == SeatStatus.PlayPoker && seat.HitPoker == null)
+        if (seat.Status == SeatStatus.PlayMahjong && seat.HitMahjong == null)
         {
-            Mahjong lastPoker = seat.PokerList[seat.PokerList.Count - 1];
-            seat.HitPoker = lastPoker;
-            seat.PokerList.Remove(lastPoker);
+            Mahjong lastMahjong = seat.MahjongList[seat.MahjongList.Count - 1];
+            seat.HitMahjong = lastMahjong;
+            seat.MahjongList.Remove(lastMahjong);
         }
     }
 
@@ -429,11 +429,11 @@ public class MahjongProxy
             seat.Gold = tempSeat.Gold;
             seat.isLoser = tempSeat.isLoser;
             seat.isWiner = tempSeat.isWiner;
-            seat.UsedPokerList.Clear();
-            seat.UsedPokerList.AddRange(tempSeat.UsedPokerList);
-            seat.PokerList.Clear();
-            seat.PokerList.AddRange(tempSeat.PokerList);
-            seat.HitPoker = tempSeat.HitPoker;
+            seat.UsedMahjongGroups.Clear();
+            seat.UsedMahjongGroups.AddRange(tempSeat.UsedMahjongGroups);
+            seat.MahjongList.Clear();
+            seat.MahjongList.AddRange(tempSeat.MahjongList);
+            seat.HitMahjong = tempSeat.HitMahjong;
             seat.incomesDesc = tempSeat.incomesDesc;
             HandSort(seat);
         }
@@ -492,11 +492,11 @@ public class MahjongProxy
         }
     }
 
-    public void ReduceOverplusPoker(int reduce)
+    public void ReduceOverplusMahjong(int reduce)
     {
         if (Room == null) return;
 
-        Room.PokerAmount -= reduce;
+        Room.MahjongAmount -= reduce;
     }
 
     public void SetStatus(RoomStatus status)
@@ -507,9 +507,9 @@ public class MahjongProxy
         {
             for (int i = 0; i < Room.SeatList.Count; ++i)
             {
-                if (Room.SeatList[i].HitPoker != null)
+                if (Room.SeatList[i].HitMahjong != null)
                 {
-                    Room.SeatList[i].Status = SeatStatus.PlayPoker;
+                    Room.SeatList[i].Status = SeatStatus.PlayMahjong;
                 }
                 else
                 {
@@ -533,13 +533,13 @@ public class MahjongProxy
 
         CheckTingByHand(Room.PlayerSeat);
         CheckAllTing(Room.PlayerSeat);
-        CalculatePokerCount(true);
+        CalculateMahjongCount(true);
     }
 
     private void CheckTingByHand(Seat seat)
     {
         seat.TingList.Clear();
-        List<Mahjong> hand = new List<Mahjong>(seat.PokerList);
+        List<Mahjong> hand = new List<Mahjong>(seat.MahjongList);
         if (hand.Count % 3 != 1) return;
 
         bool isExistsUniversal = false;
@@ -559,23 +559,23 @@ public class MahjongProxy
         }
     }
 
-    private List<List<MahjongHelper.CardCombination>> GetTingCombination(List<Mahjong> pokers, List<MahjongGroup> usedPoker, List<Mahjong> universal)
+    private List<List<MahjongHelper.CardCombination>> GetTingCombination(List<Mahjong> mahjongs, List<MahjongGroup> usedMahjong, List<Mahjong> universal)
     {
-        List<Mahjong> ting = new List<Mahjong>(pokers);
-        List<List<MahjongHelper.CardCombination>> lst = MahjongHelper.CheckTing(ting, usedPoker, Room.PlayerSeat.UniversalList);
+        List<Mahjong> ting = new List<Mahjong>(mahjongs);
+        List<List<MahjongHelper.CardCombination>> lst = MahjongHelper.CheckTing(ting, usedMahjong, Room.PlayerSeat.UniversalList);
         return lst;
     }
 
-    private List<Mahjong> GetLackPoker(List<Mahjong> pokers, List<MahjongGroup> usedPoker, List<Mahjong> universal)
+    private List<Mahjong> GetLackMahjong(List<Mahjong> mahjongs, List<MahjongGroup> usedMahjong, List<Mahjong> universal)
     {
-        List<List<MahjongHelper.CardCombination>> lst = GetTingCombination(pokers, usedPoker, universal);
-        return GetLackPoker(lst);
+        List<List<MahjongHelper.CardCombination>> lst = GetTingCombination(mahjongs, usedMahjong, universal);
+        return GetLackMahjong(lst);
     }
 
-    private List<Mahjong> GetLackPoker(List<List<MahjongHelper.CardCombination>> lst)
+    private List<Mahjong> GetLackMahjong(List<List<MahjongHelper.CardCombination>> lst)
     {
-        List<Mahjong> lackPokers = new List<Mahjong>();
-        if (lst == null || lst.Count == 0) return lackPokers;
+        List<Mahjong> lackMahjongs = new List<Mahjong>();
+        if (lst == null || lst.Count == 0) return lackMahjongs;
         for (int j = 0; j < lst.Count; ++j)
         {
             for (int k = 0; k < lst[j].Count; ++k)
@@ -586,9 +586,9 @@ public class MahjongProxy
                     for (int l = 0; l < lackCards.Count; ++l)
                     {
                         bool isExists = false;
-                        for (int m = 0; m < lackPokers.Count; ++m)
+                        for (int m = 0; m < lackMahjongs.Count; ++m)
                         {
-                            if (lackCards[l].color == lackPokers[m].color && lackCards[l].number == lackPokers[m].number)
+                            if (lackCards[l].color == lackMahjongs[m].color && lackCards[l].number == lackMahjongs[m].number)
                             {
                                 isExists = true;
                                 break;
@@ -596,29 +596,29 @@ public class MahjongProxy
                         }
                         if (!isExists)
                         {
-                            lackPokers.Add(lackCards[l]);
+                            lackMahjongs.Add(lackCards[l]);
                         }
                     }
                 }
             }
         }
-        MahjongHelper.SimpleSort(lackPokers);
-        return lackPokers;
+        MahjongHelper.SimpleSort(lackMahjongs);
+        return lackMahjongs;
     }
 
     private void CheckAllTing(Seat seat)
     {
         seat.TingDic.Clear();
-        List<Mahjong> hand = new List<Mahjong>(seat.PokerList);
-        if (seat.HitPoker != null)
+        List<Mahjong> hand = new List<Mahjong>(seat.MahjongList);
+        if (seat.HitMahjong != null)
         {
-            hand.Add(seat.HitPoker);
+            hand.Add(seat.HitMahjong);
         }
         if (hand.Count % 3 != 2)
         {
             return;
         }
-        Dictionary<Mahjong, List<Mahjong>> dic = CheckAllTing(hand, seat.UsedPokerList);
+        Dictionary<Mahjong, List<Mahjong>> dic = CheckAllTing(hand, seat.UsedMahjongGroups);
         if (dic != null)
         {
             foreach (var pair in dic)
@@ -628,20 +628,20 @@ public class MahjongProxy
         }
     }
 
-    private Dictionary<Mahjong, List<Mahjong>> CheckAllTing(List<Mahjong> mahjong, List<MahjongGroup> usedPoker)
+    private Dictionary<Mahjong, List<Mahjong>> CheckAllTing(List<Mahjong> mahjong, List<MahjongGroup> usedMahjong)
     {
         Dictionary<Mahjong, List<Mahjong>> ret = new Dictionary<Mahjong, List<Mahjong>>();
 
         List<Mahjong> hand = new List<Mahjong>(mahjong);
 
         if (hand.Count < 2) return null;
-        List<Mahjong> overplusPoker = new List<Mahjong>();
+        List<Mahjong> overplusMahjong = new List<Mahjong>();
         for (int q = 0; q < hand.Count; ++q)
         {
-            overplusPoker.Clear();
+            overplusMahjong.Clear();
             Mahjong lack = hand[q];
-            overplusPoker.AddRange(hand);
-            overplusPoker.Remove(lack);
+            overplusMahjong.AddRange(hand);
+            overplusMahjong.Remove(lack);
 
             bool isExistsUniversal = false;
             for (int i = 0; i < Room.PlayerSeat.UniversalList.Count; ++i)
@@ -659,10 +659,10 @@ public class MahjongProxy
                 if (isExistsUniversal) break;
             }
 
-            List<Mahjong> lackPokers = GetLackPoker(overplusPoker, usedPoker, Room.PlayerSeat.UniversalList);
-            if (lackPokers != null && lackPokers.Count > 0)
+            List<Mahjong> lackMahjongs = GetLackMahjong(overplusMahjong, usedMahjong, Room.PlayerSeat.UniversalList);
+            if (lackMahjongs != null && lackMahjongs.Count > 0)
             {
-                ret.Add(lack, lackPokers);
+                ret.Add(lack, lackMahjongs);
             }
         }
         return ret;
@@ -670,7 +670,7 @@ public class MahjongProxy
 
     public List<List<Mahjong>> GetChi(Mahjong mahjong)
     {
-        List<Mahjong> handList = new List<Mahjong>(Room.PlayerSeat.PokerList);
+        List<Mahjong> handList = new List<Mahjong>(Room.PlayerSeat.MahjongList);
 
         List<Mahjong> universal = Room.PlayerSeat.UniversalList;
 
@@ -766,7 +766,7 @@ public class MahjongProxy
     {
         int sameCount = 1;
         List<Mahjong> lst = new List<Mahjong>();
-        List<Mahjong> handList = new List<Mahjong>(Room.PlayerSeat.PokerList);
+        List<Mahjong> handList = new List<Mahjong>(Room.PlayerSeat.MahjongList);
         for (int i = 0; i < handList.Count; ++i)
         {
             if (handList[i].color == mahjong.color && handList[i].number == mahjong.number)
@@ -787,11 +787,11 @@ public class MahjongProxy
     {
         List<List<Mahjong>> lst = new List<List<Mahjong>>();
         if (Room.PlayerSeat == null) return lst;
-        List<Mahjong> handList = new List<Mahjong>(Room.PlayerSeat.PokerList);
-        Mahjong hitPoker = Room.PlayerSeat.HitPoker;
-        if (hitPoker != null)
+        List<Mahjong> handList = new List<Mahjong>(Room.PlayerSeat.MahjongList);
+        Mahjong hitMahjong = Room.PlayerSeat.HitMahjong;
+        if (hitMahjong != null)
         {
-            handList.Add(hitPoker);
+            handList.Add(hitMahjong);
         }
         for (int i = 0; i < handList.Count; ++i)
         {
@@ -821,14 +821,14 @@ public class MahjongProxy
         List<Mahjong> lst = new List<Mahjong>();
 
         List<Mahjong> handList = new List<Mahjong>();
-        handList.AddRange(Room.PlayerSeat.PokerList);
+        handList.AddRange(Room.PlayerSeat.MahjongList);
 
-        Mahjong hitPoker = Room.PlayerSeat.HitPoker;
-        if (hitPoker != null)
+        Mahjong hitMahjong = Room.PlayerSeat.HitMahjong;
+        if (hitMahjong != null)
         {
-            handList.Add(hitPoker);
+            handList.Add(hitMahjong);
         }
-        List<MahjongGroup> pengList = Room.PlayerSeat.UsedPokerList;
+        List<MahjongGroup> pengList = Room.PlayerSeat.UsedMahjongGroups;
         for (int i = 0; i < pengList.Count; ++i)
         {
             if (pengList[i].CombinationType == OperationType.Peng)
@@ -848,14 +848,14 @@ public class MahjongProxy
     public List<Mahjong> GetBuGang(Mahjong mahjong)
     {
         List<Mahjong> lst = new List<Mahjong>();
-        List<Mahjong> handList = new List<Mahjong>(Room.PlayerSeat.PokerList);
+        List<Mahjong> handList = new List<Mahjong>(Room.PlayerSeat.MahjongList);
 
-        Mahjong hitPoker = Room.PlayerSeat.HitPoker;
-        if (hitPoker != null)
+        Mahjong hitMahjong = Room.PlayerSeat.HitMahjong;
+        if (hitMahjong != null)
         {
-            handList.Add(hitPoker);
+            handList.Add(hitMahjong);
         }
-        List<MahjongGroup> pengList = Room.PlayerSeat.UsedPokerList;
+        List<MahjongGroup> pengList = Room.PlayerSeat.UsedMahjongGroups;
         for (int i = 0; i < pengList.Count; ++i)
         {
             if (pengList[i].CombinationType == OperationType.Peng)
@@ -875,7 +875,7 @@ public class MahjongProxy
         if (Room.PlayerSeat == null) return null;
         List<Mahjong> lst = new List<Mahjong>();
 
-        List<Mahjong> handList = new List<Mahjong>(Room.PlayerSeat.PokerList);
+        List<Mahjong> handList = new List<Mahjong>(Room.PlayerSeat.MahjongList);
         int sameCount = 1;
         for (int i = 0; i < handList.Count; ++i)
         {

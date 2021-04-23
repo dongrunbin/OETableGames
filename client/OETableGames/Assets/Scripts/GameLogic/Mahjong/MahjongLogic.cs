@@ -70,9 +70,9 @@ public class MahjongLogic : MonoBehaviour
         int gangCount = 0;
         for (int i = 0; i < room.SeatList.Count; ++i)
         {
-            for (int j = 0; j < room.SeatList[i].UsedPokerList.Count; ++j)
+            for (int j = 0; j < room.SeatList[i].UsedMahjongGroups.Count; ++j)
             {
-                if (room.SeatList[i].UsedPokerList[j].CombinationType == OperationType.Gang)
+                if (room.SeatList[i].UsedMahjongGroups[j].CombinationType == OperationType.Gang)
                 {
                     ++gangCount;
                 }
@@ -87,7 +87,7 @@ public class MahjongLogic : MonoBehaviour
             m_Wall.Remove(mj);
         }
 
-        int usedCount = room.PokerTotal - room.PokerAmount - gangCount;
+        int usedCount = room.MahjongTotal - room.MahjongAmount - gangCount;
         for (int i = 0; i < usedCount; ++i)
         {
             MahjongCtrl mj = m_Wall[0];
@@ -152,7 +152,7 @@ public class MahjongLogic : MonoBehaviour
 
     public void Operation(Seat seat)
     {
-        GetSeatCtrlBySeatPos(seat.Pos).Operate(seat, seat.UsedPokerList[seat.UsedPokerList.Count - 1]);
+        GetSeatCtrlBySeatPos(seat.Pos).Operate(seat, seat.UsedMahjongGroups[seat.UsedMahjongGroups.Count - 1]);
     }
 
     public void Pass()
@@ -236,7 +236,7 @@ public class MahjongLogic : MonoBehaviour
             //AudioEffectManager.Instance.Play("dianpai", Vector3.zero, false);
         }
 
-        ray = m_CameraCtrl.HandPokerCamera.ScreenPointToRay(Input.mousePosition);
+        ray = m_CameraCtrl.HandMahjongCamera.ScreenPointToRay(Input.mousePosition);
         hitArr = Physics.RaycastAll(ray, Mathf.Infinity, 1 << LayerMask.NameToLayer("PlayerHand"));
         if (hitArr.Length > 0)
         {
@@ -273,7 +273,7 @@ public class MahjongLogic : MonoBehaviour
                 {
                     OnSelectMahjong(m_SelectMahjong[0].Mahjong);
                 }
-                //m_MahjongForm.ShowTingTip(m_Proxy.GetHu(m_SelectMahjong[0].Mahjong), room.PokerCount);
+                //m_MahjongForm.ShowTingTip(m_Proxy.GetHu(m_SelectMahjong[0].Mahjong), room.MahjongCount);
             }
 
 
@@ -316,7 +316,7 @@ public class MahjongLogic : MonoBehaviour
             {
                 OnDoubleClickMahjong(ctrl.Mahjong);
             }
-            //m_MahjongForm.ShowTingTip(m_Proxy.GetHu(ctrl.Mahjong), room.PokerCount);
+            //m_MahjongForm.ShowTingTip(m_Proxy.GetHu(ctrl.Mahjong), room.MahjongCount);
         }
         else
         {
@@ -338,7 +338,7 @@ public class MahjongLogic : MonoBehaviour
         if (m_isDraging)
         {
             MahjongCtrl ctrl = m_SelectMahjong[0];
-            Camera camera = m_CameraCtrl.HandPokerCamera;
+            Camera camera = m_CameraCtrl.HandMahjongCamera;
             Vector3 worldPos = camera.ScreenToWorldPoint(new Vector3(screenPos.x, screenPos.y, 10f));
             ctrl.Model.transform.position = worldPos;
             for (int i = 0; i < m_Seats.Length; ++i)
@@ -348,7 +348,7 @@ public class MahjongLogic : MonoBehaviour
         }
         else
         {
-            Ray ray = m_CameraCtrl.HandPokerCamera.ScreenPointToRay(Input.mousePosition);
+            Ray ray = m_CameraCtrl.HandMahjongCamera.ScreenPointToRay(Input.mousePosition);
             RaycastHit[] hitArr = Physics.RaycastAll(ray, Mathf.Infinity, 1 << LayerMask.NameToLayer("PlayerHand"));
 
             if (hitArr.Length > 0)
@@ -401,13 +401,13 @@ public class MahjongLogic : MonoBehaviour
             }
         }
 
-        int fromWallIndex = room.PokerTotal / 4 * (pos - 1) + diceTotal * 2;
+        int fromWallIndex = room.MahjongTotal / 4 * (pos - 1) + diceTotal * 2;
         if (fromWallIndex % 2 == 1)
         {
             fromWallIndex += 1;
         }
 
-        for (int i = 0; i < room.PokerTotal; ++i)
+        for (int i = 0; i < room.MahjongTotal; ++i)
         {
             MahjongCtrl mj = MahjongManager.Instance.SpawnMahjong(null, false);
             m_Wall.Add(mj);
@@ -513,7 +513,7 @@ public class MahjongLogic : MonoBehaviour
     {
         //AudioEffectManager.Instance.Play("fapai", Vector3.zero, false);
         const int countPerTimes = 4;
-        int mahjongCount = room.SeatList[0].PokerList.Count;
+        int mahjongCount = room.SeatList[0].MahjongList.Count;
         if (mahjongCount == 0) yield break;
         int loopCount = Mathf.FloorToInt(mahjongCount / countPerTimes);
         int overplusCount = mahjongCount % countPerTimes;
@@ -526,7 +526,7 @@ public class MahjongLogic : MonoBehaviour
                 for (int k = 0; k < countPerTimes; ++k)
                 {
                     int index = i * countPerTimes + k;
-                    GetSeatCtrlBySeatPos(seat.Pos).DealMahjong(seat.PokerList[index], MahjongHelper.CheckUniversal(seat.PokerList[index], seat.UniversalList));
+                    GetSeatCtrlBySeatPos(seat.Pos).DealMahjong(seat.MahjongList[index], MahjongHelper.CheckUniversal(seat.MahjongList[index], seat.UniversalList));
                     MahjongCtrl mj = m_Wall[0];
 
                     MahjongManager.Instance.DespawnMahjong(mj);
@@ -544,7 +544,7 @@ public class MahjongLogic : MonoBehaviour
             Seat seat = room.SeatList[j];
             for (int k = 0; k < overplusCount; ++k)
             {
-                GetSeatCtrlBySeatPos(seat.Pos).DealMahjong(seat.PokerList[loopCount * countPerTimes + k], MahjongHelper.CheckUniversal(seat.PokerList[loopCount * countPerTimes + k], seat.UniversalList));
+                GetSeatCtrlBySeatPos(seat.Pos).DealMahjong(seat.MahjongList[loopCount * countPerTimes + k], MahjongHelper.CheckUniversal(seat.MahjongList[loopCount * countPerTimes + k], seat.UniversalList));
                 MahjongCtrl mj = m_Wall[0];
                 MahjongManager.Instance.DespawnMahjong(mj);
                 m_Wall.Remove(mj);

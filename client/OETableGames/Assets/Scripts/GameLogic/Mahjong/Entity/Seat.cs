@@ -76,11 +76,11 @@ public class Seat
     /// <summary>
     /// 摸的牌
     /// </summary>
-    public Mahjong HitPoker;
+    public Mahjong HitMahjong;
     /// <summary>
     /// 剩余牌的数量
     /// </summary>
-    public int PokerAmount;
+    public int MahjongAmount;
     /// <summary>
     /// 出牌次数
     /// </summary>
@@ -88,7 +88,7 @@ public class Seat
     /// <summary>
     /// 已打出的牌
     /// </summary>
-    public List<Mahjong> DeskTopPoker = new List<Mahjong>();
+    public List<Mahjong> DeskTopMahjong = new List<Mahjong>();
     /// <summary>
     /// 万能牌
     /// </summary>
@@ -96,11 +96,11 @@ public class Seat
     /// <summary>
     /// 手牌
     /// </summary>
-    public List<Mahjong> PokerList = new List<Mahjong>();
+    public List<Mahjong> MahjongList = new List<Mahjong>();
     /// <summary>
     /// 吃碰杠的牌
     /// </summary>
-    public List<MahjongGroup> UsedPokerList = new List<MahjongGroup>();
+    public List<MahjongGroup> UsedMahjongGroups = new List<MahjongGroup>();
 
     public string incomesDesc = "";
 
@@ -152,12 +152,12 @@ public class Seat
         Settle = 0;
         Status = SeatStatus.Idle;
         UniversalList.Clear();
-        DeskTopPoker.Clear();
-        PokerList.Clear();
-        UsedPokerList.Clear();
+        DeskTopMahjong.Clear();
+        MahjongList.Clear();
+        UsedMahjongGroups.Clear();
         playedTimes = 0;
-        PokerAmount = 0;
-        HitPoker = null;
+        MahjongAmount = 0;
+        HitMahjong = null;
         Status = SeatStatus.Idle;
     }
 }
