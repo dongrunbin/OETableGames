@@ -78,6 +78,10 @@ public class NetworkDecoder : INetworkDecoder
                 inData.Position = 0;
             }
         }
+        else
+        {
+            inData.Position = length;
+        }
 
     }
 }
