@@ -5,14 +5,15 @@
 //===================================================
 
 using DrbFramework.Internal;
+using DrbFramework.Internal.Localization;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SettingForm : FormBase
+public class SettingsForm : FormBase
 {
     [SerializeField]
-    private Slider m_SliderBGMVolume;
+    private Slider m_SliderMusicVolume;
     [SerializeField]
     private Slider m_SliderSoundEffectVolume;
     [SerializeField]
@@ -22,7 +23,7 @@ public class SettingForm : FormBase
     public override void OnInit()
     {
         base.OnInit();
-        m_SliderBGMVolume.onValueChanged.AddListener(OnSliderBGMVolumeChanged);
+        m_SliderMusicVolume.onValueChanged.AddListener(OnSliderMusicVolumeChanged);
         m_SliderSoundEffectVolume.onValueChanged.AddListener(OnSliderSoundEffectVolumeChanged);
 
         if (m_ArrLanguage != null && m_ArrLanguage.Length > 0)
@@ -33,7 +34,7 @@ public class SettingForm : FormBase
             }
         }
 
-        m_SliderBGMVolume.value = DrbComponent.SettingSystem.GetFloat("BGMVolume");
+        m_SliderMusicVolume.value = DrbComponent.SettingSystem.GetFloat("MusicVolume");
         m_SliderSoundEffectVolume.value = DrbComponent.SettingSystem.GetFloat("SoundEffectVolume");
 
         if (m_ArrLanguage != null)
@@ -48,33 +49,26 @@ public class SettingForm : FormBase
         }
     }
 
-    /// <summary>
-    /// 语言变更
-    /// </summary>
-    /// <param name="arg0"></param>
     private void OnLanguageChanged(bool isOn)
     {
+        if (!isOn) return;
         for (int i = 0; i < m_ArrLanguage.Length; ++i)
         {
             if (m_ArrLanguage[i].isOn)
             {
-                DrbComponent.LocalizationSystem.Language = m_ArrLanguage[i].name;
+                DrbComponent.LocalizationSystem.SetLanguage(m_ArrLanguage[i].name);
                 break;
             }
         }
     }
 
-    /// <summary>
-    /// 背景音乐音量条值变化
-    /// </summary>
-    /// <param name="value"></param>
-    private void OnSliderBGMVolumeChanged(float value)
+    private void OnSliderMusicVolumeChanged(float value)
     {
-        //DrbComponent.AudioSystem.("BGMVolume", value);
+        DrbComponent.SettingSystem.SetFloat("MusicVolume", value);
     }
 
     private void OnSliderSoundEffectVolumeChanged(float value)
     {
-        //DrbComponent.SettingSystem.SetFloat("SoundEffectVolume", value);
+        DrbComponent.SettingSystem.SetFloat("SoundEffectVolume", value);
     }
 }

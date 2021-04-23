@@ -7,45 +7,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using DrbFramework.Internal;
 
-/// <summary>
-/// 选择模式
-/// </summary>
 public enum SelectMode
 {
     None,
-    /// <summary>
-    /// 单选
-    /// </summary>
     Single,
-    /// <summary>
-    /// 多选
-    /// </summary>
     Multiple,
-    /// <summary>
-    /// 循环选择
-    /// </summary>
     Loop,
 }
 
 [Serializable]
 public struct RuleEvent
 {
-    /// <summary>
-    /// 配置Id
-    /// </summary>
     public int id;
-    /// <summary>
-    /// 是否显示
-    /// </summary>
     public bool isShow;
-    /// <summary>
-    /// 是否选中
-    /// </summary>
     public bool isOn;
-    /// <summary>
-    /// 描述
-    /// </summary>
     public string Description;
 }
 
@@ -109,7 +86,7 @@ public class UIItemOption : UIItemBase
             }
             if (Content.Count > m_Index)
             {
-                m_txtCurrent.SafeSetText(Content[m_Index].OptionName);
+                m_txtCurrent.SafeSetText(DrbComponent.LocalizationSystem.GetString(Content[m_Index].OptionName));
             }
         }
     }
@@ -127,11 +104,11 @@ public class UIItemOption : UIItemBase
         set
         {
             m_OptionName = value;
-            m_txtName.SafeSetText(m_OptionName + m_Description);
+            m_txtName.SafeSetText(DrbComponent.LocalizationSystem.GetString(m_OptionName));
 
             if (m_Content.Count > 0)
             {
-                m_txtCurrent.SafeSetText(Content[0].OptionName);
+                m_txtCurrent.SafeSetText(DrbComponent.LocalizationSystem.GetString(Content[0].OptionName));
             }
         }
     }
@@ -143,16 +120,6 @@ public class UIItemOption : UIItemBase
         set
         {
             m_GroupName = value;
-        }
-    }
-
-    private string m_Description;
-    public string Description
-    {
-        set
-        {
-            m_Description = value;
-            m_txtName.SafeSetText(m_OptionName + m_Description);
         }
     }
 

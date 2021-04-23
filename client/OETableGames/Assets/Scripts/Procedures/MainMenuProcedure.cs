@@ -22,12 +22,15 @@ public class MainMenuProcedure : Procedure
         DrbComponent.UISystem.OpenFormAsync("UI/Forms/MainMenuForm", "BackGround", (IUIForm form)=> 
         {
             m_MainMenuForm = (MainMenuForm)form;
+            AccountEntity account = DrbComponent.SettingSystem.GetObject<AccountEntity>("AccountInfo");
+            m_MainMenuForm.SetUI(account.nickname, account.passportId, account.gold);
         });
     }
 
     public override void OnLeave()
     {
         base.OnLeave();
+        DrbComponent.UISystem.CloseAllForm();
         DrbComponent.GetEventSystem<int>().RemoveEventListener(CodeDef.Game_S2C_EnterRoomProto, OnEnterRoom);
     }
 

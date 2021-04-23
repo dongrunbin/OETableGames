@@ -3,6 +3,7 @@
 //CreateTime  ：2021/4/3 22:49:47
 //Description ：
 //===================================================
+using DrbFramework.Internal;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -23,7 +24,7 @@ public class UIItemGameType : UIItemBase
         set
         {
             m_GameType = value;
-            m_txtType.SafeSetText(m_GameType);
+            m_txtType.SafeSetText(DrbComponent.LocalizationSystem.GetString(m_GameType));
         }
     }
 

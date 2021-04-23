@@ -5,14 +5,21 @@
 //===================================================
 using DrbFramework.Internal;
 using DrbFramework.Procedure;
+using UnityEngine;
 
 public class PreloadProcedure : Procedure
 {
     public override void OnEnter(object userData)
     {
         base.OnEnter(userData);
+        string language = DrbComponent.SettingSystem.GetString("Language");
+        if (!string.IsNullOrEmpty(language))
+        {
+            DrbComponent.LocalizationSystem.Language = language;
+        }
+        TextAsset dictionary = DrbComponent.ResourceSystem.LoadAsset<TextAsset>(string.Format("Localization/{0}/Dictionary.txt", DrbComponent.LocalizationSystem.Language));
+        DrbComponent.LocalizationSystem.ParseDictionary(dictionary);
 
-        //DrbFramework.Log.Info("wtf");
         byte[] games = DrbComponent.ResourceSystem.LoadFile("Datatable/Games.bytes", DrbFramework.Resource.LoadMode.Editor);
         DrbComponent.DataTableSystem.CreateDataTable<GamesDataEntity>(games);
         byte[] settings = DrbComponent.ResourceSystem.LoadFile("Datatable/MahjongSettings.bytes", DrbFramework.Resource.LoadMode.Editor);

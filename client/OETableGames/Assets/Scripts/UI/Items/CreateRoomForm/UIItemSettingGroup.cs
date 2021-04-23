@@ -3,6 +3,7 @@
 //CreateTime  ：2021/4/3 22:54:34
 //Description ：
 //===================================================
+using DrbFramework.Internal;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,7 +26,7 @@ public class UIItemSettingGroup : UIItemBase
         set
         {
             m_GroupName = value;
-            m_txtGroupName.SafeSetText(m_GroupName);
+            m_txtGroupName.SafeSetText(DrbComponent.LocalizationSystem.GetString(m_GroupName));
         }
     }
 }

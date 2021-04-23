@@ -3,6 +3,7 @@
 //CreateTime  ：2021/4/3 22:52:49
 //Description ：
 //===================================================
+using DrbFramework.Internal;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -23,7 +24,7 @@ public class UIItemToggleGame : UIItemBase
         set
         {
             m_GameName = value;
-            m_txtGameName.SafeSetText(m_GameName);
+            m_txtGameName.SafeSetText(DrbComponent.LocalizationSystem.GetString(m_GameName));
         }
     }
 

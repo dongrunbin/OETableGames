@@ -179,12 +179,12 @@ public class LoginProcedure : Procedure
         base.OnUpdate(elapseSeconds, realElapseSeconds);
 
         //hand shake time out
-        if (m_SendHandShakeClientTime > 0 && TimeUtil.GetTimestampMS() - m_SendHandShakeClientTime > HAND_SHAKE_TIME_OUT)
-        {
-            Log.Info("hand shake time out");
-            m_SendHandShakeClientTime = 0;
-            DrbComponent.NetworkSystem.Close();
-        }
+        //if (m_SendHandShakeClientTime > 0 && TimeUtil.GetTimestampMS() - m_SendHandShakeClientTime > HAND_SHAKE_TIME_OUT)
+        //{
+        //    Log.Info("hand shake time out");
+        //    m_SendHandShakeClientTime = 0;
+        //    DrbComponent.NetworkSystem.Close();
+        //}
     }
 
     private void ClientSendHandShake(int passportId, string token)
@@ -225,8 +225,6 @@ public class LoginProcedure : Procedure
         long fps = (localTime - sendTime) / 2;
         serverTime = serverTime + fps;
         DrbComponent.SettingSystem.SetLong("TimeDistance", localTime - serverTime);
-
-        Log.Info("wtf");
     }
 
     private void CheckHeartBeat(Timer timer)
@@ -242,7 +240,6 @@ public class LoginProcedure : Procedure
 
     private void ClientSendHeart()
     {
-        Log.Info("wtfff");
         System_C2S_HeartBeatProto proto = new System_C2S_HeartBeatProto();
         proto.clientTimestamp = TimeUtil.GetTimestampMS();
         DrbComponent.NetworkSystem.Send(proto.Serialize());

@@ -252,7 +252,6 @@ public class CreateRoomForm : FormBase
             {
                 item.Index = item.Content.Count - 1;
             }
-            item.Description = string.Empty;
             item.isDisplay = option.Status == 1;
             for (int j = 0; j < m_ListGroup.Count; ++j)
             {

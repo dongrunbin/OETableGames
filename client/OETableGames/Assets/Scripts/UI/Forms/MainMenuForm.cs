@@ -24,12 +24,8 @@ public class MainMenuForm : FormBase
     private Button m_BtnJoinRoom;
     [SerializeField]
     private Button m_BtnSetting;
-
-    public override void OnInit()
-    {
-        base.OnInit();
-
-    }
+    [SerializeField]
+    private Button m_BtnCredit;
 
     protected override void OnBtnClick(GameObject go)
     {
@@ -44,7 +40,18 @@ public class MainMenuForm : FormBase
         }
         else if (go == m_BtnSetting.gameObject)
         {
-            DrbComponent.UISystem.OpenFormAsync("UI/Forms/SettingForm", "Form", null);
+            DrbComponent.UISystem.OpenFormAsync("UI/Forms/SettingsForm", "Form", null);
         }
+        else if (go == m_BtnCredit.gameObject)
+        {
+            DrbComponent.UISystem.OpenFormAsync("UI/Forms/CreditForm", "Form", null);
+        }
+    }
+
+    public void SetUI(string nickname, int passportId, int gold)
+    {
+        m_TextNickname.SafeSetText(nickname);
+        m_TextPassportId.SafeSetText(passportId.ToString());
+        m_TextGold.SafeSetText(gold.ToString());
     }
 }

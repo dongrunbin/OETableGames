@@ -23,6 +23,7 @@ public static class ResourceSystemExtensions
     public static void LoadAssetAsync(this ResourceSystem resourceSystem, string assetPath, LoadAssetCompleteEventHandler onComplete, object userData)
     {
 #if UNITY_EDITOR
+        assetPath += ".prefab";
         resourceSystem.LoadAssetAsync(assetPath, LoadMode.Editor, onComplete, userData);
 #else
         string assetName = Path.GetFileNameWithoutExtension(assetPath);

@@ -3,6 +3,7 @@
 //CreateTime  ：2021/3/6 21:16:06
 //Description ：
 //===================================================
+using DrbFramework.Internal;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -51,11 +52,19 @@ public class FormBase : UGUIForm
 
     protected virtual void OnBtnClick(GameObject go) 
     {
-
+        if (go.name.Equals("btnClose"))
+        {
+            Close();
+        }
     }
 
     protected virtual void OnMaskClick()
     {
-        
+        Close();
+    }
+
+    protected virtual void Close()
+    {
+        DrbComponent.UISystem.CloseForm(this);
     }
 }

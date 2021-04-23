@@ -25,9 +25,6 @@ public static class UISystemExtensions
 
     public static void OpenFormAsync(this UISystem uiSystem, string assetPath, string groupName, OpenFormComplete callback)
     {
-#if UNITY_EDITOR
-        assetPath += ".prefab";
-#endif
         DrbComponent.ResourceSystem.LoadAssetAsync(assetPath, (LoadAssetCompleteEventArgs args) =>
         {
             IUIForm form = uiSystem.OpenForm(args.AssetName, args.Asset, groupName);
