@@ -4,8 +4,6 @@ using UnityEngine.UI;
 public class UIItemTimeTip : UIItemBase
 {
     [SerializeField]
-    private Text m_TextCountDown;
-    [SerializeField]
     private Image m_ImageOncePlace;
     [SerializeField]
     private Image m_ImageTensPlace;
@@ -81,11 +79,6 @@ public class UIItemTimeTip : UIItemBase
 
     private void SetTimeCount(int second)
     {
-        if (m_TextCountDown != null)
-        {
-            m_TextCountDown.SafeSetText(second.ToString("0"));
-        }
-
         int tens = second / 10;
         int once = second % 10;
         if (m_ImageOncePlace != null)

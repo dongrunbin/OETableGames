@@ -4,6 +4,7 @@
 //Description ：
 //===================================================
 using DrbFramework.Extensions;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,15 +15,11 @@ public class MahjongForm : FormBase
     [SerializeField]
     private UIItemSeat[] m_Seats;
     [SerializeField]
-    private GameObject[] m_Animations;
-    [SerializeField]
     private UIItemRoomInfo m_RoomInfo;
     [SerializeField]
-    private UIItemOperator m_Operator;
+    public UIItemOperator Operator;
     [SerializeField]
     private UIItemTingTip m_TingTip;
-    [SerializeField]
-    private Button m_TingTipSwitch;
     [SerializeField]
     private Button m_ButtonReady;
     [SerializeField]
@@ -33,6 +30,7 @@ public class MahjongForm : FormBase
     //private UISettleViewBase m_SettleView;
     //[SerializeField]
     //private UIResultViewBase m_ResultView;
+
 
     public void Init(Room room)
     {
@@ -61,8 +59,6 @@ public class MahjongForm : FormBase
         if (m_RoomInfo != null)
         {
             m_RoomInfo.SetRoomId(room.roomId);
-
-            m_RoomInfo.SetBaseScore(room.BaseScore);
             m_RoomInfo.SetLoop(room.currentLoop, room.maxLoop);
             m_RoomInfo.SetRoomConfig(room.Setting.ToString());
         }
@@ -101,16 +97,66 @@ public class MahjongForm : FormBase
         item.SetSeat(seat);
     }
 
-    public void CloseOperator()
+    public void Ready(Seat seat)
     {
-        m_Operator.SafeSetActive(false);
+        if (seat.IsPlayer)
+        {
+            m_ButtonReady.SafeSetActive(false);
+        }
+        UIItemSeat item = GetItemSeatByIndex(seat.Index);
+        item.SetReady(seat.Status == SeatStatus.Ready);
     }
 
-    public void ShowTingTip(List<Mahjong> lst, Dictionary<int, int> pokerCount)
+    public void Begin(Room room)
+    {
+        for (int i = 0; i < m_Seats.Length; ++i)
+        {
+            Seat seat = room.SeatList[i];
+            UIItemSeat itemSeat = GetItemSeatByIndex(seat.Index);
+            if (itemSeat == null) continue;
+            itemSeat.SetReady(seat.Status == SeatStatus.Ready);
+            itemSeat.SetBanker(seat.IsBanker);
+        }
+    }
+
+    public void Draw(Seat seat)
+    {
+        UIItemSeat itemSeat = GetItemSeatByIndex(seat.Index);
+        if (itemSeat == null) return;
+        itemSeat.SetOperating(true);
+    }
+
+    public void Discard(Seat seat)
+    {
+        UIItemSeat itemSeat = GetItemSeatByIndex(seat.Index);
+        if (itemSeat == null) return;
+        itemSeat.SetOperating(false);
+    }
+
+    public void AskOperation(List<List<Mahjong>> chiList, List<Mahjong> pengList, List<List<Mahjong>> gangList, bool isHu, bool isZiMo)
+    {
+        Operator.Show(chiList, pengList, gangList, isHu, isZiMo);
+        m_TingTip.Close();
+    }
+
+    public void Operation(Seat seat)
+    {
+        if (seat.IsPlayer)
+        {
+            Operator.Close();
+        }
+    }
+
+    public void CloseOperator()
+    {
+        Operator.SafeSetActive(false);
+    }
+
+    public void ShowTingTip(List<Mahjong> lst, Dictionary<int, int> mahjongCount)
     {
         if (m_TingTip == null) return;
         m_TingTip.SafeSetActive(true);
-        m_TingTip.ShowTip(lst, pokerCount);
+        m_TingTip.ShowTip(lst, mahjongCount);
     }
 
     public void CloseTingTip()
@@ -123,23 +169,9 @@ public class MahjongForm : FormBase
     {
         base.OnBtnClick(go);
 
-        switch (go.name)
+        if (go == m_ButtonReady.gameObject)
         {
-            //case GameEvent.btnGameViewDisband://解散
-            //    SendNotification(GameEvent.btnGameViewDisband);
-            //    break;
-            //case GameEvent.btnGameViewGameRule://规则
-            //    SendNotification(GameEvent.btnGameViewGameRule);
-            //    break;
-            //case GameEvent.btnGameViewSetting://设置
-            //    SendNotification(GameEvent.btnGameViewSetting);
-            //    break;
-            //case GameEvent.btnGameViewLeave://离开
-            //    SendNotification(GameEvent.btnGameViewLeave);
-            //    break;
-            //case GameEvent.BtnGameViewReady://准备
-            //    SendNotification(GameEvent.BtnGameViewReady);
-            //    break;
+            MahjongService.Instance.ClientSendReady();
         }
     }
 
@@ -186,7 +218,6 @@ public class MahjongForm : FormBase
     {
         if (room == null) return;
         m_RoomInfo.SetRoomId(room.roomId);
-        m_RoomInfo.SetBaseScore(room.BaseScore);
         m_RoomInfo.SetLoop(room.currentLoop, room.maxLoop);
         m_RoomInfo.SetRoomConfig(room.Setting.ToString());
     }
@@ -222,7 +253,7 @@ public class MahjongForm : FormBase
             return;
         }
         //int s = GlobalInit.Instance.GetSecond(serverTime);
-        m_TimeTip.Show();
+        //m_TimeTip.Show();
         //m_TimeTip.SetTime(s, isPlayer);
     }
 

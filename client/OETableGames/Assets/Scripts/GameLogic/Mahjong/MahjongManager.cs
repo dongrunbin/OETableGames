@@ -9,14 +9,14 @@ public class MahjongManager : Singleton<MahjongManager>
 
     private GameObject LoadPrefab(Mahjong mahjong)
     {
-        string mahjongName = (mahjong == null || mahjong.size == 0) ? Mahjong.DefaultName : string.Format("{0}_{1}", mahjong.color, mahjong.size);
-        string path = string.Format("Downloads/Prefabs/{0}", mahjongName);
+        string mahjongName = (mahjong == null || mahjong.number == 0) ? Mahjong.DefaultName : string.Format("{0}_{1}", mahjong.color, mahjong.number);
+        string path = string.Format("Prefabs/{0}.prefab", mahjongName);
         return DrbComponent.ResourceSystem.LoadAsset<GameObject>(path);
     }
 
     public void Init()
     {
-        m_WallPool = PoolManager.Pools.Create("MaJiang");
+        m_WallPool = PoolManager.Pools.Create("Mahjong");
         m_WallPool.Group.parent = null;
         m_WallPool.Group.position = new Vector3(0f, 5000f, 0f);
 
@@ -53,7 +53,7 @@ public class MahjongManager : Singleton<MahjongManager>
     public GameObject SpawnDice()
     {
         string prefabName = "dice";
-        string path = string.Format("Downloads/Prefabs/{0}.prefab", prefabName);
+        string path = string.Format("Prefabs/{0}.prefab", prefabName);
         GameObject prefab = DrbComponent.ResourceSystem.LoadAsset<GameObject>(path);
         return UnityEngine.Object.Instantiate(prefab);
     }
@@ -61,7 +61,7 @@ public class MahjongManager : Singleton<MahjongManager>
     public GameObject SpawnHand_Tui()
     {
         string handPrefabName = "hand";
-        string handPath = string.Format("Downloads/Prefabs/{0}.prefab", handPrefabName);
+        string handPath = string.Format("Prefabs/{0}.prefab", handPrefabName);
         GameObject prefab = DrbComponent.ResourceSystem.LoadAsset<GameObject>(handPath);
         return UnityEngine.Object.Instantiate(prefab);
     }
@@ -69,7 +69,7 @@ public class MahjongManager : Singleton<MahjongManager>
     public GameObject SpawnHand_Fang()
     {
         string handPrefabName = "dicehand";
-        string handPath = string.Format("Downloads/Prefabs/{0}.prefab", handPrefabName);
+        string handPath = string.Format("Prefabs/{0}.prefab", handPrefabName);
         GameObject prefab = DrbComponent.ResourceSystem.LoadAsset<GameObject>(handPath);
         return UnityEngine.Object.Instantiate(prefab);
     }
@@ -93,7 +93,7 @@ public class MahjongManager : Singleton<MahjongManager>
             spriteName = "0_" + mahjong.ToString() + (isPeng ? "_t" : "");
         }
 
-        string path = string.Format("Downloads/UI/Source/Mahjong/{0}", spriteName);
+        string path = string.Format("UI/Source/Mahjong/{0}", spriteName);
 
         Sprite sprite = DrbComponent.ResourceSystem.LoadSprite(path, spriteName);
         return sprite;

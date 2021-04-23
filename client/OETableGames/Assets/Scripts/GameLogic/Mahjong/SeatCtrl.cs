@@ -63,13 +63,13 @@ public class SeatCtrl : MonoBehaviour
     {
         m_HandTween = m_HandContainer.transform.DORotate(new Vector3(-75f, 0f, 0f), INIT_POKER_ANIMATION_DURATION, RotateMode.LocalAxisAdd).SetAutoKill(false).Pause();
 
-        m_PushHand = MahjongManager.Instance.SpawnHand_Tui().GetComponent<HandCtrl>();
-        m_PushHand.gameObject.transform.SetParent(transform);
-        m_PushHand.gameObject.SetActive(false);
+        //m_PushHand = MahjongManager.Instance.SpawnHand_Tui().GetComponent<HandCtrl>();
+        //m_PushHand.gameObject.transform.SetParent(transform);
+        //m_PushHand.gameObject.SetActive(false);
 
-        m_DiceHand = MahjongManager.Instance.SpawnHand_Fang().GetComponent<HandCtrl>();
-        m_DiceHand.gameObject.transform.SetParent(transform);
-        m_DiceHand.gameObject.SetActive(false);
+        //m_DiceHand = MahjongManager.Instance.SpawnHand_Fang().GetComponent<HandCtrl>();
+        //m_DiceHand.gameObject.transform.SetParent(transform);
+        //m_DiceHand.gameObject.SetActive(false);
     }
 
     public void ShowSettle(Seat seat)
@@ -417,7 +417,7 @@ public class SeatCtrl : MonoBehaviour
 
         majiang.transform.localPosition = m_DeskTopContainer.GetLocalPos(majiang.transform);
 
-        PlayAudio(discarded.color, discarded.size, seat.Gender);
+        PlayAudio(discarded.color, discarded.number, seat.Gender);
 
         StartCoroutine(PlayPokerAnimation(majiang, sourcePos, seat.IsPlayer));
     }

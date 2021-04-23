@@ -8,12 +8,12 @@ using DrbFramework.Internal;
 using System;
 using System.Collections.Generic;
 
-public class MahjongService
+public class MahjongService : Singleton<MahjongService>
 {
     private MahjongProcedure m_Procedure;
-    public MahjongService(MahjongProcedure procedure)
+    public MahjongService()
     {
-        m_Procedure = procedure;
+        m_Procedure = DrbComponent.ProcedureSystem.GetProcedure<MahjongProcedure>();
     }
 
     public void AddListener()
@@ -476,7 +476,6 @@ public class MahjongService
         {
             room.AskPokerGroup = null;
         }
-
         m_Procedure.Init(room);
     }
 }

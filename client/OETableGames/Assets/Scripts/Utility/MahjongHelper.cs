@@ -60,7 +60,7 @@ public class MahjongHelper
         if (mahjong == null) return false;
         for (int i = 0; i < universal.Count; ++i)
         {
-            if (mahjong.color == universal[i].color && mahjong.size == universal[i].size)
+            if (mahjong.color == universal[i].color && mahjong.number == universal[i].number)
             {
                 return true;
             }
@@ -74,7 +74,7 @@ public class MahjongHelper
         if (lst == null) return false;
         for (int i = 0; i < lst.Count; ++i)
         {
-            if (lst[i].color == mahjong.color && lst[i].size == mahjong.size)
+            if (lst[i].color == mahjong.color && lst[i].number == mahjong.number)
             {
                 return true;
             }
@@ -103,7 +103,7 @@ public class MahjongHelper
         int ret = 0;
         for (int i = 0; i < lst.Count; ++i)
         {
-            if (lst[i].color == mahjong.color && lst[i].size == mahjong.size)
+            if (lst[i].color == mahjong.color && lst[i].number == mahjong.number)
             {
                 ++ret;
             }
@@ -119,7 +119,7 @@ public class MahjongHelper
         List<Mahjong> ret = new List<Mahjong>();
         for (int i = 0; i < lst.Count; ++i)
         {
-            if (lst[i].color == mahjong.color && lst[i].size == mahjong.size)
+            if (lst[i].color == mahjong.color && lst[i].number == mahjong.number)
             {
                 ret.Add(lst[i]);
             }
@@ -131,7 +131,7 @@ public class MahjongHelper
     {
         if (mahjong == null) return null;
         int color = mahjong.color;
-        int size = mahjong.size + 1;
+        int size = mahjong.number + 1;
         if (color < 4)
         {
             if (size > 9)
@@ -169,7 +169,7 @@ public class MahjongHelper
     {
         if (mahjong == null) return null;
         int color = mahjong.color;
-        int size = mahjong.size - 1;
+        int size = mahjong.number - 1;
         if (color < 4)
         {
             if (size <= 0)
@@ -225,12 +225,12 @@ public class MahjongHelper
             {
                 lstZi.Add(mahjong[i]);
             }
-            else if (mahjong[i].color < 4 && mahjong[i].size == 1)
+            else if (mahjong[i].color < 4 && mahjong[i].number == 1)
             {
                 if (HasMahjong(mahjong[i], lst1)) return false;
                 lst1.Add(mahjong[i]);
             }
-            else if (mahjong[i].color < 4 && mahjong[i].size == 9)
+            else if (mahjong[i].color < 4 && mahjong[i].number == 9)
             {
                 if (HasMahjong(mahjong[i], lst9)) return false;
                 lst9.Add(mahjong[i]);
@@ -250,7 +250,7 @@ public class MahjongHelper
         {
             for (int i = 1; i < lstZi.Count; ++i)
             {
-                if (lstZi[i].size != lstZi[i - 1].size)
+                if (lstZi[i].number != lstZi[i - 1].number)
                 {
                     return false;
                 }
@@ -344,7 +344,7 @@ public class MahjongHelper
         {
             for (int j = overplus.Count - 1; j >= 0; --j)
             {
-                if (currSingle[i].color == overplus[j].color && currSingle[i].size == overplus[j].size)
+                if (currSingle[i].color == overplus[j].color && currSingle[i].number == overplus[j].number)
                 {
                     currSameDouble.Add(currSingle[i]);
                     currSameDouble.Add(overplus[j]);
@@ -526,8 +526,8 @@ public class MahjongHelper
             {
                 List<Mahjong> overPlusCards = new List<Mahjong>(Cards);
                 List<CardCombination> lstCombination = new List<CardCombination>(prevCombination);
-                List<Mahjong> currentLackCard = new List<Mahjong>() { new Mahjong(overPlusCards[0].index, overPlusCards[0].color, overPlusCards[0].size) };
-                List<Mahjong> currentCombination = new List<Mahjong>() { new Mahjong(overPlusCards[0].index, overPlusCards[0].color, overPlusCards[0].size) };
+                List<Mahjong> currentLackCard = new List<Mahjong>() { new Mahjong(overPlusCards[0].index, overPlusCards[0].color, overPlusCards[0].number) };
+                List<Mahjong> currentCombination = new List<Mahjong>() { new Mahjong(overPlusCards[0].index, overPlusCards[0].color, overPlusCards[0].number) };
                 CardCombination newConbination = new CardCombination(CardType.SameDouble, currentLackCard, currentCombination);
                 overPlusCards.RemoveAt(0);
                 lstCombination.Add(newConbination);
@@ -538,9 +538,9 @@ public class MahjongHelper
         {
             List<Mahjong> overPlusCards = new List<Mahjong>(Cards);
             List<CardCombination> lstCombination = new List<CardCombination>(prevCombination);
-            List<Mahjong> currentLackCard = new List<Mahjong>() { new Mahjong(overPlusCards[0].index, overPlusCards[0].color, overPlusCards[0].size) };
-            currentLackCard.Add(new Mahjong(overPlusCards[0].index, overPlusCards[0].color, overPlusCards[0].size));
-            List<Mahjong> currentCombination = new List<Mahjong>() { new Mahjong(overPlusCards[0].index, overPlusCards[0].color, overPlusCards[0].size) };
+            List<Mahjong> currentLackCard = new List<Mahjong>() { new Mahjong(overPlusCards[0].index, overPlusCards[0].color, overPlusCards[0].number) };
+            currentLackCard.Add(new Mahjong(overPlusCards[0].index, overPlusCards[0].color, overPlusCards[0].number));
+            List<Mahjong> currentCombination = new List<Mahjong>() { new Mahjong(overPlusCards[0].index, overPlusCards[0].color, overPlusCards[0].number) };
             CardCombination newConbination = new CardCombination(CardType.SameTriple, currentLackCard, currentCombination);
             overPlusCards.RemoveAt(0);
             lstCombination.Add(newConbination);
@@ -553,23 +553,23 @@ public class MahjongHelper
             List<Mahjong> overPlusCards1 = new List<Mahjong>(Cards);
             List<CardCombination> lstCombination1 = new List<CardCombination>(prevCombination);
             List<Mahjong> currentLackCard1 = new List<Mahjong>();
-            if (Cards[0].size > 2)
+            if (Cards[0].number > 2)
             {
-                currentLackCard1.Add(new Mahjong(0, Cards[0].color, Cards[0].size - 2));
+                currentLackCard1.Add(new Mahjong(0, Cards[0].color, Cards[0].number - 2));
             }
-            if (Cards[0].size > 1)
+            if (Cards[0].number > 1)
             {
-                currentLackCard1.Add(new Mahjong(0, Cards[0].color, Cards[0].size - 1));
+                currentLackCard1.Add(new Mahjong(0, Cards[0].color, Cards[0].number - 1));
             }
-            if (Cards[0].size < 9)
+            if (Cards[0].number < 9)
             {
-                currentLackCard1.Add(new Mahjong(0, Cards[0].color, Cards[0].size + 1));
+                currentLackCard1.Add(new Mahjong(0, Cards[0].color, Cards[0].number + 1));
             }
-            if (Cards[0].size < 8)
+            if (Cards[0].number < 8)
             {
-                currentLackCard1.Add(new Mahjong(0, Cards[0].color, Cards[0].size + 2));
+                currentLackCard1.Add(new Mahjong(0, Cards[0].color, Cards[0].number + 2));
             }
-            List<Mahjong> currentCombination1 = new List<Mahjong>() { new Mahjong(overPlusCards1[0].index, overPlusCards1[0].color, overPlusCards1[0].size) };
+            List<Mahjong> currentCombination1 = new List<Mahjong>() { new Mahjong(overPlusCards1[0].index, overPlusCards1[0].color, overPlusCards1[0].number) };
             CardCombination newConbination1 = new CardCombination(CardType.straightLackDouble, currentLackCard1, currentCombination1);
             overPlusCards1.RemoveAt(0);
             lstCombination1.Add(newConbination1);
@@ -582,14 +582,14 @@ public class MahjongHelper
         if (Cards.Count < 2) return;
 
         if (Cards[0].color != Cards[1].color) return;
-        if (Cards[0].size != Cards[1].size) return;
+        if (Cards[0].number != Cards[1].number) return;
 
         {
             if (sameDoubleCount == 0)
             {
                 List<Mahjong> overPlusCards = new List<Mahjong>(Cards);
                 List<CardCombination> lstCombination = new List<CardCombination>(prevCombination);
-                List<Mahjong> currentCombination = new List<Mahjong>() { new Mahjong(overPlusCards[0].index, overPlusCards[0].color, overPlusCards[0].size), new Mahjong(overPlusCards[1].index, overPlusCards[1].color, overPlusCards[1].size) };
+                List<Mahjong> currentCombination = new List<Mahjong>() { new Mahjong(overPlusCards[0].index, overPlusCards[0].color, overPlusCards[0].number), new Mahjong(overPlusCards[1].index, overPlusCards[1].color, overPlusCards[1].number) };
                 CardCombination newConbination = new CardCombination(CardType.SameDouble, null, currentCombination);
                 overPlusCards.RemoveAt(1);
                 overPlusCards.RemoveAt(0);
@@ -602,8 +602,8 @@ public class MahjongHelper
             List<Mahjong> overPlusCards = new List<Mahjong>(Cards);
             List<CardCombination> lstCombination = new List<CardCombination>(prevCombination);
             List<Mahjong> currentLackCard = new List<Mahjong>() { };
-            currentLackCard.Add(new Mahjong(overPlusCards[0].index, overPlusCards[0].color, overPlusCards[0].size));
-            List<Mahjong> currentCombination = new List<Mahjong>() { new Mahjong(overPlusCards[0].index, overPlusCards[0].color, overPlusCards[0].size), new Mahjong(overPlusCards[1].index, overPlusCards[1].color, overPlusCards[1].size) };
+            currentLackCard.Add(new Mahjong(overPlusCards[0].index, overPlusCards[0].color, overPlusCards[0].number));
+            List<Mahjong> currentCombination = new List<Mahjong>() { new Mahjong(overPlusCards[0].index, overPlusCards[0].color, overPlusCards[0].number), new Mahjong(overPlusCards[1].index, overPlusCards[1].color, overPlusCards[1].number) };
             CardCombination newConbination = new CardCombination(CardType.SameTriple, currentLackCard, currentCombination);
             overPlusCards.RemoveAt(1);
             overPlusCards.RemoveAt(0);
@@ -618,8 +618,8 @@ public class MahjongHelper
 
         if (Cards[0].color != Cards[1].color) return;
         if (Cards[1].color != Cards[2].color) return;
-        if (Cards[0].size != Cards[1].size) return;
-        if (Cards[1].size != Cards[2].size) return;
+        if (Cards[0].number != Cards[1].number) return;
+        if (Cards[1].number != Cards[2].number) return;
 
 
         List<Mahjong> overPlusCards = new List<Mahjong>(Cards);
@@ -644,12 +644,12 @@ public class MahjongHelper
         int thirdIndex = 0;
         for (int i = 1; i < Cards.Count; ++i)
         {
-            if (!isFindSecond && Cards[i].color == Cards[0].color && Cards[i].size == Cards[0].size + 1)
+            if (!isFindSecond && Cards[i].color == Cards[0].color && Cards[i].number == Cards[0].number + 1)
             {
                 isFindSecond = true;
                 secondIndex = i;
             }
-            else if (!isFindThird && Cards[i].color == Cards[0].color && Cards[i].size == Cards[0].size + 2)
+            else if (!isFindThird && Cards[i].color == Cards[0].color && Cards[i].number == Cards[0].number + 2)
             {
                 isFindThird = true;
                 thirdIndex = i;
@@ -687,7 +687,7 @@ public class MahjongHelper
         int findIndex = 0;
         for (int i = 1; i < Cards.Count; ++i)
         {
-            if (Cards[i].color == Cards[0].color && Cards[i].size == Cards[0].size + 1)
+            if (Cards[i].color == Cards[0].color && Cards[i].number == Cards[0].number + 1)
             {
                 isFind = true;
                 findIndex = i;
@@ -701,14 +701,14 @@ public class MahjongHelper
             List<CardCombination> lstCombination = new List<CardCombination>(prevCombination);
             List<Mahjong> currentLackCard = null;
             CardType currType = CardType.StraightDouble;
-            if (Cards[findIndex].size == 9)
+            if (Cards[findIndex].number == 9)
             {
-                currentLackCard = new List<Mahjong>() { new Mahjong(0, overPlusCards[0].color, overPlusCards[0].size - 1) };
+                currentLackCard = new List<Mahjong>() { new Mahjong(0, overPlusCards[0].color, overPlusCards[0].number - 1) };
                 currType = CardType.StraightLack37;
             }
-            else if (Cards[0].size == 1)
+            else if (Cards[0].number == 1)
             {
-                currentLackCard = new List<Mahjong>() { new Mahjong(0, overPlusCards[findIndex].color, overPlusCards[findIndex].size + 1) };
+                currentLackCard = new List<Mahjong>() { new Mahjong(0, overPlusCards[findIndex].color, overPlusCards[findIndex].number + 1) };
                 currType = CardType.StraightLack37;
                 if (Cards[0].color == 5)
                 {
@@ -717,13 +717,13 @@ public class MahjongHelper
             }
             else
             {
-                if (Cards[0].color == 5 && Cards[findIndex].size == 3)
+                if (Cards[0].color == 5 && Cards[findIndex].number == 3)
                 {
-                    currentLackCard = new List<Mahjong>() { new Mahjong(0, overPlusCards[0].color, overPlusCards[0].size - 1) };
+                    currentLackCard = new List<Mahjong>() { new Mahjong(0, overPlusCards[0].color, overPlusCards[0].number - 1) };
                 }
                 else
                 {
-                    currentLackCard = new List<Mahjong>() { new Mahjong(0, overPlusCards[0].color, overPlusCards[0].size - 1), new Mahjong(0, overPlusCards[findIndex].color, overPlusCards[findIndex].size + 1) };
+                    currentLackCard = new List<Mahjong>() { new Mahjong(0, overPlusCards[0].color, overPlusCards[0].number - 1), new Mahjong(0, overPlusCards[findIndex].color, overPlusCards[findIndex].number + 1) };
                 }
 
             }
@@ -745,7 +745,7 @@ public class MahjongHelper
         int findIndex = 0;
         for (int i = 1; i < Cards.Count; ++i)
         {
-            if (Cards[i].color == Cards[0].color && Cards[i].size == Cards[0].size + 2)
+            if (Cards[i].color == Cards[0].color && Cards[i].number == Cards[0].number + 2)
             {
                 isFind = true;
                 findIndex = i;
@@ -757,7 +757,7 @@ public class MahjongHelper
             List<Mahjong> overPlusCards = new List<Mahjong>(Cards);
             List<CardCombination> lstCombination = new List<CardCombination>(prevCombination);
             List<Mahjong> currentCombination = new List<Mahjong>() { new Mahjong(overPlusCards[0]), new Mahjong(overPlusCards[findIndex]) };
-            List<Mahjong> currentLackCard = new List<Mahjong>() { new Mahjong(0, overPlusCards[0].color, overPlusCards[0].size + 1) };
+            List<Mahjong> currentLackCard = new List<Mahjong>() { new Mahjong(0, overPlusCards[0].color, overPlusCards[0].number + 1) };
             CardCombination newConbination = new CardCombination(CardType.StraightLackMiddle, currentLackCard, currentCombination);
             lstCombination.Add(newConbination);
             overPlusCards.RemoveAt(findIndex);
@@ -779,11 +779,11 @@ public class MahjongHelper
             }
             else if (card1.color == card2.color)
             {
-                if (card1.size < card2.size)
+                if (card1.number < card2.number)
                 {
                     return -1;
                 }
-                else if (card1.size == card2.size)
+                else if (card1.number == card2.number)
                 {
                     return 0;
                 }
@@ -821,7 +821,7 @@ public class MahjongHelper
     private static void UniversalBestSort(List<Mahjong> lst, List<Mahjong> universal)
     {
         if (lst == null || lst.Count == 0) return;
-        if (lst[0].size == 0) return;
+        if (lst[0].number == 0) return;
         m_UniversalList.Clear();
         m_Combination.Clear();
         if (universal != null)
@@ -845,11 +845,11 @@ public class MahjongHelper
             }
             else if (card1.color == card2.color)
             {
-                if (card1.size < card2.size)
+                if (card1.number < card2.number)
                 {
                     return -1;
                 }
-                else if (card1.size == card2.size)
+                else if (card1.number == card2.number)
                 {
                     return 0;
                 }
@@ -873,7 +873,7 @@ public class MahjongHelper
             for (int i = 0; i < lst.Count - 1; ++i)
             {
                 if (m_UniversalList.Count == 0) break;
-                if (lst[i].color == lst[i + 1].color && lst[i].size == lst[i + 1].size - 2)
+                if (lst[i].color == lst[i + 1].color && lst[i].number == lst[i + 1].number - 2)
                 {
                     lst.Insert(i + 1, m_UniversalList[0]);
                     m_UniversalList.RemoveAt(0);
@@ -894,13 +894,13 @@ public class MahjongHelper
                     continue;
                 }
 
-                if (lst[i].color == lst[i + 1].color && lst[i].size == lst[i + 1].size - 1)
+                if (lst[i].color == lst[i + 1].color && lst[i].number == lst[i + 1].number - 1)
                 {
-                    if (lst[i].size == 1)
+                    if (lst[i].number == 1)
                     {
                         lst.Insert(i + 2, m_UniversalList[0]);
                     }
-                    else if (lst[i].size == 8)
+                    else if (lst[i].number == 8)
                     {
                         lst.Insert(i, m_UniversalList[0]);
                     }
@@ -925,7 +925,7 @@ public class MahjongHelper
                 int sameCount = 0;
                 for (int j = 0; j < lst.Count; ++j)
                 {
-                    if (lst[i].color == lst[j].color && lst[i].size == lst[j].size)
+                    if (lst[i].color == lst[j].color && lst[i].number == lst[j].number)
                     {
                         ++sameCount;
                     }
@@ -957,11 +957,11 @@ public class MahjongHelper
                 {
                     continue;
                 }
-                if (lst[i + 1].color == lst[i].color && lst[i + 1].size == lst[i].size)
+                if (lst[i + 1].color == lst[i].color && lst[i + 1].number == lst[i].number)
                 {
                     continue;
                 }
-                if (lst[i + 1].color == lst[i].color && lst[i + 1].size - 1 == lst[i].size)
+                if (lst[i + 1].color == lst[i].color && lst[i + 1].number - 1 == lst[i].number)
                 {
                     continue;
                 }
@@ -980,7 +980,7 @@ public class MahjongHelper
                     {
                         continue;
                     }
-                    if (m_Combination[i].color < lst[j].color || (m_Combination[i].color == lst[j].color && m_Combination[i].size <= lst[j].size))
+                    if (m_Combination[i].color < lst[j].color || (m_Combination[i].color == lst[j].color && m_Combination[i].number <= lst[j].number))
                     {
                         lst.Insert(j, m_Combination[i]);
                         isInsert = true;
@@ -1013,12 +1013,12 @@ public class MahjongHelper
             int thirdIndex = 0;
             for (int i = j + 1; i < Cards.Count; ++i)
             {
-                if (!isFindSecond && Cards[i].color == Cards[j].color && Cards[i].size == Cards[j].size + 1)
+                if (!isFindSecond && Cards[i].color == Cards[j].color && Cards[i].number == Cards[j].number + 1)
                 {
                     isFindSecond = true;
                     secondIndex = i;
                 }
-                else if (!isFindThird && Cards[i].color == Cards[j].color && Cards[i].size == Cards[j].size + 2)
+                else if (!isFindThird && Cards[i].color == Cards[j].color && Cards[i].number == Cards[j].number + 2)
                 {
                     isFindThird = true;
                     thirdIndex = i;
@@ -1055,8 +1055,8 @@ public class MahjongHelper
         {
             if (Cards[i].color != Cards[i + 1].color) continue;
             if (Cards[i + 1].color != Cards[i + 2].color) continue;
-            if (Cards[i].size != Cards[i + 1].size) continue;
-            if (Cards[i + 1].size != Cards[i + 2].size) continue;
+            if (Cards[i].number != Cards[i + 1].number) continue;
+            if (Cards[i + 1].number != Cards[i + 2].number) continue;
             combination.Add(Cards[i + 2]);
             combination.Add(Cards[i + 1]);
             combination.Add(Cards[i]);

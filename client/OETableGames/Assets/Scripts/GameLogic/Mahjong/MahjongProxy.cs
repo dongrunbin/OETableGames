@@ -549,7 +549,7 @@ public class MahjongProxy
             for (int j = 0; j < hand.Count; ++j)
             {
                 Mahjong h = hand[j];
-                if (uni.color == h.color && uni.size == h.size)
+                if (uni.color == h.color && uni.number == h.number)
                 {
                     isExistsUniversal = true;
                     break;
@@ -588,7 +588,7 @@ public class MahjongProxy
                         bool isExists = false;
                         for (int m = 0; m < lackPokers.Count; ++m)
                         {
-                            if (lackCards[l].color == lackPokers[m].color && lackCards[l].size == lackPokers[m].size)
+                            if (lackCards[l].color == lackPokers[m].color && lackCards[l].number == lackPokers[m].number)
                             {
                                 isExists = true;
                                 break;
@@ -650,7 +650,7 @@ public class MahjongProxy
                 for (int j = 0; j < hand.Count; ++j)
                 {
                     Mahjong h = hand[j];
-                    if (uni.color == h.color && uni.size == h.size)
+                    if (uni.color == h.color && uni.number == h.number)
                     {
                         isExistsUniversal = true;
                         break;
@@ -666,6 +666,233 @@ public class MahjongProxy
             }
         }
         return ret;
+    }
+
+    public List<List<Mahjong>> GetChi(Mahjong mahjong)
+    {
+        List<Mahjong> handList = new List<Mahjong>(Room.PlayerSeat.PokerList);
+
+        List<Mahjong> universal = Room.PlayerSeat.UniversalList;
+
+        List<List<Mahjong>> chi = new List<List<Mahjong>>();
+
+        if (mahjong.color < 4)
+        {
+            //检查第三张
+            if (mahjong.number >= 3)
+            {
+                List<Mahjong> lst = new List<Mahjong>();
+                Mahjong first = null;
+                Mahjong second = null;
+                for (int i = 0; i < handList.Count; ++i)
+                {
+                    if (handList[i].color == mahjong.color && handList[i].number == mahjong.number - 2)
+                    {
+                        first = handList[i];
+                    }
+                    if (handList[i].color == mahjong.color && handList[i].number == mahjong.number - 1)
+                    {
+                        second = handList[i];
+                    }
+                    if (first != null && second != null)
+                    {
+                        lst.Add(first);
+                        lst.Add(second);
+                        lst.Add(mahjong);
+                        chi.Add(lst);
+                        break;
+                    }
+                }
+            }
+            //检查第二张
+            if (mahjong.number > 1 && mahjong.number < 9)
+            {
+                List<Mahjong> lst = new List<Mahjong>();
+                Mahjong first = null;
+                Mahjong third = null;
+                for (int i = 0; i < handList.Count; ++i)
+                {
+                    if (handList[i].color == mahjong.color && handList[i].number == mahjong.number - 1)
+                    {
+                        first = handList[i];
+                    }
+                    if (handList[i].color == mahjong.color && handList[i].number == mahjong.number + 1)
+                    {
+                        third = handList[i];
+                    }
+                    if (first != null && third != null)
+                    {
+                        lst.Add(first);
+                        lst.Add(mahjong);
+                        lst.Add(third);
+
+                        chi.Add(lst);
+                        break;
+                    }
+                }
+            }
+            //检查第一张
+            if (mahjong.number <= 7)
+            {
+                List<Mahjong> lst = new List<Mahjong>();
+                Mahjong second = null;
+                Mahjong third = null;
+                for (int i = 0; i < handList.Count; ++i)
+                {
+                    if (handList[i].color == mahjong.color && handList[i].number == mahjong.number + 1)
+                    {
+                        second = handList[i];
+                    }
+                    if (handList[i].color == mahjong.color && handList[i].number == mahjong.number + 2)
+                    {
+                        third = handList[i];
+                    }
+                    if (second != null && third != null)
+                    {
+                        lst.Add(mahjong);
+                        lst.Add(second);
+                        lst.Add(third);
+
+                        chi.Add(lst);
+                        break;
+                    }
+                }
+            }
+        }
+        return chi;
+    }
+
+    public List<Mahjong> GetPeng(Mahjong mahjong)
+    {
+        int sameCount = 1;
+        List<Mahjong> lst = new List<Mahjong>();
+        List<Mahjong> handList = new List<Mahjong>(Room.PlayerSeat.PokerList);
+        for (int i = 0; i < handList.Count; ++i)
+        {
+            if (handList[i].color == mahjong.color && handList[i].number == mahjong.number)
+            {
+                lst.Add(handList[i]);
+                ++sameCount;
+                if (sameCount == 3)
+                {
+                    lst.Add(mahjong);
+                    return lst;
+                }
+            }
+        }
+        return null;
+    }
+
+    public List<List<Mahjong>> GetAnGang()
+    {
+        List<List<Mahjong>> lst = new List<List<Mahjong>>();
+        if (Room.PlayerSeat == null) return lst;
+        List<Mahjong> handList = new List<Mahjong>(Room.PlayerSeat.PokerList);
+        Mahjong hitPoker = Room.PlayerSeat.HitPoker;
+        if (hitPoker != null)
+        {
+            handList.Add(hitPoker);
+        }
+        for (int i = 0; i < handList.Count; ++i)
+        {
+            List<Mahjong> combination = new List<Mahjong>();
+            Mahjong mahjong = handList[i];
+            combination.Add(mahjong);
+            int sameCount = 1;
+            for (int j = i + 1; j < handList.Count; ++j)
+            {
+                if (mahjong.color == handList[j].color && mahjong.number == handList[j].number)
+                {
+                    combination.Add(handList[j]);
+                    ++sameCount;
+                    if (sameCount == 4)
+                    {
+                        lst.Add(combination);
+                        break;
+                    }
+                }
+            }
+        }
+        return lst;
+    }
+
+    public List<Mahjong> GetBuGang()
+    {
+        List<Mahjong> lst = new List<Mahjong>();
+
+        List<Mahjong> handList = new List<Mahjong>();
+        handList.AddRange(Room.PlayerSeat.PokerList);
+
+        Mahjong hitPoker = Room.PlayerSeat.HitPoker;
+        if (hitPoker != null)
+        {
+            handList.Add(hitPoker);
+        }
+        List<MahjongGroup> pengList = Room.PlayerSeat.UsedPokerList;
+        for (int i = 0; i < pengList.Count; ++i)
+        {
+            if (pengList[i].CombinationType == OperationType.Peng)
+            {
+                for (int j = 0; j < handList.Count; ++j)
+                {
+                    if (handList[j].color == pengList[i].MahjongList[0].color && handList[j].number == pengList[i].MahjongList[0].number)
+                    {
+                        lst.Add(handList[j]);
+                    }
+                }
+            }
+        }
+        return lst;
+    }
+
+    public List<Mahjong> GetBuGang(Mahjong mahjong)
+    {
+        List<Mahjong> lst = new List<Mahjong>();
+        List<Mahjong> handList = new List<Mahjong>(Room.PlayerSeat.PokerList);
+
+        Mahjong hitPoker = Room.PlayerSeat.HitPoker;
+        if (hitPoker != null)
+        {
+            handList.Add(hitPoker);
+        }
+        List<MahjongGroup> pengList = Room.PlayerSeat.UsedPokerList;
+        for (int i = 0; i < pengList.Count; ++i)
+        {
+            if (pengList[i].CombinationType == OperationType.Peng)
+            {
+                if (mahjong.color == pengList[i].MahjongList[0].color && mahjong.number == pengList[i].MahjongList[0].number)
+                {
+                    lst.Add(mahjong);
+                }
+            }
+        }
+        return lst;
+    }
+
+    public List<Mahjong> GetMingGang(Mahjong mahjong)
+    {
+        if (mahjong == null) return null;
+        if (Room.PlayerSeat == null) return null;
+        List<Mahjong> lst = new List<Mahjong>();
+
+        List<Mahjong> handList = new List<Mahjong>(Room.PlayerSeat.PokerList);
+        int sameCount = 1;
+        for (int i = 0; i < handList.Count; ++i)
+        {
+            if (handList[i].color == mahjong.color && handList[i].number == mahjong.number)
+            {
+                lst.Add(handList[i]);
+                ++sameCount;
+                if (sameCount == 4)
+                {
+                    lst.Add(mahjong);
+                    break;
+                }
+            }
+        }
+        if (lst.Count < 4) lst.Clear();
+
+        return lst;
     }
 
     public List<Mahjong> GetHu(Mahjong mahjong)

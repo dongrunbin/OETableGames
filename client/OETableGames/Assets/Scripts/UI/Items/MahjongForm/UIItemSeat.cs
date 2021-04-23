@@ -14,11 +14,7 @@ public class UIItemSeat : UIItemBase
     [SerializeField]
     protected GameObject m_Ready;
     [SerializeField]
-    protected Transform m_UIAnimationContainer;
-    [SerializeField]
     protected int m_nSeatIndex = -1;
-    [SerializeField]
-    protected Image m_imgHighLight;
     [SerializeField]
     protected RawImage m_ImageHead;
     [SerializeField]
@@ -43,7 +39,6 @@ public class UIItemSeat : UIItemBase
         {
             m_Ready.SetActive(false);
         }
-        m_imgHighLight.SafeSetActive(false);
 
         if (m_ImgOperating != null)
         {
@@ -79,11 +74,6 @@ public class UIItemSeat : UIItemBase
     public void SetOperating(bool isOperating)
     {
         m_ImgOperating.SafeSetActive(isOperating);
-    }
-
-    public void SetHighLight(bool isActive)
-    {
-        m_imgHighLight.SafeSetActive(isActive);
     }
 
     public void SetNickName(string nickname)

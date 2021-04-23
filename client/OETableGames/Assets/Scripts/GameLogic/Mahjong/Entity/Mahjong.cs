@@ -13,7 +13,7 @@ public class Mahjong : IComparable
     [UnityEngine.SerializeField]
     protected int m_Color;
     [UnityEngine.SerializeField]
-    protected int m_Size;
+    protected int m_Number;
 
     public const string DefaultName = "0_0";
 
@@ -22,7 +22,7 @@ public class Mahjong : IComparable
 
     public int color { get { return m_Color; } set { m_Color = value; } }
 
-    public int size { get { return m_Size; } set { m_Size = value; } }
+    public int number { get { return m_Number; } set { m_Number = value; } }
 
 
     public Mahjong() { }
@@ -31,14 +31,14 @@ public class Mahjong : IComparable
     {
         m_Index = 0;
         m_Color = color;
-        m_Size = size;
+        m_Number = size;
     }
 
     public Mahjong(int index, int color, int size)
     {
         m_Index = index;
         m_Color = color;
-        m_Size = size;
+        m_Number = size;
     }
 
     public Mahjong(Mahjong poker)
@@ -47,18 +47,18 @@ public class Mahjong : IComparable
         {
             m_Index = poker.index;
             m_Color = poker.color;
-            m_Size = poker.size;
+            m_Number = poker.number;
         }
     }
 
     public override string ToString()
     {
-        return string.Format("{0}_{1}", color.ToString(), size.ToString());
+        return string.Format("{0}_{1}", color.ToString(), number.ToString());
     }
 
     public string ToLog()
     {
-        return string.Format("{0}_{1}_{2}", index.ToString(), color.ToString(), size.ToString());
+        return string.Format("{0}_{1}_{2}", index.ToString(), color.ToString(), number.ToString());
     }
 
     public virtual int CompareTo(object other)
@@ -67,14 +67,14 @@ public class Mahjong : IComparable
         if (!(other is Mahjong)) return -1;
         Mahjong otherPoker = other as Mahjong;
         if (color != otherPoker.color) return color - otherPoker.color;
-        if (size != otherPoker.size) return size - otherPoker.size;
+        if (number != otherPoker.number) return number - otherPoker.number;
         return index - otherPoker.index;
     }
 
     public bool Equals(Mahjong poker)
     {
         if (poker == null) return false;
-        return color == poker.color && size == poker.size;
+        return color == poker.color && number == poker.number;
     }
 
     public override int GetHashCode()

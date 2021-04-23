@@ -40,13 +40,6 @@ public class MahjongCtrl : MonoBehaviour
         get { return m_Model; }
     }
 
-    private void Awake()
-    {
-        m_Model = transform.GetChild(0).gameObject;
-        BoxCollider collider = gameObject.AddComponent<BoxCollider>();
-        collider.size = new Vector3(7f, 5f, 10f);
-    }
-
     public void Init(Mahjong mahjong, bool isUniversal)
     {
         Reset();
