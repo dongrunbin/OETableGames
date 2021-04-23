@@ -1,6 +1,6 @@
 //===================================================
 //作    者：DRB
-//创建时间：2021-04-15 03:55:31
+//创建时间：2021-04-23 08:05:42
 //备    注：
 //===================================================
 package com.oegame.tablegames.protocol.gen;
@@ -122,11 +122,6 @@ public class ProtoCodeDef
     public static final int Mahjong_S2C_DiscardProto = 30004;
 
     /// <summary>
-    /// S2C_Turn
-    /// </summary>
-    public static final int Mahjong_S2C_TurnProto = 30005;
-
-    /// <summary>
     /// C2S_Operate
     /// </summary>
     public static final int Mahjong_C2S_OperateProto = 30006;
@@ -220,8 +215,6 @@ public class ProtoCodeDef
         DicEn.put(Mahjong_C2S_DiscardProto,"Mahjong_C2S_DiscardProto");
         DicCn.put(Mahjong_S2C_DiscardProto,"S2C_Discard");
         DicEn.put(Mahjong_S2C_DiscardProto,"Mahjong_S2C_DiscardProto");
-        DicCn.put(Mahjong_S2C_TurnProto,"S2C_Turn");
-        DicEn.put(Mahjong_S2C_TurnProto,"Mahjong_S2C_TurnProto");
         DicCn.put(Mahjong_C2S_OperateProto,"C2S_Operate");
         DicEn.put(Mahjong_C2S_OperateProto,"Mahjong_C2S_OperateProto");
         DicCn.put(Mahjong_S2C_OperateProto,"S2C_Operate");

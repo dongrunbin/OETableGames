@@ -502,7 +502,7 @@
           </Field>
           <Field>
             <Type>int</Type>
-            <EnName>pokerAmount</EnName>
+            <EnName>mahjongAmount</EnName>
             <CnName />
             <IsLoop>false</IsLoop>
             <AttachToCondition />
@@ -511,16 +511,7 @@
           </Field>
           <Field>
             <Type>int</Type>
-            <EnName>pokerTotal</EnName>
-            <CnName />
-            <IsLoop>false</IsLoop>
-            <AttachToCondition />
-            <AttachToResult>0</AttachToResult>
-            <AttachToCustom />
-          </Field>
-          <Field>
-            <Type>Poker</Type>
-            <EnName>luckPoker</EnName>
+            <EnName>mahjongTotal</EnName>
             <CnName />
             <IsLoop>false</IsLoop>
             <AttachToCondition />
@@ -574,7 +565,7 @@
           </Field>
           <Field>
             <Type>int</Type>
-            <EnName>pokerAmount</EnName>
+            <EnName>mahjongAmount</EnName>
             <CnName />
             <IsLoop>false</IsLoop>
             <AttachToCondition />
@@ -591,8 +582,8 @@
             <AttachToCustom>Seat</AttachToCustom>
           </Field>
           <Field>
-            <Type>Poker</Type>
-            <EnName>hitPoker</EnName>
+            <Type>Mahjong</Type>
+            <EnName>hitMahjong</EnName>
             <CnName />
             <IsLoop>false</IsLoop>
             <AttachToCondition />
@@ -600,8 +591,8 @@
             <AttachToCustom>Seat</AttachToCustom>
           </Field>
           <Field>
-            <Type>Poker</Type>
-            <EnName>pokers</EnName>
+            <Type>Mahjong</Type>
+            <EnName>mahjongs</EnName>
             <CnName />
             <IsLoop>true</IsLoop>
             <AttachToCondition />
@@ -609,8 +600,8 @@
             <AttachToCustom>Seat</AttachToCustom>
           </Field>
           <Field>
-            <Type>Poker</Type>
-            <EnName>universalPoker</EnName>
+            <Type>Mahjong</Type>
+            <EnName>universalMahjongs</EnName>
             <CnName />
             <IsLoop>true</IsLoop>
             <AttachToCondition />
@@ -624,7 +615,7 @@
             <IsLoop>false</IsLoop>
             <AttachToCondition />
             <AttachToResult>0</AttachToResult>
-            <AttachToCustom>Poker</AttachToCustom>
+            <AttachToCustom>Mahjong</AttachToCustom>
           </Field>
           <Field>
             <Type>int</Type>
@@ -633,16 +624,16 @@
             <IsLoop>false</IsLoop>
             <AttachToCondition />
             <AttachToResult>0</AttachToResult>
-            <AttachToCustom>Poker</AttachToCustom>
+            <AttachToCustom>Mahjong</AttachToCustom>
           </Field>
           <Field>
             <Type>int</Type>
-            <EnName>size</EnName>
+            <EnName>number</EnName>
             <CnName />
             <IsLoop>false</IsLoop>
             <AttachToCondition />
             <AttachToResult>0</AttachToResult>
-            <AttachToCustom>Poker</AttachToCustom>
+            <AttachToCustom>Mahjong</AttachToCustom>
           </Field>
           <Field>
             <Type>int</Type>
@@ -651,7 +642,7 @@
             <IsLoop>false</IsLoop>
             <AttachToCondition />
             <AttachToResult>0</AttachToResult>
-            <AttachToCustom>Poker</AttachToCustom>
+            <AttachToCustom>Mahjong</AttachToCustom>
           </Field>
         </FieldInfos>
       </Protocol>
@@ -800,105 +791,6 @@
         </FieldInfos>
       </Protocol>
       <Protocol>
-        <Id>637532485069891621</Id>
-        <Code>30005</Code>
-        <EnName>S2C_Turn</EnName>
-        <CnName>S2C_Turn</CnName>
-        <Description>when it is a player's turn</Description>
-        <FieldInfos>
-          <Field>
-            <Type>long</Type>
-            <EnName>countdown</EnName>
-            <CnName />
-            <IsLoop>false</IsLoop>
-            <AttachToCondition />
-            <AttachToResult>0</AttachToResult>
-            <AttachToCustom />
-          </Field>
-          <Field>
-            <Type>PokerGroup</Type>
-            <EnName>askPokerGroup</EnName>
-            <CnName />
-            <IsLoop>true</IsLoop>
-            <AttachToCondition />
-            <AttachToResult>0</AttachToResult>
-            <AttachToCustom />
-          </Field>
-          <Field>
-            <Type>byte</Type>
-            <EnName>typeId</EnName>
-            <CnName />
-            <IsLoop>false</IsLoop>
-            <AttachToCondition />
-            <AttachToResult>0</AttachToResult>
-            <AttachToCustom>PokerGroup</AttachToCustom>
-          </Field>
-          <Field>
-            <Type>byte</Type>
-            <EnName>subTypeId</EnName>
-            <CnName />
-            <IsLoop>false</IsLoop>
-            <AttachToCondition />
-            <AttachToResult>0</AttachToResult>
-            <AttachToCustom>PokerGroup</AttachToCustom>
-          </Field>
-          <Field>
-            <Type>int</Type>
-            <EnName>playerId</EnName>
-            <CnName />
-            <IsLoop>false</IsLoop>
-            <AttachToCondition />
-            <AttachToResult>0</AttachToResult>
-            <AttachToCustom>PokerGroup</AttachToCustom>
-          </Field>
-          <Field>
-            <Type>Poker</Type>
-            <EnName>pokers</EnName>
-            <CnName />
-            <IsLoop>false</IsLoop>
-            <AttachToCondition />
-            <AttachToResult>0</AttachToResult>
-            <AttachToCustom>PokerGroup</AttachToCustom>
-          </Field>
-          <Field>
-            <Type>int</Type>
-            <EnName>index</EnName>
-            <CnName />
-            <IsLoop>false</IsLoop>
-            <AttachToCondition />
-            <AttachToResult>0</AttachToResult>
-            <AttachToCustom>Poker</AttachToCustom>
-          </Field>
-          <Field>
-            <Type>int</Type>
-            <EnName>color</EnName>
-            <CnName />
-            <IsLoop>false</IsLoop>
-            <AttachToCondition />
-            <AttachToResult>0</AttachToResult>
-            <AttachToCustom>Poker</AttachToCustom>
-          </Field>
-          <Field>
-            <Type>int</Type>
-            <EnName>number</EnName>
-            <CnName />
-            <IsLoop>false</IsLoop>
-            <AttachToCondition />
-            <AttachToResult>0</AttachToResult>
-            <AttachToCustom>Poker</AttachToCustom>
-          </Field>
-          <Field>
-            <Type>int</Type>
-            <EnName>pos</EnName>
-            <CnName />
-            <IsLoop>false</IsLoop>
-            <AttachToCondition />
-            <AttachToResult>0</AttachToResult>
-            <AttachToCustom>Poker</AttachToCustom>
-          </Field>
-        </FieldInfos>
-      </Protocol>
-      <Protocol>
         <Id>637532486830948597</Id>
         <Code>30006</Code>
         <EnName>C2S_Operate</EnName>
@@ -960,8 +852,8 @@
             <AttachToCustom />
           </Field>
           <Field>
-            <Type>Poker</Type>
-            <EnName>pokers</EnName>
+            <Type>Mahjong</Type>
+            <EnName>mahjongs</EnName>
             <CnName />
             <IsLoop>true</IsLoop>
             <AttachToCondition />
@@ -975,7 +867,7 @@
             <IsLoop>false</IsLoop>
             <AttachToCondition />
             <AttachToResult>0</AttachToResult>
-            <AttachToCustom>Poker</AttachToCustom>
+            <AttachToCustom>Mahjong</AttachToCustom>
           </Field>
           <Field>
             <Type>int</Type>
@@ -984,7 +876,7 @@
             <IsLoop>false</IsLoop>
             <AttachToCondition />
             <AttachToResult>0</AttachToResult>
-            <AttachToCustom>Poker</AttachToCustom>
+            <AttachToCustom>Mahjong</AttachToCustom>
           </Field>
           <Field>
             <Type>int</Type>
@@ -993,7 +885,7 @@
             <IsLoop>false</IsLoop>
             <AttachToCondition />
             <AttachToResult>0</AttachToResult>
-            <AttachToCustom>Poker</AttachToCustom>
+            <AttachToCustom>Mahjong</AttachToCustom>
           </Field>
           <Field>
             <Type>int</Type>
@@ -1002,7 +894,7 @@
             <IsLoop>false</IsLoop>
             <AttachToCondition />
             <AttachToResult>0</AttachToResult>
-            <AttachToCustom>Poker</AttachToCustom>
+            <AttachToCustom>Mahjong</AttachToCustom>
           </Field>
         </FieldInfos>
       </Protocol>
@@ -1104,7 +996,7 @@
             <AttachToCustom>Seat</AttachToCustom>
           </Field>
           <Field>
-            <Type>Poker</Type>
+            <Type>Mahjong</Type>
             <EnName>universalPoker</EnName>
             <CnName />
             <IsLoop>false</IsLoop>
@@ -1113,8 +1005,8 @@
             <AttachToCustom>Seat</AttachToCustom>
           </Field>
           <Field>
-            <Type>Poker</Type>
-            <EnName>hitPoker</EnName>
+            <Type>Mahjong</Type>
+            <EnName>hitMahjong</EnName>
             <CnName />
             <IsLoop>false</IsLoop>
             <AttachToCondition />
@@ -1122,8 +1014,8 @@
             <AttachToCustom>Seat</AttachToCustom>
           </Field>
           <Field>
-            <Type>Poker</Type>
-            <EnName>pokers</EnName>
+            <Type>Mahjong</Type>
+            <EnName>mahjongs</EnName>
             <CnName />
             <IsLoop>true</IsLoop>
             <AttachToCondition />
@@ -1131,8 +1023,8 @@
             <AttachToCustom>Seat</AttachToCustom>
           </Field>
           <Field>
-            <Type>Poker</Type>
-            <EnName>desktopPokers</EnName>
+            <Type>Mahjong</Type>
+            <EnName>desktopMahjongs</EnName>
             <CnName />
             <IsLoop>true</IsLoop>
             <AttachToCondition />
@@ -1155,7 +1047,7 @@
             <IsLoop>false</IsLoop>
             <AttachToCondition />
             <AttachToResult>0</AttachToResult>
-            <AttachToCustom>Poker</AttachToCustom>
+            <AttachToCustom>Mahjong</AttachToCustom>
           </Field>
           <Field>
             <Type>int</Type>
@@ -1164,7 +1056,7 @@
             <IsLoop>false</IsLoop>
             <AttachToCondition />
             <AttachToResult>0</AttachToResult>
-            <AttachToCustom>Poker</AttachToCustom>
+            <AttachToCustom>Mahjong</AttachToCustom>
           </Field>
           <Field>
             <Type>int</Type>
@@ -1173,7 +1065,7 @@
             <IsLoop>false</IsLoop>
             <AttachToCondition />
             <AttachToResult>0</AttachToResult>
-            <AttachToCustom>Poker</AttachToCustom>
+            <AttachToCustom>Mahjong</AttachToCustom>
           </Field>
           <Field>
             <Type>int</Type>
@@ -1182,11 +1074,11 @@
             <IsLoop>false</IsLoop>
             <AttachToCondition />
             <AttachToResult>0</AttachToResult>
-            <AttachToCustom>Poker</AttachToCustom>
+            <AttachToCustom>Mahjong</AttachToCustom>
           </Field>
           <Field>
-            <Type>PokerGroup</Type>
-            <EnName>usedPokerGroup</EnName>
+            <Type>MahjongGroup</Type>
+            <EnName>usedMahjongGroup</EnName>
             <CnName />
             <IsLoop>true</IsLoop>
             <AttachToCondition />
@@ -1200,7 +1092,7 @@
             <IsLoop>false</IsLoop>
             <AttachToCondition />
             <AttachToResult>0</AttachToResult>
-            <AttachToCustom>PokerGroup</AttachToCustom>
+            <AttachToCustom>MahjongGroup</AttachToCustom>
           </Field>
           <Field>
             <Type>byte</Type>
@@ -1209,16 +1101,16 @@
             <IsLoop>false</IsLoop>
             <AttachToCondition />
             <AttachToResult>0</AttachToResult>
-            <AttachToCustom>PokerGroup</AttachToCustom>
+            <AttachToCustom>MahjongGroup</AttachToCustom>
           </Field>
           <Field>
-            <Type>Poker</Type>
-            <EnName>pokers</EnName>
+            <Type>Mahjong</Type>
+            <EnName>mahjongs</EnName>
             <CnName />
             <IsLoop>true</IsLoop>
             <AttachToCondition />
             <AttachToResult>0</AttachToResult>
-            <AttachToCustom>PokerGroup</AttachToCustom>
+            <AttachToCustom>MahjongGroup</AttachToCustom>
           </Field>
         </FieldInfos>
       </Protocol>
@@ -1312,7 +1204,7 @@
           </Field>
           <Field>
             <Type>int</Type>
-            <EnName>pokerAmount</EnName>
+            <EnName>mahjongAmount</EnName>
             <CnName />
             <IsLoop>false</IsLoop>
             <AttachToCondition />
@@ -1339,7 +1231,7 @@
           </Field>
           <Field>
             <Type>int</Type>
-            <EnName>pokerTotal</EnName>
+            <EnName>mahjongTotal</EnName>
             <CnName />
             <IsLoop>false</IsLoop>
             <AttachToCondition />
@@ -1429,7 +1321,7 @@
           </Field>
           <Field>
             <Type>MahjongGroup</Type>
-            <EnName>askPokerGroups</EnName>
+            <EnName>askMahjongGroups</EnName>
             <CnName />
             <IsLoop>true</IsLoop>
             <AttachToCondition />
@@ -1510,7 +1402,7 @@
           </Field>
           <Field>
             <Type>int</Type>
-            <EnName>pokerAmount</EnName>
+            <EnName>mahjongAmount</EnName>
             <CnName />
             <IsLoop>false</IsLoop>
             <AttachToCondition />
@@ -1528,7 +1420,7 @@
           </Field>
           <Field>
             <Type>Mahjong</Type>
-            <EnName>hitPoker</EnName>
+            <EnName>hitMahjong</EnName>
             <CnName />
             <IsLoop>false</IsLoop>
             <AttachToCondition />
@@ -1564,7 +1456,7 @@
           </Field>
           <Field>
             <Type>MahjongGroup</Type>
-            <EnName>usedPokerGroup</EnName>
+            <EnName>usedMahjongGroup</EnName>
             <CnName />
             <IsLoop>true</IsLoop>
             <AttachToCondition />
@@ -1645,7 +1537,7 @@
           </Field>
           <Field>
             <Type>Mahjong</Type>
-            <EnName>pokers</EnName>
+            <EnName>mahjongs</EnName>
             <CnName />
             <IsLoop>true</IsLoop>
             <AttachToCondition />

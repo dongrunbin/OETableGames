@@ -1,6 +1,6 @@
 //===================================================
 //作    者：DRB
-//创建时间：2021-04-15 03:55:31
+//创建时间：2021-04-23 08:05:42
 //备    注：
 //===================================================
 package com.oegame.tablegames.protocol.gen;
@@ -22,9 +22,8 @@ public class Mahjong_S2C_GameBeginProto
     private int gamesCount; //
     private ArrayList<Integer> dicePos = new ArrayList<Integer>(); //
     private ArrayList<Integer> dices = new ArrayList<Integer>(); //
-    private int pokerAmount; //
-    private int pokerTotal; //
-    private Poker luckPoker; //
+    private int mahjongAmount; //
+    private int mahjongTotal; //
     private ArrayList<Seat> seat = new ArrayList<Seat>(); //
     public int getRoomId(){
         return this.roomId;
@@ -82,28 +81,20 @@ public class Mahjong_S2C_GameBeginProto
         this.dices.add(value);
     };
 
-    public int getPokerAmount(){
-        return this.pokerAmount;
+    public int getMahjongAmount(){
+        return this.mahjongAmount;
     }
 
-    public void setPokerAmount(int value){
-        this.pokerAmount = value;
+    public void setMahjongAmount(int value){
+        this.mahjongAmount = value;
     }
 
-    public int getPokerTotal(){
-        return this.pokerTotal;
+    public int getMahjongTotal(){
+        return this.mahjongTotal;
     }
 
-    public void setPokerTotal(int value){
-        this.pokerTotal = value;
-    }
-
-    public Poker getLuckPoker(){
-        return this.luckPoker;
-    }
-
-    public void setLuckPoker(Poker value){
-        this.luckPoker = value;
+    public void setMahjongTotal(int value){
+        this.mahjongTotal = value;
     }
 
     public ArrayList<Seat> getseatList(){
@@ -126,98 +117,17 @@ public class Mahjong_S2C_GameBeginProto
     /// <summary>
     /// 
     /// </summary>
-    public static class Poker
-    {
-        private int index; //
-        private int color; //
-        private int size; //
-        private int pos; //
-        public int getIndex(){
-            return this.index;
-        }
-
-        public void setIndex(int value){
-            this.index = value;
-        }
-
-        public int getColor(){
-            return this.color;
-        }
-
-        public void setColor(int value){
-            this.color = value;
-        }
-
-        public int getSize(){
-            return this.size;
-        }
-
-        public void setSize(int value){
-            this.size = value;
-        }
-
-        public int getPos(){
-            return this.pos;
-        }
-
-        public void setPos(int value){
-            this.pos = value;
-        }
-
-        public byte[] toArray()
-        {
-            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            DataOutputStreamExt dos = new DataOutputStreamExt(baos);
-            byte[] ret = null;
-            try{
-                dos.writeInt(index);
-                dos.writeInt(color);
-                dos.writeInt(size);
-                dos.writeInt(pos);
-                ret = baos.toByteArray();
-                dos.close();
-                baos.close();
-            }
-            catch(IOException e){
-                e.printStackTrace();
-            }
-            return ret;
-        }
-
-        public static Poker getProto(byte[] buffer)
-        {
-            if(buffer == null) return null;
-            Poker proto = new Poker();
-            ByteArrayInputStream bais = new ByteArrayInputStream(buffer);
-            DataInputStreamExt dis = new DataInputStreamExt(bais);
-            try{
-                proto.index = dis.readInt();
-                proto.color = dis.readInt();
-                proto.size = dis.readInt();
-                proto.pos = dis.readInt();
-                dis.close();
-                bais.close();
-            }
-            catch(IOException e){
-                e.printStackTrace();
-            }
-            return proto;
-        }
-    }
-    /// <summary>
-    /// 
-    /// </summary>
     public static class Seat
     {
         private boolean isBanker; //
         private int playerId; //
         private int pos; //
         private int handCount; //
-        private int pokerAmount; //
+        private int mahjongAmount; //
         private int gold; //
-        private Poker hitPoker; //
-        private ArrayList<Poker> pokers = new ArrayList<Poker>(); //
-        private ArrayList<Poker> universalPoker = new ArrayList<Poker>(); //
+        private Mahjong hitMahjong; //
+        private ArrayList<Mahjong> mahjongs = new ArrayList<Mahjong>(); //
+        private ArrayList<Mahjong> universalMahjongs = new ArrayList<Mahjong>(); //
         public boolean getIsBanker(){
             return this.isBanker;
         }
@@ -250,12 +160,12 @@ public class Mahjong_S2C_GameBeginProto
             this.handCount = value;
         }
 
-        public int getPokerAmount(){
-            return this.pokerAmount;
+        public int getMahjongAmount(){
+            return this.mahjongAmount;
         }
 
-        public void setPokerAmount(int value){
-            this.pokerAmount = value;
+        public void setMahjongAmount(int value){
+            this.mahjongAmount = value;
         }
 
         public int getGold(){
@@ -266,44 +176,44 @@ public class Mahjong_S2C_GameBeginProto
             this.gold = value;
         }
 
-        public Poker getHitPoker(){
-            return this.hitPoker;
+        public Mahjong getHitMahjong(){
+            return this.hitMahjong;
         }
 
-        public void setHitPoker(Poker value){
-            this.hitPoker = value;
+        public void setHitMahjong(Mahjong value){
+            this.hitMahjong = value;
         }
 
-        public ArrayList<Poker> getpokersList(){
-            return this.pokers;
+        public ArrayList<Mahjong> getmahjongsList(){
+            return this.mahjongs;
         };
 
-        public Poker getPokers(int index){
-            return this.pokers.get(index);
+        public Mahjong getMahjongs(int index){
+            return this.mahjongs.get(index);
         };
 
-        public int pokersCount(){
-            return this.pokers.size();
+        public int mahjongsCount(){
+            return this.mahjongs.size();
         };
 
-        public void addPokers(Poker value){
-            this.pokers.add(value);
+        public void addMahjongs(Mahjong value){
+            this.mahjongs.add(value);
         };
 
-        public ArrayList<Poker> getuniversalPokerList(){
-            return this.universalPoker;
+        public ArrayList<Mahjong> getuniversalMahjongsList(){
+            return this.universalMahjongs;
         };
 
-        public Poker getUniversalPoker(int index){
-            return this.universalPoker.get(index);
+        public Mahjong getUniversalMahjongs(int index){
+            return this.universalMahjongs.get(index);
         };
 
-        public int universalPokerCount(){
-            return this.universalPoker.size();
+        public int universalMahjongsCount(){
+            return this.universalMahjongs.size();
         };
 
-        public void addUniversalPoker(Poker value){
-            this.universalPoker.add(value);
+        public void addUniversalMahjongs(Mahjong value){
+            this.universalMahjongs.add(value);
         };
 
         public byte[] toArray()
@@ -316,34 +226,34 @@ public class Mahjong_S2C_GameBeginProto
                 dos.writeInt(playerId);
                 dos.writeInt(pos);
                 dos.writeInt(handCount);
-                dos.writeInt(pokerAmount);
+                dos.writeInt(mahjongAmount);
                 dos.writeInt(gold);
-                if(hitPoker != null)
+                if(hitMahjong != null)
                 {
-                    dos.writeBytes(hitPoker.toArray());
+                    dos.writeBytes(hitMahjong.toArray());
                 }
                 else
                 {
                     dos.writeInt(0);
                 }
-                dos.writeShort(pokers.size());
-                for (int i = 0; i < pokers.size(); ++i)
+                dos.writeShort(mahjongs.size());
+                for (int i = 0; i < mahjongs.size(); ++i)
                 {
-                    if(pokers != null)
+                    if(mahjongs != null)
                     {
-                        dos.writeBytes(pokers.get(i).toArray());
+                        dos.writeBytes(mahjongs.get(i).toArray());
                     }
                     else
                     {
                         dos.writeInt(0);
                     }
                 }
-                dos.writeShort(universalPoker.size());
-                for (int i = 0; i < universalPoker.size(); ++i)
+                dos.writeShort(universalMahjongs.size());
+                for (int i = 0; i < universalMahjongs.size(); ++i)
                 {
-                    if(universalPoker != null)
+                    if(universalMahjongs != null)
                     {
-                        dos.writeBytes(universalPoker.get(i).toArray());
+                        dos.writeBytes(universalMahjongs.get(i).toArray());
                     }
                     else
                     {
@@ -371,19 +281,100 @@ public class Mahjong_S2C_GameBeginProto
                 proto.playerId = dis.readInt();
                 proto.pos = dis.readInt();
                 proto.handCount = dis.readInt();
-                proto.pokerAmount = dis.readInt();
+                proto.mahjongAmount = dis.readInt();
                 proto.gold = dis.readInt();
-                proto.hitPoker = Poker.getProto(dis.readBytes());
-                short pokersLength = dis.readShort();
-                for (int i = 0; i < pokersLength; ++i)
+                proto.hitMahjong = Mahjong.getProto(dis.readBytes());
+                short mahjongsLength = dis.readShort();
+                for (int i = 0; i < mahjongsLength; ++i)
                 {
-                    proto.pokers.add(Poker.getProto(dis.readBytes()));
+                    proto.mahjongs.add(Mahjong.getProto(dis.readBytes()));
                 }
-                short universalPokerLength = dis.readShort();
-                for (int i = 0; i < universalPokerLength; ++i)
+                short universalMahjongsLength = dis.readShort();
+                for (int i = 0; i < universalMahjongsLength; ++i)
                 {
-                    proto.universalPoker.add(Poker.getProto(dis.readBytes()));
+                    proto.universalMahjongs.add(Mahjong.getProto(dis.readBytes()));
                 }
+                dis.close();
+                bais.close();
+            }
+            catch(IOException e){
+                e.printStackTrace();
+            }
+            return proto;
+        }
+    }
+    /// <summary>
+    /// 
+    /// </summary>
+    public static class Mahjong
+    {
+        private int index; //
+        private int color; //
+        private int number; //
+        private int pos; //
+        public int getIndex(){
+            return this.index;
+        }
+
+        public void setIndex(int value){
+            this.index = value;
+        }
+
+        public int getColor(){
+            return this.color;
+        }
+
+        public void setColor(int value){
+            this.color = value;
+        }
+
+        public int getNumber(){
+            return this.number;
+        }
+
+        public void setNumber(int value){
+            this.number = value;
+        }
+
+        public int getPos(){
+            return this.pos;
+        }
+
+        public void setPos(int value){
+            this.pos = value;
+        }
+
+        public byte[] toArray()
+        {
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            DataOutputStreamExt dos = new DataOutputStreamExt(baos);
+            byte[] ret = null;
+            try{
+                dos.writeInt(index);
+                dos.writeInt(color);
+                dos.writeInt(number);
+                dos.writeInt(pos);
+                ret = baos.toByteArray();
+                dos.close();
+                baos.close();
+            }
+            catch(IOException e){
+                e.printStackTrace();
+            }
+            return ret;
+        }
+
+        public static Mahjong getProto(byte[] buffer)
+        {
+            if(buffer == null) return null;
+            Mahjong proto = new Mahjong();
+            ByteArrayInputStream bais = new ByteArrayInputStream(buffer);
+            DataInputStreamExt dis = new DataInputStreamExt(bais);
+            try{
+                proto.index = dis.readInt();
+                proto.color = dis.readInt();
+                proto.number = dis.readInt();
+                proto.pos = dis.readInt();
                 dis.close();
                 bais.close();
             }
@@ -413,16 +404,8 @@ public class Mahjong_S2C_GameBeginProto
             {
                 dos.writeInt(dices.get(i));
             }
-            dos.writeInt(pokerAmount);
-            dos.writeInt(pokerTotal);
-            if(luckPoker != null)
-            {
-                dos.writeBytes(luckPoker.toArray());
-            }
-            else
-            {
-                dos.writeInt(0);
-            }
+            dos.writeInt(mahjongAmount);
+            dos.writeInt(mahjongTotal);
             dos.writeShort(seat.size());
             for (int i = 0; i < seat.size(); ++i)
             {
@@ -465,9 +448,8 @@ public class Mahjong_S2C_GameBeginProto
             {
                 proto.dices.add(dis.readInt());
             }
-            proto.pokerAmount = dis.readInt();
-            proto.pokerTotal = dis.readInt();
-            proto.luckPoker = Poker.getProto(dis.readBytes());
+            proto.mahjongAmount = dis.readInt();
+            proto.mahjongTotal = dis.readInt();
             short seatLength = dis.readShort();
             for (int i = 0; i < seatLength; ++i)
             {
