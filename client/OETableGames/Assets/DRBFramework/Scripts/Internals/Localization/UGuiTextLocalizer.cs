@@ -26,6 +26,11 @@ namespace DrbFramework.Internal.Localization
             {
                 return m_Key;
             }
+            set
+            {
+                m_Key = value;
+                Value = DrbComponent.LocalizationSystem.GetString(Key.Trim());
+            }
         }
 
         public override string Value
