@@ -40,6 +40,7 @@ public class MahjongCtrl : MonoBehaviour
         get { return m_Model; }
     }
 
+
     public void Init(Mahjong mahjong, bool isUniversal)
     {
         Reset();

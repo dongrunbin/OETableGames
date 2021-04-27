@@ -4,6 +4,7 @@
 //Description ：
 //===================================================
 using DG.Tweening;
+using DrbFramework.Extensions;
 using System;
 using UnityEngine;
 
@@ -58,7 +59,7 @@ public class CameraCtrl : MonoBehaviour
         {
             m_Pos[i].gameObject.SetActive(index == i);
         }
-        gameObject.transform.SetParent(m_Pos[index]);
+        gameObject.SetParentAndReset(m_Pos[index]);
     }
 
     public virtual void SetPos(int seatId, Action onComplete)

@@ -653,9 +653,11 @@ MonoBehaviour:
   - {fileID: 870404898}
   - {fileID: 132208105}
   - {fileID: 301481734}
-  m_nSeatPos: 2
+  m_nSeatPos: 3
   m_DiscardContainer: {fileID: 1238405961}
   m_Camera: {fileID: 861800626}
+  m_PushHand: {fileID: 0}
+  m_DiceHand: {fileID: 0}
 --- !u!1 &30911393
 GameObject:
   m_ObjectHideFlags: 0
@@ -3395,9 +3397,11 @@ MonoBehaviour:
   - {fileID: 1202913326}
   - {fileID: 1622863724}
   - {fileID: 1648956957}
-  m_nSeatPos: 1
+  m_nSeatPos: 2
   m_DiscardContainer: {fileID: 1391402818}
   m_Camera: {fileID: 861800626}
+  m_PushHand: {fileID: 0}
+  m_DiceHand: {fileID: 0}
 --- !u!1 &394951266
 GameObject:
   m_ObjectHideFlags: 0
@@ -7106,9 +7110,11 @@ MonoBehaviour:
   - {fileID: 491376265}
   - {fileID: 1877973879}
   - {fileID: 1336357396}
-  m_nSeatPos: 0
+  m_nSeatPos: 1
   m_DiscardContainer: {fileID: 1849104880}
   m_Camera: {fileID: 861800626}
+  m_PushHand: {fileID: 0}
+  m_DiceHand: {fileID: 0}
 --- !u!1 &858629439
 GameObject:
   m_ObjectHideFlags: 0
@@ -7193,8 +7199,8 @@ MonoBehaviour:
   - {fileID: 1359618663}
   CenterContainer: {fileID: 451700346}
   MainCamera: {fileID: 0}
-  m_HandPokerCameraContainers: []
-  HandPokerCamera: {fileID: 2018844050}
+  m_HandMahjongCameraContainers: []
+  HandMahjongCamera: {fileID: 2018844050}
 --- !u!124 &861800627
 Behaviour:
   m_ObjectHideFlags: 0
@@ -7989,9 +7995,11 @@ MonoBehaviour:
   - {fileID: 2029627261}
   - {fileID: 1498350258}
   - {fileID: 1134532238}
-  m_nSeatPos: 3
+  m_nSeatPos: 4
   m_DiscardContainer: {fileID: 628370730}
   m_Camera: {fileID: 861800626}
+  m_PushHand: {fileID: 0}
+  m_DiceHand: {fileID: 0}
 --- !u!1 &965846874
 GameObject:
   m_ObjectHideFlags: 0

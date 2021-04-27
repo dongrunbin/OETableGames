@@ -66,33 +66,33 @@ public class MahjongService : Singleton<MahjongService>
 
     public void ClientSendRoomInfo()
     {
-        DrbComponent.NetworkSystem.Send(new Game_C2S_QueryRoomInfoProto().Serialize());
+        DrbComponent.NetworkSystem.Send(new Game_C2S_QueryRoomInfoProto());
     }
 
     public void ClientSendLeaveRoom()
     {
         Game_C2S_LeaveRoomProto proto = new Game_C2S_LeaveRoomProto();
-        DrbComponent.NetworkSystem.Send(proto.Serialize());
+        DrbComponent.NetworkSystem.Send(proto);
     }
 
     public void ClientSendReady()
     {
         Game_C2S_ReadyProto proto = new Game_C2S_ReadyProto();
-        DrbComponent.NetworkSystem.Send(proto.Serialize());
+        DrbComponent.NetworkSystem.Send(proto);
     }
 
     public void ClientSendApplyDisbandRoom()
     {
         Game_C2S_ApplyDisbandProto proto = new Game_C2S_ApplyDisbandProto();
         proto.disbandStatus = (byte)DisbandStatus.Apply;
-        DrbComponent.NetworkSystem.Send(proto.Serialize());
+        DrbComponent.NetworkSystem.Send(proto);
     }
 
     public void ClientSendDisbandRoom(bool isAgree)
     {
         Game_C2S_ApplyDisbandProto proto = new Game_C2S_ApplyDisbandProto();
         proto.disbandStatus = isAgree ? (byte)DisbandStatus.Agree : (byte)DisbandStatus.Refuse;
-        DrbComponent.NetworkSystem.Send(proto.Serialize());
+        DrbComponent.NetworkSystem.Send(proto);
     }
 
     public void ClientSendPlayMahjong(Mahjong mahjong)
@@ -100,7 +100,7 @@ public class MahjongService : Singleton<MahjongService>
         if (mahjong == null) return;
         Mahjong_C2S_DiscardProto proto = new Mahjong_C2S_DiscardProto();
         proto.index = mahjong.index;
-        DrbComponent.NetworkSystem.Send(proto.Serialize());
+        DrbComponent.NetworkSystem.Send(proto);
     }
 
     public void ClientSendPass()
@@ -126,7 +126,14 @@ public class MahjongService : Singleton<MahjongService>
                 proto.indexList.Add(mahjongs[i].index);
             }
         }
-        DrbComponent.NetworkSystem.Send(proto.Serialize());
+        DrbComponent.NetworkSystem.Send(proto);
+    }
+
+    public void ClientSendAddRobot(int pos)
+    {
+        Mahjong_C2S_AddRobotProto proto = new Mahjong_C2S_AddRobotProto();
+        proto.pos = pos;
+        DrbComponent.NetworkSystem.Send(proto);
     }
 
 

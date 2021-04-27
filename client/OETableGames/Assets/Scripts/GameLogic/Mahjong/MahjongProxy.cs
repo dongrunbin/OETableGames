@@ -499,26 +499,6 @@ public class MahjongProxy
         Room.MahjongAmount -= reduce;
     }
 
-    public void SetStatus(RoomStatus status)
-    {
-        Room.RoomStatus = status;
-
-        if (Room.RoomStatus == RoomStatus.Begin)
-        {
-            for (int i = 0; i < Room.SeatList.Count; ++i)
-            {
-                if (Room.SeatList[i].HitMahjong != null)
-                {
-                    Room.SeatList[i].Status = SeatStatus.PlayMahjong;
-                }
-                else
-                {
-                    Room.SeatList[i].Status = SeatStatus.Wait;
-                }
-            }
-        }
-    }
-
     public void GameOver(Room room)
     {
         if (room == null) return;

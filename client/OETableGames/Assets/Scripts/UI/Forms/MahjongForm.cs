@@ -78,7 +78,7 @@ public class MahjongForm : FormBase
 
             UIItemSeat itemSeat = GetItemSeatByIndex(seat.Index);
             if (itemSeat == null) continue;
-            if (seat.PlayerId > 0)
+            if (seat.PlayerId != 0)
             {
 
                 itemSeat.Show();
@@ -93,7 +93,7 @@ public class MahjongForm : FormBase
     public void Enter(Seat seat)
     {
         UIItemSeat item = GetItemSeatByIndex(seat.Index);
-        item.SafeSetActive(true);
+        item.Show();
         item.SetSeat(seat);
     }
 

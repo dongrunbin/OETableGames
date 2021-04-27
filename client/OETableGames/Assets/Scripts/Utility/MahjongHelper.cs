@@ -800,7 +800,7 @@ public class MahjongHelper
         });
     }
 
-    private static void UniversalLeftSort(List<Mahjong> lst, List<Mahjong> universal)
+    public static void UniversalLeftSort(List<Mahjong> lst, List<Mahjong> universal)
     {
         SimpleSort(lst);
 
@@ -818,7 +818,7 @@ public class MahjongHelper
         }
     }
 
-    private static void UniversalBestSort(List<Mahjong> lst, List<Mahjong> universal)
+    public static void UniversalBestSort(List<Mahjong> lst, List<Mahjong> universal)
     {
         if (lst == null || lst.Count == 0) return;
         if (lst[0].number == 0) return;

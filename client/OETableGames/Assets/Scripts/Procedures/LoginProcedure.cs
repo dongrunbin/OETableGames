@@ -32,14 +32,14 @@ public class LoginProcedure : Procedure
         base.OnEnter(userData);
 
         AccountEntity entity = DrbComponent.SettingSystem.GetObject<AccountEntity>("AccountInfo");
-        DrbComponent.UISystem.OpenFormAsync("UI/Forms/LoginForm", "BackGround", (IUIForm form)=>{
-            m_LoginForm = (LoginForm)form;
-            m_LoginForm.OnGuestLoginClick = GuestLogin;
-        });
         if (entity != null)
         {
             AccountLogin(entity.passportId, entity.token);
         }
+        DrbComponent.UISystem.OpenFormAsync("UI/Forms/LoginForm", "BackGround", (IUIForm form)=>{
+            m_LoginForm = (LoginForm)form;
+            m_LoginForm.OnGuestLoginClick = GuestLogin;
+        });
         DrbComponent.GetEventSystem<int>().AddEventListener(CodeDef.System_C2S_HeartBeatProto - 1, OnConnected);
         DrbComponent.GetEventSystem<int>().AddEventListener(CodeDef.System_C2S_HeartBeatProto - 2, OnDisconnected);
         DrbComponent.GetEventSystem<int>().AddEventListener(CodeDef.System_S2C_ConnectProto, OnHandShaked);
@@ -193,7 +193,7 @@ public class LoginProcedure : Procedure
         proto.passportId = passportId;
         proto.token = token;
         m_SendHandShakeClientTime = TimeUtil.GetTimestampMS();
-        DrbComponent.NetworkSystem.Send(proto.Serialize());
+        DrbComponent.NetworkSystem.Send(proto);
     }
 
     private void OnHandShaked(object sender, EventArgs<int> args)
@@ -242,6 +242,6 @@ public class LoginProcedure : Procedure
     {
         System_C2S_HeartBeatProto proto = new System_C2S_HeartBeatProto();
         proto.clientTimestamp = TimeUtil.GetTimestampMS();
-        DrbComponent.NetworkSystem.Send(proto.Serialize());
+        DrbComponent.NetworkSystem.Send(proto);
     }
 }

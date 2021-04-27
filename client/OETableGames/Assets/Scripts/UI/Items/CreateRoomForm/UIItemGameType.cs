@@ -3,10 +3,8 @@
 //CreateTime  ：2021/4/3 22:49:47
 //Description ：
 //===================================================
-using DrbFramework.Internal;
+using DrbFramework.Internal.Localization;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,7 +22,7 @@ public class UIItemGameType : UIItemBase
         set
         {
             m_GameType = value;
-            m_txtType.SafeSetText(DrbComponent.LocalizationSystem.GetString(m_GameType));
+            m_txtType.GetComponent<UGuiTextLocalizer>().Key = m_GameType;
         }
     }
 

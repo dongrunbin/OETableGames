@@ -344,6 +344,6 @@ public class CreateRoomForm : FormBase
             proto.settingIdsList.Add(settingIds[i]);
         }
         proto.gameId = gameId;
-        DrbComponent.NetworkSystem.Send(proto.Serialize());
+        DrbComponent.NetworkSystem.Send(proto);
     }
 }

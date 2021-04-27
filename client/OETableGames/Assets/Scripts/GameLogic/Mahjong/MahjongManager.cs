@@ -20,13 +20,13 @@ public class MahjongManager : Singleton<MahjongManager>
         m_WallPool.Group.parent = null;
         m_WallPool.Group.position = new Vector3(0f, 5000f, 0f);
 
-        for (int i = 0; i < 8; ++i)
+        for (int i = 0; i < 6; ++i)
         {
+            if (i == 4) continue;
             for (int j = 0; j < 10; ++j)
             {
                 if (i != 0 && j == 0) continue;
-                if ((i == 4 || i == 6 || i == 7) && j > 4) break;
-                if (i == 5 && j > 3) break;
+                if (i == 5 && j > 1) break;
                 GameObject prefab = LoadPrefab(new Mahjong(i, j));
                 PrefabPool prefabPool = new PrefabPool(prefab.transform);
                 if (i == 0 && j == 0)

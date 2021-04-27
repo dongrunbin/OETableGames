@@ -35,7 +35,7 @@ public class MahjongProcedure : Procedure
     {
         if (m_Proxy == null) return;
         m_Proxy.EnterRoom(seat);
-
+        seat = m_Proxy.GetSeatByPlayerId(seat.PlayerId);
         m_Logic.Enter(seat);
         m_MahjongForm.Enter(seat);
     }
@@ -78,6 +78,11 @@ public class MahjongProcedure : Procedure
         Seat seat = m_Proxy.GetSeatByPlayerId(playerId);
         m_Logic.Draw(seat, mahjong, isFromLast);
         m_MahjongForm.Draw(seat);
+
+        if (seat.IsPlayer)
+        {
+            m_Proxy.CheckTing();
+        }
     }
 
     public void Discard(int playerId, Mahjong mahjong)

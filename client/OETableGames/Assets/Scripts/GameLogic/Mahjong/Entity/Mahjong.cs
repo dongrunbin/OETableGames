@@ -6,6 +6,7 @@
 
 using System;
 
+[Serializable]
 public class Mahjong : IComparable
 {
     [UnityEngine.SerializeField]

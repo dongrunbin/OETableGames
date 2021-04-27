@@ -15,3 +15,9 @@ SettingsForm.Language:语言
 SettingsForm.MusicVolume:音乐音量
 SettingsForm.SoundEffectVolume:音效音量
 Mahjong:麻将
+rule:规则
+Seven pairs:七对
+Thirteen orphans:十三幺
+players:玩家数量
+games:局数
+base score:底分

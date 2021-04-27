@@ -45,6 +45,16 @@ public class MahjongLogic : MonoBehaviour
     public Action<Mahjong> OnDoubleClickMahjong;
     public Action<Mahjong> OnSelectMahjong;
 
+    private void Awake()
+    {
+        if (FingerEvent.Instance != null)
+        {
+            FingerEvent.Instance.OnPlayerClickUp += OnPlayerClickUp;
+            FingerEvent.Instance.OnPlayerClickDown += OnPlayerClickDown;
+            FingerEvent.Instance.OnFingerDrag += OnFingerDrag;
+        }
+    }
+
     public void Init(Room room)
     {
         if (room.SeatList.Count == 2 && m_Seats.Length == 4)
@@ -137,12 +147,36 @@ public class MahjongLogic : MonoBehaviour
         m_Wall.Remove(mj);
         MahjongManager.Instance.DespawnMahjong(mj);
         m_CompassCtrl.SetCurrent(seat.Pos);
+
+        if (m_isPlayingAnimation)
+        {
+            StartCoroutine(DelayDraw(seat, mahjong, isFromLast));
+        }
+        else
+        {
+            GetSeatCtrlBySeatPos(seat.Pos).Draw(seat);
+            GetSeatCtrlBySeatPos(seat.Pos).CheckTing(seat);
+        }
+    }
+
+    private IEnumerator DelayDraw(Seat seat, Mahjong mahjong, bool isFromLast)
+    {
+        while (m_isPlayingAnimation)
+        {
+            yield return null;
+        }
+        GetSeatCtrlBySeatPos(seat.Pos).Draw(seat);
     }
 
     public void Discard(Seat seat, Mahjong mahjong)
     {
         SeatCtrl ctrl = GetSeatCtrlBySeatPos(seat.Pos);
-        ctrl.Discard(seat, mahjong);
+        for (int i = 0; i < m_Seats.Length; ++i)
+        {
+            m_Seats[i].Discard(seat, mahjong);
+        }
+
+        ctrl.Sort(seat);
     }
 
     public void AskOperation(List<MahjongGroup> lst)
@@ -153,6 +187,7 @@ public class MahjongLogic : MonoBehaviour
     public void Operation(Seat seat)
     {
         GetSeatCtrlBySeatPos(seat.Pos).Operate(seat, seat.UsedMahjongGroups[seat.UsedMahjongGroups.Count - 1]);
+        GetSeatCtrlBySeatPos(seat.Pos).Sort(seat);
     }
 
     public void Pass()
@@ -206,7 +241,7 @@ public class MahjongLogic : MonoBehaviour
             DiceCtrl ctrl = dice1.GetComponent<DiceCtrl>();
             dice1.transform.SetParent(m_DiceContainer[0]);
             dice1.transform.localPosition = GameUtil.GetRandomPos(dice1.transform.position, 1f);
-            coroutine = DrbComponent.Instance.StartCoroutine(ctrl.RollAnimation(DiceA));
+            coroutine = StartCoroutine(ctrl.RollAnimation(DiceA));
         }
 
         if (DiceB != 0)
@@ -215,7 +250,7 @@ public class MahjongLogic : MonoBehaviour
             DiceCtrl ctrl2 = dice2.GetComponent<DiceCtrl>();
             dice2.transform.SetParent(m_DiceContainer[1]);
             dice2.transform.localPosition = GameUtil.GetRandomPos(dice2.transform.position, 1f);
-            coroutine = DrbComponent.Instance.StartCoroutine(ctrl2.RollAnimation(DiceB));
+            coroutine = StartCoroutine(ctrl2.RollAnimation(DiceB));
         }
         yield return coroutine;
     }
@@ -243,7 +278,6 @@ public class MahjongLogic : MonoBehaviour
             MahjongCtrl ctrl = hitArr[0].collider.gameObject.GetComponent<MahjongCtrl>();
             if (ctrl == null) return;
             //AudioEffectManager.Instance.Play("dianpai", Vector3.zero, false);
-
             if (ctrl == null || ctrl.Mahjong == null) return;
 
             if (m_SelectMahjong.Contains(ctrl))
@@ -475,10 +509,8 @@ public class MahjongLogic : MonoBehaviour
     private IEnumerator BeginAnimation(Room room)
     {
         yield return PlayCreateWallAnimation();
-        //===================摇骰子=====================
         yield return StartCoroutine(RollDice(room.BankerPos, room.FirstDice.diceA, room.FirstDice.diceB));
         yield return StartCoroutine(RollDice(room.BankerPos, room.SecondDice.diceA, room.SecondDice.diceB));
-        //===================发牌=====================
         yield return StartCoroutine(PlayDealAnimation(room));
         m_isPlayingAnimation = false;
     }
@@ -554,7 +586,7 @@ public class MahjongLogic : MonoBehaviour
         }
         yield return null;
 
-        yield return DrbComponent.Instance.StartCoroutine(GetSeatCtrlBySeatPos(room.PlayerSeat.Pos).PlayDealMahjongAnimation(room.PlayerSeat));
+        yield return StartCoroutine(GetSeatCtrlBySeatPos(room.PlayerSeat.Pos).PlayDealMahjongAnimation(room.PlayerSeat));
     }
 
 

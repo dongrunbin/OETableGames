@@ -3,6 +3,7 @@
 //CreateTime  ：2021/4/5 21:39:43
 //Description ：
 //===================================================
+using DrbFramework.Internal.Network;
 using DrbFramework.Network;
 using System.Net;
 
@@ -25,9 +26,9 @@ public static class NetworkSystemExtension
         channel.Connect(IPAddress.Parse(ip), port);
     }
 
-    public static void Send(this NetworkSystem system, object data)
+    public static void Send(this NetworkSystem system, IProto proto)
     {
-        system.GetChannel(SERVER_CHANNEL).Send(data);
+        system.GetChannel(SERVER_CHANNEL).Send(proto.Serialize());
     }
 
     public static void Close(this NetworkSystem system)

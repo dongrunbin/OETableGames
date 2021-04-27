@@ -12,19 +12,25 @@ using UnityEngine.UI;
 public class UIItemSeat : UIItemBase
 {
     [SerializeField]
-    protected GameObject m_Ready;
+    private GameObject m_Ready;
     [SerializeField]
-    protected int m_nSeatIndex = -1;
+    private int m_nSeatIndex = -1;
     [SerializeField]
-    protected RawImage m_ImageHead;
+    private RawImage m_ImageHead;
     [SerializeField]
-    protected Text m_TextGold;
+    private Text m_TextGold;
     [SerializeField]
-    protected Text m_TextNickname;
+    private Text m_TextNickname;
     [SerializeField]
-    protected Image m_Banker;
+    private Image m_Banker;
     [SerializeField]
-    protected Image m_ImgOperating;
+    private Image m_ImgOperating;
+    [SerializeField]
+    private Button m_BtnAddRobot;
+    [SerializeField]
+    private GameObject m_SeatInfo;
+
+
 
     public int SeatIndex
     {
@@ -35,16 +41,34 @@ public class UIItemSeat : UIItemBase
     protected override void OnAwake()
     {
         base.OnAwake();
-        if (m_Ready != null)
-        {
-            m_Ready.SetActive(false);
-        }
+
+        m_Ready.SafeSetActive(false);
 
         if (m_ImgOperating != null)
         {
             m_ImgOperating.gameObject.SetActive(false);
             m_ImgOperating.fillAmount = 0f;
         }
+
+        if (m_BtnAddRobot != null)
+        {
+            m_BtnAddRobot.GetComponent<Button>().onClick.AddListener(() =>
+            {
+                MahjongService.Instance.ClientSendAddRobot(SeatIndex + 1);
+            });
+        }
+    }
+
+    public override void Show()
+    {
+        m_SeatInfo.SafeSetActive(true);
+        SetAddRobot(false);
+    }
+
+    public override void Hide()
+    {
+        m_SeatInfo.SafeSetActive(false);
+        SetAddRobot(true);
     }
 
     public void SetSeat(Seat seat)
@@ -79,5 +103,10 @@ public class UIItemSeat : UIItemBase
     public void SetNickName(string nickname)
     {
         m_TextNickname.SafeSetText(nickname);
+    }
+
+    public void SetAddRobot(bool isActive)
+    {
+        m_BtnAddRobot.SafeSetActive(isActive);
     }
 }

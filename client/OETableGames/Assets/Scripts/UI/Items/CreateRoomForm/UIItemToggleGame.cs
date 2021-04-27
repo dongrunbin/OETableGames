@@ -3,10 +3,8 @@
 //CreateTime  ：2021/4/3 22:52:49
 //Description ：
 //===================================================
-using DrbFramework.Internal;
+using DrbFramework.Internal.Localization;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,7 +22,7 @@ public class UIItemToggleGame : UIItemBase
         set
         {
             m_GameName = value;
-            m_txtGameName.SafeSetText(DrbComponent.LocalizationSystem.GetString(m_GameName));
+            m_txtGameName.GetComponent<UGuiTextLocalizer>().Key = m_GameName;
         }
     }
 
