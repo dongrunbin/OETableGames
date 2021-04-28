@@ -133,10 +133,10 @@ public class MahjongProcedure : Procedure
             }
             switch (type)
             {
-                case OperationType.Peng:
+                case OperationType.Pong:
                     lstPeng = m_Proxy.GetPeng(mahjong);
                     break;
-                case OperationType.Gang:
+                case OperationType.Kong:
                     if (mahjong == null)
                     {
                         lstGangs = m_Proxy.GetAnGang();
@@ -156,13 +156,13 @@ public class MahjongProcedure : Procedure
                         }
                     }
                     break;
-                case OperationType.Chi:
+                case OperationType.Chow:
                     lstChi = m_Proxy.GetChi(mahjong);
                     break;
-                case OperationType.Hu:
+                case OperationType.Win:
                     canHu = true;
                     break;
-                case OperationType.ZiMo:
+                case OperationType.WinBySelf:
                     canHu = true;
                     isZimo = true;
                     break;

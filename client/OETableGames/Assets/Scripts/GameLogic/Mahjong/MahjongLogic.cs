@@ -82,7 +82,7 @@ public class MahjongLogic : MonoBehaviour
         {
             for (int j = 0; j < room.SeatList[i].UsedMahjongGroups.Count; ++j)
             {
-                if (room.SeatList[i].UsedMahjongGroups[j].CombinationType == OperationType.Gang)
+                if (room.SeatList[i].UsedMahjongGroups[j].CombinationType == OperationType.Kong)
                 {
                     ++gangCount;
                 }

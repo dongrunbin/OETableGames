@@ -7,14 +7,13 @@
 public enum OperationType
 {
     None = 0,
-    Chi = 1,
-    Peng = 2,
-    Gang = 3,
-    Hu = 4,
-    ZiMo = 5,
+    Chow = 1,
+    Pong = 2,
+    Kong = 3,
+    Win = 4,
+    WinBySelf = 5,
     Pass = 7,
     Cancel = 8,
-    Ok = 9,
 }
 
 public enum GangType

@@ -29,7 +29,7 @@ public class MahjongGroup
     {
         if (MahjongList == null) return;
 
-        if (CombinationType != OperationType.Gang)
+        if (CombinationType != OperationType.Kong)
         {
             MahjongHelper.SimpleSort(MahjongList);
         }

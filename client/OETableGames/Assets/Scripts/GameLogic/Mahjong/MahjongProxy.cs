@@ -309,7 +309,7 @@ public class MahjongProxy
                             if (conbination.MahjongList[i].index == temp.UsedMahjongGroups[j].MahjongList[k].index)
                             {
                                 temp.UsedMahjongGroups[j].MahjongList.RemoveAt(k);
-                                temp.UsedMahjongGroups[j].CombinationType = OperationType.Peng;
+                                temp.UsedMahjongGroups[j].CombinationType = OperationType.Pong;
                                 break;
                             }
                         }
@@ -375,9 +375,9 @@ public class MahjongProxy
                         if (Room.SeatList[i].UsedMahjongGroups[j].MahjongList[k].index == seat.HitMahjong.index)
                         {
                             Room.SeatList[i].UsedMahjongGroups[j].MahjongList.RemoveAt(k);
-                            if (Room.SeatList[i].UsedMahjongGroups[j].CombinationType == OperationType.Gang)
+                            if (Room.SeatList[i].UsedMahjongGroups[j].CombinationType == OperationType.Kong)
                             {
-                                Room.SeatList[i].UsedMahjongGroups[j].CombinationType = OperationType.Peng;
+                                Room.SeatList[i].UsedMahjongGroups[j].CombinationType = OperationType.Pong;
                                 isBreak = true;
                                 break;
                             }
@@ -810,7 +810,7 @@ public class MahjongProxy
         List<MahjongGroup> pengList = Room.PlayerSeat.UsedMahjongGroups;
         for (int i = 0; i < pengList.Count; ++i)
         {
-            if (pengList[i].CombinationType == OperationType.Peng)
+            if (pengList[i].CombinationType == OperationType.Pong)
             {
                 for (int j = 0; j < handList.Count; ++j)
                 {
@@ -837,7 +837,7 @@ public class MahjongProxy
         List<MahjongGroup> pengList = Room.PlayerSeat.UsedMahjongGroups;
         for (int i = 0; i < pengList.Count; ++i)
         {
-            if (pengList[i].CombinationType == OperationType.Peng)
+            if (pengList[i].CombinationType == OperationType.Pong)
             {
                 if (mahjong.color == pengList[i].MahjongList[0].color && mahjong.number == pengList[i].MahjongList[0].number)
                 {

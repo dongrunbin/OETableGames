@@ -52,7 +52,7 @@ public class UIItemOperator : UIItemBase
 
     private void OnBtnChowClick()
     {
-        m_CurrentType = OperationType.Chi;
+        m_CurrentType = OperationType.Chow;
         List<Mahjong> lst = m_ChiList[0];
         if (m_ChiList.Count > 1)
         {
@@ -86,7 +86,7 @@ public class UIItemOperator : UIItemBase
 
     private void OnBtnPongClick()
     {
-        m_CurrentType = OperationType.Peng;
+        m_CurrentType = OperationType.Pong;
         List<Mahjong> lst = m_PengList;
 
         if (OnOperatorClick != null)
@@ -97,7 +97,7 @@ public class UIItemOperator : UIItemBase
 
     private void OnBtnKongClick()
     {
-        m_CurrentType = OperationType.Gang;
+        m_CurrentType = OperationType.Kong;
         List<Mahjong> lst = m_GangList[0];
         if (m_GangList.Count > 1)
         {
@@ -131,7 +131,7 @@ public class UIItemOperator : UIItemBase
 
     private void OnBtnWinClick()
     {
-        m_CurrentType = OperationType.Hu;
+        m_CurrentType = OperationType.Win;
 
         if (OnOperatorClick != null)
         {

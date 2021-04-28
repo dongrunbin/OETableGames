@@ -24,7 +24,7 @@ public class Combination3D
 
     public void BuGang(List<MahjongCtrl> majiang)
     {
-        OperationType = OperationType.Gang;
+        OperationType = OperationType.Kong;
         MahjongList = majiang;
     }
 }
@@ -62,7 +62,7 @@ public class CombinationCtrl : MonoBehaviour
                 combination.MahjongList[i].transform.rotation = m_Containers[i].rotation;
             }
 
-            if (combination.OperationType == OperationType.Gang && (combination.SubType == (int)GangType.AnGang))
+            if (combination.OperationType == OperationType.Kong && (combination.SubType == (int)GangType.AnGang))
             {
                 if (seat.IsPlayer && i == 3)
                 {

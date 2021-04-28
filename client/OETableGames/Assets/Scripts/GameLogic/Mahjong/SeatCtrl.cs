@@ -598,7 +598,7 @@ public class SeatCtrl : MonoBehaviour
             //effect.eulerAngles = Vector3.zero;
         }
         if (seat.Pos != m_nSeatPos) return;
-        PlayAudio(isZiMo ? OperationType.ZiMo : OperationType.Hu, 0, seat.Gender);
+        PlayAudio(isZiMo ? OperationType.WinBySelf : OperationType.Win, 0, seat.Gender);
     }
 
     public void Sort(Seat seat)
