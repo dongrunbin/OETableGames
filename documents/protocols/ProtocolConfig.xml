@@ -111,12 +111,39 @@
           </Field>
         </FieldInfos>
       </Protocol>
+      <Protocol>
+        <Id>637551721837131010</Id>
+        <Code>10007</Code>
+        <EnName>S2C_Error</EnName>
+        <CnName>S2C_Error</CnName>
+        <Description>error message</Description>
+        <FieldInfos>
+          <Field>
+            <Type>int</Type>
+            <EnName>code</EnName>
+            <CnName />
+            <IsLoop>false</IsLoop>
+            <AttachToCondition />
+            <AttachToResult>0</AttachToResult>
+            <AttachToCustom />
+          </Field>
+          <Field>
+            <Type>string</Type>
+            <EnName>message</EnName>
+            <CnName />
+            <IsLoop>false</IsLoop>
+            <AttachToCondition />
+            <AttachToResult>0</AttachToResult>
+            <AttachToCustom />
+          </Field>
+        </FieldInfos>
+      </Protocol>
     </ProtocolInfos>
   </Menu>
   <Menu>
     <Id>637532458639314455</Id>
     <Name>Game</Name>
-    <isFoldout>true</isFoldout>
+    <isFoldout>false</isFoldout>
     <ProtocolInfos>
       <Protocol>
         <Id>637532458661781115</Id>
@@ -441,12 +468,38 @@
           </Field>
         </FieldInfos>
       </Protocol>
+      <Protocol>
+        <Id>637550806065768112</Id>
+        <Code>20013</Code>
+        <EnName>S2C_InRoom</EnName>
+        <CnName>S2C_InRoom</CnName>
+        <Description>when a client reconnect the server if the client has been in a room.</Description>
+        <FieldInfos>
+          <Field>
+            <Type>int</Type>
+            <EnName>gameId</EnName>
+            <CnName />
+            <IsLoop>false</IsLoop>
+            <AttachToCondition />
+            <AttachToResult>0</AttachToResult>
+            <AttachToCustom />
+          </Field>
+        </FieldInfos>
+      </Protocol>
+      <Protocol>
+        <Id>637550807919413821</Id>
+        <Code>20014</Code>
+        <EnName>C2S_InRoom</EnName>
+        <CnName>C2S_InRoom</CnName>
+        <Description>when a client reconnect to the server, need to check if is in a room.</Description>
+        <FieldInfos />
+      </Protocol>
     </ProtocolInfos>
   </Menu>
   <Menu>
     <Id>637532475537083529</Id>
     <Name>Mahjong</Name>
-    <isFoldout>true</isFoldout>
+    <isFoldout>false</isFoldout>
     <ProtocolInfos>
       <Protocol>
         <Id>637532475674998349</Id>
@@ -1659,6 +1712,24 @@
         <CnName>S2C_OperationWait</CnName>
         <Description>when a player need to choice if operate, broadcast to others</Description>
         <FieldInfos />
+      </Protocol>
+      <Protocol>
+        <Id>637550714679536618</Id>
+        <Code>30015</Code>
+        <EnName>C2S_AddRobot</EnName>
+        <CnName>C2S_AddRobot</CnName>
+        <Description>add robot</Description>
+        <FieldInfos>
+          <Field>
+            <Type>int</Type>
+            <EnName>pos</EnName>
+            <CnName />
+            <IsLoop>false</IsLoop>
+            <AttachToCondition />
+            <AttachToResult>0</AttachToResult>
+            <AttachToCustom />
+          </Field>
+        </FieldInfos>
       </Protocol>
     </ProtocolInfos>
   </Menu>

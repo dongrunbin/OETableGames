@@ -11,22 +11,13 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
 /// <summary>
-/// C2S_EnterRoom
+/// S2C_InRoom
 /// </summary>
-public class Game_C2S_EnterRoomProto
+public class Game_S2C_InRoomProto
 {
-    public static final int CODE = 20002; 
+    public static final int CODE = 20013; 
 
-    private int roomId; //room id
-    private int gameId; //game id
-    public int getRoomId(){
-        return this.roomId;
-    }
-
-    public void setRoomId(int value){
-        this.roomId = value;
-    }
-
+    private int gameId; //
     public int getGameId(){
         return this.gameId;
     }
@@ -43,7 +34,6 @@ public class Game_C2S_EnterRoomProto
         byte[] ret = null;
         try{
             dos.writeInt(CODE);
-            dos.writeInt(roomId);
             dos.writeInt(gameId);
             ret = baos.toByteArray();
             dos.close();
@@ -55,14 +45,13 @@ public class Game_C2S_EnterRoomProto
         return ret;
     }
 
-    public static Game_C2S_EnterRoomProto getProto(byte[] buffer)
+    public static Game_S2C_InRoomProto getProto(byte[] buffer)
     {
         if(buffer == null) return null;
-        Game_C2S_EnterRoomProto proto = new Game_C2S_EnterRoomProto();
+        Game_S2C_InRoomProto proto = new Game_S2C_InRoomProto();
         ByteArrayInputStream bais = new ByteArrayInputStream(buffer);
         DataInputStreamExt dis = new DataInputStreamExt(bais);
         try{
-            proto.roomId = dis.readInt();
             proto.gameId = dis.readInt();
             dis.close();
             bais.close();

@@ -11,28 +11,19 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
 /// <summary>
-/// C2S_EnterRoom
+/// C2S_AddRobot
 /// </summary>
-public class Game_C2S_EnterRoomProto
+public class Mahjong_C2S_AddRobotProto
 {
-    public static final int CODE = 20002; 
+    public static final int CODE = 30015; 
 
-    private int roomId; //room id
-    private int gameId; //game id
-    public int getRoomId(){
-        return this.roomId;
+    private int pos; //
+    public int getPos(){
+        return this.pos;
     }
 
-    public void setRoomId(int value){
-        this.roomId = value;
-    }
-
-    public int getGameId(){
-        return this.gameId;
-    }
-
-    public void setGameId(int value){
-        this.gameId = value;
+    public void setPos(int value){
+        this.pos = value;
     }
 
 
@@ -43,8 +34,7 @@ public class Game_C2S_EnterRoomProto
         byte[] ret = null;
         try{
             dos.writeInt(CODE);
-            dos.writeInt(roomId);
-            dos.writeInt(gameId);
+            dos.writeInt(pos);
             ret = baos.toByteArray();
             dos.close();
             baos.close();
@@ -55,15 +45,14 @@ public class Game_C2S_EnterRoomProto
         return ret;
     }
 
-    public static Game_C2S_EnterRoomProto getProto(byte[] buffer)
+    public static Mahjong_C2S_AddRobotProto getProto(byte[] buffer)
     {
         if(buffer == null) return null;
-        Game_C2S_EnterRoomProto proto = new Game_C2S_EnterRoomProto();
+        Mahjong_C2S_AddRobotProto proto = new Mahjong_C2S_AddRobotProto();
         ByteArrayInputStream bais = new ByteArrayInputStream(buffer);
         DataInputStreamExt dis = new DataInputStreamExt(bais);
         try{
-            proto.roomId = dis.readInt();
-            proto.gameId = dis.readInt();
+            proto.pos = dis.readInt();
             dis.close();
             bais.close();
         }

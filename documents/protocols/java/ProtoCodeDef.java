@@ -1,6 +1,6 @@
 //===================================================
 //作    者：DRB
-//创建时间：2021-04-23 08:05:42
+//创建时间：2021-04-28 02:06:07
 //备    注：
 //===================================================
 package com.oegame.tablegames.protocol.gen;
@@ -40,6 +40,11 @@ public class ProtoCodeDef
     /// S2C_Connect
     /// </summary>
     public static final int System_S2C_ConnectProto = 10006;
+
+    /// <summary>
+    /// S2C_Error
+    /// </summary>
+    public static final int System_S2C_ErrorProto = 10007;
 
     /// <summary>
     /// C2S_CreateRoom
@@ -100,6 +105,16 @@ public class ProtoCodeDef
     /// C2S_QueryRoomInfo
     /// </summary>
     public static final int Game_C2S_QueryRoomInfoProto = 20012;
+
+    /// <summary>
+    /// S2C_InRoom
+    /// </summary>
+    public static final int Game_S2C_InRoomProto = 20013;
+
+    /// <summary>
+    /// C2S_InRoom
+    /// </summary>
+    public static final int Game_C2S_InRoomProto = 20014;
 
     /// <summary>
     /// S2C_GameBegin
@@ -166,6 +181,11 @@ public class ProtoCodeDef
     /// </summary>
     public static final int Mahjong_S2C_OperationWaitProto = 30014;
 
+    /// <summary>
+    /// C2S_AddRobot
+    /// </summary>
+    public static final int Mahjong_C2S_AddRobotProto = 30015;
+
     private static final HashMap<Integer,String> DicCn = new HashMap<Integer,String>();
     private static final HashMap<Integer,String> DicEn = new HashMap<Integer,String>();
 
@@ -183,6 +203,8 @@ public class ProtoCodeDef
         DicEn.put(System_S2C_DisconnectProto,"System_S2C_DisconnectProto");
         DicCn.put(System_S2C_ConnectProto,"S2C_Connect");
         DicEn.put(System_S2C_ConnectProto,"System_S2C_ConnectProto");
+        DicCn.put(System_S2C_ErrorProto,"S2C_Error");
+        DicEn.put(System_S2C_ErrorProto,"System_S2C_ErrorProto");
         DicCn.put(Game_C2S_CreateRoomProto,"C2S_CreateRoom");
         DicEn.put(Game_C2S_CreateRoomProto,"Game_C2S_CreateRoomProto");
         DicCn.put(Game_C2S_EnterRoomProto,"C2S_EnterRoom");
@@ -207,6 +229,10 @@ public class ProtoCodeDef
         DicEn.put(Game_S2C_AFKProto,"Game_S2C_AFKProto");
         DicCn.put(Game_C2S_QueryRoomInfoProto,"C2S_QueryRoomInfo");
         DicEn.put(Game_C2S_QueryRoomInfoProto,"Game_C2S_QueryRoomInfoProto");
+        DicCn.put(Game_S2C_InRoomProto,"S2C_InRoom");
+        DicEn.put(Game_S2C_InRoomProto,"Game_S2C_InRoomProto");
+        DicCn.put(Game_C2S_InRoomProto,"C2S_InRoom");
+        DicEn.put(Game_C2S_InRoomProto,"Game_C2S_InRoomProto");
         DicCn.put(Mahjong_S2C_GameBeginProto,"S2C_GameBegin");
         DicEn.put(Mahjong_S2C_GameBeginProto,"Mahjong_S2C_GameBeginProto");
         DicCn.put(Mahjong_S2C_DrawProto,"S2C_Draw");
@@ -233,6 +259,8 @@ public class ProtoCodeDef
         DicEn.put(Mahjong_S2C_PassProto,"Mahjong_S2C_PassProto");
         DicCn.put(Mahjong_S2C_OperationWaitProto,"S2C_OperationWait");
         DicEn.put(Mahjong_S2C_OperationWaitProto,"Mahjong_S2C_OperationWaitProto");
+        DicCn.put(Mahjong_C2S_AddRobotProto,"C2S_AddRobot");
+        DicEn.put(Mahjong_C2S_AddRobotProto,"Mahjong_C2S_AddRobotProto");
     }
     public static String getCn(int code)
     {

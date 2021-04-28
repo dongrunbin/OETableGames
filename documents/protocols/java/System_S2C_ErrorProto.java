@@ -11,28 +11,28 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
 /// <summary>
-/// C2S_EnterRoom
+/// S2C_Error
 /// </summary>
-public class Game_C2S_EnterRoomProto
+public class System_S2C_ErrorProto
 {
-    public static final int CODE = 20002; 
+    public static final int CODE = 10007; 
 
-    private int roomId; //room id
-    private int gameId; //game id
-    public int getRoomId(){
-        return this.roomId;
+    private int code; //
+    private String message = ""; //
+    public int getCode(){
+        return this.code;
     }
 
-    public void setRoomId(int value){
-        this.roomId = value;
+    public void setCode(int value){
+        this.code = value;
     }
 
-    public int getGameId(){
-        return this.gameId;
+    public String getMessage(){
+        return this.message;
     }
 
-    public void setGameId(int value){
-        this.gameId = value;
+    public void setMessage(String value){
+        this.message = value;
     }
 
 
@@ -43,8 +43,8 @@ public class Game_C2S_EnterRoomProto
         byte[] ret = null;
         try{
             dos.writeInt(CODE);
-            dos.writeInt(roomId);
-            dos.writeInt(gameId);
+            dos.writeInt(code);
+            dos.writeUTF(message);
             ret = baos.toByteArray();
             dos.close();
             baos.close();
@@ -55,15 +55,15 @@ public class Game_C2S_EnterRoomProto
         return ret;
     }
 
-    public static Game_C2S_EnterRoomProto getProto(byte[] buffer)
+    public static System_S2C_ErrorProto getProto(byte[] buffer)
     {
         if(buffer == null) return null;
-        Game_C2S_EnterRoomProto proto = new Game_C2S_EnterRoomProto();
+        System_S2C_ErrorProto proto = new System_S2C_ErrorProto();
         ByteArrayInputStream bais = new ByteArrayInputStream(buffer);
         DataInputStreamExt dis = new DataInputStreamExt(bais);
         try{
-            proto.roomId = dis.readInt();
-            proto.gameId = dis.readInt();
+            proto.code = dis.readInt();
+            proto.message = dis.readUTF();
             dis.close();
             bais.close();
         }

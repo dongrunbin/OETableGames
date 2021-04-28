@@ -11,20 +11,18 @@ using DrbFramework.Internal.Network;
 using DrbFramework.Extensions;
 
 /// <summary>
-/// C2S_Connect
+/// C2S_InRoom
 /// </summary>
-public class System_C2S_ConnectProto : IProto
+public class Game_C2S_InRoomProto : IProto
 {
-    public int Code { get { return 10003; } }
+    public int Code { get { return 20014; } }
 
-    public int passportId; //Passport Id
-    public string token = ""; //Token
 
-    public System_C2S_ConnectProto()
+    public Game_C2S_InRoomProto()
     {
     }
 
-    public System_C2S_ConnectProto(byte[] bytes)
+    public Game_C2S_InRoomProto(byte[] bytes)
     {
         Deserialize(bytes);
     }
@@ -34,8 +32,6 @@ public class System_C2S_ConnectProto : IProto
         using (MemoryStream ms = new MemoryStream())
         {
             ms.WriteInt(Code);
-            ms.WriteInt(passportId);
-            ms.WriteUTF8String(token);
             return ms.ToArray();
         }
     }
@@ -45,8 +41,6 @@ public class System_C2S_ConnectProto : IProto
         if (buffer == null) return;
         using (MemoryStream ms = new MemoryStream(buffer))
         {
-            passportId = ms.ReadInt();
-            token = ms.ReadUTF8String();
         }
     }
 }

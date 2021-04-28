@@ -11,20 +11,11 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
 /// <summary>
-/// S2C_Disband
+/// C2S_InRoom
 /// </summary>
-public class Game_S2C_DisbandProto
+public class Game_C2S_InRoomProto
 {
-    public static final int CODE = 20010; 
-
-    private byte disbandStatus; //
-    public byte getDisbandStatus(){
-        return this.disbandStatus;
-    }
-
-    public void setDisbandStatus(byte value){
-        this.disbandStatus = value;
-    }
+    public static final int CODE = 20014; 
 
 
     public byte[] toArray()
@@ -34,7 +25,6 @@ public class Game_S2C_DisbandProto
         byte[] ret = null;
         try{
             dos.writeInt(CODE);
-            dos.writeByte(disbandStatus);
             ret = baos.toByteArray();
             dos.close();
             baos.close();
@@ -45,20 +35,10 @@ public class Game_S2C_DisbandProto
         return ret;
     }
 
-    public static Game_S2C_DisbandProto getProto(byte[] buffer)
+    public static Game_C2S_InRoomProto getProto(byte[] buffer)
     {
         if(buffer == null) return null;
-        Game_S2C_DisbandProto proto = new Game_S2C_DisbandProto();
-        ByteArrayInputStream bais = new ByteArrayInputStream(buffer);
-        DataInputStreamExt dis = new DataInputStreamExt(bais);
-        try{
-            proto.disbandStatus = dis.readByte();
-            dis.close();
-            bais.close();
-        }
-        catch(IOException e){
-            e.printStackTrace();
-        }
+        Game_C2S_InRoomProto proto = new Game_C2S_InRoomProto();
         return proto;
     }
 }
