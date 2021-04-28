@@ -39,6 +39,8 @@ public class MahjongForm : FormBase
         if (room.SeatList.Count == 2 && m_Seats.Length == 4)
         {
             m_Seats[1].SeatIndex = 2;
+            m_Seats[1].SafeSetActive(false);
+            m_Seats[3].SafeSetActive(false);
             m_Seats = new UIItemSeat[2] { m_Seats[0], m_Seats[2] };
             m_Seats[1].SeatIndex = 1;
         }
@@ -146,7 +148,7 @@ public class MahjongForm : FormBase
 
     public void CloseOperator()
     {
-        Operator.SafeSetActive(false);
+        Operator.Close();
     }
 
     public void ShowTingTip(List<Mahjong> lst)

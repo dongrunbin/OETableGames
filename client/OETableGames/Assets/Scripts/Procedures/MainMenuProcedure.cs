@@ -18,6 +18,8 @@ public class MainMenuProcedure : Procedure
         base.OnEnter(userData);
         DrbComponent.GetEventSystem<int>().AddEventListener(CodeDef.Game_S2C_InRoomProto, OnInRoom);
 
+        DrbComponent.AudioSystem.PlayMusic("Audio/Music/bgm_main.mp3");
+
         DrbComponent.UISystem.OpenFormAsync("UI/Forms/MainMenuForm", "BackGround", (IUIForm form)=> 
         {
             m_MainMenuForm = (MainMenuForm)form;
@@ -33,6 +35,9 @@ public class MainMenuProcedure : Procedure
     {
         base.OnLeave();
         DrbComponent.UISystem.CloseAllForm();
+
+        DrbComponent.AudioSystem.StopAllAudios();
+
         DrbComponent.GetEventSystem<int>().RemoveEventListener(CodeDef.Game_S2C_InRoomProto, OnInRoom);
     }
 

@@ -63,7 +63,8 @@ public class UIItemOperator : UIItemBase
                 if (i >= m_ListDetail.Count)
                 {
                     GameObject obj = Instantiate(m_DetailPrefab);
-                    obj.transform.SetParent(m_DetailContainer);
+                    obj.SetActive(true);
+                    obj.SetParentAndReset(m_DetailContainer);
                     detail = obj.GetComponent<UIItemOperationDetail>();
                     m_ListDetail.Add(detail);
                 }

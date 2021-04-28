@@ -4,6 +4,7 @@
 //Description ：
 //===================================================
 
+using DrbFramework.Audio;
 using DrbFramework.Internal;
 using DrbFramework.Internal.Localization;
 using System;
@@ -65,10 +66,28 @@ public class SettingsForm : FormBase
     private void OnSliderMusicVolumeChanged(float value)
     {
         DrbComponent.SettingSystem.SetFloat("MusicVolume", value);
+        ISounder[] sounders = DrbComponent.AudioSystem.GetAllSounders();
+        if (sounders != null)
+        {
+            for (int i = 0; i < sounders.Length; ++i)
+            {
+                if (!sounders[i].Tag.Equals("Music")) continue;
+                sounders[i].Volume = value;
+            }
+        }
     }
 
     private void OnSliderSoundEffectVolumeChanged(float value)
     {
         DrbComponent.SettingSystem.SetFloat("SoundEffectVolume", value);
+        ISounder[] sounders = DrbComponent.AudioSystem.GetAllSounders();
+        if (sounders != null)
+        {
+            for (int i = 0; i < sounders.Length; ++i)
+            {
+                if (!sounders[i].Tag.Equals("SoundEffect")) continue;
+                sounders[i].Volume = value;
+            }
+        }
     }
 }
