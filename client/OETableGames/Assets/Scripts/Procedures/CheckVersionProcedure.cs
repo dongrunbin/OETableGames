@@ -72,14 +72,14 @@ public class CheckVersionProcedure : Procedure
     {
         if (args.HasError)
         {
-            DrbComponent.UISystem.ShowMessage("错误", "网络连接失败", type: MessageForm.MessageViewType.OkAndCancel, okAction: RequestDownloadURL, cancelAction:Application.Quit);
+            DrbComponent.UISystem.ShowMessage("Error", "Connected fail", type: MessageForm.MessageViewType.OkAndCancel, okAction: RequestDownloadURL, cancelAction:Application.Quit);
         }
         else
         {
             LitJson.JsonData jsonData = LitJson.JsonMapper.ToObject(Encoding.UTF8.GetString(args.Data));
             if (jsonData["code"].ToString().ToInt() < 0)
             {
-                DrbComponent.UISystem.ShowMessage("提示", jsonData["msg"].ToString(), type: MessageForm.MessageViewType.OkAndCancel, okAction: RequestDownloadURL, cancelAction: Application.Quit);
+                DrbComponent.UISystem.ShowMessage("Error", jsonData["msg"].ToString(), type: MessageForm.MessageViewType.OkAndCancel, okAction: RequestDownloadURL, cancelAction: Application.Quit);
                 return;
             }
 

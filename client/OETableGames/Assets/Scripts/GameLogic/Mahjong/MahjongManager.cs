@@ -1,11 +1,39 @@
-﻿using DG.Tweening;
+//===================================================
+//Author      : DRB
+//CreateTime  ：2021/4/28 0:25:24
+//Description ：
+//===================================================
+using DG.Tweening;
 using DrbFramework.Extensions;
 using DrbFramework.Internal;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class MahjongManager : Singleton<MahjongManager>
+public class MahjongManager : MonoBehaviour
 {
     private SpawnPool m_WallPool;
+
+    public static MahjongManager Instance = null;
+
+    [SerializeField]
+    private List<Sprite> MahjongSprites;
+    [SerializeField]
+    private List<Sprite> MahjongSprites_Pong;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
+    private void OnDestroy()
+    {
+        if (m_WallPool != null)
+        {
+            Destroy(m_WallPool.gameObject);
+            PoolManager.Pools.Destroy("MahjongPool");
+            m_WallPool = null;
+        }
+    }
 
     private GameObject LoadPrefab(Mahjong mahjong)
     {
@@ -16,7 +44,7 @@ public class MahjongManager : Singleton<MahjongManager>
 
     public void Init()
     {
-        m_WallPool = PoolManager.Pools.Create("Mahjong");
+        m_WallPool = PoolManager.Pools.Create("MahjongPool");
         m_WallPool.Group.parent = null;
         m_WallPool.Group.position = new Vector3(0f, 5000f, 0f);
 
@@ -81,21 +109,22 @@ public class MahjongManager : Singleton<MahjongManager>
         m_WallPool.Despawn(majiang.transform);
     }
 
-    public Sprite LoadMahjongSprite(Mahjong mahjong, bool isPeng = false)
+    public Sprite GetMahjongSprite(Mahjong mahjong)
     {
-        string spriteName;
-        if (mahjong == null || mahjong.color == 0)
+        int index;
+        if (mahjong.color == 0)
         {
-            spriteName = "0_b";
+            index = 9;
+        }
+        else if (mahjong.color == 5)
+        {
+            index = 19;
         }
         else
         {
-            spriteName = "0_" + mahjong.ToString() + (isPeng ? "_t" : "");
+            index = (mahjong.color - 1) * 10 + mahjong.number - 1;
         }
-
-        string path = string.Format("UI/Source/Mahjong/{0}", spriteName);
-
-        Sprite sprite = DrbComponent.ResourceSystem.LoadSprite(path, spriteName);
+        Sprite sprite = MahjongSprites[index];
         return sprite;
     }
 }

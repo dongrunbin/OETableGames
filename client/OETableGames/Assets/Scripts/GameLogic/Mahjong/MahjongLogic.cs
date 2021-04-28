@@ -112,11 +112,6 @@ public class MahjongLogic : MonoBehaviour
 
     }
 
-    public void Leave(int playerId)
-    {
-
-    }
-
     public void Ready(Seat seat)
     {
         if (!seat.IsPlayer) return;
@@ -132,6 +127,10 @@ public class MahjongLogic : MonoBehaviour
     public void Begin(Room room)
     {
         if (room == null) return;
+        for (int i = 0; i < room.SeatList.Count; ++i)
+        {
+            GetSeatCtrlBySeatPos(room.SeatList[i].Pos).Begin(room);
+        }
         m_SelectMahjong.Clear();
         m_CompassCtrl.SetNormal();
         RebuildWall(room);
@@ -195,6 +194,11 @@ public class MahjongLogic : MonoBehaviour
 
     }
 
+    public void CheckTing(Seat seat)
+    {
+        GetSeatCtrlBySeatPos(seat.Pos).CheckTing(seat);
+    }
+
     public void Settle(Room room)
     {
         if (room == null) return;
@@ -228,7 +232,7 @@ public class MahjongLogic : MonoBehaviour
         if (seatPos == 0) yield break;
         if (DiceA == 0 && DiceB == 0) yield break;
         GameObject hand = MahjongManager.Instance.SpawnHand_Fang();
-        hand.transform.SetParent(m_DiceHandContainer);
+        hand.SetParentAndReset(m_DiceHandContainer);
         hand.transform.localEulerAngles = new Vector3(0, (seatPos - 1) * -90f, 0);
         yield return new WaitForSeconds(0.5f);
 
@@ -239,7 +243,7 @@ public class MahjongLogic : MonoBehaviour
         {
             GameObject dice1 = MahjongManager.Instance.SpawnDice();
             DiceCtrl ctrl = dice1.GetComponent<DiceCtrl>();
-            dice1.transform.SetParent(m_DiceContainer[0]);
+            dice1.SetParentAndReset(m_DiceContainer[0]);
             dice1.transform.localPosition = GameUtil.GetRandomPos(dice1.transform.position, 1f);
             coroutine = StartCoroutine(ctrl.RollAnimation(DiceA));
         }
@@ -248,7 +252,7 @@ public class MahjongLogic : MonoBehaviour
         {
             GameObject dice2 = MahjongManager.Instance.SpawnDice();
             DiceCtrl ctrl2 = dice2.GetComponent<DiceCtrl>();
-            dice2.transform.SetParent(m_DiceContainer[1]);
+            dice2.SetParentAndReset(m_DiceContainer[1]);
             dice2.transform.localPosition = GameUtil.GetRandomPos(dice2.transform.position, 1f);
             coroutine = StartCoroutine(ctrl2.RollAnimation(DiceB));
         }
@@ -456,7 +460,7 @@ public class MahjongLogic : MonoBehaviour
                 int endIndex = tableMaJiangCount + index;
                 for (int j = index; j < endIndex; ++j)
                 {
-                    m_Wall[j].gameObject.transform.SetParent(m_WallContainers[i].transform);
+                    m_Wall[j].gameObject.SetParentAndReset(m_WallContainers[i].transform);
                     m_Wall[j].gameObject.SetLayer(m_WallContainers[i].gameObject.layer);
                 }
                 index = endIndex;
@@ -478,7 +482,7 @@ public class MahjongLogic : MonoBehaviour
                 }
                 for (int j = index; j < endIndex; ++j)
                 {
-                    m_Wall[j].gameObject.transform.SetParent(m_WallContainers[i].transform);
+                    m_Wall[j].gameObject.SetParentAndReset(m_WallContainers[i].transform);
                     m_Wall[j].gameObject.SetLayer(m_WallContainers[i].gameObject.layer);
                 }
                 index = endIndex;
@@ -502,7 +506,6 @@ public class MahjongLogic : MonoBehaviour
         for (int i = 0; i < m_WallContainers.Length; ++i)
         {
             m_WallContainers[i].Sort();
-            m_WallContainers[i].SafeSetActive(false);
         }
     }
 

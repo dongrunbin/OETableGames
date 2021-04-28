@@ -393,6 +393,11 @@ public class SeatCtrl : MonoBehaviour
             m_PrevPlayMahjong = null;
         }
 
+        for (int i = 0; i < m_HandMahjong.Count; ++i)
+        {
+            m_HandMahjong[i].CloseTip();
+        }
+
         if (seat.Pos != m_nSeatPos) return;
 
         Vector3 sourcePos = Vector3.zero;

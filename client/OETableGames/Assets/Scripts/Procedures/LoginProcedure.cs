@@ -40,10 +40,7 @@ public class LoginProcedure : Procedure
             m_LoginForm = (LoginForm)form;
             m_LoginForm.OnGuestLoginClick = GuestLogin;
         });
-        DrbComponent.GetEventSystem<int>().AddEventListener(CodeDef.System_C2S_HeartBeatProto - 1, OnConnected);
-        DrbComponent.GetEventSystem<int>().AddEventListener(CodeDef.System_C2S_HeartBeatProto - 2, OnDisconnected);
         DrbComponent.GetEventSystem<int>().AddEventListener(CodeDef.System_S2C_ConnectProto, OnHandShaked);
-        DrbComponent.GetEventSystem<int>().AddEventListener(CodeDef.System_S2C_HeartBeatProto, OnHearBeat);
     }
 
     public override void OnLeave()
@@ -53,8 +50,6 @@ public class LoginProcedure : Procedure
         {
             DrbComponent.UISystem.DestroyForm(m_LoginForm);
         }
-        DrbComponent.GetEventSystem<int>().RemoveEventListener(CodeDef.System_C2S_HeartBeatProto - 1, OnConnected);
-        DrbComponent.GetEventSystem<int>().RemoveEventListener(CodeDef.System_C2S_HeartBeatProto - 2, OnDisconnected);
         DrbComponent.GetEventSystem<int>().RemoveEventListener(CodeDef.System_S2C_ConnectProto, OnHandShaked);
     }
 
@@ -68,14 +63,14 @@ public class LoginProcedure : Procedure
     {
         if (args.HasError)
         {
-            DrbComponent.UISystem.ShowMessage("错误", "网络连接失败");
+            DrbComponent.UISystem.ShowMessage("Error", "Connected fail");
         }
         else
         {
             LitJson.JsonData jsonData = LitJson.JsonMapper.ToObject(Encoding.UTF8.GetString(args.Data));
             if (jsonData["code"].ToString().ToInt() < 0)
             {
-                DrbComponent.UISystem.ShowMessage("错误", jsonData["msg"].ToString());
+                DrbComponent.UISystem.ShowMessage("Error", jsonData["msg"].ToString());
                 return;
             }
 
@@ -98,7 +93,7 @@ public class LoginProcedure : Procedure
     {
         if (args.HasError)
         {
-            DrbComponent.UISystem.ShowMessage("错误", "网络连接失败");
+            DrbComponent.UISystem.ShowMessage("Error", "Connected fail");
         }
         else
         {
@@ -135,14 +130,14 @@ public class LoginProcedure : Procedure
     {
         if (args.HasError)
         {
-            DrbComponent.UISystem.ShowMessage("错误", "网络连接失败", type: MessageForm.MessageViewType.Ok, okAction: RequestServer);
+            DrbComponent.UISystem.ShowMessage("Error", "Connected fail", type: MessageForm.MessageViewType.Ok, okAction: RequestServer);
         }
         else
         {
             LitJson.JsonData jsonData = LitJson.JsonMapper.ToObject(Encoding.UTF8.GetString(args.Data));
             if (jsonData["code"].ToString().ToInt() < 0)
             {
-                DrbComponent.UISystem.ShowMessage("错误", jsonData["msg"].ToString());
+                DrbComponent.UISystem.ShowMessage("Error", jsonData["msg"].ToString());
                 return;
             }
             string ip = jsonData["data"]["ip"].ToString();
@@ -155,17 +150,7 @@ public class LoginProcedure : Procedure
         }
     }
 
-    private void OnConnected(object sender, EventArgs<int> args)
-    {
-        AccountEntity entity = DrbComponent.SettingSystem.GetObject<AccountEntity>("AccountInfo");
-        ClientSendHandShake(entity.passportId, entity.token);
-    }
-
-    private void OnDisconnected(object sender, EventArgs<int> args)
-    {
-        DrbComponent.UISystem.ShowMessage("Error", "Network was disconnected", okAction: Connect);
-
-    }
+    
 
     private void Connect()
     {
@@ -187,61 +172,8 @@ public class LoginProcedure : Procedure
         //}
     }
 
-    private void ClientSendHandShake(int passportId, string token)
-    {
-        System_C2S_ConnectProto proto = new System_C2S_ConnectProto();
-        proto.passportId = passportId;
-        proto.token = token;
-        m_SendHandShakeClientTime = TimeUtil.GetTimestampMS();
-        DrbComponent.NetworkSystem.Send(proto);
-    }
-
     private void OnHandShaked(object sender, EventArgs<int> args)
     {
-        System_S2C_ConnectProto proto = new System_S2C_ConnectProto(((NetworkEventArgs)args).Data);
-        long serverTime = proto.timestamp;
-        int handShakePing = (int)((TimeUtil.GetTimestampMS() - m_SendHandShakeClientTime) / 2);
-        Log.Info("fps=" + handShakePing + "ms");
-        long ServerCurrentTime = proto.timestamp + handShakePing;
-        long timeDifference = TimeUtil.GetTimestampMS() - ServerCurrentTime;
-        DrbComponent.SettingSystem.SetLong("TimeDistance", timeDifference);
-        Log.Info("TimeDistance between client and server : " + timeDifference + "ms");
-        m_PrevReceiveHeartTime = Time.realtimeSinceStartup;
-
-        DrbComponent.TimerSystem.RegisterTimer(0.0f, SEND_HEART_BEAT_SPACE, -1, null, CheckHeartBeat, null);
-
-
         ChangeState<MainMenuProcedure>();
-    }
-
-    private void OnHearBeat(object sender, EventArgs<int> args)
-    {
-        System_S2C_HeartBeatProto proto = new System_S2C_HeartBeatProto(((NetworkEventArgs)args).Data);
-
-        long sendTime = proto.clientTimestamp;
-        long serverTime = proto.serverTimestamp;
-        m_PrevReceiveHeartTime = Time.realtimeSinceStartup;
-        long localTime = TimeUtil.GetTimestampMS();
-        long fps = (localTime - sendTime) / 2;
-        serverTime = serverTime + fps;
-        DrbComponent.SettingSystem.SetLong("TimeDistance", localTime - serverTime);
-    }
-
-    private void CheckHeartBeat(Timer timer)
-    {
-        if (Time.realtimeSinceStartup - m_PrevReceiveHeartTime > HEART_BEAT_OVER_TIME)
-        {
-            Debug.LogWarning("Heart beat time out");
-            DrbComponent.NetworkSystem.Close();
-        }
-
-        ClientSendHeart();
-    }
-
-    private void ClientSendHeart()
-    {
-        System_C2S_HeartBeatProto proto = new System_C2S_HeartBeatProto();
-        proto.clientTimestamp = TimeUtil.GetTimestampMS();
-        DrbComponent.NetworkSystem.Send(proto);
     }
 }

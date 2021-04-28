@@ -186,8 +186,8 @@ public class CreateRoomForm : FormBase
         {
             m_ListOption[i].gameObject.SetActive(false);
         }
-        ICollection<MahjongSettingsDataEntity> options = DrbComponent.DataTableSystem.GetDataTable<MahjongSettingsDataEntity>().GetEntities();
-        foreach (MahjongSettingsDataEntity option in options)
+        ICollection<SettingsDataEntity> options = DrbComponent.DataTableSystem.GetDataTable<SettingsDataEntity>().GetEntities();
+        foreach (SettingsDataEntity option in options)
         {
             bool isExists = false;
             for (int j = 0; j < m_ListGroup.Count; ++j)
@@ -318,6 +318,10 @@ public class CreateRoomForm : FormBase
             {
                 if (m_ListOption[i].isDisplay && m_ListOption[i].isOn)
                 {
+                    if (m_ListOption[i].Mode == SelectMode.Loop && m_ListOption[i].Index != j)
+                    {
+                        continue;
+                    }
                     selected.Add(m_ListOption[i].Content[j].OptionId);
                 }
             }

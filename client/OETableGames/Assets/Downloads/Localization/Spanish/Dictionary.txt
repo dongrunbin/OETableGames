@@ -1,17 +1,49 @@
 ﻿MainMenu.CreateRoom:Crear sala
 MainMenu.EnterRoom:Entrar sala
+
 MessageForm.Cancel:Cancela
 MessageForm.Ok:Bien
+
 LoginForm.GuestLogin:Iniciar sesión como turista
+
 EnterRoom.Tip:Ingrese el Id de la sala
 EnterRoom.Reset:Reiniciar
+
 CreateRoom.Create:Crear
+
 CreditForm.Design:diseño
 CreditForm.Program:Programa
 CreditForm.Art3D:Arte 3D
 CreditForm.Art2D:Arte 2D
 CreditForm.Audio:Audio
+
 SettingsForm.Language:Lenguage
 SettingsForm.MusicVolume:Volumen de música
 SettingsForm.SoundEffectVolume:Volumen de efecto de sonido
+
 Mahjong:Mahjong
+rule:regla
+Seven pairs:siete pares
+Thirteen orphans:trece huérfanos
+players:jugadores
+games:juegos
+base score:puntuación base
+Chow:Chow
+Pong:Pong
+Kong:Kong
+Win by discard:Ganar a traves sacar
+
+MahjongForm.Ready:Listo
+MahjongForm.Leave:Salir
+MahjongForm.AnyTile:Cualquiera
+MahjongForm.AddRobot:Agregar robot
+MahjongForm.Chow:Chow
+MahjongForm.Pong:Pong
+MahjongForm.Kong:Kong
+MahjongForm.Pass:Pasa
+MahjongForm.Cancel:Cancelar
+MahjongForm.Win:Ganar
+MahjongForm.Games:Juegos
+MahjongForm.RoomId:Room Id
+
+Error:Error

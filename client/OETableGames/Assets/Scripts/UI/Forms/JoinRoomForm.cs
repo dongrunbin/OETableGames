@@ -5,6 +5,7 @@
 //===================================================
 
 using DrbFramework.Extensions;
+using DrbFramework.Internal;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -81,8 +82,8 @@ public class JoinRoomForm : FormBase
 
     private void ClientSendJoinRoom(int roomId)
     {
-        //C2S_Game_RoomEnterProto proto = new C2S_Game_RoomEnterProto();
-        //proto.roomId = roomId;
-        //NetWorkSocket.Instance.Send(proto.ToArray(), GameCtrl.Instance.SocketHandle);
+        Game_C2S_EnterRoomProto proto = new Game_C2S_EnterRoomProto();
+        proto.roomId = roomId;
+        DrbComponent.NetworkSystem.Send(proto);
     }
 }

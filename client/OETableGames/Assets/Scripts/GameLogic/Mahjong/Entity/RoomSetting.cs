@@ -14,8 +14,8 @@ public class RoomSetting
     public int loop = 8;
     public int player = 4;
     public int baseScore = 1;
-    public bool isHu;
-    public bool isPeng;
+    public bool isWBD;
+    public bool isPong;
 
 
     public void Init(List<int> setting)
@@ -26,7 +26,7 @@ public class RoomSetting
 
         for (int i = 0; i < setting.Count; ++i)
         {
-            MahjongSettingsDataEntity entity = DrbComponent.DataTableSystem.GetDataTable<MahjongSettingsDataEntity>().GetEntity(setting[i]);
+            SettingsDataEntity entity = DrbComponent.DataTableSystem.GetDataTable<SettingsDataEntity>().GetEntity(setting[i]);
             if (entity == null) continue;
             FieldInfo filed = GetType().GetField(entity.Tags);
             if (filed != null)
@@ -43,18 +43,18 @@ public class RoomSetting
 
             if (!dic.ContainsKey(entity.Label))
             {
-                dic[entity.Label] = entity.Name;
+                dic[entity.Label] = DrbComponent.LocalizationSystem.GetString(entity.Name);
             }
             else
             {
-                dic[entity.Label] += "," + entity.Name;
+                dic[entity.Label] += "," + DrbComponent.LocalizationSystem.GetString(entity.Name);
             }
         }
         SettingStr = string.Empty;
         int index = 0;
         foreach (KeyValuePair<string, string> pair in dic)
         {
-            SettingStr += pair.Key + ":" + pair.Value;
+            SettingStr += DrbComponent.LocalizationSystem.GetString(pair.Key) + ":" + pair.Value;
             if (index < dic.Count - 1)
             {
                 SettingStr += "\n";

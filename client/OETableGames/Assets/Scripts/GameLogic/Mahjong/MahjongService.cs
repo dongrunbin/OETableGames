@@ -105,7 +105,7 @@ public class MahjongService : Singleton<MahjongService>
 
     public void ClientSendPass()
     {
-        //DrbComponent.NetworkSystem.Send(new C2S_Mahjong_PassProto().Serialize());
+        DrbComponent.NetworkSystem.Send(new Mahjong_C2S_PassProto());
     }
 
     public void ClientSendOperate(OperationType type, List<Mahjong> mahjongs)
@@ -483,6 +483,7 @@ public class MahjongService : Singleton<MahjongService>
         {
             room.AskMahjongGroup = null;
         }
+
         m_Procedure.Init(room);
     }
 }

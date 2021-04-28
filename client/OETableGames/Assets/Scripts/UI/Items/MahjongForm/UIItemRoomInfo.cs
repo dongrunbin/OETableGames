@@ -3,8 +3,6 @@
 //CreateTime  ：2021/4/6 3:30:09
 //Description ：
 //===================================================
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,15 +21,13 @@ public class UIItemRoomInfo : UIItemBase
 
     private const float UPDATE_SPACE = 10f;
 
-    private const int ELECTRICITY_LEVEL = 10;
-
     protected override void OnAwake()
     {
         base.OnAwake();
 
     }
 
-    void Update() 
+    private void Update() 
     {
         if (Time.time > m_Timer)
         {
@@ -42,7 +38,7 @@ public class UIItemRoomInfo : UIItemBase
 
     public virtual void SetRoomId(int roomId)
     {
-        m_RoomId.SafeSetText(string.Format("房间号:{0}", roomId.ToString()));
+        m_RoomId.SafeSetText(roomId.ToString());
     }
 
     public virtual void SetLoop(int currentLoop, int maxLoop)
@@ -53,7 +49,7 @@ public class UIItemRoomInfo : UIItemBase
         }
         else
         {
-            m_TextLoop.SafeSetText(string.Format("游戏局数:{0}/{1}", currentLoop, maxLoop));
+            m_TextLoop.SafeSetText(string.Format("{0}/{1}", currentLoop, maxLoop));
         }
     }
 

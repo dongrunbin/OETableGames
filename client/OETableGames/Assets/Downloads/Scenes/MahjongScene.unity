@@ -9617,6 +9617,114 @@ Transform:
   m_Father: {fileID: 1134532237}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1172442074
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1172442076}
+  - component: {fileID: 1172442075}
+  m_Layer: 5
+  m_Name: MahjongManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1172442075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172442074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa82df51e424d8c449e2a8cf1b324f24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MahjongSprites:
+  - {fileID: 21300000, guid: a1d21e6aa5e27954d835811a7037ab63, type: 3}
+  - {fileID: 21300000, guid: 6e7291aa75da08e45a4a5f98b0327f9e, type: 3}
+  - {fileID: 21300000, guid: fafd54c9fff1b72458540c8ead32548e, type: 3}
+  - {fileID: 21300000, guid: c223514277284794fac5e45e0de25c94, type: 3}
+  - {fileID: 21300000, guid: d93b3cccc099c3e48ad1c4da760afe31, type: 3}
+  - {fileID: 21300000, guid: 482c5d45b8d3a7a40b70a547a5bb22fc, type: 3}
+  - {fileID: 21300000, guid: 47a31d5fa706b58448b001fd7b99d1cd, type: 3}
+  - {fileID: 21300000, guid: 0cfbf910e817eeb43a228007798ceb2f, type: 3}
+  - {fileID: 21300000, guid: 711591a32f69614478f8077298ffde56, type: 3}
+  - {fileID: 21300000, guid: 01cea572fd628ea4a8837fa437927d6c, type: 3}
+  - {fileID: 21300000, guid: 4406bb116064fd94f9d0ecb5b828e2b9, type: 3}
+  - {fileID: 21300000, guid: bcd57565f728a0448b05392f0fdd8606, type: 3}
+  - {fileID: 21300000, guid: 9320d20bf96b4314d947ef8a9486ff05, type: 3}
+  - {fileID: 21300000, guid: ce2d08281d3b2224b91733b8a89132b1, type: 3}
+  - {fileID: 21300000, guid: c7bc292b34210234ca3587c73abb4068, type: 3}
+  - {fileID: 21300000, guid: 0f75ad97fefc9ed4fa166eccae51ccd3, type: 3}
+  - {fileID: 21300000, guid: db06eafa196a9b54d9c4577d828ddbbf, type: 3}
+  - {fileID: 21300000, guid: 051497fb743d9744cb47a88e760172fd, type: 3}
+  - {fileID: 21300000, guid: 7b91e83f7a61f984698907fe61c68e59, type: 3}
+  - {fileID: 21300000, guid: fd07d6166933ebd4186bc224d91273fa, type: 3}
+  - {fileID: 21300000, guid: 17ace25b783af1847a3c952fafa5d5be, type: 3}
+  - {fileID: 21300000, guid: 6bb36f1fb82eb294189d04ce611052f5, type: 3}
+  - {fileID: 21300000, guid: 51c6b68ec6948324ca340044c5a03d31, type: 3}
+  - {fileID: 21300000, guid: d99ae024e4865434d8afa97bfecfeb70, type: 3}
+  - {fileID: 21300000, guid: 0fe94b9142008ca4095c9c4dcb043645, type: 3}
+  - {fileID: 21300000, guid: 0368e15e1da51254f87c73500f20e199, type: 3}
+  - {fileID: 21300000, guid: 27b6101691a8a604688556d6c4b18f48, type: 3}
+  - {fileID: 21300000, guid: db649fa334faa9a47a69469652e01f90, type: 3}
+  - {fileID: 21300000, guid: 6912c059d8a6c84498836d39a5804ee9, type: 3}
+  MahjongSprites_Pong:
+  - {fileID: 21300000, guid: 1234dd3e9b1325e40a153111d669754f, type: 3}
+  - {fileID: 21300000, guid: 1863a5bf568330745802b5f046c5ca5d, type: 3}
+  - {fileID: 21300000, guid: 46463ef76c324cc4db67faadcf2829f8, type: 3}
+  - {fileID: 21300000, guid: 2271ece78513ae249944535f9cb4425a, type: 3}
+  - {fileID: 21300000, guid: 20b79603a45882545a5376cb9ee558aa, type: 3}
+  - {fileID: 21300000, guid: f134292fd80ff06429b07721126cb721, type: 3}
+  - {fileID: 21300000, guid: 78a11f826fbc21e419e9c303efe5a81d, type: 3}
+  - {fileID: 21300000, guid: de8a8af5829322d47ac458ff6775a444, type: 3}
+  - {fileID: 21300000, guid: 07bee2c43049877498389fbe6cc88ba3, type: 3}
+  - {fileID: 21300000, guid: 242de77ac14958344bcd3f7438d2cbad, type: 3}
+  - {fileID: 21300000, guid: e305a3df5c8154f429a769989b4df197, type: 3}
+  - {fileID: 21300000, guid: 0a96cccf8ff873b46bed783f252899e8, type: 3}
+  - {fileID: 21300000, guid: addbdcf45f9e0f94db55d516e6f0eddb, type: 3}
+  - {fileID: 21300000, guid: 0f019c0ddf1b3e747b4dae344dc55add, type: 3}
+  - {fileID: 21300000, guid: 3199a56c17ae8d84c82a457e218d7613, type: 3}
+  - {fileID: 21300000, guid: b28972373ee162c4583b42190f935c86, type: 3}
+  - {fileID: 21300000, guid: 9460248a097a6044dba564b6f9f57ae4, type: 3}
+  - {fileID: 21300000, guid: 610c273cfa46f4a4db9d3b7424ff643e, type: 3}
+  - {fileID: 21300000, guid: 606e85898835a034b872c29e8d420f1c, type: 3}
+  - {fileID: 21300000, guid: 3c834623dc63a004ca634f4ae8c38dfc, type: 3}
+  - {fileID: 21300000, guid: 1daaa200213da2c438a810c2625b7b1a, type: 3}
+  - {fileID: 21300000, guid: 2ef5a30e510940340b58865fe30fe115, type: 3}
+  - {fileID: 21300000, guid: 5fdd50758c720154981184e019095005, type: 3}
+  - {fileID: 21300000, guid: f05b8b153759f34449cb5ecd836f28f1, type: 3}
+  - {fileID: 21300000, guid: 9c7f7995658f7c54b8c6e21a4ec91d83, type: 3}
+  - {fileID: 21300000, guid: 74bdda722f259034e919a0ed3b7dcbe5, type: 3}
+  - {fileID: 21300000, guid: 812e883ceb3e1a240b46dcf673deca5e, type: 3}
+  - {fileID: 21300000, guid: 42d180fd371b0b34fb34cf3ffa690ca7, type: 3}
+  - {fileID: 21300000, guid: b0171b29950dd8840a3ab49f43e5883a, type: 3}
+--- !u!224 &1172442076
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172442074}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.00926, y: 0.00926, z: 0.00926}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1175209893
 GameObject:
   m_ObjectHideFlags: 0

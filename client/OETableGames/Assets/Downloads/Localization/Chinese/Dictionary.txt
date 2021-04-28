@@ -1,19 +1,26 @@
 ﻿MainMenu.CreateRoom:创建房间
 MainMenu.EnterRoom:进入房间
+
 MessageForm.Cancel:取消
 MessageForm.Ok:确定
+
 LoginForm.GuestLogin:游客登录
+
 EnterRoom.Tip:请输入房间Id
 EnterRoom.Reset:重输
+
 CreateRoom.Create:创建房间
+
 CreditForm.Design:设计
 CreditForm.Program:程序
 CreditForm.Art3D:3D美术
 CreditForm.Art2D:2D美术
 CreditForm.Audio:声音
+
 SettingsForm.Language:语言
 SettingsForm.MusicVolume:音乐音量
 SettingsForm.SoundEffectVolume:音效音量
+
 Mahjong:麻将
 rule:规则
 Seven pairs:七对
@@ -21,3 +28,22 @@ Thirteen orphans:十三幺
 players:玩家数量
 games:局数
 base score:底分
+Chow:吃
+Pong:碰
+Kong:杠
+Win by discard:点炮
+
+MahjongForm.Ready:准备
+MahjongForm.Leave:离开
+MahjongForm.AnyTile:任意牌
+MahjongForm.AddRobot:添加机器人
+MahjongForm.Chow:吃
+MahjongForm.Pong:鹏
+MahjongForm.Kong:杠
+MahjongForm.Pass:过
+MahjongForm.Cancel:取消
+MahjongForm.Win:胡
+MahjongForm.Games:游戏局数
+MahjongForm.RoomId:Room Id
+
+Error:错误

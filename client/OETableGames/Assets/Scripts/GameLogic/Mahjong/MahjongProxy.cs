@@ -60,7 +60,7 @@ public class MahjongProxy
         seat.Init(tempSeat);
     }
 
-    public void ExitRoom(int playerId)
+    public void LeaveRoom(int playerId)
     {
         Seat seat = GetSeatByPlayerId(playerId);
         if (seat == null) return;
@@ -350,7 +350,6 @@ public class MahjongProxy
         Seat seat = GetSeatByPlayerId(playerId);
         if (seat == null) return;
         seat.isWiner = true;
-        seat.Status = SeatStatus.Finish;
         if (mahjong != null)
         {
             seat.HitMahjong = mahjong;

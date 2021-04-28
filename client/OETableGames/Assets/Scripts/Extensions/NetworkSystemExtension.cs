@@ -28,6 +28,10 @@ public static class NetworkSystemExtension
 
     public static void Send(this NetworkSystem system, IProto proto)
     {
+        if (proto.Code != CodeDef.System_C2S_HeartBeatProto)
+        {
+            DrbFramework.Log.Info(string.Format("=================sent:{0},{1}", proto.Code, CodeDef.GetEn(proto.Code)));
+        }
         system.GetChannel(SERVER_CHANNEL).Send(proto.Serialize());
     }
 

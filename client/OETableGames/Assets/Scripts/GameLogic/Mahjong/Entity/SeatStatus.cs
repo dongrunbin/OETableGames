@@ -11,5 +11,4 @@ public enum SeatStatus
     PlayMahjong,
     Wait,
     Operate,
-    Finish,
 }

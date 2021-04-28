@@ -46,7 +46,7 @@ public class UIItemOperationDetail : UIItemBase
         for (int i = 0; i < lst.Count; ++i)
         {
             m_ImageMahjong[i].gameObject.SetActive(true);
-            //m_ImageMahjong[i].overrideSprite = MahjongManager.Instance.LoadMahjongSprite(lst[i], false);
+            m_ImageMahjong[i].overrideSprite = MahjongManager.Instance.GetMahjongSprite(lst[i]);
         }
 
         m_BG.rectTransform.sizeDelta = new Vector2(86 * lst.Count + 100, m_BG.rectTransform.sizeDelta.y);

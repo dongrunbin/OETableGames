@@ -40,6 +40,6 @@ public static class UISystemExtensions
         Action okAction = null, Action cancelAction = null)
     {
         MessageForm form = (MessageForm)OpenInternalForm(uiSystem, "UI/Forms/MessageForm", "Form");
-        form.Show(title, message, countDown, autoType, type, okAction, cancelAction);
+        form.Show(DrbComponent.LocalizationSystem.GetString(title), DrbComponent.LocalizationSystem.GetString(message), countDown, autoType, type, okAction, cancelAction);
     }
 }

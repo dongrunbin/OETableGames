@@ -1,17 +1,49 @@
 ﻿MainMenu.CreateRoom:Create Room
 MainMenu.EnterRoom:Enter Room
+
 MessageForm.Cancel:Cancel
 MessageForm.Ok:Ok
+
 LoginForm.GuestLogin:Guest login
+
 EnterRoom.Tip:Please input room Id
 EnterRoom.Reset:Reset
+
 CreateRoom.Create:Create
+
 CreditForm.Design:Design
 CreditForm.Program:Program
 CreditForm.Art3D:Art 3D
 CreditForm.Art2D:Art 2D
 CreditForm.Audio:Audio
+
 SettingsForm.Language:Language
 SettingsForm.MusicVolume:Music Volume
 SettingsForm.SoundEffectVolume:Sound Effect Volume
+
 Mahjong:Mahjong
+rule:rule
+Seven pairs:Seven pairs
+Thirteen orphans:Thirteen orphans
+players:players
+games:games
+base score:base score
+Chow:Chow
+Pong:Pong
+Kong:Kong
+Win by discard:Win by discard
+
+MahjongForm.Ready:Ready
+MahjongForm.Leave:Leave
+MahjongForm.AnyTile:Any tile
+MahjongForm.AddRobot:Add robot
+MahjongForm.Chow:Chow
+MahjongForm.Pong:Pong
+MahjongForm.Kong:Kong
+MahjongForm.Pass:Pass
+MahjongForm.Cancel:Cancel
+MahjongForm.Win:Win
+MahjongForm.Games:Games
+MahjongForm.RoomId:Room Id
+
+Error:Error

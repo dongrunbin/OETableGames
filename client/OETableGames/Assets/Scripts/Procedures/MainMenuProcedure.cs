@@ -16,8 +16,6 @@ public class MainMenuProcedure : Procedure
     public override void OnEnter(object userData)
     {
         base.OnEnter(userData);
-
-        DrbComponent.GetEventSystem<int>().AddEventListener(CodeDef.Game_S2C_EnterRoomProto, OnEnterRoom);
         DrbComponent.GetEventSystem<int>().AddEventListener(CodeDef.Game_S2C_InRoomProto, OnInRoom);
 
         DrbComponent.UISystem.OpenFormAsync("UI/Forms/MainMenuForm", "BackGround", (IUIForm form)=> 
@@ -35,19 +33,15 @@ public class MainMenuProcedure : Procedure
     {
         base.OnLeave();
         DrbComponent.UISystem.CloseAllForm();
-        DrbComponent.GetEventSystem<int>().RemoveEventListener(CodeDef.Game_S2C_EnterRoomProto, OnEnterRoom);
         DrbComponent.GetEventSystem<int>().RemoveEventListener(CodeDef.Game_S2C_InRoomProto, OnInRoom);
-    }
-
-    private void OnEnterRoom(object sender, EventArgs<int> args)
-    {
-        ChangeState<MahjongProcedure>();
     }
 
     private void OnInRoom(object sender, EventArgs<int> args)
     {
-        //Game_S2C_InRoomProto proto = new Game_S2C_InRoomProto(((NetworkEventArgs)args).Data);
-        ChangeState<MahjongProcedure>();
+        Game_S2C_InRoomProto proto = new Game_S2C_InRoomProto(((NetworkEventArgs)args).Data);
+        GamesDataEntity entity = DrbComponent.DataTableSystem.GetDataTable<GamesDataEntity>().GetEntity(proto.gameId);
+        if (entity == null) return;
+        ChangeState(entity.ProcedureName);
     }
 
     private void RequireRoom()

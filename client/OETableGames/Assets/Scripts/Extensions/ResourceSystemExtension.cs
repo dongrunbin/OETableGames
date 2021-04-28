@@ -30,24 +30,4 @@ public static class ResourceSystemExtensions
         resourceSystem.LoadAssetFromAssetBundleAsync(assetPath, assetName, LoadMode.Persistent, onComplete, userData);
 #endif
     }
-
-    public static Sprite LoadSprite(this ResourceSystem resourceSystem, string spritePath, string spriteName)
-    {
-#if UNITY_EDITOR
-        Texture2D tex = resourceSystem.LoadAsset<Texture2D>(spritePath + ".png", LoadMode.Editor);
-        Rect iconRect;
-        try
-        {
-            iconRect = new Rect(0, 0, tex.width, tex.height);
-        }
-        catch
-        {
-            return null;
-        }
-        Sprite iconSprite = Sprite.Create(tex, iconRect, new Vector2(0.5f, 0.5f));
-        return iconSprite;
-#else
-            return null;
-#endif
-    }
 }

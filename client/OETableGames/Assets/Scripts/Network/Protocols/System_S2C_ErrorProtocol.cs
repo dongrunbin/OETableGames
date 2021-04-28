@@ -11,20 +11,20 @@ using DrbFramework.Internal.Network;
 using DrbFramework.Extensions;
 
 /// <summary>
-/// C2S_Connect
+/// S2C_Error
 /// </summary>
-public class System_C2S_ConnectProto : IProto
+public class System_S2C_ErrorProto : IProto
 {
-    public int Code { get { return 10003; } }
+    public int Code { get { return 10007; } }
 
-    public int passportId; //Passport Id
-    public string token = ""; //Token
+    public int code; //
+    public string message = ""; //
 
-    public System_C2S_ConnectProto()
+    public System_S2C_ErrorProto()
     {
     }
 
-    public System_C2S_ConnectProto(byte[] bytes)
+    public System_S2C_ErrorProto(byte[] bytes)
     {
         Deserialize(bytes);
     }
@@ -34,8 +34,8 @@ public class System_C2S_ConnectProto : IProto
         using (MemoryStream ms = new MemoryStream())
         {
             ms.WriteInt(Code);
-            ms.WriteInt(passportId);
-            ms.WriteUTF8String(token);
+            ms.WriteInt(code);
+            ms.WriteUTF8String(message);
             return ms.ToArray();
         }
     }
@@ -45,8 +45,8 @@ public class System_C2S_ConnectProto : IProto
         if (buffer == null) return;
         using (MemoryStream ms = new MemoryStream(buffer))
         {
-            passportId = ms.ReadInt();
-            token = ms.ReadUTF8String();
+            code = ms.ReadInt();
+            message = ms.ReadUTF8String();
         }
     }
 }

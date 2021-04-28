@@ -24,13 +24,12 @@ public class MahjongForm : FormBase
     private Button m_ButtonReady;
     [SerializeField]
     private UIItemTimeTip m_TimeTip;
-    //[SerializeField]
-    //private UIDisbandView m_DisbandView;
+    [SerializeField]
+    private Button m_BtnLeave;
     //[SerializeField]
     //private UISettleViewBase m_SettleView;
     //[SerializeField]
     //private UIResultViewBase m_ResultView;
-
 
     public void Init(Room room)
     {
@@ -63,15 +62,7 @@ public class MahjongForm : FormBase
             m_RoomInfo.SetRoomConfig(room.Setting.ToString());
         }
 
-        CloseDisband();
         List<Seat> seats = room.SeatList;
-        for (int i = 0; i < seats.Count; ++i)
-        {
-            if (seats[i].DisbandState == DisbandStatus.Apply)
-            {
-                ShowDisband(room);
-            }
-        }
         for (int i = 0; i < seats.Count; ++i)
         {
             Seat seat = seats[i];
@@ -95,6 +86,12 @@ public class MahjongForm : FormBase
         UIItemSeat item = GetItemSeatByIndex(seat.Index);
         item.Show();
         item.SetSeat(seat);
+    }
+
+    public void Leave(int seatIndex)
+    {
+        UIItemSeat item = GetItemSeatByIndex(seatIndex);
+        item.Hide();
     }
 
     public void Ready(Seat seat)
@@ -152,11 +149,11 @@ public class MahjongForm : FormBase
         Operator.SafeSetActive(false);
     }
 
-    public void ShowTingTip(List<Mahjong> lst, Dictionary<int, int> mahjongCount)
+    public void ShowTingTip(List<Mahjong> lst)
     {
         if (m_TingTip == null) return;
         m_TingTip.SafeSetActive(true);
-        m_TingTip.ShowTip(lst, mahjongCount);
+        m_TingTip.ShowTip(lst);
     }
 
     public void CloseTingTip()
@@ -173,17 +170,10 @@ public class MahjongForm : FormBase
         {
             MahjongService.Instance.ClientSendReady();
         }
-    }
-
-    public void ShowDisband(Room room)
-    {
-        //m_DisbandView.Show();
-        //m_DisbandView.SetUI(room);
-    }
-
-    public void CloseDisband()
-    {
-        //m_DisbandView.Hide();
+        else if (go == m_BtnLeave.gameObject)
+        {
+            MahjongService.Instance.ClientSendLeaveRoom();
+        }
     }
 
     public void ShowSettle(Room room)

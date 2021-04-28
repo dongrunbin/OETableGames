@@ -12,17 +12,9 @@ using UnityEngine.UI;
 public class UIItemTingTip : UIItemBase
 {
     [SerializeField]
-    private RectTransform m_ScrollRectTran;
-    [SerializeField]
     private Transform m_Container;
     [SerializeField]
-    private Image m_BG;
-    [SerializeField]
-    private Image m_ImageAllHu;
-    [SerializeField]
-    private Image m_ImageHu;
-    [SerializeField]
-    private GameObject m_ObjLeftRight;
+    private Text m_TxtAny;
     [SerializeField]
     private GameObject m_ItemPrefab;
 
@@ -37,7 +29,7 @@ public class UIItemTingTip : UIItemBase
         this.SafeSetActive(false);
     }
 
-    public void ShowTip(List<Mahjong> lst, Dictionary<int, int> mahjongCount)
+    public void ShowTip(List<Mahjong> lst)
     {
         if (lst == null || lst.Count == 0)
         {
@@ -51,49 +43,28 @@ public class UIItemTingTip : UIItemBase
         m_HuList.Clear();
         if (lst.Count < SHOW_ALL_HU)
         {
-            m_ImageAllHu.gameObject.SetActive(false);
-            m_ImageHu.gameObject.SetActive(true);
+            m_TxtAny.SafeSetActive(false);
 
             for (int i = 0; i < lst.Count; ++i)
             {
                 GameObject go = Instantiate(m_ItemPrefab);
                 m_HuList.Add(go);
-                go.transform.SetParent(m_Container);
-
-                Text txt = go.GetComponentInChildren<Text>();
+                go.SetActive(true);
+                go.SetParentAndReset(m_Container);
 
                 int hash = lst[i].GetHashCode();
-                int overplus = (4 - mahjongCount[hash]);
-                txt.SafeSetText(overplus.ToString());
                 Image img = go.GetOrCreatComponent<Image>();
-                //img.overrideSprite = MahjongManager.Instance.LoadMahjongSprite(lst[i], false);
+                img.overrideSprite = MahjongManager.Instance.GetMahjongSprite(lst[i]);
                 img.SetNativeSize();
-                if (overplus == 0)
-                {
-                    img.color = Color.gray;
-                }
-                else
-                {
-                    img.color = Color.white;
-                }
             }
             if (lst.Count >= SHOW_COUNT)
             {
-                m_ObjLeftRight.gameObject.SetActive(true);
-                m_BG.rectTransform.sizeDelta = new Vector2(SHOW_COUNT * 100 + 250, 300);
-                m_ScrollRectTran.sizeDelta = new Vector2(SHOW_COUNT * 100, 210);
                 return;
             }
-            m_ObjLeftRight.gameObject.SetActive(false);
-            m_BG.rectTransform.sizeDelta = new Vector2(lst.Count * 100 + 250, 300);
-            m_ScrollRectTran.sizeDelta = new Vector2(lst.Count * 100, 210);
         }
         else
         {
-            m_ObjLeftRight.SetActive(false);
-            m_ImageAllHu.gameObject.SetActive(true);
-            m_ImageHu.gameObject.SetActive(false);
-            m_BG.rectTransform.sizeDelta = new Vector2(300, 0);
+            m_TxtAny.gameObject.SetActive(true);
         }
     }
 

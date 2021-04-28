@@ -22,8 +22,8 @@ public class PreloadProcedure : Procedure
 
         byte[] games = DrbComponent.ResourceSystem.LoadFile("Datatable/Games.bytes", DrbFramework.Resource.LoadMode.Editor);
         DrbComponent.DataTableSystem.CreateDataTable<GamesDataEntity>(games);
-        byte[] settings = DrbComponent.ResourceSystem.LoadFile("Datatable/MahjongSettings.bytes", DrbFramework.Resource.LoadMode.Editor);
-        DrbComponent.DataTableSystem.CreateDataTable<MahjongSettingsDataEntity>(settings);
+        byte[] settings = DrbComponent.ResourceSystem.LoadFile("Datatable/Settings.bytes", DrbFramework.Resource.LoadMode.Editor);
+        DrbComponent.DataTableSystem.CreateDataTable<SettingsDataEntity>(settings);
         ChangeState<LoginProcedure>();
     }
 
