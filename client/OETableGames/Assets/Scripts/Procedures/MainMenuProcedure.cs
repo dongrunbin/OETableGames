@@ -18,7 +18,7 @@ public class MainMenuProcedure : Procedure
         base.OnEnter(userData);
         DrbComponent.GetEventSystem<int>().AddEventListener(CodeDef.Game_S2C_InRoomProto, OnInRoom);
 
-        DrbComponent.AudioSystem.PlayMusic("Audio/Music/bgm_main.mp3");
+        DrbComponent.AudioSystem.PlayMusic("bgm_main");
 
         DrbComponent.UISystem.OpenFormAsync("UI/Forms/MainMenuForm", "BackGround", (IUIForm form)=> 
         {

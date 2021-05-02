@@ -328,5 +328,25 @@ PrefabInstance:
       propertyPath: m_EnabledProcedureTypeNames.Array.data[6]
       value: SplashProcedure
       objectReference: {fileID: 0}
+    - target: {fileID: 114670301303842616, guid: e5787b37e8f1ca94d832cd9725b51d4b,
+        type: 3}
+      propertyPath: m_LuaPackagePaths.Array.data[0]
+      value: Application.dataPath+Downloads/Lua/?.lua.txt
+      objectReference: {fileID: 0}
+    - target: {fileID: 114670301303842616, guid: e5787b37e8f1ca94d832cd9725b51d4b,
+        type: 3}
+      propertyPath: m_InfoLogColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114670301303842616, guid: e5787b37e8f1ca94d832cd9725b51d4b,
+        type: 3}
+      propertyPath: m_InfoLogColor.g
+      value: 0.4433962
+      objectReference: {fileID: 0}
+    - target: {fileID: 114670301303842616, guid: e5787b37e8f1ca94d832cd9725b51d4b,
+        type: 3}
+      propertyPath: m_InfoLogColor.b
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5787b37e8f1ca94d832cd9725b51d4b, type: 3}

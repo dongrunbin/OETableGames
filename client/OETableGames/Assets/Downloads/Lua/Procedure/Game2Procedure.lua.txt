@@ -1,0 +1,25 @@
+
+Game2Procedure = {}
+
+---@type IFsm
+Game2Procedure.Fsm = nil;
+
+---@type IUIForm
+local game2Form;
+
+function Game2Procedure.OnEnter(fsm, userData)
+    GameProcedure.Fsm = fsm;
+
+    DrbComponent.UISystem:OpenFormAsync("UI/Forms/Game2Form.prefab","Form", Game2Procedure.OpenFormCallback);
+    DrbComponent.AudioSystem:PlayMusic("audio/bgm/bgm_2.mp3","bgm_2");
+end
+
+function Game2Procedure.OnLeave()
+    if(game2Form ~= nil) then
+        DrbComponent.UISystem:CloseForm(game2Form);
+    end
+end
+
+function Game2Procedure.OpenFormCallback(form)
+    game2Form = form;
+end

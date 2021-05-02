@@ -95,7 +95,7 @@ public class CreateRoomForm : FormBase
             }
         }
 
-        InitOption();
+        InitOption(1);
     }
 
     public virtual void SetCurrentType(string type)
@@ -170,13 +170,11 @@ public class CreateRoomForm : FormBase
                 break;
             }
         }
-        if (onGameChanged != null)
-        {
-            onGameChanged(gameId);
-        }
+
+        InitOption(m_CurrentGame.GameId);
     }
 
-    private void InitOption()
+    private void InitOption(int gameId)
     {
         for (int i = 0; i < m_ListGroup.Count; ++i)
         {
@@ -189,12 +187,15 @@ public class CreateRoomForm : FormBase
         ICollection<SettingsDataEntity> options = DrbComponent.DataTableSystem.GetDataTable<SettingsDataEntity>().GetEntities();
         foreach (SettingsDataEntity option in options)
         {
+            //Debug.Log(option.GameId);
+            if (option.GameId != gameId) continue;
             bool isExists = false;
             for (int j = 0; j < m_ListGroup.Count; ++j)
             {
                 if (m_ListGroup[j].GroupName.Equals(option.Label))
                 {
                     isExists = true;
+                    m_ListGroup[j].SafeSetActive(true);
                     break;
                 }
             }
@@ -225,47 +226,62 @@ public class CreateRoomForm : FormBase
                             m_ListOption[j].Index = m_ListOption[j].Content.Count - 1;
                         }
                         isExists = true;
+                        m_ListOption[j].SafeSetActive(true);
                         break;
                     }
                 }
                 if (isExists) continue;
             }
-            GameObject go = Instantiate(m_OptionPrefab);
-            go.SetActive(true);
-            UIItemOption item = go.GetComponent<UIItemOption>();
-            item.OptionId = option.Id;
-            item.OptionName = option.Name;
-            item.GroupName = option.Label;
-            item.OptionTags = option.Tags;
-            item.onValueChanged = OnOptionValueChanged;
-            item.Mode = (SelectMode)option.Mode;
-            item.isOn = option.Selected;
-            item.Cost = option.Cost;
-            item.Value = option.Value;
-            item.SetGroup(null);
-            item.Content.Clear();
-            SelectContent content = new SelectContent();
-            content.OptionId = option.Id;
-            content.OptionName = option.Name;
-            item.Content.Add(content);
-            if (option.Selected)
+
+            isExists = false;
+            for (int j = 0; j < m_ListOption.Count; ++j)
             {
-                item.Index = item.Content.Count - 1;
-            }
-            item.isDisplay = option.Status == 1;
-            for (int j = 0; j < m_ListGroup.Count; ++j)
-            {
-                if (m_ListGroup[j].GroupName.Equals(option.Label))
+                if (m_ListOption[j].OptionId.Equals(option.Id))
                 {
-                    item.gameObject.SetParentAndReset(m_ListGroup[j].ToggleGroup.transform);
-                    if (item.Mode == SelectMode.Single)
-                    {
-                        item.SetGroup(m_ListGroup[j].ToggleGroup);
-                    }
+                    m_ListOption[j].SafeSetActive(true);
+                    isExists = true;
                     break;
                 }
             }
-            m_ListOption.Add(item);
+            if (!isExists)
+            {
+                GameObject go = Instantiate(m_OptionPrefab);
+                go.SetActive(true);
+                UIItemOption item = go.GetComponent<UIItemOption>();
+                item.OptionId = option.Id;
+                item.OptionName = option.Name;
+                item.GroupName = option.Label;
+                item.OptionTags = option.Tags;
+                item.onValueChanged = OnOptionValueChanged;
+                item.Mode = (SelectMode)option.Mode;
+                item.isOn = option.Selected;
+                item.Cost = option.Cost;
+                item.Value = option.Value;
+                item.SetGroup(null);
+                item.Content.Clear();
+                SelectContent content = new SelectContent();
+                content.OptionId = option.Id;
+                content.OptionName = option.Name;
+                item.Content.Add(content);
+                if (option.Selected)
+                {
+                    item.Index = item.Content.Count - 1;
+                }
+                item.isDisplay = option.Status == 1;
+                for (int j = 0; j < m_ListGroup.Count; ++j)
+                {
+                    if (m_ListGroup[j].GroupName.Equals(option.Label))
+                    {
+                        item.gameObject.SetParentAndReset(m_ListGroup[j].ToggleGroup.transform);
+                        if (item.Mode == SelectMode.Single)
+                        {
+                            item.SetGroup(m_ListGroup[j].ToggleGroup);
+                        }
+                        break;
+                    }
+                }
+                m_ListOption.Add(item);
+            }
         }
 
         int GroupCount = 0;
@@ -335,7 +351,6 @@ public class CreateRoomForm : FormBase
                 break;
             }
         }
-
         ClientSendCreateRoom(gameId, selected);
     }
 

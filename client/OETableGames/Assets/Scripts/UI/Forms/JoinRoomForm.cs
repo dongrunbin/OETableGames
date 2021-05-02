@@ -39,6 +39,7 @@ public class JoinRoomForm : FormBase
                 if (m_nAlreadyInputCount == m_Texts.Length)
                 {
                     ClientSendJoinRoom(m_RoomId.ToInt());
+                    ResetUI();
                 }
                 return;
             }

@@ -14,7 +14,6 @@ using UnityEngine.EventSystems;
 
 public class MahjongLogic : MonoBehaviour
 {
-    private MahjongForm m_MahjongForm;
     [SerializeField]
     private SeatCtrl[] m_Seats;
     [SerializeField]
@@ -52,6 +51,16 @@ public class MahjongLogic : MonoBehaviour
             FingerEvent.Instance.OnPlayerClickUp += OnPlayerClickUp;
             FingerEvent.Instance.OnPlayerClickDown += OnPlayerClickDown;
             FingerEvent.Instance.OnFingerDrag += OnFingerDrag;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (FingerEvent.Instance != null)
+        {
+            FingerEvent.Instance.OnPlayerClickUp -= OnPlayerClickUp;
+            FingerEvent.Instance.OnPlayerClickDown -= OnPlayerClickDown;
+            FingerEvent.Instance.OnFingerDrag -= OnFingerDrag;
         }
     }
 
@@ -105,6 +114,15 @@ public class MahjongLogic : MonoBehaviour
             m_WallInverse.Remove(mj);
             m_Wall.Remove(mj);
         }
+
+        for (int i = 0; i < room.SeatList.Count; ++i)
+        {
+            if (room.SeatList[i].Status == SeatStatus.Discard)
+            {
+                m_CompassCtrl.SetCurrent(room.SeatList[i].Pos);
+                break;
+            }
+        }
     }
 
     public void Enter(Seat seat)
@@ -141,20 +159,21 @@ public class MahjongLogic : MonoBehaviour
     public void Draw(Seat seat, Mahjong mahjong, bool isFromLast)
     {
         if (seat == null) return;
-        MahjongCtrl mj = isFromLast ? m_WallInverse[0] : m_Wall[0];
-        m_WallInverse.Remove(mj);
-        m_Wall.Remove(mj);
-        MahjongManager.Instance.DespawnMahjong(mj);
-        m_CompassCtrl.SetCurrent(seat.Pos);
-
         if (m_isPlayingAnimation)
         {
             StartCoroutine(DelayDraw(seat, mahjong, isFromLast));
         }
         else
         {
+            MahjongCtrl mj = isFromLast ? m_WallInverse[0] : m_Wall[0];
+            m_WallInverse.Remove(mj);
+            m_Wall.Remove(mj);
+            MahjongManager.Instance.DespawnMahjong(mj);
+            m_CompassCtrl.SetCurrent(seat.Pos);
             GetSeatCtrlBySeatPos(seat.Pos).Draw(seat);
             GetSeatCtrlBySeatPos(seat.Pos).CheckTing(seat);
+
+            m_CompassCtrl.SetCurrent(seat.Pos);
         }
     }
 
@@ -164,7 +183,14 @@ public class MahjongLogic : MonoBehaviour
         {
             yield return null;
         }
+        MahjongCtrl mj = isFromLast ? m_WallInverse[0] : m_Wall[0];
+        m_WallInverse.Remove(mj);
+        m_Wall.Remove(mj);
+        MahjongManager.Instance.DespawnMahjong(mj);
+        m_CompassCtrl.SetCurrent(seat.Pos);
         GetSeatCtrlBySeatPos(seat.Pos).Draw(seat);
+
+        m_CompassCtrl.SetCurrent(seat.Pos);
     }
 
     public void Discard(Seat seat, Mahjong mahjong)
@@ -187,6 +213,8 @@ public class MahjongLogic : MonoBehaviour
     {
         GetSeatCtrlBySeatPos(seat.Pos).Operate(seat, seat.UsedMahjongGroups[seat.UsedMahjongGroups.Count - 1]);
         GetSeatCtrlBySeatPos(seat.Pos).Sort(seat);
+
+        m_CompassCtrl.SetCurrent(seat.Pos);
     }
 
     public void Pass()
@@ -204,10 +232,8 @@ public class MahjongLogic : MonoBehaviour
         if (room == null) return;
         for (int i = 0; i < room.SeatList.Count; ++i)
         {
-            GetSeatCtrlBySeatPos(room.SeatList[i].Pos).ShowSettle(room.SeatList[i]);
+            GetSeatCtrlBySeatPos(room.SeatList[i].Pos).Settle(room.SeatList[i]);
         }
-
-        ShowSettle(room);
     }
 
     public void Result(Room room)
@@ -272,7 +298,6 @@ public class MahjongLogic : MonoBehaviour
         {
             MahjongCtrl ctrl = hitArr[0].collider.gameObject.GetComponent<MahjongCtrl>();
             if (ctrl == null) return;
-            //AudioEffectManager.Instance.Play("dianpai", Vector3.zero, false);
         }
 
         ray = m_CameraCtrl.HandMahjongCamera.ScreenPointToRay(Input.mousePosition);
@@ -281,7 +306,7 @@ public class MahjongLogic : MonoBehaviour
         {
             MahjongCtrl ctrl = hitArr[0].collider.gameObject.GetComponent<MahjongCtrl>();
             if (ctrl == null) return;
-            //AudioEffectManager.Instance.Play("dianpai", Vector3.zero, false);
+            DrbComponent.AudioSystem.PlaySoundEffect("mahjong_click");
             if (ctrl == null || ctrl.Mahjong == null) return;
 
             if (m_SelectMahjong.Contains(ctrl))
@@ -311,7 +336,6 @@ public class MahjongLogic : MonoBehaviour
                 {
                     OnSelectMahjong(m_SelectMahjong[0].Mahjong);
                 }
-                //m_MahjongForm.ShowTingTip(m_Proxy.GetHu(m_SelectMahjong[0].Mahjong), room.MahjongCount);
             }
 
 
@@ -354,7 +378,6 @@ public class MahjongLogic : MonoBehaviour
             {
                 OnDoubleClickMahjong(ctrl.Mahjong);
             }
-            //m_MahjongForm.ShowTingTip(m_Proxy.GetHu(ctrl.Mahjong), room.MahjongCount);
         }
         else
         {
@@ -590,21 +613,5 @@ public class MahjongLogic : MonoBehaviour
         yield return null;
 
         yield return StartCoroutine(GetSeatCtrlBySeatPos(room.PlayerSeat.Pos).PlayDealMahjongAnimation(room.PlayerSeat));
-    }
-
-
-    private void ShowSettle(Room room)
-    {
-        if (room.RoomStatus == RoomStatus.Settle || room.RoomStatus == RoomStatus.Waiting)
-        {
-            //AudioEffectManager.Instance.Play(room.PlayerSeat.isWiner ? "win" : "lose", Vector3.zero, false);
-            m_MahjongForm.ShowSettle(room);
-        }
-    }
-
-    public void ChangeOperator(Seat seat)
-    {
-        if (seat == null) return;
-        m_CompassCtrl.SetCurrent(seat.Pos);
     }
 }

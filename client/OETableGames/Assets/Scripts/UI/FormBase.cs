@@ -54,12 +54,12 @@ public class FormBase : UGUIForm
     {
         if (go.name.Equals("btnClose"))
         {
-            DrbComponent.AudioSystem.PlaySoundEffect("Audio/SoundEffect/btnclose.wav");
+            DrbComponent.AudioSystem.PlaySoundEffect("btnclose");
             Close();
         }
         else
         {
-            DrbComponent.AudioSystem.PlaySoundEffect("Audio/SoundEffect/btnclick.wav");
+            DrbComponent.AudioSystem.PlaySoundEffect("btnclick");
         }
     }
 

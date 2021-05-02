@@ -9,7 +9,7 @@ using UnityEngine.UI;
 using System;
 using DrbFramework.Internal;
 
-public class MessageForm : UGUIForm
+public class MessageForm : FormBase
 {
     public enum AutoClickType
     {
@@ -41,13 +41,6 @@ public class MessageForm : UGUIForm
     private float m_fCountDown;
     private AutoClickType m_AutoType;
 
-    public override void OnInit()
-    {
-        base.OnInit();
-        EventTriggerListener.Get(btnOk.gameObject).onClick = BtnOkClickCallBack;
-        EventTriggerListener.Get(btnCancel.gameObject).onClick = BtnCancelClickCallBack;
-    }
-
     public override void OnUpdate(float elapseSeconds, float realElapseSeconds)
     {
         base.OnUpdate(elapseSeconds, realElapseSeconds);
@@ -62,10 +55,10 @@ public class MessageForm : UGUIForm
                 switch (m_AutoType)
                 {
                     case AutoClickType.Cancel:
-                        BtnCancelClickCallBack(btnCancel.gameObject);
+                        OnBtnClick(btnCancel.gameObject);
                         break;
                     case AutoClickType.Ok:
-                        BtnOkClickCallBack(btnOk.gameObject);
+                        OnBtnClick(btnOk.gameObject);
                         break;
                 }
             }
@@ -82,30 +75,32 @@ public class MessageForm : UGUIForm
         }
     }
 
-    private void BtnOkClickCallBack(GameObject go)
+    protected override void OnBtnClick(GameObject go)
     {
-        //DrbComponent.AudioSystem.PlayAudio("btnclick", Vector3.zero, false);
-        Close();
-        if (OnOkClickHandler != null) OnOkClickHandler();
+        base.OnBtnClick(go);
+        if (go == btnOk.gameObject)
+        {
+            Close();
+            if (OnOkClickHandler != null) OnOkClickHandler();
+        }
+        else if (go == btnCancel.gameObject)
+        {
+            Close();
+            if (OnCancelHandler != null) OnCancelHandler();
+        }
     }
 
-    private void BtnCancelClickCallBack(GameObject go)
+    protected override void Close()
     {
-        //DrbComponent.AudioSystem.PlayAudio("btnclose", Vector3.zero, false);
-        Close();
-        if (OnCancelHandler != null) OnCancelHandler();
-    }
-
-    private void Close()
-    {
+        base.Close();
         m_AutoType = AutoClickType.None;
         m_fCountDown = 0.0f;
-        gameObject.transform.localPosition = new Vector3(0, 5000, 0);
+        //gameObject.transform.localPosition = new Vector3(0, 5000, 0);
     }
 
     public void Show(string title, string message, float countDown = 0f, AutoClickType autoType = AutoClickType.None, MessageViewType type = MessageViewType.Ok, Action okAction = null, Action cancelAction = null)
     {
-        gameObject.transform.localPosition = Vector3.zero;
+        //gameObject.transform.localPosition = Vector3.zero;
         lblTitle.text = title;
         lblMessage.text = message;
 

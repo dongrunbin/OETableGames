@@ -26,10 +26,10 @@ public class MahjongForm : FormBase
     private UIItemTimeTip m_TimeTip;
     [SerializeField]
     private Button m_BtnLeave;
-    //[SerializeField]
-    //private UISettleViewBase m_SettleView;
-    //[SerializeField]
-    //private UIResultViewBase m_ResultView;
+    [SerializeField]
+    private UIItemSettle m_SettleView;
+    [SerializeField]
+    private UIItemResult m_ResultView;
 
     public void Init(Room room)
     {
@@ -101,6 +101,7 @@ public class MahjongForm : FormBase
         if (seat.IsPlayer)
         {
             m_ButtonReady.SafeSetActive(false);
+            CloseSettle();
         }
         UIItemSeat item = GetItemSeatByIndex(seat.Index);
         item.SetReady(seat.Status == SeatStatus.Ready);
@@ -132,9 +133,9 @@ public class MahjongForm : FormBase
         itemSeat.SetOperating(false);
     }
 
-    public void AskOperation(List<List<Mahjong>> chiList, List<Mahjong> pengList, List<List<Mahjong>> gangList, bool isHu, bool isZiMo)
+    public void AskOperation(List<List<Mahjong>> chiList, List<Mahjong> pengList, List<List<Mahjong>> gangList, bool isHu)
     {
-        Operator.Show(chiList, pengList, gangList, isHu, isZiMo);
+        Operator.Show(chiList, pengList, gangList, isHu);
         m_TingTip.Close();
     }
 
@@ -178,32 +179,32 @@ public class MahjongForm : FormBase
         }
     }
 
-    public void ShowSettle(Room room)
+    public void Settle(Room room)
     {
-        //if (m_SettleView == null) return;
+        if (m_SettleView == null) return;
+        if (room == null) return;
 
-        //if (room == null) return;
-        //m_SettleView.Show();
-        //m_SettleView.SetUI(room);
+        m_SettleView.Show();
+        m_SettleView.SetUI(room);
     }
 
     public void CloseSettle()
     {
-        //if (m_SettleView == null) return;
-        //m_SettleView.Hide();
+        if (m_SettleView == null) return;
+        m_SettleView.Hide();
     }
 
-    public void ShowResult(Room room)
+    public void Result(Room room)
     {
-        //if (m_ResultView == null) return;
-        //m_ResultView.Show();
-        //m_ResultView.SetUI(room);
+        if (m_ResultView == null) return;
+        m_ResultView.Show();
+        m_ResultView.SetUI(room);
     }
 
     public void CloseResult()
     {
-        //if (m_ResultView == null) return;
-        //m_ResultView.Hide();
+        if (m_ResultView == null) return;
+        m_ResultView.Hide();
     }
 
     public void ChangeRoomInfo(Room room)
@@ -236,7 +237,7 @@ public class MahjongForm : FormBase
         itemSeat.SetNickName(seat.Nickname);
     }
 
-    public void SetCountdown(long serverTime, bool isPlayer)
+    public void SetCountdown(int serverTime, bool isPlayer)
     {
         if (m_TimeTip == null) return;
         if (serverTime == 0)
@@ -244,9 +245,8 @@ public class MahjongForm : FormBase
             m_TimeTip.SetTime(0, isPlayer);
             return;
         }
-        //int s = GlobalInit.Instance.GetSecond(serverTime);
-        //m_TimeTip.Show();
-        //m_TimeTip.SetTime(s, isPlayer);
+        m_TimeTip.Show();
+        m_TimeTip.SetTime(serverTime, isPlayer);
     }
 
     private UIItemSeat GetItemSeatByIndex(int index)

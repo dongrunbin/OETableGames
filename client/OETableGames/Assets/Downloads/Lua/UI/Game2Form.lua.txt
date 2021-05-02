@@ -1,0 +1,22 @@
+
+Game2Form = {}
+
+
+---@type GameObject
+local gameObject;
+
+function Game2Form.OnInit(go)
+    gameObject = go;
+end
+
+function Game2Form.OnShow()
+
+end
+
+function Game2Form.OnHide()
+
+end
+
+function Game2Form.OnBeforeDestroy()
+
+end

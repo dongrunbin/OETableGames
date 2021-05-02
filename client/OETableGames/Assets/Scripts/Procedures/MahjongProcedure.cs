@@ -16,6 +16,92 @@ public class MahjongProcedure : Procedure
     private MahjongProxy m_Proxy;
     private MahjongLogic m_Logic;
 
+    public override void OnEnter(object userData)
+    {
+        base.OnEnter(userData);
+        MahjongService.Instance.AddListener();
+        DrbComponent.SceneSystem.OnSceneLoaded += OnSceneLoaded;
+        DrbComponent.SceneSystem.AddSceneAsync("MahjongScene");
+    }
+
+    public override void OnLeave()
+    {
+        base.OnLeave();
+        MahjongService.Instance.RemoveListener();
+        DrbComponent.SceneSystem.OnSceneLoaded -= OnSceneLoaded;
+
+        DrbComponent.AudioSystem.StopAllAudios();
+    }
+
+    private void OnSceneLoaded(string sceneName, LoadSceneMode mode)
+    {
+        if (sceneName.Equals("MahjongScene"))
+        {
+            DrbComponent.UISystem.OpenFormAsync("UI/Forms/MahjongForm", "BackGround", (IUIForm form) =>
+            {
+                m_MahjongForm = (MahjongForm)form;
+                m_MahjongForm.Operator.OnOperatorClick = OnOperatorClick;
+
+                m_Logic = Object.FindObjectOfType<MahjongLogic>();
+                m_Logic.OnDoubleClickMahjong = OnMahjongDoubleClick;
+                m_Logic.OnSelectMahjong = OnMahjongClick;
+                MahjongManager.Instance.Init();
+                MahjongService.Instance.ClientSendRoomInfo();
+
+                DrbComponent.AudioSystem.PlayMusic("bgm_mahjong");
+            });
+        }
+    }
+
+    private void OnMahjongClick(Mahjong mahjong)
+    {
+        if (m_Proxy == null) return;
+        Room room = m_Proxy.Room;
+        if (room == null) return;
+        Seat playerSeat = room.PlayerSeat;
+        if (playerSeat == null) return;
+
+        if (room.PlayerSeat.Status == SeatStatus.Discard && room.RoomStatus == RoomStatus.Gaming)
+        {
+            m_MahjongForm.ShowTingTip(m_Proxy.GetHu(mahjong));
+        }
+    }
+
+    private void OnMahjongDoubleClick(Mahjong mahjong)
+    {
+        if (m_Proxy == null) return;
+        Room room = m_Proxy.Room;
+        if (room == null) return;
+        Seat playerSeat = room.PlayerSeat;
+        if (playerSeat == null) return;
+
+        if (room.PlayerSeat.Status == SeatStatus.Discard && room.RoomStatus == RoomStatus.Gaming)
+        {
+            MahjongService.Instance.ClientSendPass();
+            MahjongService.Instance.ClientSendPlayMahjong(mahjong);
+            m_MahjongForm.ShowTingTip(m_Proxy.GetHu(mahjong));
+        }
+    }
+
+    private void OnOperatorClick(OperationType type, List<Mahjong> lst)
+    {
+        if (m_Proxy == null) return;
+
+        if (type == OperationType.Cancel || type == OperationType.Pass)
+        {
+            m_Logic.ClearSelectedMahjongs();
+            if (type == OperationType.Pass)
+            {
+                MahjongService.Instance.ClientSendPass();
+            }
+        }
+        else
+        {
+            m_MahjongForm.CloseOperator();
+            MahjongService.Instance.ClientSendOperate(type, lst);
+        }
+    }
+
     public void Init(Room room)
     {
         m_Proxy = new MahjongProxy(room);
@@ -66,8 +152,6 @@ public class MahjongProcedure : Procedure
         if (m_Proxy == null) return;
         m_Proxy.Ready(playerId);
         Seat seat = m_Proxy.GetSeatByPlayerId(playerId);
-        DrbFramework.Log.Info(seat.Status);
-        DrbFramework.Log.Info(seat.IsPlayer);
         m_MahjongForm.Ready(seat);
         m_Logic.Ready(seat);
     }
@@ -117,10 +201,9 @@ public class MahjongProcedure : Procedure
         m_Proxy.AskOperation(lst);
 
         bool canHu = false;
-        List<Mahjong> lstPeng = null;
-        List<List<Mahjong>> lstGangs = null;
-        List<List<Mahjong>> lstChi = null;
-        bool isZimo = false;
+        List<Mahjong> lstPong = null;
+        List<List<Mahjong>> lstKong = null;
+        List<List<Mahjong>> lstChow = null;
 
         for (int i = 0; i < lst.Count; ++i)
         {
@@ -134,42 +217,41 @@ public class MahjongProcedure : Procedure
             switch (type)
             {
                 case OperationType.Pong:
-                    lstPeng = m_Proxy.GetPeng(mahjong);
+                    lstPong = m_Proxy.GetPeng(mahjong);
                     break;
                 case OperationType.Kong:
                     if (mahjong == null)
                     {
-                        lstGangs = m_Proxy.GetAnGang();
+                        lstKong = m_Proxy.GetAnGang();
                         List<Mahjong> lstBuGangs = m_Proxy.GetBuGang();
                         for (int j = 0; j < lstBuGangs.Count; ++j)
                         {
-                            lstGangs.Add(new List<Mahjong> { lstBuGangs[j] });
+                            lstKong.Add(new List<Mahjong> { lstBuGangs[j] });
                         }
                     }
                     else
                     {
-                        lstGangs = new List<List<Mahjong>>();
+                        lstKong = new List<List<Mahjong>>();
                         List<Mahjong> lstMingGang = m_Proxy.GetMingGang(mahjong);
                         if (lstMingGang != null && lstMingGang.Count > 0)
                         {
-                            lstGangs.Add(lstMingGang);
+                            lstKong.Add(lstMingGang);
                         }
                     }
                     break;
                 case OperationType.Chow:
-                    lstChi = m_Proxy.GetChi(mahjong);
+                    lstChow = m_Proxy.GetChi(mahjong);
                     break;
                 case OperationType.Win:
                     canHu = true;
                     break;
                 case OperationType.WinBySelf:
                     canHu = true;
-                    isZimo = true;
                     break;
             }
         }
 
-        m_MahjongForm.AskOperation(lstChi, lstPeng, lstGangs, canHu, isZimo);
+        m_MahjongForm.AskOperation(lstChow, lstPong, lstKong, canHu);
     }
 
     public void Operation(int playerId, OperationType type, int subType, List<Mahjong> lst)
@@ -179,6 +261,13 @@ public class MahjongProcedure : Procedure
         Seat seat = m_Proxy.GetSeatByPlayerId(playerId);
         m_MahjongForm.Operation(seat);
         m_Logic.Operation(seat);
+
+        if (seat.IsPlayer)
+        {
+            m_Proxy.CheckTing();
+            m_Logic.CheckTing(seat);
+            m_MahjongForm.ShowTingTip(m_Proxy.Room.PlayerSeat.TingList);
+        }
     }
 
     public void Pass()
@@ -189,94 +278,19 @@ public class MahjongProcedure : Procedure
 
     public void Settle(Room room)
     {
-        if (room == null) return;
+        if (m_Proxy == null) return;
+        m_Proxy.Settle(room);
+
+        m_Logic.Settle(m_Proxy.Room);
+        m_MahjongForm.Settle(m_Proxy.Room);
     }
 
     public void Result(Room room)
     {
         if (m_Proxy == null) return;
-        m_Proxy.GameOver(room);
-    }
+        m_Proxy.Result(room);
 
-    public override void OnEnter(object userData)
-    {
-        base.OnEnter(userData);
-        MahjongService.Instance.AddListener();
-        DrbComponent.SceneSystem.OnSceneLoaded += OnSceneLoaded;
-        DrbComponent.SceneSystem.AddSceneAsync("MahjongScene");
-
-        //m_AI = new MahjongAI(this);
-        //AssetBundle ab = (AssetBundle)DrbComponent.ResourceSystem.LoadAssetBundle("Downloads/Scenes/MahjongScene.scene", DrbFramework.Resource.LoadMode.Editor);
-        //DrbComponent.SceneSystem.LoadScene("MahjongScene");
-    }
-
-    public override void OnLeave()
-    {
-        base.OnLeave();
-        MahjongService.Instance.RemoveListener();
-        DrbComponent.SceneSystem.OnSceneLoaded -= OnSceneLoaded;
-    }
-
-    private void OnSceneLoaded(string sceneName, LoadSceneMode mode)
-    {
-        if (sceneName.Equals("MahjongScene"))
-        {
-            DrbComponent.UISystem.OpenFormAsync("UI/Forms/MahjongForm", "BackGround", (IUIForm form) =>
-            {
-                m_MahjongForm = (MahjongForm)form;
-                m_MahjongForm.Operator.OnOperatorClick = OnOperatorClick;
-
-                m_Logic = Object.FindObjectOfType<MahjongLogic>();
-                m_Logic.OnDoubleClickMahjong = OnDoubleClick;
-                m_Logic.OnSelectMahjong = OnSingleClick;
-                MahjongManager.Instance.Init();
-                MahjongService.Instance.ClientSendRoomInfo();
-            });
-        }
-    }
-
-    private void OnSingleClick(Mahjong mahjong)
-    {
-        if (m_Proxy == null) return;
-        Room room = m_Proxy.Room;
-        if (room == null) return;
-        Seat playerSeat = room.PlayerSeat;
-        if (playerSeat == null) return;
-
-        if (room.PlayerSeat.Status == SeatStatus.PlayMahjong && room.RoomStatus == RoomStatus.Gaming)
-        {
-            m_MahjongForm.ShowTingTip(m_Proxy.GetHu(mahjong));
-        }
-    }
-
-    private void OnDoubleClick(Mahjong mahjong)
-    {
-        if (m_Proxy == null) return;
-        Room room = m_Proxy.Room;
-        if (room == null) return;
-        Seat playerSeat = room.PlayerSeat;
-        if (playerSeat == null) return;
-
-        if (room.PlayerSeat.Status == SeatStatus.PlayMahjong && room.RoomStatus == RoomStatus.Gaming)
-        {
-            MahjongService.Instance.ClientSendPass();
-            MahjongService.Instance.ClientSendPlayMahjong(mahjong);
-            m_MahjongForm.ShowTingTip(m_Proxy.GetHu(mahjong));
-        }
-    }
-
-    private void OnOperatorClick(OperationType type, List<Mahjong> lst)
-    {
-        if (m_Proxy == null) return;
-
-        if (type == OperationType.Cancel || type == OperationType.Pass)
-        {
-            m_Logic.ClearSelectedMahjongs();
-        }
-        else
-        {
-            m_MahjongForm.CloseOperator();
-            MahjongService.Instance.ClientSendOperate(type, lst);
-        }
+        m_Logic.Result(m_Proxy.Room);
+        m_MahjongForm.Result(m_Proxy.Room);
     }
 }

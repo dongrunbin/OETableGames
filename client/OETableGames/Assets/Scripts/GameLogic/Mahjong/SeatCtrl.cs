@@ -70,7 +70,7 @@ public class SeatCtrl : MonoBehaviour
         //m_DiceHand.gameObject.SetActive(false);
     }
 
-    public void ShowSettle(Seat seat)
+    public void Settle(Seat seat)
     {
         if (seat == null) return;
 
@@ -462,7 +462,7 @@ public class SeatCtrl : MonoBehaviour
         {
             majiang.transform.DOMove(destPos, 0.15f).OnComplete(() =>
             {
-                //AudioEffectManager.Instance.Play("chupai");
+                DrbComponent.AudioSystem.PlaySoundEffect("mahjong_discard");
                 if (majiang == m_PrevPlayMahjong)
                 {
                     majiang.ShowTip(false);

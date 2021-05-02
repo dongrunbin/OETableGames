@@ -34,7 +34,6 @@ public class UIItemOperator : UIItemBase
     private List<Mahjong> m_PengList;
     private List<List<Mahjong>> m_GangList;
     private List<List<Mahjong>> m_ChiList;
-    private bool m_isZiMo;
     private bool m_isHu;
 
     public Action<OperationType, List<Mahjong>> OnOperatorClick;
@@ -162,12 +161,11 @@ public class UIItemOperator : UIItemBase
         }
     }
 
-    public void Show(List<List<Mahjong>> chiList, List<Mahjong> pengList, List<List<Mahjong>> gangList, bool isHu, bool isZiMo)
+    public void Show(List<List<Mahjong>> chiList, List<Mahjong> pengList, List<List<Mahjong>> gangList, bool isHu)
     {
         m_ChiList = chiList;
         m_PengList = pengList;
         m_GangList = gangList;
-        m_isZiMo = isZiMo;
         m_isHu = isHu;
         ShowOperator();
     }
@@ -177,7 +175,7 @@ public class UIItemOperator : UIItemBase
         m_ImageChi.SafeSetActive(m_ChiList != null && m_ChiList.Count > 0);
         m_ImagePeng.SafeSetActive(m_PengList != null && m_PengList.Count > 0);
         m_ImageGang.SafeSetActive(m_GangList != null && m_GangList.Count > 0);
-        m_ImageHu.SafeSetActive(!m_isZiMo && m_isHu);
+        m_ImageHu.SafeSetActive(m_isHu);
         m_ImagePass.SafeSetActive(true);
     }
 
@@ -198,7 +196,6 @@ public class UIItemOperator : UIItemBase
             m_PengList = null;
             m_GangList = null;
             m_ChiList = null;
-            m_isZiMo = false;
             m_isHu = false;
         }
     }

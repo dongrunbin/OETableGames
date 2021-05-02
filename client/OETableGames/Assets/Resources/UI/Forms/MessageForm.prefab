@@ -596,6 +596,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_isLua: 0
+  m_hasMask: 1
+  m_MaskColor: {r: 0, g: 0, b: 0, a: 0.6}
+  m_MaskCanClose: 0
   lblTitle: {fileID: 3372280282484432588}
   lblMessage: {fileID: 6152031188140741737}
   btnOk: {fileID: 8434326918851585426}

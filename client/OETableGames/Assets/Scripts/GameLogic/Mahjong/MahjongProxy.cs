@@ -205,7 +205,7 @@ public class MahjongProxy
             seat.HitMahjong = mahjong;
         }
 
-        seat.Status = SeatStatus.PlayMahjong;
+        seat.Status = SeatStatus.Discard;
     }
 
     public void Discard(int playerId, Mahjong mahjong)
@@ -263,7 +263,7 @@ public class MahjongProxy
     {
         Seat seat = GetSeatByPlayerId(playerId);
         if (seat == null) return;
-        seat.Status = SeatStatus.PlayMahjong;
+        seat.Status = SeatStatus.Discard;
 
         MahjongGroup conbination = null;
         if (lst != null && lst.Count > 0)
@@ -341,7 +341,7 @@ public class MahjongProxy
         if (seat == null) return;
 
         Room.AskMahjongGroup = null;
-        if (seat.HitMahjong != null) seat.Status = SeatStatus.PlayMahjong;
+        if (seat.HitMahjong != null) seat.Status = SeatStatus.Discard;
         else seat.Status = SeatStatus.Wait;
     }
 
@@ -407,7 +407,7 @@ public class MahjongProxy
 
         MahjongHelper.SimpleSort(seat.MahjongList);
 
-        if (seat.Status == SeatStatus.PlayMahjong && seat.HitMahjong == null)
+        if (seat.Status == SeatStatus.Discard && seat.HitMahjong == null)
         {
             Mahjong lastMahjong = seat.MahjongList[seat.MahjongList.Count - 1];
             seat.HitMahjong = lastMahjong;
@@ -498,7 +498,7 @@ public class MahjongProxy
         Room.MahjongAmount -= reduce;
     }
 
-    public void GameOver(Room room)
+    public void Result(Room room)
     {
         if (room == null) return;
         if (Room == null) return;

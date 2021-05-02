@@ -42,6 +42,8 @@ public class CheckVersionProcedure : Procedure
 
         m_InitForm = (InitForm)DrbComponent.UISystem.OpenInternalForm("UI/Forms/InitForm", "BackGround");
 
+        DrbComponent.LuaSystem.Initialize("require 'Main'", "LuaSystem.Init", "LuaSystem.Update", "LuaSystem.Shutdown");
+
         RequestDownloadURL();
     }
 

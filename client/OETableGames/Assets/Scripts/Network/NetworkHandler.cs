@@ -136,6 +136,8 @@ public class NetworkHandler : INetworkHandler
         {
             Debug.LogWarning("Heart beat time out");
             DrbComponent.NetworkSystem.Close();
+
+            timer.Stop();
         }
 
         ClientSendHeart();

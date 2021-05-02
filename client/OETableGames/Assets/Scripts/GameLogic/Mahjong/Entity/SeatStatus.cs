@@ -8,7 +8,7 @@ public enum SeatStatus
 {
     Idle,
     Ready,
-    PlayMahjong,
+    Discard,
     Wait,
     Operate,
 }

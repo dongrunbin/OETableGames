@@ -1,0 +1,11 @@
+require "Procedure/Game2Procedure"
+require "UI/Game2Form"
+require "Define"
+require "LuaSystem"
+
+
+GameEntry = {}
+
+function GameEntry.Init()
+
+end
