@@ -12,6 +12,7 @@ using DrbFramework.Extensions;
 using DrbFramework.Utility;
 using DrbFramework.Resource;
 using System.Reflection;
+using System.Text;
 
 namespace DrbFramework.Internal.Editor
 {
@@ -22,7 +23,7 @@ namespace DrbFramework.Internal.Editor
         private static void OpenAssetBundleWindow()
         {
             AssetBundleWindow win = GetWindow<AssetBundleWindow>(true, "AssetBundle Tool", true);
-            win.minSize = win.maxSize = new Vector2(560f, 450f);
+            win.minSize = win.maxSize = new Vector2(560f, 470f);
             win.Show();
         }
 
@@ -38,6 +39,9 @@ namespace DrbFramework.Internal.Editor
         private const string AssetPathKey = "DrbFramework.AssetBundleWindow.AssetPath";
         private const string OutputPathKey = "DrbFramework.AssetBundleWindow.OutputPath";
 
+        private AssetbundleDAL m_DAL;
+        private List<AssetbundleEntity> m_List;
+
         void OnEnable()
         {
             m_AssetPath = PlayerPrefs.GetString(AssetPathKey, Application.dataPath);
@@ -49,6 +53,10 @@ namespace DrbFramework.Internal.Editor
             m_ResourceEncoderTypeNames = new List<string>();
             m_ResourceEncoderTypeNames.Add("None");
             m_ResourceEncoderTypeNames.AddRange(typeof(IResourceEncoder).GetAllImplementationNames());
+
+            string xmlPath = Application.dataPath + @"/Editor/AssetBundle/AssetBundleConfig.xml";
+            m_DAL = new AssetbundleDAL(xmlPath);
+            m_List = m_DAL.GetList();
         }
 
         void OnGUI()
@@ -176,6 +184,11 @@ namespace DrbFramework.Internal.Editor
                     OnBuildAssetBundleClick();
                 }
 
+                if (GUILayout.Button("Generate version file"))
+                {
+                    OnCreateVersionInfoCallBack();
+                }
+
             }
             EditorGUILayout.EndVertical();
         }
@@ -184,7 +197,7 @@ namespace DrbFramework.Internal.Editor
         {
             int fileCount = IOUtil.GetAllFileCount(m_AssetPath);
             int index = 0;
-            SaveFolderSettings(new string[] { m_AssetPath }, fileCount, ref index);
+            //SaveFolderSettings(new string[] { m_AssetPath }, fileCount, ref index);
 
             for (int i = 0; i < m_PlatformSelected.Count; ++i)
             {
@@ -297,6 +310,82 @@ namespace DrbFramework.Internal.Editor
             {
                 EncryptAssetBundle(dir, fileCount, ref fileIndex);
             }
+        }
+
+        private void OnCreateVersionInfoCallBack()
+        {
+            if (m_PlatformSelected == null) return;
+            for (int index = 0; index < m_PlatformSelected.Count; ++index)
+            {
+                string path = m_OutputPath + m_PlatformSelected[index];
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+                string strVersionInfoPath = path + "/VersionInfo.txt";
+                DirectoryInfo directory = new DirectoryInfo(path);
+                StringBuilder sb = new StringBuilder();
+
+                FileInfo[] arrFiles = directory.GetFiles("*", SearchOption.AllDirectories);
+                for (int i = 0; i < arrFiles.Length; ++i)
+                {
+                    //if (arrFiles[i].Extension.Equals(".txt", StringComparison.CurrentCultureIgnoreCase)) continue;
+                    //if (arrFiles[i].Extension.Equals(".apk", StringComparison.CurrentCultureIgnoreCase)) continue;
+                    FileInfo file = arrFiles[i];
+                    string fullName = file.FullName.Replace('\\', '/');
+                    string name = fullName.Substring(fullName.IndexOf(m_PlatformSelected[index].ToString()) + m_PlatformSelected[index].ToString().Length + 1);
+                    
+                    string md5 = EncryptUtil.GetFileMD5(fullName);
+                    if (string.IsNullOrEmpty(md5)) continue;
+
+                    string size = file.Length.ToString();
+
+                    bool isFirstData = false;
+                    bool isBreak = false;
+
+                    //for (int j = 0; j < m_List.Count; ++j)
+                    //{
+                    //    foreach (string xmlPath in m_List[j].PathList)
+                    //    {
+                    //        string tempPath = xmlPath;
+                    //        if (xmlPath.IndexOf(".") != -1)
+                    //        {
+                    //            tempPath = xmlPath.Substring(0, xmlPath.IndexOf("."));
+                    //        }
+                    //        //tempPath = tempPath.Replace("/", @"\");
+                    //        if (name.IndexOf(tempPath, StringComparison.CurrentCultureIgnoreCase) != -1)
+                    //        {
+                    //            isFirstData = m_List[j].IsFirstData;
+                    //            isBreak = true;
+                    //            break;
+                    //        }
+                    //    }
+                    //    if (isBreak) break;
+                    //}
+
+                    //if (name.IndexOf("binarydata", StringComparison.CurrentCultureIgnoreCase) != -1)
+                    //{
+                    //    isFirstData = true;
+                    //}
+                    //if (name.Equals(m_PlatformSelected[index].ToString(), StringComparison.CurrentCultureIgnoreCase))
+                    //{
+                    //    isFirstData = true;
+                    //}
+                    //if (name.Equals(m_PlatformSelected[index].ToString() + ".manifest", StringComparison.CurrentCultureIgnoreCase))
+                    //{
+                    //    isFirstData = true;
+                    //}
+
+                    string strLine = string.Format("{0};{1};{2};{3}", name, md5, size, isFirstData ? 1 : 0);
+                    sb.AppendLine(strLine);
+                }
+
+                IOUtil.CreateTextFile(strVersionInfoPath, sb.ToString());
+                this.ShowNotification(new GUIContent("create version file finished"));
+                UnityEngine.Debug.Log("create version file finished");
+                FolderUtil.SelectFile(strVersionInfoPath);
+            }
+            
         }
     }
 }

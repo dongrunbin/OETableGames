@@ -83,6 +83,9 @@ namespace DrbFramework.Internal.Editor
         private SerializedProperty m_ResourceDecoderTypeName;
         private string[] m_ResourceDecoderTypeNames;
         private int m_ResourceDecoderTypeNamesIndex;
+        private SerializedProperty m_ResourceDependencyManifestTypeName;
+        private string[] m_ResourceDependencyManifestTypeNames;
+        private int m_ResourceDependencyManifestTypeNamesIndex;
 
 
         private SerializedProperty m_DebugFormTypeNames;
@@ -143,6 +146,7 @@ namespace DrbFramework.Internal.Editor
             m_ResourceLoaderComponent = serializedObject.FindProperty("m_ResourceLoaderComponent");
             m_ResourceHolderTypeName = serializedObject.FindProperty("m_ResourceHolderTypeName");
             m_ResourceDecoderTypeName = serializedObject.FindProperty("m_ResourceDecoderTypeName");
+            m_ResourceDependencyManifestTypeName = serializedObject.FindProperty("m_ResourceDependencyManifestTypeName");
             m_LuaPackagePaths = serializedObject.FindProperty("m_LuaPackagePaths");
             m_DebugFormTypeNames = serializedObject.FindProperty("m_DebugFormTypeNames");
             m_AudioCreaterTypeName = serializedObject.FindProperty("m_AudioCreaterTypeName");
@@ -205,6 +209,7 @@ namespace DrbFramework.Internal.Editor
 
             m_ResourceHolderTypeNames = InitTypeName(m_ResourceHolderTypeName, typeof(IResourceHolder), ref m_ResourceHolderTypeNamesIndex);
             m_ResourceDecoderTypeNames = InitTypeName(m_ResourceDecoderTypeName, typeof(IResourceDecoder), ref m_ResourceDecoderTypeNamesIndex);
+            m_ResourceDependencyManifestTypeNames = InitTypeName(m_ResourceDependencyManifestTypeName, typeof(IDependencyManifest), ref m_ResourceDependencyManifestTypeNamesIndex);
             m_DataTableParserTypeNames = InitTypeName(m_DataTableParserTypeName, typeof(IDataTableParser), ref m_DataTableParserTypeNamesIndex);
             m_SettingHandlerTypeNames = InitTypeName(m_SettingHandlerTypeName, typeof(ISettingHandler), ref m_SettingHandlerTypeNamesIndex);
             m_UICreaterTypeNames = InitTypeName(m_UICreaterTypeName, typeof(IUICreater), ref m_UICreaterTypeNamesIndex);
@@ -368,6 +373,7 @@ namespace DrbFramework.Internal.Editor
             m_ResourceLoaderComponent.objectReferenceValue = EditorGUILayout.ObjectField("Resource Loader Component", m_ResourceLoaderComponent.objectReferenceValue, typeof(Internal.Resource.ResourceLoaderComponent), true);
             TypePopup("Resource Holder", ref m_ResourceHolderTypeNamesIndex, m_ResourceHolderTypeNames, m_ResourceHolderTypeName);
             TypePopup("Resource Decoder", ref m_ResourceDecoderTypeNamesIndex, m_ResourceDecoderTypeNames, m_ResourceDecoderTypeName);
+            TypePopup("Dependency Manifest", ref m_ResourceDependencyManifestTypeNamesIndex, m_ResourceDependencyManifestTypeNames, m_ResourceDependencyManifestTypeName);
             EndModule();
         }
 

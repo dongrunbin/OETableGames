@@ -1,9 +1,9 @@
 package com.oegame.tablegames.service;
 
-import com.oegame.tablegames.service.game.mahjong.MahjongService;
+import com.oegame.tablegames.service.mahjong.MahjongService;
 import com.zhenyi.remoting.framework.context.ApplicationContext;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.oegame.tablegames.common.log.Logger;
+import com.oegame.tablegames.common.log.LoggerFactory;
 import com.oegame.tablegames.service.player.PlayerService;
 import com.oegame.tablegames.service.proxy.ProxyService;
 

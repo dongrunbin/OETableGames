@@ -5,23 +5,26 @@ PluginImporter:
   serializedVersion: 2
   iconMap: {}
   executionOrder: {}
+  defineConstraints: []
   isPreloaded: 0
   isOverridable: 0
+  isExplicitlyReferenced: 0
+  validateReferences: 1
   platformData:
   - first:
-      '': OSXIntel
+      : OSXIntel
     second:
       enabled: 0
       settings:
         CPU: None
   - first:
-      '': OSXIntel64
+      : OSXIntel64
     second:
       enabled: 0
       settings:
         CPU: None
   - first:
-      '': WP8
+      : WP8
     second:
       enabled: 0
       settings:
@@ -70,7 +73,7 @@ PluginImporter:
     second:
       enabled: 1
       settings:
-        CPU: x86_64
+        CPU: AnyCPU
   - first:
       Standalone: LinuxUniversal
     second:
@@ -112,5 +115,5 @@ PluginImporter:
         CompileFlags: 
         FrameworkDependencies: 
   userData: 
-  assetBundleName: drbframework/plugins/xlua/x86_64/libxlua
-  assetBundleVariant: so
+  assetBundleName: 
+  assetBundleVariant: 

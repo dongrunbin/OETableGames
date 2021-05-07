@@ -5,8 +5,11 @@ PluginImporter:
   serializedVersion: 2
   iconMap: {}
   executionOrder: {}
+  defineConstraints: []
   isPreloaded: 0
   isOverridable: 0
+  isExplicitlyReferenced: 0
+  validateReferences: 1
   platformData:
   - first:
       Any: 
@@ -25,5 +28,5 @@ PluginImporter:
       enabled: 1
       settings: {}
   userData: 
-  assetBundleName: drbframework/plugins/xlua/ios/hotfixflags
-  assetBundleVariant: cpp
+  assetBundleName: 
+  assetBundleVariant: 
