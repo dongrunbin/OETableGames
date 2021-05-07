@@ -42,8 +42,10 @@ class SessionEngine {
         
         // 设置过期时间
         $this->redis->expire($key, SESSION_EXPIRE);
-        
+
         return $this->redis->get($key) . '';
+
+        return null;
     
     }
     

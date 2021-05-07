@@ -57,11 +57,11 @@ define('REQUEST_TIME', $_SERVER['REQUEST_TIME']);
  */
 define('SERVER_KEY', 'mj12321jm');
 
-define('RESOURCE_URL', 'https://wangqueshenhe.oss-cn-beijing.aliyuncs.com/');
+define('RESOURCE_URL', 'https://oetablegames.oss-cn-hangzhou.aliyuncs.com/');
 
 define('EXCEPTION_LEVEL', 1);
 
-define('SESSION_MODE', 'redis');
+//define('SESSION_MODE', 'redis');
 
 define('INIT_CARDS', 5);
 
