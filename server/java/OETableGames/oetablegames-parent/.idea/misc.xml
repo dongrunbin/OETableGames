@@ -10,6 +10,9 @@
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/oetablegames-service-proxy/pom.xml" />
+        <option value="$PROJECT_DIR$/oetablegames-service/oetablegames-service-game/pom.xml" />
+        <option value="$PROJECT_DIR$/oetablegames-service/oetablegames-service-player/pom.xml" />
+        <option value="$PROJECT_DIR$/oetablegames-service/oetablegames-service-proxy/pom.xml" />
       </set>
     </option>
   </component>

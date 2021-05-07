@@ -8,7 +8,7 @@
 
     <!-- 引入远程服务 -->
     <AresClient:reference id="mahjongService"
-                          interface="com.oegame.tablegames.service.game.mahjong.MahjongService"
+                          interface="com.oegame.tablegames.service.mahjong.MahjongService"
                           clusterStrategy="Parameter"
                           remoteAppKey="oetablegames"
                           groupName="default"

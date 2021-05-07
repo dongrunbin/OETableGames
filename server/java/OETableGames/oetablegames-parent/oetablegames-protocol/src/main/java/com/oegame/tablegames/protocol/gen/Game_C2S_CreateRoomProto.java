@@ -1,6 +1,6 @@
 //===================================================
 //作    者：DRB
-//创建时间：2021-04-23 08:05:42
+//创建时间：2021-04-28 02:06:07
 //备    注：
 //===================================================
 package com.oegame.tablegames.protocol.gen;
@@ -18,7 +18,7 @@ public class Game_C2S_CreateRoomProto
     public static final int CODE = 20001; 
 
     private ArrayList<Integer> settingIds = new ArrayList<Integer>(); //setting ids
-    private int gameId; //game id
+    private int gameId; //com.oegame.tablegames.service.game id
     public ArrayList<Integer> getsettingIdsList(){
         return this.settingIds;
     };

@@ -11,7 +11,9 @@
         <module name="oetablegames-model" />
         <module name="oetablegames-protocol" />
         <module name="oetablegames-remoting" />
+        <module name="oetablegames-service" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel target="8" />
   </component>
 </project>

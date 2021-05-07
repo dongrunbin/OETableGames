@@ -1,6 +1,6 @@
 //===================================================
 //作    者：DRB
-//创建时间：2021-04-23 08:05:42
+//创建时间：2021-04-28 02:06:07
 //备    注：
 //===================================================
 package com.oegame.tablegames.protocol.gen;
@@ -57,7 +57,7 @@ public class Mahjong_S2C_SettleProto
         private int pos; //
         private int gold; //
         private int settle; //
-        private Mahjong universalPoker; //
+        private Mahjong universalMahjong; //
         private Mahjong hitMahjong; //
         private ArrayList<Mahjong> mahjongs = new ArrayList<Mahjong>(); //
         private ArrayList<Mahjong> desktopMahjongs = new ArrayList<Mahjong>(); //
@@ -127,12 +127,12 @@ public class Mahjong_S2C_SettleProto
             this.settle = value;
         }
 
-        public Mahjong getUniversalPoker(){
-            return this.universalPoker;
+        public Mahjong getUniversalMahjong(){
+            return this.universalMahjong;
         }
 
-        public void setUniversalPoker(Mahjong value){
-            this.universalPoker = value;
+        public void setUniversalMahjong(Mahjong value){
+            this.universalMahjong = value;
         }
 
         public Mahjong getHitMahjong(){
@@ -213,9 +213,9 @@ public class Mahjong_S2C_SettleProto
                 dos.writeInt(pos);
                 dos.writeInt(gold);
                 dos.writeInt(settle);
-                if(universalPoker != null)
+                if(universalMahjong != null)
                 {
-                    dos.writeBytes(universalPoker.toArray());
+                    dos.writeBytes(universalMahjong.toArray());
                 }
                 else
                 {
@@ -291,7 +291,7 @@ public class Mahjong_S2C_SettleProto
                 proto.pos = dis.readInt();
                 proto.gold = dis.readInt();
                 proto.settle = dis.readInt();
-                proto.universalPoker = Mahjong.getProto(dis.readBytes());
+                proto.universalMahjong = Mahjong.getProto(dis.readBytes());
                 proto.hitMahjong = Mahjong.getProto(dis.readBytes());
                 short mahjongsLength = dis.readShort();
                 for (int i = 0; i < mahjongsLength; ++i)

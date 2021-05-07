@@ -3,11 +3,6 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<modules>
-		<module>oetablegames-service-proxy</module>
-		<module>oetablegames-service-game</module>
-		<module>oetablegames-service-player</module>
-	</modules>
 	<parent>
 		<groupId>com.oegame.tablegames</groupId>
 		<artifactId>oetablegames-parent</artifactId>
@@ -16,7 +11,6 @@
     <groupId>com.oegame.tablegames</groupId>
 	<artifactId>oetablegames-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>pom</packaging>
 	<name>oetablegames-service</name>
 	<url>http://maven.apache.org</url>
 	<properties>
@@ -27,27 +21,22 @@
 		<dependency>
 			<groupId>com.oegame.tablegames</groupId>
 			<artifactId>oetablegames-common</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.oegame.tablegames</groupId>
-			<artifactId>oetablegames-service-player</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.oegame.tablegames</groupId>
-			<artifactId>oetablegames-service-game-mahjong</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.oegame.tablegames</groupId>
-			<artifactId>oetablegames-service-proxy</artifactId>
-			<version>${project.version}</version>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>com.oegame.tablegames</groupId>
 			<artifactId>oetablegames-remoting</artifactId>
-			<version>${project.version}</version>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.oegame.tablegames</groupId>
+			<artifactId>oetablegames-protocol</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.oegame.tablegames</groupId>
+			<artifactId>oetablegames-model</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>cn.featherfly</groupId>

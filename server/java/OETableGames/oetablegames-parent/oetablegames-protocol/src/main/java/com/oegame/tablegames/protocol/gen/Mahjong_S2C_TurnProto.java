@@ -18,7 +18,7 @@ public class Mahjong_S2C_TurnProto
     public static final int CODE = 30005; 
 
     private long countdown; //
-    private ArrayList<PokerGroup> askPokerGroup = new ArrayList<PokerGroup>(); //
+    private ArrayList<MahjongGroup> askMahjongGroup = new ArrayList<MahjongGroup>(); //
     public long getCountdown(){
         return this.countdown;
     }
@@ -27,32 +27,32 @@ public class Mahjong_S2C_TurnProto
         this.countdown = value;
     }
 
-    public ArrayList<PokerGroup> getaskPokerGroupList(){
-        return this.askPokerGroup;
+    public ArrayList<MahjongGroup> getaskMahjongGroupList(){
+        return this.askMahjongGroup;
     };
 
-    public PokerGroup getAskPokerGroup(int index){
-        return this.askPokerGroup.get(index);
+    public MahjongGroup getAskMahjongGroup(int index){
+        return this.askMahjongGroup.get(index);
     };
 
-    public int askPokerGroupCount(){
-        return this.askPokerGroup.size();
+    public int askMahjongGroupCount(){
+        return this.askMahjongGroup.size();
     };
 
-    public void addAskPokerGroup(PokerGroup value){
-        this.askPokerGroup.add(value);
+    public void addAskMahjongGroup(MahjongGroup value){
+        this.askMahjongGroup.add(value);
     };
 
 
     /// <summary>
     /// 
     /// </summary>
-    public static class PokerGroup
+    public static class MahjongGroup
     {
         private byte typeId; //
         private byte subTypeId; //
         private int playerId; //
-        private Poker pokers; //
+        private Mahjong mahjongs; //
         public byte getTypeId(){
             return this.typeId;
         }
@@ -77,12 +77,12 @@ public class Mahjong_S2C_TurnProto
             this.playerId = value;
         }
 
-        public Poker getPokers(){
-            return this.pokers;
+        public Mahjong getMahjongs(){
+            return this.mahjongs;
         }
 
-        public void setPokers(Poker value){
-            this.pokers = value;
+        public void setMahjongs(Mahjong value){
+            this.mahjongs = value;
         }
 
         public byte[] toArray()
@@ -94,9 +94,9 @@ public class Mahjong_S2C_TurnProto
                 dos.writeByte(typeId);
                 dos.writeByte(subTypeId);
                 dos.writeInt(playerId);
-                if(pokers != null)
+                if(mahjongs != null)
                 {
-                    dos.writeBytes(pokers.toArray());
+                    dos.writeBytes(mahjongs.toArray());
                 }
                 else
                 {
@@ -112,17 +112,17 @@ public class Mahjong_S2C_TurnProto
             return ret;
         }
 
-        public static PokerGroup getProto(byte[] buffer)
+        public static MahjongGroup getProto(byte[] buffer)
         {
             if(buffer == null) return null;
-            PokerGroup proto = new PokerGroup();
+            MahjongGroup proto = new MahjongGroup();
             ByteArrayInputStream bais = new ByteArrayInputStream(buffer);
             DataInputStreamExt dis = new DataInputStreamExt(bais);
             try{
                 proto.typeId = dis.readByte();
                 proto.subTypeId = dis.readByte();
                 proto.playerId = dis.readInt();
-                proto.pokers = Poker.getProto(dis.readBytes());
+                proto.mahjongs = Mahjong.getProto(dis.readBytes());
                 dis.close();
                 bais.close();
             }
@@ -135,7 +135,7 @@ public class Mahjong_S2C_TurnProto
     /// <summary>
     /// 
     /// </summary>
-    public static class Poker
+    public static class Mahjong
     {
         private int index; //
         private int color; //
@@ -193,10 +193,10 @@ public class Mahjong_S2C_TurnProto
             return ret;
         }
 
-        public static Poker getProto(byte[] buffer)
+        public static Mahjong getProto(byte[] buffer)
         {
             if(buffer == null) return null;
-            Poker proto = new Poker();
+            Mahjong proto = new Mahjong();
             ByteArrayInputStream bais = new ByteArrayInputStream(buffer);
             DataInputStreamExt dis = new DataInputStreamExt(bais);
             try{
@@ -221,12 +221,12 @@ public class Mahjong_S2C_TurnProto
         try{
             dos.writeInt(CODE);
             dos.writeLong(countdown);
-            dos.writeShort(askPokerGroup.size());
-            for (int i = 0; i < askPokerGroup.size(); ++i)
+            dos.writeShort(askMahjongGroup.size());
+            for (int i = 0; i < askMahjongGroup.size(); ++i)
             {
-                if(askPokerGroup != null)
+                if(askMahjongGroup != null)
                 {
-                    dos.writeBytes(askPokerGroup.get(i).toArray());
+                    dos.writeBytes(askMahjongGroup.get(i).toArray());
                 }
                 else
                 {
@@ -251,10 +251,10 @@ public class Mahjong_S2C_TurnProto
         DataInputStreamExt dis = new DataInputStreamExt(bais);
         try{
             proto.countdown = dis.readLong();
-            short askPokerGroupLength = dis.readShort();
-            for (int i = 0; i < askPokerGroupLength; ++i)
+            short askMahjongGroupLength = dis.readShort();
+            for (int i = 0; i < askMahjongGroupLength; ++i)
             {
-                proto.askPokerGroup.add(PokerGroup.getProto(dis.readBytes()));
+                proto.askMahjongGroup.add(MahjongGroup.getProto(dis.readBytes()));
             }
             dis.close();
             bais.close();

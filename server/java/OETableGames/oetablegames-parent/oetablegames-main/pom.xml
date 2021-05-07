@@ -24,18 +24,8 @@
 		</dependency>
 		<dependency>
 			<groupId>com.oegame.tablegames</groupId>
-			<artifactId>oetablegames-service-proxy</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.oegame.tablegames</groupId>
-			<artifactId>oetablegames-service-game</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.oegame.tablegames</groupId>
-			<artifactId>oetablegames-service-game-mahjong</artifactId>
-			<version>${project.version}</version>
+			<artifactId>oetablegames-service</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>com.oegame.tablegames</groupId>

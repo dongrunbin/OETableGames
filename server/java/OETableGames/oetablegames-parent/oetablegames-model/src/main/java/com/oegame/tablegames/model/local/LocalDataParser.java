@@ -92,7 +92,7 @@ public class LocalDataParser
     /// <summary>
     /// 当前行号
     /// </summary>
-    private int m_CurRowNo = 3;
+    private int m_CurRowNo = 1;
 
     /// <summary>
     /// 字段名称字典

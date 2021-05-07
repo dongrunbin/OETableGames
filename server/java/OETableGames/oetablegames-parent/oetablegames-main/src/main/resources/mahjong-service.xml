@@ -6,9 +6,9 @@
        http://www.wangque-remoting.com/schema/remote-service http://www.wangque-remoting.com/schema/remote-service.xsd">
 
     <!-- 发布远程服务 -->
-    <bean id="mahjongService" class="com.oegame.tablegames.service.game.mahjong.MahjongServiceImpl"/>
+    <bean id="mahjongService" class="com.oegame.tablegames.service.mahjong.MahjongServiceImpl"/>
     <AresServer:service id="mahjongServiceRegister"
-                        interface="com.oegame.tablegames.service.game.mahjong.MahjongService"
+                        interface="com.oegame.tablegames.service.mahjong.MahjongService"
                         ref="mahjongService"
                         groupName="default"
                         weight="2"
