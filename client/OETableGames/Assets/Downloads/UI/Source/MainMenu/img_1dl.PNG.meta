@@ -120,9 +120,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: static/denglong
+  spritePackingTag: Downloads/UI/Source/MainMenu
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
   userData: 
-  assetBundleName: download/wangque/source/uisource/denglong
-  assetBundleVariant: drb
+  assetBundleName: downloads/ui/source/mainmenu
+  assetBundleVariant: png

@@ -32,19 +32,19 @@ public class MainMenuForm : FormBase
         base.OnBtnClick(go);
         if (go == m_BtnCreateRoom.gameObject)
         {
-            DrbComponent.UISystem.OpenFormAsync("UI/Forms/CreateRoomForm", "Form", null);
+            DrbComponent.UISystem.OpenFormAsync("CreateRoomForm", "Form", null);
         }
         else if (go == m_BtnJoinRoom.gameObject)
         {
-            DrbComponent.UISystem.OpenFormAsync("UI/Forms/JoinRoomForm", "Form", null);
+            DrbComponent.UISystem.OpenFormAsync("JoinRoomForm", "Form", null);
         }
         else if (go == m_BtnSetting.gameObject)
         {
-            DrbComponent.UISystem.OpenFormAsync("UI/Forms/SettingsForm", "Form", null);
+            DrbComponent.UISystem.OpenFormAsync("SettingsForm", "Form", null);
         }
         else if (go == m_BtnCredit.gameObject)
         {
-            DrbComponent.UISystem.OpenFormAsync("UI/Forms/CreditForm", "Form", null);
+            DrbComponent.UISystem.OpenFormAsync("CreditForm", "Form", null);
         }
     }
 

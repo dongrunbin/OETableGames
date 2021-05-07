@@ -15,7 +15,7 @@ public static class AudioSystemExtension
         info.Loop = true;
         info.Tag = "Music";
         info.Volume = DrbComponent.SettingSystem.GetFloat("MusicVolume");
-        string audioPath = string.Format("Audio/Music/{0}.mp3", audioName);
+        string audioPath = string.Format("Downloads/Audio/Music/{0}.mp3", audioName);
         UnityEngine.Object audio = DrbComponent.ResourceSystem.LoadAsset<UnityEngine.Object>(audioPath);
         audioSystem.PlayAudio(audio, info);
     }
@@ -26,7 +26,7 @@ public static class AudioSystemExtension
         info.Loop = false;
         info.Tag = "SoundEffect";
         info.Volume = DrbComponent.SettingSystem.GetFloat("SoundEffectVolume");
-        string audioPath = string.Format("Audio/SoundEffect/{0}.wav", audioName);
+        string audioPath = string.Format("Downloads/Audio/SoundEffect/{0}.wav", audioName);
         UnityEngine.Object audio = DrbComponent.ResourceSystem.LoadAsset<UnityEngine.Object>(audioPath);
         audioSystem.PlayAudio(audio, info);
     }

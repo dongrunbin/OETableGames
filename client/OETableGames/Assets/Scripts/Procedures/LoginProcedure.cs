@@ -19,13 +19,9 @@ using UnityEngine;
 
 public class LoginProcedure : Procedure
 {
-    private const int HAND_SHAKE_TIME_OUT = 5000;
-    private const float SEND_HEART_BEAT_SPACE = 10f;
-    private const float HEART_BEAT_OVER_TIME = 30f;
-    private long m_SendHandShakeClientTime;
-    private float m_PrevReceiveHeartTime = 0.0f;
-
     private LoginForm m_LoginForm;
+
+    private bool m_isBusy;
 
     public override void OnEnter(object userData)
     {
@@ -36,7 +32,8 @@ public class LoginProcedure : Procedure
         {
             AccountLogin(entity.passportId, entity.token);
         }
-        DrbComponent.UISystem.OpenFormAsync("UI/Forms/LoginForm", "BackGround", (IUIForm form)=>{
+        DrbComponent.UISystem.OpenFormAsync("LoginForm", "BackGround", (IUIForm form) =>
+        {
             m_LoginForm = (LoginForm)form;
             m_LoginForm.OnGuestLoginClick = GuestLogin;
         });
@@ -55,12 +52,15 @@ public class LoginProcedure : Procedure
 
     private void GuestLogin()
     {
+        if (m_isBusy) return;
+        m_isBusy = true;
         Dictionary<string, object> dic = new Dictionary<string, object>();
         DrbComponent.HttpSystem.EncryptedRequest(ConstDefine.WebUrl, "passport/guest", dic, OnGuestLoginCallBack);
     }
 
     private void OnGuestLoginCallBack(object sender, HttpRequestCompleteEventArgs args)
     {
+        m_isBusy = false;
         if (args.HasError)
         {
             DrbComponent.UISystem.ShowMessage("Error", "Connected fail");
@@ -82,6 +82,8 @@ public class LoginProcedure : Procedure
 
     private void AccountLogin(int passportId, string token)
     {
+        if (m_isBusy) return;
+        m_isBusy = true;
         Dictionary<string, object> dic = new Dictionary<string, object>();
         dic["passportId"] = passportId;
         dic["token"] = token;
@@ -91,6 +93,7 @@ public class LoginProcedure : Procedure
 
     private void OnLoginCallBack(object sender, HttpRequestCompleteEventArgs args)
     {
+        m_isBusy = false;
         if (args.HasError)
         {
             DrbComponent.UISystem.ShowMessage("Error", "Connected fail");
@@ -119,6 +122,8 @@ public class LoginProcedure : Procedure
 
     private void RequestServer()
     {
+        if (m_isBusy) return;
+        m_isBusy = true;
         AccountEntity entity = DrbComponent.SettingSystem.GetObject<AccountEntity>("AccountInfo");
         Dictionary<string, object> dic = new Dictionary<string, object>();
         dic["passportId"] = entity.passportId;
@@ -128,6 +133,7 @@ public class LoginProcedure : Procedure
 
     private void RequestServerCallBack(object sender, HttpRequestCompleteEventArgs args)
     {
+        m_isBusy = false;
         if (args.HasError)
         {
             DrbComponent.UISystem.ShowMessage("Error", "Connected fail", type: MessageForm.MessageViewType.Ok, okAction: RequestServer);
@@ -150,10 +156,12 @@ public class LoginProcedure : Procedure
         }
     }
 
-    
+
 
     private void Connect()
     {
+        if (m_isBusy) return;
+        m_isBusy = true;
         string ip = DrbComponent.SettingSystem.GetString("IP");
         int port = DrbComponent.SettingSystem.GetInt("Port");
         DrbComponent.NetworkSystem.Connect(ip, port);
@@ -174,6 +182,7 @@ public class LoginProcedure : Procedure
 
     private void OnHandShaked(object sender, EventArgs<int> args)
     {
+        m_isBusy = false;
         ChangeState<MainMenuProcedure>();
     }
 }

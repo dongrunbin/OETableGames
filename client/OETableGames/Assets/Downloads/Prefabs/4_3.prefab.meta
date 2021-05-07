@@ -1,8 +1,7 @@
 fileFormatVersion: 2
 guid: c65f1abcadf14654d81b4eab9da52db8
-timeCreated: 1502777900
-licenseType: Pro
-NativeFormatImporter:
+PrefabImporter:
+  externalObjects: {}
   userData: 
-  assetBundleName: download/wangque/prefab/model/4_3
-  assetBundleVariant: drb
+  assetBundleName: downloads/prefabs/4_3
+  assetBundleVariant: prefab

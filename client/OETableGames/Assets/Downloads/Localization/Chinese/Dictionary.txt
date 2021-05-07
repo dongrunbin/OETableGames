@@ -45,5 +45,8 @@ MahjongForm.Cancel:取消
 MahjongForm.Win:胡
 MahjongForm.Games:游戏局数
 MahjongForm.RoomId:Room Id
+MahjongForm.FinalScore:最终得分
+MahjongForm.Gameover:游戏结束
+
 
 Error:错误

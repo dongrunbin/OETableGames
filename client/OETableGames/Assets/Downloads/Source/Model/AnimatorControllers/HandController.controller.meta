@@ -1,8 +1,8 @@
 fileFormatVersion: 2
 guid: af44e0adad6f92048992c42c585d1b4a
-timeCreated: 1491793102
-licenseType: Pro
 NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
   userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+  assetBundleName: downloads/source/model/animatorcontrollers/handcontroller
+  assetBundleVariant: controller

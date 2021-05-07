@@ -23,7 +23,6 @@ public class MahjongService : Singleton<MahjongService>
         DrbComponent.GetEventSystem<int>().AddEventListener(CodeDef.Game_S2C_LeaveRoomProto, OnServerBroadcastLeave);//服务器广播玩家离开消息
         DrbComponent.GetEventSystem<int>().AddEventListener(CodeDef.Game_S2C_ReadyProto, OnServerBroadcastReady);//服务器广播玩家准备消息
         DrbComponent.GetEventSystem<int>().AddEventListener(CodeDef.Game_S2C_DisbandProto, OnServerBroadcastDisband);//服务器广播解散房间
-        //DrbComponent.GetEventSystem<int>().AddEventListener(CodeDef.S2C_Game_RoomExpireProto, OnServerReturnRoomExpire);//服务器返回房间过期
         DrbComponent.GetEventSystem<int>().AddEventListener(CodeDef.Mahjong_S2C_RoomInfoProto, OnServerReturnRoomInfo);//服务器返回房间信息
         DrbComponent.GetEventSystem<int>().AddEventListener(CodeDef.Mahjong_S2C_ResultProto, OnServerReturnResult);//服务器返回结果消息
         DrbComponent.GetEventSystem<int>().AddEventListener(CodeDef.Mahjong_S2C_GameBeginProto, OnServerBroadcastBegin);//服务器广播开局消息
@@ -42,7 +41,6 @@ public class MahjongService : Singleton<MahjongService>
         DrbComponent.GetEventSystem<int>().RemoveEventListener(CodeDef.Game_S2C_LeaveRoomProto, OnServerBroadcastLeave);//服务器广播玩家离开消息
         DrbComponent.GetEventSystem<int>().RemoveEventListener(CodeDef.Game_S2C_ReadyProto, OnServerBroadcastReady);//服务器广播玩家准备消息
         DrbComponent.GetEventSystem<int>().RemoveEventListener(CodeDef.Game_S2C_DisbandProto, OnServerBroadcastDisband);//服务器广播解散房间
-        //DrbComponent.GetEventSystem<int>().RemoveEventListener(CodeDef.S2C_Game_RoomExpireProto, OnServerReturnRoomExpire);//服务器返回房间过期
         DrbComponent.GetEventSystem<int>().RemoveEventListener(CodeDef.Mahjong_S2C_RoomInfoProto, OnServerReturnRoomInfo);//服务器返回房间信息
         DrbComponent.GetEventSystem<int>().RemoveEventListener(CodeDef.Mahjong_S2C_ResultProto, OnServerReturnResult);//服务器返回结果消息
         DrbComponent.GetEventSystem<int>().RemoveEventListener(CodeDef.Mahjong_S2C_GameBeginProto, OnServerBroadcastBegin);//服务器广播开局消息

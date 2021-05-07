@@ -1,8 +1,8 @@
 fileFormatVersion: 2
 guid: 96d41af1b8d25a349ae72c9292125a02
-timeCreated: 1495996590
-licenseType: Pro
 NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
   userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+  assetBundleName: downloads/source/model/materials/manhand2
+  assetBundleVariant: mat

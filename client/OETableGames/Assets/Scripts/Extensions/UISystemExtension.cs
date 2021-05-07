@@ -23,8 +23,9 @@ public static class UISystemExtensions
         return DrbComponent.UISystem.OpenForm(Path.GetFileNameWithoutExtension(assetPath), asset, groupName);
     }
 
-    public static void OpenFormAsync(this UISystem uiSystem, string assetPath, string groupName, OpenFormComplete callback)
+    public static void OpenFormAsync(this UISystem uiSystem, string formName, string groupName, OpenFormComplete callback)
     {
+        string assetPath = string.Format("Downloads/UI/Forms/{0}.prefab", formName);
         DrbComponent.ResourceSystem.LoadAssetAsync(assetPath, (LoadAssetCompleteEventArgs args) =>
         {
             IUIForm form = uiSystem.OpenForm(args.AssetName, args.Asset, groupName);

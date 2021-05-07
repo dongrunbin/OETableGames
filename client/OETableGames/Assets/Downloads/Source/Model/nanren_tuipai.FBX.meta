@@ -1,222 +1,616 @@
 fileFormatVersion: 2
 guid: bc57a6f21b67a5c45815ff0f3df9509f
-timeCreated: 1492752131
-licenseType: Pro
 ModelImporter:
-  serializedVersion: 19
-  fileIDToRecycleName:
-    100000: Camera001
-    100002: Camera001.Target
-    100004: CMan0010-HD2-Bip
-    100006: CMan0010-HD2-Footsteps
-    100008: CMan0010-HD2-Hands
-    100010: CMan0010-HD2-Head
-    100012: CMan0010-HD2-HeadNub
-    100014: CMan0010-HD2-L Calf
-    100016: CMan0010-HD2-L Clavicle
-    100018: CMan0010-HD2-L Finger0
-    100020: CMan0010-HD2-L Finger01
-    100022: CMan0010-HD2-L Finger02
-    100024: CMan0010-HD2-L Finger0Nub
-    100026: CMan0010-HD2-L Finger1
-    100028: CMan0010-HD2-L Finger11
-    100030: CMan0010-HD2-L Finger12
-    100032: CMan0010-HD2-L Finger1Nub
-    100034: CMan0010-HD2-L Finger2
-    100036: CMan0010-HD2-L Finger21
-    100038: CMan0010-HD2-L Finger22
-    100040: CMan0010-HD2-L Finger2Nub
-    100042: CMan0010-HD2-L Finger3
-    100044: CMan0010-HD2-L Finger31
-    100046: CMan0010-HD2-L Finger32
-    100048: CMan0010-HD2-L Finger3Nub
-    100050: CMan0010-HD2-L Finger4
-    100052: CMan0010-HD2-L Finger41
-    100054: CMan0010-HD2-L Finger42
-    100056: CMan0010-HD2-L Finger4Nub
-    100058: CMan0010-HD2-L Foot
-    100060: CMan0010-HD2-L Forearm
-    100062: CMan0010-HD2-L ForeTwist
-    100064: CMan0010-HD2-L ForeTwist1
-    100066: CMan0010-HD2-L Hand
-    100068: CMan0010-HD2-L Thigh
-    100070: CMan0010-HD2-L Toe0
-    100072: CMan0010-HD2-L Toe01
-    100074: CMan0010-HD2-L Toe0Nub
-    100076: CMan0010-HD2-L UpperArm
-    100078: CMan0010-HD2-LCalfTwist
-    100080: CMan0010-HD2-LCalfTwist1
-    100082: CMan0010-HD2-LThighTwist
-    100084: CMan0010-HD2-LThighTwist1
-    100086: CMan0010-HD2-LUpArmTwist
-    100088: CMan0010-HD2-LUpArmTwist1
-    100090: CMan0010-HD2-Neck
-    100092: CMan0010-HD2-Neck1
-    100094: CMan0010-HD2-Pelvis
-    100096: CMan0010-HD2-R Calf
-    100098: CMan0010-HD2-R Clavicle
-    100100: CMan0010-HD2-R Finger0
-    100102: CMan0010-HD2-R Finger01
-    100104: CMan0010-HD2-R Finger02
-    100106: CMan0010-HD2-R Finger0Nub
-    100108: CMan0010-HD2-R Finger1
-    100110: CMan0010-HD2-R Finger11
-    100112: CMan0010-HD2-R Finger12
-    100114: CMan0010-HD2-R Finger1Nub
-    100116: CMan0010-HD2-R Finger2
-    100118: CMan0010-HD2-R Finger21
-    100120: CMan0010-HD2-R Finger22
-    100122: CMan0010-HD2-R Finger2Nub
-    100124: CMan0010-HD2-R Finger3
-    100126: CMan0010-HD2-R Finger31
-    100128: CMan0010-HD2-R Finger32
-    100130: CMan0010-HD2-R Finger3Nub
-    100132: CMan0010-HD2-R Finger4
-    100134: CMan0010-HD2-R Finger41
-    100136: CMan0010-HD2-R Finger42
-    100138: CMan0010-HD2-R Finger4Nub
-    100140: CMan0010-HD2-R Foot
-    100142: CMan0010-HD2-R Forearm
-    100144: CMan0010-HD2-R ForeTwist
-    100146: CMan0010-HD2-R ForeTwist1
-    100148: CMan0010-HD2-R Hand
-    100150: CMan0010-HD2-R Thigh
-    100152: CMan0010-HD2-R Toe0
-    100154: CMan0010-HD2-R Toe01
-    100156: CMan0010-HD2-R Toe0Nub
-    100158: CMan0010-HD2-R UpperArm
-    100160: CMan0010-HD2-RCalfTwist
-    100162: CMan0010-HD2-RCalfTwist1
-    100164: CMan0010-HD2-RThighTwist
-    100166: CMan0010-HD2-RThighTwist1
-    100168: CMan0010-HD2-RUpArmTwist
-    100170: CMan0010-HD2-RUpArmTwist1
-    100172: CMan0010-HD2-Spine
-    100174: CMan0010-HD2-Spine1
-    100176: CMan0010-HD2-Spine2
-    100178: CMan0010-HD2-Spine3
-    100180: //RootNode
-    100182: PhysCamera001.Target
-    100184: PhysCamera002.Target
-    100186: PhysCamera003.Target
-    400000: Camera001
-    400002: Camera001.Target
-    400004: CMan0010-HD2-Bip
-    400006: CMan0010-HD2-Footsteps
-    400008: CMan0010-HD2-Hands
-    400010: CMan0010-HD2-Head
-    400012: CMan0010-HD2-HeadNub
-    400014: CMan0010-HD2-L Calf
-    400016: CMan0010-HD2-L Clavicle
-    400018: CMan0010-HD2-L Finger0
-    400020: CMan0010-HD2-L Finger01
-    400022: CMan0010-HD2-L Finger02
-    400024: CMan0010-HD2-L Finger0Nub
-    400026: CMan0010-HD2-L Finger1
-    400028: CMan0010-HD2-L Finger11
-    400030: CMan0010-HD2-L Finger12
-    400032: CMan0010-HD2-L Finger1Nub
-    400034: CMan0010-HD2-L Finger2
-    400036: CMan0010-HD2-L Finger21
-    400038: CMan0010-HD2-L Finger22
-    400040: CMan0010-HD2-L Finger2Nub
-    400042: CMan0010-HD2-L Finger3
-    400044: CMan0010-HD2-L Finger31
-    400046: CMan0010-HD2-L Finger32
-    400048: CMan0010-HD2-L Finger3Nub
-    400050: CMan0010-HD2-L Finger4
-    400052: CMan0010-HD2-L Finger41
-    400054: CMan0010-HD2-L Finger42
-    400056: CMan0010-HD2-L Finger4Nub
-    400058: CMan0010-HD2-L Foot
-    400060: CMan0010-HD2-L Forearm
-    400062: CMan0010-HD2-L ForeTwist
-    400064: CMan0010-HD2-L ForeTwist1
-    400066: CMan0010-HD2-L Hand
-    400068: CMan0010-HD2-L Thigh
-    400070: CMan0010-HD2-L Toe0
-    400072: CMan0010-HD2-L Toe01
-    400074: CMan0010-HD2-L Toe0Nub
-    400076: CMan0010-HD2-L UpperArm
-    400078: CMan0010-HD2-LCalfTwist
-    400080: CMan0010-HD2-LCalfTwist1
-    400082: CMan0010-HD2-LThighTwist
-    400084: CMan0010-HD2-LThighTwist1
-    400086: CMan0010-HD2-LUpArmTwist
-    400088: CMan0010-HD2-LUpArmTwist1
-    400090: CMan0010-HD2-Neck
-    400092: CMan0010-HD2-Neck1
-    400094: CMan0010-HD2-Pelvis
-    400096: CMan0010-HD2-R Calf
-    400098: CMan0010-HD2-R Clavicle
-    400100: CMan0010-HD2-R Finger0
-    400102: CMan0010-HD2-R Finger01
-    400104: CMan0010-HD2-R Finger02
-    400106: CMan0010-HD2-R Finger0Nub
-    400108: CMan0010-HD2-R Finger1
-    400110: CMan0010-HD2-R Finger11
-    400112: CMan0010-HD2-R Finger12
-    400114: CMan0010-HD2-R Finger1Nub
-    400116: CMan0010-HD2-R Finger2
-    400118: CMan0010-HD2-R Finger21
-    400120: CMan0010-HD2-R Finger22
-    400122: CMan0010-HD2-R Finger2Nub
-    400124: CMan0010-HD2-R Finger3
-    400126: CMan0010-HD2-R Finger31
-    400128: CMan0010-HD2-R Finger32
-    400130: CMan0010-HD2-R Finger3Nub
-    400132: CMan0010-HD2-R Finger4
-    400134: CMan0010-HD2-R Finger41
-    400136: CMan0010-HD2-R Finger42
-    400138: CMan0010-HD2-R Finger4Nub
-    400140: CMan0010-HD2-R Foot
-    400142: CMan0010-HD2-R Forearm
-    400144: CMan0010-HD2-R ForeTwist
-    400146: CMan0010-HD2-R ForeTwist1
-    400148: CMan0010-HD2-R Hand
-    400150: CMan0010-HD2-R Thigh
-    400152: CMan0010-HD2-R Toe0
-    400154: CMan0010-HD2-R Toe01
-    400156: CMan0010-HD2-R Toe0Nub
-    400158: CMan0010-HD2-R UpperArm
-    400160: CMan0010-HD2-RCalfTwist
-    400162: CMan0010-HD2-RCalfTwist1
-    400164: CMan0010-HD2-RThighTwist
-    400166: CMan0010-HD2-RThighTwist1
-    400168: CMan0010-HD2-RUpArmTwist
-    400170: CMan0010-HD2-RUpArmTwist1
-    400172: CMan0010-HD2-Spine
-    400174: CMan0010-HD2-Spine1
-    400176: CMan0010-HD2-Spine2
-    400178: CMan0010-HD2-Spine3
-    400180: //RootNode
-    400182: PhysCamera001.Target
-    400184: PhysCamera002.Target
-    400186: PhysCamera003.Target
-    4300000: CMan0010-HD2-Hands
-    7400000: Take 001
-    9500000: //RootNode
-    13700000: CMan0010-HD2-Hands
+  serializedVersion: 19300
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: Camera001
+  - first:
+      1: 100002
+    second: Camera001.Target
+  - first:
+      1: 100004
+    second: CMan0010-HD2-Bip
+  - first:
+      1: 100006
+    second: CMan0010-HD2-Footsteps
+  - first:
+      1: 100008
+    second: CMan0010-HD2-Hands
+  - first:
+      1: 100010
+    second: CMan0010-HD2-Head
+  - first:
+      1: 100012
+    second: CMan0010-HD2-HeadNub
+  - first:
+      1: 100014
+    second: CMan0010-HD2-L Calf
+  - first:
+      1: 100016
+    second: CMan0010-HD2-L Clavicle
+  - first:
+      1: 100018
+    second: CMan0010-HD2-L Finger0
+  - first:
+      1: 100020
+    second: CMan0010-HD2-L Finger01
+  - first:
+      1: 100022
+    second: CMan0010-HD2-L Finger02
+  - first:
+      1: 100024
+    second: CMan0010-HD2-L Finger0Nub
+  - first:
+      1: 100026
+    second: CMan0010-HD2-L Finger1
+  - first:
+      1: 100028
+    second: CMan0010-HD2-L Finger11
+  - first:
+      1: 100030
+    second: CMan0010-HD2-L Finger12
+  - first:
+      1: 100032
+    second: CMan0010-HD2-L Finger1Nub
+  - first:
+      1: 100034
+    second: CMan0010-HD2-L Finger2
+  - first:
+      1: 100036
+    second: CMan0010-HD2-L Finger21
+  - first:
+      1: 100038
+    second: CMan0010-HD2-L Finger22
+  - first:
+      1: 100040
+    second: CMan0010-HD2-L Finger2Nub
+  - first:
+      1: 100042
+    second: CMan0010-HD2-L Finger3
+  - first:
+      1: 100044
+    second: CMan0010-HD2-L Finger31
+  - first:
+      1: 100046
+    second: CMan0010-HD2-L Finger32
+  - first:
+      1: 100048
+    second: CMan0010-HD2-L Finger3Nub
+  - first:
+      1: 100050
+    second: CMan0010-HD2-L Finger4
+  - first:
+      1: 100052
+    second: CMan0010-HD2-L Finger41
+  - first:
+      1: 100054
+    second: CMan0010-HD2-L Finger42
+  - first:
+      1: 100056
+    second: CMan0010-HD2-L Finger4Nub
+  - first:
+      1: 100058
+    second: CMan0010-HD2-L Foot
+  - first:
+      1: 100060
+    second: CMan0010-HD2-L Forearm
+  - first:
+      1: 100062
+    second: CMan0010-HD2-L ForeTwist
+  - first:
+      1: 100064
+    second: CMan0010-HD2-L ForeTwist1
+  - first:
+      1: 100066
+    second: CMan0010-HD2-L Hand
+  - first:
+      1: 100068
+    second: CMan0010-HD2-L Thigh
+  - first:
+      1: 100070
+    second: CMan0010-HD2-L Toe0
+  - first:
+      1: 100072
+    second: CMan0010-HD2-L Toe01
+  - first:
+      1: 100074
+    second: CMan0010-HD2-L Toe0Nub
+  - first:
+      1: 100076
+    second: CMan0010-HD2-L UpperArm
+  - first:
+      1: 100078
+    second: CMan0010-HD2-LCalfTwist
+  - first:
+      1: 100080
+    second: CMan0010-HD2-LCalfTwist1
+  - first:
+      1: 100082
+    second: CMan0010-HD2-LThighTwist
+  - first:
+      1: 100084
+    second: CMan0010-HD2-LThighTwist1
+  - first:
+      1: 100086
+    second: CMan0010-HD2-LUpArmTwist
+  - first:
+      1: 100088
+    second: CMan0010-HD2-LUpArmTwist1
+  - first:
+      1: 100090
+    second: CMan0010-HD2-Neck
+  - first:
+      1: 100092
+    second: CMan0010-HD2-Neck1
+  - first:
+      1: 100094
+    second: CMan0010-HD2-Pelvis
+  - first:
+      1: 100096
+    second: CMan0010-HD2-R Calf
+  - first:
+      1: 100098
+    second: CMan0010-HD2-R Clavicle
+  - first:
+      1: 100100
+    second: CMan0010-HD2-R Finger0
+  - first:
+      1: 100102
+    second: CMan0010-HD2-R Finger01
+  - first:
+      1: 100104
+    second: CMan0010-HD2-R Finger02
+  - first:
+      1: 100106
+    second: CMan0010-HD2-R Finger0Nub
+  - first:
+      1: 100108
+    second: CMan0010-HD2-R Finger1
+  - first:
+      1: 100110
+    second: CMan0010-HD2-R Finger11
+  - first:
+      1: 100112
+    second: CMan0010-HD2-R Finger12
+  - first:
+      1: 100114
+    second: CMan0010-HD2-R Finger1Nub
+  - first:
+      1: 100116
+    second: CMan0010-HD2-R Finger2
+  - first:
+      1: 100118
+    second: CMan0010-HD2-R Finger21
+  - first:
+      1: 100120
+    second: CMan0010-HD2-R Finger22
+  - first:
+      1: 100122
+    second: CMan0010-HD2-R Finger2Nub
+  - first:
+      1: 100124
+    second: CMan0010-HD2-R Finger3
+  - first:
+      1: 100126
+    second: CMan0010-HD2-R Finger31
+  - first:
+      1: 100128
+    second: CMan0010-HD2-R Finger32
+  - first:
+      1: 100130
+    second: CMan0010-HD2-R Finger3Nub
+  - first:
+      1: 100132
+    second: CMan0010-HD2-R Finger4
+  - first:
+      1: 100134
+    second: CMan0010-HD2-R Finger41
+  - first:
+      1: 100136
+    second: CMan0010-HD2-R Finger42
+  - first:
+      1: 100138
+    second: CMan0010-HD2-R Finger4Nub
+  - first:
+      1: 100140
+    second: CMan0010-HD2-R Foot
+  - first:
+      1: 100142
+    second: CMan0010-HD2-R Forearm
+  - first:
+      1: 100144
+    second: CMan0010-HD2-R ForeTwist
+  - first:
+      1: 100146
+    second: CMan0010-HD2-R ForeTwist1
+  - first:
+      1: 100148
+    second: CMan0010-HD2-R Hand
+  - first:
+      1: 100150
+    second: CMan0010-HD2-R Thigh
+  - first:
+      1: 100152
+    second: CMan0010-HD2-R Toe0
+  - first:
+      1: 100154
+    second: CMan0010-HD2-R Toe01
+  - first:
+      1: 100156
+    second: CMan0010-HD2-R Toe0Nub
+  - first:
+      1: 100158
+    second: CMan0010-HD2-R UpperArm
+  - first:
+      1: 100160
+    second: CMan0010-HD2-RCalfTwist
+  - first:
+      1: 100162
+    second: CMan0010-HD2-RCalfTwist1
+  - first:
+      1: 100164
+    second: CMan0010-HD2-RThighTwist
+  - first:
+      1: 100166
+    second: CMan0010-HD2-RThighTwist1
+  - first:
+      1: 100168
+    second: CMan0010-HD2-RUpArmTwist
+  - first:
+      1: 100170
+    second: CMan0010-HD2-RUpArmTwist1
+  - first:
+      1: 100172
+    second: CMan0010-HD2-Spine
+  - first:
+      1: 100174
+    second: CMan0010-HD2-Spine1
+  - first:
+      1: 100176
+    second: CMan0010-HD2-Spine2
+  - first:
+      1: 100178
+    second: CMan0010-HD2-Spine3
+  - first:
+      1: 100180
+    second: //RootNode
+  - first:
+      1: 100182
+    second: PhysCamera001.Target
+  - first:
+      1: 100184
+    second: PhysCamera002.Target
+  - first:
+      1: 100186
+    second: PhysCamera003.Target
+  - first:
+      4: 400000
+    second: Camera001
+  - first:
+      4: 400002
+    second: Camera001.Target
+  - first:
+      4: 400004
+    second: CMan0010-HD2-Bip
+  - first:
+      4: 400006
+    second: CMan0010-HD2-Footsteps
+  - first:
+      4: 400008
+    second: CMan0010-HD2-Hands
+  - first:
+      4: 400010
+    second: CMan0010-HD2-Head
+  - first:
+      4: 400012
+    second: CMan0010-HD2-HeadNub
+  - first:
+      4: 400014
+    second: CMan0010-HD2-L Calf
+  - first:
+      4: 400016
+    second: CMan0010-HD2-L Clavicle
+  - first:
+      4: 400018
+    second: CMan0010-HD2-L Finger0
+  - first:
+      4: 400020
+    second: CMan0010-HD2-L Finger01
+  - first:
+      4: 400022
+    second: CMan0010-HD2-L Finger02
+  - first:
+      4: 400024
+    second: CMan0010-HD2-L Finger0Nub
+  - first:
+      4: 400026
+    second: CMan0010-HD2-L Finger1
+  - first:
+      4: 400028
+    second: CMan0010-HD2-L Finger11
+  - first:
+      4: 400030
+    second: CMan0010-HD2-L Finger12
+  - first:
+      4: 400032
+    second: CMan0010-HD2-L Finger1Nub
+  - first:
+      4: 400034
+    second: CMan0010-HD2-L Finger2
+  - first:
+      4: 400036
+    second: CMan0010-HD2-L Finger21
+  - first:
+      4: 400038
+    second: CMan0010-HD2-L Finger22
+  - first:
+      4: 400040
+    second: CMan0010-HD2-L Finger2Nub
+  - first:
+      4: 400042
+    second: CMan0010-HD2-L Finger3
+  - first:
+      4: 400044
+    second: CMan0010-HD2-L Finger31
+  - first:
+      4: 400046
+    second: CMan0010-HD2-L Finger32
+  - first:
+      4: 400048
+    second: CMan0010-HD2-L Finger3Nub
+  - first:
+      4: 400050
+    second: CMan0010-HD2-L Finger4
+  - first:
+      4: 400052
+    second: CMan0010-HD2-L Finger41
+  - first:
+      4: 400054
+    second: CMan0010-HD2-L Finger42
+  - first:
+      4: 400056
+    second: CMan0010-HD2-L Finger4Nub
+  - first:
+      4: 400058
+    second: CMan0010-HD2-L Foot
+  - first:
+      4: 400060
+    second: CMan0010-HD2-L Forearm
+  - first:
+      4: 400062
+    second: CMan0010-HD2-L ForeTwist
+  - first:
+      4: 400064
+    second: CMan0010-HD2-L ForeTwist1
+  - first:
+      4: 400066
+    second: CMan0010-HD2-L Hand
+  - first:
+      4: 400068
+    second: CMan0010-HD2-L Thigh
+  - first:
+      4: 400070
+    second: CMan0010-HD2-L Toe0
+  - first:
+      4: 400072
+    second: CMan0010-HD2-L Toe01
+  - first:
+      4: 400074
+    second: CMan0010-HD2-L Toe0Nub
+  - first:
+      4: 400076
+    second: CMan0010-HD2-L UpperArm
+  - first:
+      4: 400078
+    second: CMan0010-HD2-LCalfTwist
+  - first:
+      4: 400080
+    second: CMan0010-HD2-LCalfTwist1
+  - first:
+      4: 400082
+    second: CMan0010-HD2-LThighTwist
+  - first:
+      4: 400084
+    second: CMan0010-HD2-LThighTwist1
+  - first:
+      4: 400086
+    second: CMan0010-HD2-LUpArmTwist
+  - first:
+      4: 400088
+    second: CMan0010-HD2-LUpArmTwist1
+  - first:
+      4: 400090
+    second: CMan0010-HD2-Neck
+  - first:
+      4: 400092
+    second: CMan0010-HD2-Neck1
+  - first:
+      4: 400094
+    second: CMan0010-HD2-Pelvis
+  - first:
+      4: 400096
+    second: CMan0010-HD2-R Calf
+  - first:
+      4: 400098
+    second: CMan0010-HD2-R Clavicle
+  - first:
+      4: 400100
+    second: CMan0010-HD2-R Finger0
+  - first:
+      4: 400102
+    second: CMan0010-HD2-R Finger01
+  - first:
+      4: 400104
+    second: CMan0010-HD2-R Finger02
+  - first:
+      4: 400106
+    second: CMan0010-HD2-R Finger0Nub
+  - first:
+      4: 400108
+    second: CMan0010-HD2-R Finger1
+  - first:
+      4: 400110
+    second: CMan0010-HD2-R Finger11
+  - first:
+      4: 400112
+    second: CMan0010-HD2-R Finger12
+  - first:
+      4: 400114
+    second: CMan0010-HD2-R Finger1Nub
+  - first:
+      4: 400116
+    second: CMan0010-HD2-R Finger2
+  - first:
+      4: 400118
+    second: CMan0010-HD2-R Finger21
+  - first:
+      4: 400120
+    second: CMan0010-HD2-R Finger22
+  - first:
+      4: 400122
+    second: CMan0010-HD2-R Finger2Nub
+  - first:
+      4: 400124
+    second: CMan0010-HD2-R Finger3
+  - first:
+      4: 400126
+    second: CMan0010-HD2-R Finger31
+  - first:
+      4: 400128
+    second: CMan0010-HD2-R Finger32
+  - first:
+      4: 400130
+    second: CMan0010-HD2-R Finger3Nub
+  - first:
+      4: 400132
+    second: CMan0010-HD2-R Finger4
+  - first:
+      4: 400134
+    second: CMan0010-HD2-R Finger41
+  - first:
+      4: 400136
+    second: CMan0010-HD2-R Finger42
+  - first:
+      4: 400138
+    second: CMan0010-HD2-R Finger4Nub
+  - first:
+      4: 400140
+    second: CMan0010-HD2-R Foot
+  - first:
+      4: 400142
+    second: CMan0010-HD2-R Forearm
+  - first:
+      4: 400144
+    second: CMan0010-HD2-R ForeTwist
+  - first:
+      4: 400146
+    second: CMan0010-HD2-R ForeTwist1
+  - first:
+      4: 400148
+    second: CMan0010-HD2-R Hand
+  - first:
+      4: 400150
+    second: CMan0010-HD2-R Thigh
+  - first:
+      4: 400152
+    second: CMan0010-HD2-R Toe0
+  - first:
+      4: 400154
+    second: CMan0010-HD2-R Toe01
+  - first:
+      4: 400156
+    second: CMan0010-HD2-R Toe0Nub
+  - first:
+      4: 400158
+    second: CMan0010-HD2-R UpperArm
+  - first:
+      4: 400160
+    second: CMan0010-HD2-RCalfTwist
+  - first:
+      4: 400162
+    second: CMan0010-HD2-RCalfTwist1
+  - first:
+      4: 400164
+    second: CMan0010-HD2-RThighTwist
+  - first:
+      4: 400166
+    second: CMan0010-HD2-RThighTwist1
+  - first:
+      4: 400168
+    second: CMan0010-HD2-RUpArmTwist
+  - first:
+      4: 400170
+    second: CMan0010-HD2-RUpArmTwist1
+  - first:
+      4: 400172
+    second: CMan0010-HD2-Spine
+  - first:
+      4: 400174
+    second: CMan0010-HD2-Spine1
+  - first:
+      4: 400176
+    second: CMan0010-HD2-Spine2
+  - first:
+      4: 400178
+    second: CMan0010-HD2-Spine3
+  - first:
+      4: 400180
+    second: //RootNode
+  - first:
+      4: 400182
+    second: PhysCamera001.Target
+  - first:
+      4: 400184
+    second: PhysCamera002.Target
+  - first:
+      4: 400186
+    second: PhysCamera003.Target
+  - first:
+      43: 4300000
+    second: CMan0010-HD2-Hands
+  - first:
+      74: 7400000
+    second: Take 001
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      137: 13700000
+    second: CMan0010-HD2-Hands
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Standard_10
+    second: {fileID: 2100000, guid: 2520d26b177e5f041b947f17976ce966, type: 2}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+    extraUserProperties: []
     clipAnimations: []
     isReadable: 1
   meshes:
@@ -224,13 +618,23 @@ ModelImporter:
     globalScale: 700
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 0
     importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
@@ -240,10 +644,14 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -253,15 +661,17 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 700
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
+  avatarSetup: 1
   additionalBone: 0
   userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+  assetBundleName: downloads/source/model/nanren_tuipai
+  assetBundleVariant: fbx

@@ -273,10 +273,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 20498286021140756, guid: e5787b37e8f1ca94d832cd9725b51d4b,
+        type: 3}
+      propertyPath: m_NormalizedViewPortRect.width
+      value: 1.01
+      objectReference: {fileID: 0}
     - target: {fileID: 114670301303842616, guid: e5787b37e8f1ca94d832cd9725b51d4b,
         type: 3}
       propertyPath: m_EnabledProcedureTypeNames.Array.size
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114670301303842616, guid: e5787b37e8f1ca94d832cd9725b51d4b,
+        type: 3}
+      propertyPath: m_LuaPackagePaths.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114670301303842616, guid: e5787b37e8f1ca94d832cd9725b51d4b,
         type: 3}
@@ -296,7 +306,7 @@ PrefabInstance:
     - target: {fileID: 114670301303842616, guid: e5787b37e8f1ca94d832cd9725b51d4b,
         type: 3}
       propertyPath: m_EditorPath
-      value: None+Assets/Downloads/
+      value: None+Assets/
       objectReference: {fileID: 0}
     - target: {fileID: 114670301303842616, guid: e5787b37e8f1ca94d832cd9725b51d4b,
         type: 3}
@@ -347,6 +357,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_InfoLogColor.b
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114670301303842616, guid: e5787b37e8f1ca94d832cd9725b51d4b,
+        type: 3}
+      propertyPath: m_ResourceDependencyManifestTypeName
+      value: DrbFramework.Internal.Resource.DependencyManifest
+      objectReference: {fileID: 0}
+    - target: {fileID: 114670301303842616, guid: e5787b37e8f1ca94d832cd9725b51d4b,
+        type: 3}
+      propertyPath: m_PersistentPath
+      value: Application.persistentDataPath+/
+      objectReference: {fileID: 0}
+    - target: {fileID: 114670301303842616, guid: e5787b37e8f1ca94d832cd9725b51d4b,
+        type: 3}
+      propertyPath: m_DebugFormTypeNames.Array.data[5]
+      value: DrbFramework.Internal.Debug.Forms.Console
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5787b37e8f1ca94d832cd9725b51d4b, type: 3}

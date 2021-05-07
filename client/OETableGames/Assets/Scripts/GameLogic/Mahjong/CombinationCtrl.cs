@@ -49,7 +49,7 @@ public class CombinationCtrl : MonoBehaviour
         Combination = combination;
         for (int i = 0; i < combination.MahjongList.Count; ++i)
         {
-            combination.MahjongList[i].gameObject.transform.SetParent(m_Containers[i]);
+            combination.MahjongList[i].gameObject.SetParentAndReset(m_Containers[i]);
             combination.MahjongList[i].gameObject.SetLayer(m_Containers[i].gameObject.layer);
             if (isPlayAnimation)
             {

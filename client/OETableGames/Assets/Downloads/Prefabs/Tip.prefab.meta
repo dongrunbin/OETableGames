@@ -1,8 +1,7 @@
 fileFormatVersion: 2
 guid: f095685aaedafd548828dc045fe07560
-timeCreated: 1493202965
-licenseType: Pro
-NativeFormatImporter:
+PrefabImporter:
+  externalObjects: {}
   userData: 
-  assetBundleName: download/wangque/prefab/model/tip
-  assetBundleVariant: drb
+  assetBundleName: downloads/prefabs/tip
+  assetBundleVariant: prefab

@@ -53,7 +53,7 @@ public class UIItemTingTip : UIItemBase
                 go.SetParentAndReset(m_Container);
 
                 int hash = lst[i].GetHashCode();
-                Image img = go.GetOrCreatComponent<Image>();
+                Image img = go.GetOrAddComponent<Image>();
                 img.overrideSprite = MahjongManager.Instance.GetMahjongSprite(lst[i]);
                 img.SetNativeSize();
             }

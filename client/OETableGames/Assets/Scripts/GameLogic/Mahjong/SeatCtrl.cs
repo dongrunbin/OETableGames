@@ -83,7 +83,7 @@ public class SeatCtrl : MonoBehaviour
         for (int i = 0; i < seat.MahjongList.Count; ++i)
         {
             MahjongCtrl newMajiang = MahjongManager.Instance.SpawnMahjong(seat.MahjongList[i], false);
-            newMajiang.gameObject.transform.SetParent(m_HandContainer.transform);
+            newMajiang.gameObject.SetParentAndReset(m_HandContainer.transform);
             newMajiang.Show(false);
             m_HandContainer.gameObject.SetLayer("Peng" + m_nSeatPos);
             m_HandMahjong.Add(newMajiang);
@@ -92,7 +92,7 @@ public class SeatCtrl : MonoBehaviour
         if (seat.HitMahjong != null)
         {
             MahjongCtrl newMajiang = MahjongManager.Instance.SpawnMahjong(seat.HitMahjong, false);
-            newMajiang.gameObject.transform.SetParent(m_DrawContainer.transform);
+            newMajiang.gameObject.SetParentAndReset(m_DrawContainer.transform);
             newMajiang.Show(false);
             m_DrawContainer.gameObject.SetLayer("Peng" + m_nSeatPos);
             m_HandMahjong.Add(newMajiang);
@@ -372,12 +372,12 @@ public class SeatCtrl : MonoBehaviour
         yield return new WaitForSeconds(INIT_POKER_ANIMATION_DURATION * 2);
     }
 
-    public void Draw(Seat seat)
+    public void Draw(Seat seat, Mahjong mahjong)
     {
         if (seat == null) return;
         if (seat.Pos != m_nSeatPos) return;
 
-        MahjongCtrl ctrl = MahjongManager.Instance.SpawnMahjong(seat.HitMahjong, MahjongHelper.HasMahjong(seat.HitMahjong, seat.UniversalList));
+        MahjongCtrl ctrl = MahjongManager.Instance.SpawnMahjong(mahjong, MahjongHelper.HasMahjong(mahjong, seat.UniversalList));
         ctrl.gameObject.SetParentAndReset(m_DrawContainer.transform);
         ctrl.gameObject.SetLayer(m_DrawContainer.gameObject.layer);
         m_HandMahjong.Add(ctrl);

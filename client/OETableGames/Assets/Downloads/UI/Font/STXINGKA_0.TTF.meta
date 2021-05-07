@@ -1,8 +1,7 @@
 fileFormatVersion: 2
 guid: ff396e993c827724f987c1b11a10a3e4
-timeCreated: 1516098235
-licenseType: Pro
 TrueTypeFontImporter:
+  externalObjects: {}
   serializedVersion: 4
   fontSize: 16
   forceTextureCase: -2
@@ -16,6 +15,8 @@ TrueTypeFontImporter:
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
   userData: 
-  assetBundleName: download/wangque/source/font/stxingka_0
-  assetBundleVariant: drb
+  assetBundleName: downloads/ui/font/stxingka_0
+  assetBundleVariant: ttf

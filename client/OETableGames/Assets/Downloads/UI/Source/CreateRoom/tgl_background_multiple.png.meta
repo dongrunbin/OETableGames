@@ -120,9 +120,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: static/createroom
+  spritePackingTag: Downloads/UI/Source/CreateRoom
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
   userData: 
-  assetBundleName: download/wangque/source/uisource/createroom
-  assetBundleVariant: drb
+  assetBundleName: downloads/ui/source/createroom
+  assetBundleVariant: png

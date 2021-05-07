@@ -8,6 +8,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 using DrbFramework.Internal.Localization;
+using DrbFramework.Extensions;
 
 public enum SelectMode
 {
@@ -86,7 +87,7 @@ public class UIItemOption : UIItemBase
             }
             if (Content.Count > m_Index)
             {
-                m_txtCurrent.GetComponent<UGuiTextLocalizer>().Key = Content[m_Index].OptionName;
+                m_txtCurrent.gameObject.GetOrAddComponent<UGuiTextLocalizer>().Key = Content[m_Index].OptionName;
             }
         }
     }
@@ -104,11 +105,11 @@ public class UIItemOption : UIItemBase
         set
         {
             m_OptionName = value;
-            m_txtName.GetComponent<UGuiTextLocalizer>().Key = m_OptionName;
+            m_txtName.gameObject.GetOrAddComponent<UGuiTextLocalizer>().Key = m_OptionName;
 
             if (m_Content.Count > 0)
             {
-                m_txtCurrent.GetComponent<UGuiTextLocalizer>().Key = Content[0].OptionName;
+                m_txtCurrent.gameObject.GetOrAddComponent<UGuiTextLocalizer>().Key = Content[0].OptionName;
             }
         }
     }

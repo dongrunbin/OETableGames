@@ -1,6 +1,7 @@
 fileFormatVersion: 2
 guid: a82ebc5c9b5033b4bb9aa475b3a2c021
 DefaultImporter:
+  externalObjects: {}
   userData: 
-  assetBundleName: download/wangque/scene/scene_mahjong
-  assetBundleVariant: drb
+  assetBundleName: downloads/scenes/mahjongscene
+  assetBundleVariant: unity

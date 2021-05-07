@@ -120,9 +120,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+  spritePackingTag: Downloads/UI/Source/MainMenu
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
   userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+  assetBundleName: downloads/ui/source/mainmenu
+  assetBundleVariant: png

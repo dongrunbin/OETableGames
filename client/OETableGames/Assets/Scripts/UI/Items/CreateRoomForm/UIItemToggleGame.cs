@@ -4,6 +4,7 @@
 //Description ：
 //===================================================
 using DrbFramework.Internal.Localization;
+using DrbFramework.Extensions;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,7 +23,7 @@ public class UIItemToggleGame : UIItemBase
         set
         {
             m_GameName = value;
-            m_txtGameName.GetComponent<UGuiTextLocalizer>().Key = m_GameName;
+            m_txtGameName.gameObject.GetOrAddComponent<UGuiTextLocalizer>().Key = m_GameName;
         }
     }
 

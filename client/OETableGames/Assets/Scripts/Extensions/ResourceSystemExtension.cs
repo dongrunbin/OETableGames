@@ -12,7 +12,7 @@ public static class ResourceSystemExtensions
 {
     public static T LoadAsset<T>(this ResourceSystem resourceSystem, string assetPath) where T : class
     {
-#if UNITY_EDITOR
+#if !ASSETBUNDLE
         return resourceSystem.LoadAsset<T>(assetPath, LoadMode.Editor);
 #else
         string assetName = Path.GetFileNameWithoutExtension(assetPath);
@@ -22,8 +22,7 @@ public static class ResourceSystemExtensions
 
     public static void LoadAssetAsync(this ResourceSystem resourceSystem, string assetPath, LoadAssetCompleteEventHandler onComplete, object userData)
     {
-#if UNITY_EDITOR
-        assetPath += ".prefab";
+#if !ASSETBUNDLE
         resourceSystem.LoadAssetAsync(assetPath, LoadMode.Editor, onComplete, userData);
 #else
         string assetName = Path.GetFileNameWithoutExtension(assetPath);

@@ -1,8 +1,8 @@
 fileFormatVersion: 2
 guid: 5c8dc944027d92249b72f0fa285b90d6
-timeCreated: 1496662226
-licenseType: Pro
 NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
   userData: 
-  assetBundleName: download/wangque/source/modelsource/materials/isuniversal
-  assetBundleVariant: drb
+  assetBundleName: downloads/source/model/materials/isuniversal
+  assetBundleVariant: mat

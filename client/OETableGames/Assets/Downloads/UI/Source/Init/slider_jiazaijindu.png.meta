@@ -120,9 +120,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: static/login
+  spritePackingTag: Downloads/UI/Source/Init
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
   userData: 
-  assetBundleName: download/wangque/source/uisource/login
-  assetBundleVariant: drb
+  assetBundleName: downloads/ui/source/init
+  assetBundleVariant: png

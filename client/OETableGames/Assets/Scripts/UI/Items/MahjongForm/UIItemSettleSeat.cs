@@ -87,6 +87,7 @@ public class UIItemSettleSeat : UIItemBase
         }
         for (int i = 0; i < seat.MahjongList.Count; ++i, ++index)
         {
+            if (index >= m_Mahjongs.Count) continue;
             m_Mahjongs[index].overrideSprite = MahjongManager.Instance.GetMahjongSprite(seat.MahjongList[i]);
             m_Mahjongs[index].gameObject.SetActive(true);
         }

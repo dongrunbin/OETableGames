@@ -45,5 +45,7 @@ MahjongForm.Cancel:Cancel
 MahjongForm.Win:Win
 MahjongForm.Games:Games
 MahjongForm.RoomId:Room Id
+MahjongForm.FinalScore:Final score
+MahjongForm.Gameover:Game over
 
 Error:Error

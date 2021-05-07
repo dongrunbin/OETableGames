@@ -11,9 +11,9 @@ using UnityEngine.UI;
 public class UIItemResult : UIItemBase
 {
     [SerializeField]
-    protected Button m_BtnLeave;
+    private Button m_BtnLeave;
     [SerializeField]
-    protected List<UIItemResultSeat> m_Seat = new List<UIItemResultSeat>();
+    private List<UIItemResultSeat> m_Seat = new List<UIItemResultSeat>();
 
     protected override void OnAwake()
     {
@@ -24,6 +24,7 @@ public class UIItemResult : UIItemBase
 
     private void OnLeaveClick()
     {
+        this.Hide();
         DrbComponent.ProcedureSystem.ChangeProcedure<MainMenuProcedure>();
     }
 
@@ -35,10 +36,9 @@ public class UIItemResult : UIItemBase
             m_Seat[i].gameObject.SetActive(false);
         }
 
-        IList<Seat> seats = room.SeatList;
-        for (int i = 0; i < seats.Count; ++i)
+        for (int i = 0; i < room.SeatList.Count; ++i)
         {
-            Seat seat = seats[i];
+            Seat seat = room.SeatList[i];
             UIItemResultSeat info = m_Seat[i];
             info.gameObject.SetActive(true);
             info.SetUI(seat);

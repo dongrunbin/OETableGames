@@ -120,9 +120,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: static/myroom
+  spritePackingTag: Downloads/UI/Source/MainMenu
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
   userData: 
-  assetBundleName: download/wangque/source/uisource/myroom
-  assetBundleVariant: drb
+  assetBundleName: downloads/ui/source/mainmenu
+  assetBundleVariant: png

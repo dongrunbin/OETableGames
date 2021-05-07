@@ -211,55 +211,6 @@ public class MahjongHelper
         return ret;
     }
 
-    public static bool CheckLiangXi(List<Mahjong> mahjong)
-    {
-        if (mahjong == null || mahjong.Count < 3 || mahjong.Count > 4) return false;
-
-        List<Mahjong> lstZi = new List<Mahjong>();
-        List<Mahjong> lst1 = new List<Mahjong>();
-        List<Mahjong> lst9 = new List<Mahjong>();
-
-        for (int i = 0; i < mahjong.Count; ++i)
-        {
-            if (mahjong[i].color == 5)
-            {
-                lstZi.Add(mahjong[i]);
-            }
-            else if (mahjong[i].color < 4 && mahjong[i].number == 1)
-            {
-                if (HasMahjong(mahjong[i], lst1)) return false;
-                lst1.Add(mahjong[i]);
-            }
-            else if (mahjong[i].color < 4 && mahjong[i].number == 9)
-            {
-                if (HasMahjong(mahjong[i], lst9)) return false;
-                lst9.Add(mahjong[i]);
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        if (lst1.Count > 0 && lst9.Count > 0) return false;
-
-        if (lst1.Count > 0 && lst1.Count + lstZi.Count == 3) return true;
-        if (lst9.Count > 0 && lst9.Count + lstZi.Count == 3) return true;
-        if (lstZi.Count == 3 && lst1.Count == 0 && lst9.Count == 0) return true;
-        if (lstZi.Count == 4 && lst1.Count == 0 && lst9.Count == 0)
-        {
-            for (int i = 1; i < lstZi.Count; ++i)
-            {
-                if (lstZi[i].number != lstZi[i - 1].number)
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return false;
-    }
-
     private static List<List<CardCombination>> Result = new List<List<CardCombination>>();
 
     public static List<List<CardCombination>> CheckTing(

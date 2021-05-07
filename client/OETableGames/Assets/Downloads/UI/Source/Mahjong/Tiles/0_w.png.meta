@@ -84,9 +84,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: dynamic/majiang
+  spritePackingTag: Downloads/UI/Source/Mahjong/Tiles
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
   userData: 
-  assetBundleName: download/wangque/source/uisource/gameuisource/majiang
-  assetBundleVariant: drb
+  assetBundleName: downloads/ui/source/mahjong/tiles
+  assetBundleVariant: png

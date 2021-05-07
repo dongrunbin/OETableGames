@@ -38,7 +38,7 @@ public class MahjongManager : MonoBehaviour
     private GameObject LoadPrefab(Mahjong mahjong)
     {
         string mahjongName = (mahjong == null || mahjong.number == 0) ? Mahjong.DefaultName : string.Format("{0}_{1}", mahjong.color, mahjong.number);
-        string path = string.Format("Prefabs/{0}.prefab", mahjongName);
+        string path = string.Format("Downloads/Prefabs/{0}.prefab", mahjongName);
         return DrbComponent.ResourceSystem.LoadAsset<GameObject>(path);
     }
 
@@ -54,7 +54,7 @@ public class MahjongManager : MonoBehaviour
             for (int j = 0; j < 10; ++j)
             {
                 if (i != 0 && j == 0) continue;
-                if (i == 5 && j > 1) break;
+                if (i == 5 && j > 3) break;
                 GameObject prefab = LoadPrefab(new Mahjong(i, j));
                 PrefabPool prefabPool = new PrefabPool(prefab.transform);
                 if (i == 0 && j == 0)
@@ -73,7 +73,7 @@ public class MahjongManager : MonoBehaviour
 
     public MahjongCtrl SpawnMahjong(Mahjong mahjong, bool isUniversal)
     {
-        MahjongCtrl ctrl = m_WallPool.Spawn((mahjong == null || mahjong.color == 0) ? Mahjong.DefaultName : mahjong.ToString()).gameObject.GetOrCreatComponent<MahjongCtrl>();
+        MahjongCtrl ctrl = m_WallPool.Spawn((mahjong == null || mahjong.color == 0) ? Mahjong.DefaultName : mahjong.ToString()).gameObject.GetOrAddComponent<MahjongCtrl>();
         ctrl.Init(mahjong, isUniversal);
         return ctrl;
     }
@@ -81,7 +81,7 @@ public class MahjongManager : MonoBehaviour
     public GameObject SpawnDice()
     {
         string prefabName = "dice";
-        string path = string.Format("Prefabs/{0}.prefab", prefabName);
+        string path = string.Format("Downloads/Prefabs/{0}.prefab", prefabName);
         GameObject prefab = DrbComponent.ResourceSystem.LoadAsset<GameObject>(path);
         return UnityEngine.Object.Instantiate(prefab);
     }
@@ -89,15 +89,15 @@ public class MahjongManager : MonoBehaviour
     public GameObject SpawnHand_Tui()
     {
         string handPrefabName = "hand";
-        string handPath = string.Format("Prefabs/{0}.prefab", handPrefabName);
+        string handPath = string.Format("Downloads/Prefabs/{0}.prefab", handPrefabName);
         GameObject prefab = DrbComponent.ResourceSystem.LoadAsset<GameObject>(handPath);
         return UnityEngine.Object.Instantiate(prefab);
     }
 
-    public GameObject SpawnHand_Fang()
+    public GameObject SpawnDiceHand()
     {
         string handPrefabName = "dicehand";
-        string handPath = string.Format("Prefabs/{0}.prefab", handPrefabName);
+        string handPath = string.Format("Downloads/Prefabs/{0}.prefab", handPrefabName);
         GameObject prefab = DrbComponent.ResourceSystem.LoadAsset<GameObject>(handPath);
         return UnityEngine.Object.Instantiate(prefab);
     }

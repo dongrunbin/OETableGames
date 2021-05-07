@@ -44,6 +44,50 @@ public class MahjongLogic : MonoBehaviour
     public Action<Mahjong> OnDoubleClickMahjong;
     public Action<Mahjong> OnSelectMahjong;
 
+    private class OperationInfo
+    {
+        public enum OperationType
+        {
+            Draw,
+            Discard,
+            Operation,
+            Settle,
+        }
+        public OperationType type;
+        public Seat seat;
+        public Mahjong mahjong;
+        public bool isFromLast;
+        public Room room;
+        public MahjongGroup group;
+
+        public OperationInfo(Room room)
+        {
+            this.type = OperationType.Settle;
+            this.room = room;
+        }
+        public OperationInfo(Seat seat, Mahjong mahjong)
+        {
+            this.type = OperationType.Discard;
+            this.seat = seat;
+            this.mahjong = mahjong;
+        }
+        public OperationInfo(Seat seat, Mahjong mahjong, bool isFromLast)
+        {
+            this.type = OperationType.Draw;
+            this.seat = seat;
+            this.mahjong = mahjong;
+            this.isFromLast = isFromLast;
+        }
+        public OperationInfo(Seat seat, MahjongGroup group)
+        {
+            this.type = OperationType.Operation;
+            this.seat = seat;
+            this.group = group;
+        }
+    }
+
+    private Queue<OperationInfo> m_OperationQueue = new Queue<OperationInfo>();
+
     private void Awake()
     {
         if (FingerEvent.Instance != null)
@@ -154,47 +198,65 @@ public class MahjongLogic : MonoBehaviour
         RebuildWall(room);
         m_isPlayingAnimation = true;
         StartCoroutine(BeginAnimation(room));
+        StartCoroutine(Delay());
     }
 
     public void Draw(Seat seat, Mahjong mahjong, bool isFromLast)
     {
         if (seat == null) return;
+
         if (m_isPlayingAnimation)
         {
-            StartCoroutine(DelayDraw(seat, mahjong, isFromLast));
+            m_OperationQueue.Enqueue(new OperationInfo(seat, mahjong, isFromLast));
+            return;
         }
-        else
-        {
-            MahjongCtrl mj = isFromLast ? m_WallInverse[0] : m_Wall[0];
-            m_WallInverse.Remove(mj);
-            m_Wall.Remove(mj);
-            MahjongManager.Instance.DespawnMahjong(mj);
-            m_CompassCtrl.SetCurrent(seat.Pos);
-            GetSeatCtrlBySeatPos(seat.Pos).Draw(seat);
-            GetSeatCtrlBySeatPos(seat.Pos).CheckTing(seat);
 
-            m_CompassCtrl.SetCurrent(seat.Pos);
-        }
-    }
-
-    private IEnumerator DelayDraw(Seat seat, Mahjong mahjong, bool isFromLast)
-    {
-        while (m_isPlayingAnimation)
-        {
-            yield return null;
-        }
         MahjongCtrl mj = isFromLast ? m_WallInverse[0] : m_Wall[0];
         m_WallInverse.Remove(mj);
         m_Wall.Remove(mj);
         MahjongManager.Instance.DespawnMahjong(mj);
         m_CompassCtrl.SetCurrent(seat.Pos);
-        GetSeatCtrlBySeatPos(seat.Pos).Draw(seat);
+        GetSeatCtrlBySeatPos(seat.Pos).Draw(seat, mahjong);
+        GetSeatCtrlBySeatPos(seat.Pos).CheckTing(seat);
 
         m_CompassCtrl.SetCurrent(seat.Pos);
     }
 
+    private IEnumerator Delay()
+    {
+        while (m_isPlayingAnimation)
+        {
+            yield return null;
+        }
+        while (m_OperationQueue.Count > 0)
+        {
+            OperationInfo info = m_OperationQueue.Dequeue();
+            switch (info.type)
+            {
+                case OperationInfo.OperationType.Draw:
+                    Draw(info.seat, info.mahjong, info.isFromLast);
+                    break;
+                case OperationInfo.OperationType.Discard:
+                    Discard(info.seat, info.mahjong);
+                    break;
+                case OperationInfo.OperationType.Operation:
+                    Operation(info.seat, info.group);
+                    break;
+                case OperationInfo.OperationType.Settle:
+                    Settle(info.room);
+                    break;
+            }
+        }
+    }
+
     public void Discard(Seat seat, Mahjong mahjong)
     {
+        if (m_isPlayingAnimation)
+        {
+            m_OperationQueue.Enqueue(new OperationInfo(seat, mahjong));
+            return;
+        }
+
         SeatCtrl ctrl = GetSeatCtrlBySeatPos(seat.Pos);
         for (int i = 0; i < m_Seats.Length; ++i)
         {
@@ -209,9 +271,18 @@ public class MahjongLogic : MonoBehaviour
 
     }
 
-    public void Operation(Seat seat)
+    public void Operation(Seat seat, MahjongGroup group)
     {
-        GetSeatCtrlBySeatPos(seat.Pos).Operate(seat, seat.UsedMahjongGroups[seat.UsedMahjongGroups.Count - 1]);
+        if (m_isPlayingAnimation)
+        {
+            m_OperationQueue.Enqueue(new OperationInfo(seat, group));
+            return;
+        }
+
+        for (int i = 0; i < m_Seats.Length; ++i)
+        {
+            m_Seats[i].Operate(seat, group);
+        }
         GetSeatCtrlBySeatPos(seat.Pos).Sort(seat);
 
         m_CompassCtrl.SetCurrent(seat.Pos);
@@ -230,15 +301,17 @@ public class MahjongLogic : MonoBehaviour
     public void Settle(Room room)
     {
         if (room == null) return;
+
+        if (m_isPlayingAnimation)
+        {
+            m_OperationQueue.Enqueue(new OperationInfo(room));
+            return;
+        }
+
         for (int i = 0; i < room.SeatList.Count; ++i)
         {
             GetSeatCtrlBySeatPos(room.SeatList[i].Pos).Settle(room.SeatList[i]);
         }
-    }
-
-    public void Result(Room room)
-    {
-
     }
 
     private SeatCtrl GetSeatCtrlBySeatPos(int seatPos)
@@ -257,7 +330,7 @@ public class MahjongLogic : MonoBehaviour
     {
         if (seatPos == 0) yield break;
         if (DiceA == 0 && DiceB == 0) yield break;
-        GameObject hand = MahjongManager.Instance.SpawnHand_Fang();
+        GameObject hand = MahjongManager.Instance.SpawnDiceHand();
         hand.SetParentAndReset(m_DiceHandContainer);
         hand.transform.localEulerAngles = new Vector3(0, (seatPos - 1) * -90f, 0);
         yield return new WaitForSeconds(0.5f);
@@ -584,6 +657,7 @@ public class MahjongLogic : MonoBehaviour
                 for (int k = 0; k < countPerTimes; ++k)
                 {
                     int index = i * countPerTimes + k;
+                    if (index >= seat.MahjongList.Count) continue;
                     GetSeatCtrlBySeatPos(seat.Pos).DealMahjong(seat.MahjongList[index], MahjongHelper.CheckUniversal(seat.MahjongList[index], seat.UniversalList));
                     MahjongCtrl mj = m_Wall[0];
 
@@ -602,7 +676,9 @@ public class MahjongLogic : MonoBehaviour
             Seat seat = room.SeatList[j];
             for (int k = 0; k < overplusCount; ++k)
             {
-                GetSeatCtrlBySeatPos(seat.Pos).DealMahjong(seat.MahjongList[loopCount * countPerTimes + k], MahjongHelper.CheckUniversal(seat.MahjongList[loopCount * countPerTimes + k], seat.UniversalList));
+                int index = loopCount * countPerTimes + k;
+                if (index >= seat.MahjongList.Count) continue;
+                GetSeatCtrlBySeatPos(seat.Pos).DealMahjong(seat.MahjongList[index], MahjongHelper.CheckUniversal(seat.MahjongList[index], seat.UniversalList));
                 MahjongCtrl mj = m_Wall[0];
                 MahjongManager.Instance.DespawnMahjong(mj);
                 m_Wall.Remove(mj);

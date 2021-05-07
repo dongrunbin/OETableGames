@@ -185,4 +185,6 @@ public class SettingWindow : EditorWindow
         PlayerSettings.SetScriptingDefineSymbolsForGroup(BuildTargetGroup.iOS, m_strMacro);
         PlayerSettings.SetScriptingDefineSymbolsForGroup(BuildTargetGroup.Android, m_strMacro);
     }
+
+
 }

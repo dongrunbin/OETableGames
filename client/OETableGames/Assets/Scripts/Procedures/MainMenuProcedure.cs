@@ -20,7 +20,7 @@ public class MainMenuProcedure : Procedure
 
         DrbComponent.AudioSystem.PlayMusic("bgm_main");
 
-        DrbComponent.UISystem.OpenFormAsync("UI/Forms/MainMenuForm", "BackGround", (IUIForm form)=> 
+        DrbComponent.UISystem.OpenFormAsync("MainMenuForm", "BackGround", (IUIForm form)=> 
         {
             m_MainMenuForm = (MainMenuForm)form;
             AccountEntity account = DrbComponent.SettingSystem.GetObject<AccountEntity>("AccountInfo");

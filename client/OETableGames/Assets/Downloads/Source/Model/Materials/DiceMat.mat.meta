@@ -1,8 +1,8 @@
 fileFormatVersion: 2
 guid: baadd0ad32f15c644a15243727f2e66a
-timeCreated: 1492422002
-licenseType: Pro
 NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
   userData: 
-  assetBundleName: download/wangque/source/modelsource/materials/dicemat
-  assetBundleVariant: drb
+  assetBundleName: downloads/source/model/materials/dicemat
+  assetBundleVariant: mat

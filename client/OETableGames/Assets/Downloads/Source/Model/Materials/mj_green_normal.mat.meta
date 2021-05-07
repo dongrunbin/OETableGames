@@ -1,8 +1,8 @@
 fileFormatVersion: 2
 guid: 7481b86077f0855429dec3f3bef918ab
-timeCreated: 1524289593
-licenseType: Pro
 NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
   userData: 
-  assetBundleName: download/wangque/source/modelsource/materials/mj_green_normal
-  assetBundleVariant: drb
+  assetBundleName: downloads/source/model/materials/mj_green_normal
+  assetBundleVariant: mat

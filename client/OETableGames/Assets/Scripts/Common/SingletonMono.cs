@@ -18,7 +18,7 @@ public class SingletonMono<T> : MonoBehaviour where T : MonoBehaviour
             {
                 GameObject obj = new GameObject(typeof(T).Name);
                 DontDestroyOnLoad(obj);
-                instance = obj.GetOrCreatComponent<T>();
+                instance = obj.GetOrAddComponent<T>();
             }
             return instance;
         }
@@ -30,7 +30,7 @@ public class SingletonMono<T> : MonoBehaviour where T : MonoBehaviour
         {
             GameObject obj = new GameObject(typeof(T).Name);
             DontDestroyOnLoad(obj);
-            instance = obj.GetOrCreatComponent<T>();
+            instance = obj.GetOrAddComponent<T>();
         }
     }
 

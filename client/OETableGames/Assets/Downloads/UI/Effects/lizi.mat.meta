@@ -1,8 +1,8 @@
 fileFormatVersion: 2
 guid: 1b0325a863e2c31439100e4555941603
-timeCreated: 1493690625
-licenseType: Pro
 NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
   userData: 
-  assetBundleName: download/wangque/source/effectsource/lizi
-  assetBundleVariant: drb
+  assetBundleName: downloads/ui/effects/lizi
+  assetBundleVariant: mat

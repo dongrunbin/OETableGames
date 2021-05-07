@@ -9,13 +9,13 @@ using UnityEngine.UI;
 public class UIItemResultSeat : UIItemBase
 {
     [SerializeField]
-    protected RawImage m_HeadImage;
+    private RawImage m_HeadImage;
     [SerializeField]
-    protected Text m_TextNickname;
+    private Text m_TextNickname;
     [SerializeField]
-    protected Text m_TextId;
+    private Text m_TextId;
     [SerializeField]
-    protected Text m_Score;
+    private Text m_Score;
 
     public virtual void SetUI(Seat seat)
     {

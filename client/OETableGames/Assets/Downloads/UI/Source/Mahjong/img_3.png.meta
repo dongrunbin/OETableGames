@@ -120,9 +120,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: static/timecountdown
+  spritePackingTag: Downloads/UI/Source/Mahjong
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
   userData: 
-  assetBundleName: download/wangque/source/uisource/timecountdown
-  assetBundleVariant: drb
+  assetBundleName: downloads/ui/source/mahjong
+  assetBundleVariant: png

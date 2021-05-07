@@ -120,9 +120,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: static/main_common
+  spritePackingTag: Downloads/UI/Source/Common
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
   userData: 
-  assetBundleName: download/wangque/source/uisource/main_common
-  assetBundleVariant: drb
+  assetBundleName: downloads/ui/source/common
+  assetBundleVariant: png

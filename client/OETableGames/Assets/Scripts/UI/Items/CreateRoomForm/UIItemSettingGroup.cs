@@ -3,6 +3,7 @@
 //CreateTime  ：2021/4/3 22:54:34
 //Description ：
 //===================================================
+using DrbFramework.Extensions;
 using DrbFramework.Internal.Localization;
 using UnityEngine;
 using UnityEngine.UI;
@@ -26,7 +27,7 @@ public class UIItemSettingGroup : UIItemBase
         set
         {
             m_GroupName = value;
-            m_txtGroupName.GetComponent<UGuiTextLocalizer>().Key = m_GroupName;
+            m_txtGroupName.gameObject.GetOrAddComponent<UGuiTextLocalizer>().Key = m_GroupName;
         }
     }
 }

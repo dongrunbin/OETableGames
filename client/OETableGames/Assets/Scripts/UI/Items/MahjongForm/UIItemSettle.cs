@@ -4,6 +4,7 @@
 //Description ：
 //===================================================
 using DrbFramework.Extensions;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,21 +12,33 @@ using UnityEngine.UI;
 public class UIItemSettle : UIItemBase
 {
     [SerializeField]
-    protected GameObject m_ItemSeatPrefab;
+    private GameObject m_ItemSeatPrefab;
     [SerializeField]
-    protected Transform m_SeatContainer;
+    private Transform m_SeatContainer;
     [SerializeField]
-    protected Button m_BtnGameOver;
+    private Button m_BtnGameOver;
     [SerializeField]
-    protected Button m_BtnReady;
+    private Button m_BtnReady;
     [SerializeField]
-    protected List<UIItemSettleSeat> m_Seat = new List<UIItemSettleSeat>();
+    private List<UIItemSettleSeat> m_Seat = new List<UIItemSettleSeat>();
+    [SerializeField]
+    private UIItemResult m_ResultView;
+
+    private Room m_Room;
 
     protected override void OnAwake()
     {
         base.OnAwake();
 
         m_BtnReady.onClick.AddListener(OnReadyClick);
+        m_BtnGameOver.onClick.AddListener(OnGameoverClick);
+    }
+
+    private void OnGameoverClick()
+    {
+        this.Hide();
+        m_ResultView.Show();
+        m_ResultView.SetUI(m_Room);
     }
 
     private void OnReadyClick()
@@ -36,7 +49,9 @@ public class UIItemSettle : UIItemBase
 
     public void SetUI(Room room)
     {
+        m_Room = room;
         m_BtnGameOver.SafeSetActive(room.isOver);
+        m_BtnReady.SafeSetActive(!room.isOver);
         for (int i = 0; i < m_Seat.Count; ++i)
         {
             m_Seat[i].gameObject.SetActive(false);

@@ -59,19 +59,22 @@ public class MahjongCtrl : MonoBehaviour
 
     public void ShowTip(bool isHandMahjong)
     {
+        m_Tip.SetParentAndReset(transform);
         m_Tip.gameObject.SetActive(true);
         if (isHandMahjong)
         {
             m_Tip.transform.localPosition = new Vector3(0f, 0f, 8f);
             m_Tip.transform.localScale = Vector3.one;
+            m_Tip.transform.rotation = Quaternion.identity;
         }
         else
         {
-            m_Tip.transform.position = transform.position + new Vector3(0f, 8f, 0f);
+            m_Tip.transform.localPosition = new Vector3(0f, 8f, 0f);
             m_Tip.transform.localScale = new Vector3(1.8f, 1.8f, 1.8f);
+            m_Tip.transform.localEulerAngles = new Vector3(90f, 0f, 0f);
         }
         m_Tip.SetLayer(gameObject.layer);
-        m_Tip.transform.rotation = Quaternion.identity;
+
     }
 
     public void Show(bool isPlayer)

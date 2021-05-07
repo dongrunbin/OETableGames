@@ -1,8 +1,8 @@
 fileFormatVersion: 2
 guid: 46c7d715808efcf42a2fdd97518c374d
-timeCreated: 1525515578
-licenseType: Pro
 NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
   userData: 
-  assetBundleName: download/wangque/source/modelsource/materials/table_green
-  assetBundleVariant: drb
+  assetBundleName: downloads/source/model/materials/table_green
+  assetBundleVariant: mat

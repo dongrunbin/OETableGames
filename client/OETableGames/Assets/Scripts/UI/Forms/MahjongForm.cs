@@ -28,13 +28,15 @@ public class MahjongForm : FormBase
     private Button m_BtnLeave;
     [SerializeField]
     private UIItemSettle m_SettleView;
-    [SerializeField]
-    private UIItemResult m_ResultView;
 
     public void Init(Room room)
     {
         if (room == null) return;
         if (room.PlayerSeat == null) return;
+
+        CloseTingTip();
+        CloseOperator();
+        CloseSettle();
 
         if (room.SeatList.Count == 2 && m_Seats.Length == 4)
         {
@@ -117,6 +119,8 @@ public class MahjongForm : FormBase
             itemSeat.SetReady(seat.Status == SeatStatus.Ready);
             itemSeat.SetBanker(seat.IsBanker);
         }
+
+        m_RoomInfo.SetLoop(room.currentLoop, room.maxLoop);
     }
 
     public void Draw(Seat seat)
@@ -141,10 +145,7 @@ public class MahjongForm : FormBase
 
     public void Operation(Seat seat)
     {
-        if (seat.IsPlayer)
-        {
-            Operator.Close();
-        }
+        Operator.Close();
     }
 
     public void CloseOperator()
@@ -184,27 +185,19 @@ public class MahjongForm : FormBase
         if (m_SettleView == null) return;
         if (room == null) return;
 
+        for (int i = 0; i < room.SeatList.Count; ++i)
+        {
+            GetItemSeatByIndex(room.SeatList[i].Index).SetGold(room.SeatList[i].Gold);
+        }
         m_SettleView.Show();
         m_SettleView.SetUI(room);
+        CloseTingTip();
     }
 
     public void CloseSettle()
     {
         if (m_SettleView == null) return;
         m_SettleView.Hide();
-    }
-
-    public void Result(Room room)
-    {
-        if (m_ResultView == null) return;
-        m_ResultView.Show();
-        m_ResultView.SetUI(room);
-    }
-
-    public void CloseResult()
-    {
-        if (m_ResultView == null) return;
-        m_ResultView.Hide();
     }
 
     public void ChangeRoomInfo(Room room)

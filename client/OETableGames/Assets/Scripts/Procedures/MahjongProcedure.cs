@@ -21,12 +21,28 @@ public class MahjongProcedure : Procedure
         base.OnEnter(userData);
         MahjongService.Instance.AddListener();
         DrbComponent.SceneSystem.OnSceneLoaded += OnSceneLoaded;
+
+#if ASSETBUNDLE
+        DrbComponent.ResourceSystem.LoadAssetBundle("Downloads/Scenes/MahjongScene.unity", DrbFramework.Resource.LoadMode.Persistent);
+#endif
         DrbComponent.SceneSystem.AddSceneAsync("MahjongScene");
+    }
+
+    public override void OnUpdate(float elapseSeconds, float realElapseSeconds)
+    {
+        base.OnUpdate(elapseSeconds, realElapseSeconds);
     }
 
     public override void OnLeave()
     {
         base.OnLeave();
+
+        DrbComponent.SceneSystem.UnloadScene("MahjongScene");
+        if (m_MahjongForm != null)
+        {
+            DrbComponent.UISystem.CloseForm(m_MahjongForm);
+        }
+
         MahjongService.Instance.RemoveListener();
         DrbComponent.SceneSystem.OnSceneLoaded -= OnSceneLoaded;
 
@@ -37,7 +53,7 @@ public class MahjongProcedure : Procedure
     {
         if (sceneName.Equals("MahjongScene"))
         {
-            DrbComponent.UISystem.OpenFormAsync("UI/Forms/MahjongForm", "BackGround", (IUIForm form) =>
+            DrbComponent.UISystem.OpenFormAsync("MahjongForm", "BackGround", (IUIForm form) =>
             {
                 m_MahjongForm = (MahjongForm)form;
                 m_MahjongForm.Operator.OnOperatorClick = OnOperatorClick;
@@ -98,6 +114,13 @@ public class MahjongProcedure : Procedure
         else
         {
             m_MahjongForm.CloseOperator();
+            if (type == OperationType.Win)
+            {
+                if (m_Proxy.Room.PlayerSeat.HitMahjong != null)
+                {
+                    type = OperationType.WinBySelf;
+                }
+            }
             MahjongService.Instance.ClientSendOperate(type, lst);
         }
     }
@@ -115,7 +138,6 @@ public class MahjongProcedure : Procedure
                 AskOperation(room.AskMahjongGroup);
             }
         }
-
         m_Proxy.CheckTing();
         m_Logic.CheckTing(room.PlayerSeat);
         m_MahjongForm.ShowTingTip(m_Proxy.Room.PlayerSeat.TingList);
@@ -141,8 +163,6 @@ public class MahjongProcedure : Procedure
 
         if (seat.IsPlayer)
         {
-            DrbComponent.SceneSystem.UnloadScene("MahjongScene");
-            DrbComponent.UISystem.CloseForm(m_MahjongForm);
             ChangeState<MainMenuProcedure>();
         }
     }
@@ -175,7 +195,7 @@ public class MahjongProcedure : Procedure
         if (m_Proxy == null) return;
         m_Proxy.Draw(playerId, mahjong);
         Seat seat = m_Proxy.GetSeatByPlayerId(playerId);
-        m_Logic.Draw(seat, mahjong, isFromLast);
+        m_Logic.Draw(seat, seat.HitMahjong, isFromLast);
         m_MahjongForm.Draw(seat);
 
         if (seat.IsPlayer)
@@ -260,7 +280,7 @@ public class MahjongProcedure : Procedure
         m_Proxy.OperateMahjong(type, playerId, subType, lst);
         Seat seat = m_Proxy.GetSeatByPlayerId(playerId);
         m_MahjongForm.Operation(seat);
-        m_Logic.Operation(seat);
+        m_Logic.Operation(seat, seat.UsedMahjongGroups.Count > 0 ? seat.UsedMahjongGroups[seat.UsedMahjongGroups.Count - 1] : null);
 
         if (seat.IsPlayer)
         {
@@ -289,8 +309,5 @@ public class MahjongProcedure : Procedure
     {
         if (m_Proxy == null) return;
         m_Proxy.Result(room);
-
-        m_Logic.Result(m_Proxy.Room);
-        m_MahjongForm.Result(m_Proxy.Room);
     }
 }

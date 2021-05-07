@@ -17,7 +17,7 @@ public class InitForm : UGUIForm
 
     public void SetUI(int currentCount, int totalCount, int currentSize, int totalSize)
     {
-        m_Text.text = string.Format("已完成{0}/{1}个文件，{2}/{3}KB", currentCount, totalCount, currentSize, totalSize);
+        m_Text.text = string.Format("file count: {0}/{1}，{2}/{3}KB", currentCount, totalCount, currentSize, totalSize);
         m_Slider.value = (float)currentSize / totalSize;
     }
 }

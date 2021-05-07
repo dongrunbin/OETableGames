@@ -1,8 +1,8 @@
 fileFormatVersion: 2
 guid: 080c00c1b56c95f45aee1115c098cfd8
-timeCreated: 1525512632
-licenseType: Pro
 NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
   userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+  assetBundleName: downloads/source/model/materials/plane
+  assetBundleVariant: mat

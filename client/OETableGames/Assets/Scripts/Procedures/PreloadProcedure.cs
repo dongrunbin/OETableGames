@@ -12,18 +12,37 @@ public class PreloadProcedure : Procedure
     public override void OnEnter(object userData)
     {
         base.OnEnter(userData);
+
+        DrbComponent.ResourceSystem.LoadManifestFile();
         string language = DrbComponent.SettingSystem.GetString("Language");
         if (!string.IsNullOrEmpty(language))
         {
             DrbComponent.LocalizationSystem.Language = language;
         }
-        TextAsset dictionary = DrbComponent.ResourceSystem.LoadAsset<TextAsset>(string.Format("Localization/{0}/Dictionary.txt", DrbComponent.LocalizationSystem.Language));
-        DrbComponent.LocalizationSystem.ParseDictionary(dictionary);
+        else
+        {
+            //DrbComponent.LocalizationSystem.Language = Application.systemLanguage.ToString();
+        }
+        DrbComponent.LocalizationSystem.SetLanguage(DrbComponent.LocalizationSystem.Language);
+        //TextAsset dictionary = DrbComponent.ResourceSystem.LoadAsset<TextAsset>(string.Format("Downloads/Localization/{0}/Dictionary.txt", DrbComponent.LocalizationSystem.Language));
+        //DrbComponent.LocalizationSystem.ParseDictionary(dictionary);
 
-        byte[] games = DrbComponent.ResourceSystem.LoadFile("Datatable/Games.bytes", DrbFramework.Resource.LoadMode.Editor);
+#if !ASSETBUNDLE
+        byte[] games = DrbComponent.ResourceSystem.LoadFile("Downloads/Datatable/Games.bytes", DrbFramework.Resource.LoadMode.Editor);
         DrbComponent.DataTableSystem.CreateDataTable<GamesDataEntity>(games);
-        byte[] settings = DrbComponent.ResourceSystem.LoadFile("Datatable/Settings.bytes", DrbFramework.Resource.LoadMode.Editor);
+        byte[] settings = DrbComponent.ResourceSystem.LoadFile("Downloads/Datatable/Settings.bytes", DrbFramework.Resource.LoadMode.Editor);
         DrbComponent.DataTableSystem.CreateDataTable<SettingsDataEntity>(settings);
+#else
+        TextAsset games = DrbComponent.ResourceSystem.LoadAsset<TextAsset>("Downloads/Datatable/Games.bytes");
+        DrbComponent.DataTableSystem.CreateDataTable<GamesDataEntity>(games.bytes);
+        TextAsset settings = DrbComponent.ResourceSystem.LoadAsset<TextAsset>("Downloads/Datatable/Settings.bytes");
+        DrbComponent.DataTableSystem.CreateDataTable<SettingsDataEntity>(settings.bytes);
+#endif
+
+
+
+
+        //DrbComponent.LuaSystem.Initialize("require 'Main'", "LuaSystem.Init", "LuaSystem.Update", "LuaSystem.Shutdown");
         ChangeState<LoginProcedure>();
     }
 
