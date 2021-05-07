@@ -39,9 +39,6 @@ namespace DrbFramework.Internal.Editor
         private const string AssetPathKey = "DrbFramework.AssetBundleWindow.AssetPath";
         private const string OutputPathKey = "DrbFramework.AssetBundleWindow.OutputPath";
 
-        private AssetbundleDAL m_DAL;
-        private List<AssetbundleEntity> m_List;
-
         void OnEnable()
         {
             m_AssetPath = PlayerPrefs.GetString(AssetPathKey, Application.dataPath);
@@ -53,10 +50,6 @@ namespace DrbFramework.Internal.Editor
             m_ResourceEncoderTypeNames = new List<string>();
             m_ResourceEncoderTypeNames.Add("None");
             m_ResourceEncoderTypeNames.AddRange(typeof(IResourceEncoder).GetAllImplementationNames());
-
-            string xmlPath = Application.dataPath + @"/Editor/AssetBundle/AssetBundleConfig.xml";
-            m_DAL = new AssetbundleDAL(xmlPath);
-            m_List = m_DAL.GetList();
         }
 
         void OnGUI()
@@ -329,8 +322,6 @@ namespace DrbFramework.Internal.Editor
                 FileInfo[] arrFiles = directory.GetFiles("*", SearchOption.AllDirectories);
                 for (int i = 0; i < arrFiles.Length; ++i)
                 {
-                    //if (arrFiles[i].Extension.Equals(".txt", StringComparison.CurrentCultureIgnoreCase)) continue;
-                    //if (arrFiles[i].Extension.Equals(".apk", StringComparison.CurrentCultureIgnoreCase)) continue;
                     FileInfo file = arrFiles[i];
                     string fullName = file.FullName.Replace('\\', '/');
                     string name = fullName.Substring(fullName.IndexOf(m_PlatformSelected[index].ToString()) + m_PlatformSelected[index].ToString().Length + 1);
@@ -340,43 +331,7 @@ namespace DrbFramework.Internal.Editor
 
                     string size = file.Length.ToString();
 
-                    bool isFirstData = false;
-                    bool isBreak = false;
-
-                    //for (int j = 0; j < m_List.Count; ++j)
-                    //{
-                    //    foreach (string xmlPath in m_List[j].PathList)
-                    //    {
-                    //        string tempPath = xmlPath;
-                    //        if (xmlPath.IndexOf(".") != -1)
-                    //        {
-                    //            tempPath = xmlPath.Substring(0, xmlPath.IndexOf("."));
-                    //        }
-                    //        //tempPath = tempPath.Replace("/", @"\");
-                    //        if (name.IndexOf(tempPath, StringComparison.CurrentCultureIgnoreCase) != -1)
-                    //        {
-                    //            isFirstData = m_List[j].IsFirstData;
-                    //            isBreak = true;
-                    //            break;
-                    //        }
-                    //    }
-                    //    if (isBreak) break;
-                    //}
-
-                    //if (name.IndexOf("binarydata", StringComparison.CurrentCultureIgnoreCase) != -1)
-                    //{
-                    //    isFirstData = true;
-                    //}
-                    //if (name.Equals(m_PlatformSelected[index].ToString(), StringComparison.CurrentCultureIgnoreCase))
-                    //{
-                    //    isFirstData = true;
-                    //}
-                    //if (name.Equals(m_PlatformSelected[index].ToString() + ".manifest", StringComparison.CurrentCultureIgnoreCase))
-                    //{
-                    //    isFirstData = true;
-                    //}
-
-                    string strLine = string.Format("{0};{1};{2};{3}", name, md5, size, isFirstData ? 1 : 0);
+                    string strLine = string.Format("{0};{1};{2};{3}", name, md5, size, 1);
                     sb.AppendLine(strLine);
                 }
 

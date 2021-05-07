@@ -7,7 +7,7 @@ using System.Data;
 using System.IO;
 using System.Text;
 
-namespace DrbFramework.Internal.DataTable
+namespace DrbFramework.Internal.Editor
 {
     public class ExcelToBinaryDataTableCreater : IDataTableCreater
     {
