@@ -567,7 +567,10 @@ PlayerSettings:
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0
   webGLWasmStreaming: 0
-  scriptingDefineSymbols: {}
+  scriptingDefineSymbols:
+    1: MODE_PRODUCTION;ASSETBUNDLE
+    4: MODE_PRODUCTION;ASSETBUNDLE
+    7: MODE_PRODUCTION;ASSETBUNDLE
   platformArchitecture: {}
   scriptingBackend: {}
   il2cppCompilerConfiguration: {}
