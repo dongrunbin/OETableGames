@@ -3,6 +3,7 @@
 //CreateTime  ：2021/4/6 3:24:09
 //Description ：
 //===================================================
+using DG.Tweening;
 using DrbFramework.Extensions;
 using System.Collections;
 using System.Collections.Generic;
@@ -48,6 +49,7 @@ public class UIItemSeat : UIItemBase
         {
             m_ImgOperating.gameObject.SetActive(false);
             m_ImgOperating.fillAmount = 0f;
+            PlayOperatingForwardAnimation();
         }
 
         if (m_BtnAddRobot != null)
@@ -108,5 +110,24 @@ public class UIItemSeat : UIItemBase
     public void SetAddRobot(bool isActive)
     {
         m_BtnAddRobot.SafeSetActive(isActive);
+    }
+
+
+    private void PlayOperatingForwardAnimation()
+    {
+        m_ImgOperating.transform.localEulerAngles = Vector3.zero;
+        m_ImgOperating.DOFillAmount(1f, 2f).SetEase(Ease.Linear).OnComplete(() =>
+        {
+            PlayOperatingBackwardsAnimation();
+        });
+    }
+
+    private void PlayOperatingBackwardsAnimation()
+    {
+        m_ImgOperating.transform.localEulerAngles = new Vector3(0f, 180f, 0f);
+        m_ImgOperating.DOFillAmount(0f, 2f).SetEase(Ease.Linear).OnComplete(() =>
+        {
+            PlayOperatingForwardAnimation();
+        });
     }
 }

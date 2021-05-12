@@ -105,7 +105,6 @@ public class LoginProcedure : Procedure
             if (jsonData["code"].ToString().ToInt() < 0)
             {
                 DrbComponent.UISystem.ShowMessage("Error", jsonData["msg"].ToString());
-                ;
                 if (DrbComponent.SettingSystem.HasSetting("AccountInfo"))
                 {
                     DrbComponent.SettingSystem.DeleteSetting("AccountInfo");
@@ -165,19 +164,6 @@ public class LoginProcedure : Procedure
         string ip = DrbComponent.SettingSystem.GetString("IP");
         int port = DrbComponent.SettingSystem.GetInt("Port");
         DrbComponent.NetworkSystem.Connect(ip, port);
-    }
-
-    public override void OnUpdate(float elapseSeconds, float realElapseSeconds)
-    {
-        base.OnUpdate(elapseSeconds, realElapseSeconds);
-
-        //hand shake time out
-        //if (m_SendHandShakeClientTime > 0 && TimeUtil.GetTimestampMS() - m_SendHandShakeClientTime > HAND_SHAKE_TIME_OUT)
-        //{
-        //    Log.Info("hand shake time out");
-        //    m_SendHandShakeClientTime = 0;
-        //    DrbComponent.NetworkSystem.Close();
-        //}
     }
 
     private void OnHandShaked(object sender, EventArgs<int> args)

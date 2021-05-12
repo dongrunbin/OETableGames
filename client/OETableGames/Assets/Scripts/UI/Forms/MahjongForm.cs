@@ -146,6 +146,10 @@ public class MahjongForm : FormBase
     public void Operation(Seat seat)
     {
         Operator.Close();
+
+        UIItemSeat itemSeat = GetItemSeatByIndex(seat.Index);
+        if (itemSeat == null) return;
+        itemSeat.SetOperating(false);
     }
 
     public void CloseOperator()

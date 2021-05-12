@@ -250,6 +250,8 @@ public class CheckVersionProcedure : Procedure
             return;
         }
         m_TotalCount = needDownloadDataList.Count;
+        m_CurrentCount = 0;
+        m_CurrentSize = 0;
         for (int i = 0; i < needDownloadDataList.Count; ++i)
         {
             DrbComponent.DownloadSystem.Download(m_DownloadUrl + m_Platform + "/" + needDownloadDataList[i].FullName, StringUtil.CombinePath(DrbComponent.ResourceSystem.PersistentPath, needDownloadDataList[i].FullName), needDownloadDataList[i]);
