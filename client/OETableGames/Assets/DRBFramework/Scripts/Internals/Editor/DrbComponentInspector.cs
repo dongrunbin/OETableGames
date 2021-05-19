@@ -291,26 +291,17 @@ namespace DrbFramework.Internal.Editor
         {
             DrbComponent drb = (DrbComponent)target;
             BeginModule("Base Settings");
-            int frameRate = EditorGUILayout.IntSlider("Frame Rate", m_FrameRate.intValue, 0, MAX_FRAME_RATE);
-            if (frameRate != m_FrameRate.intValue)
-            {
-                drb.FrameRate = frameRate;
-            }
+            m_FrameRate.intValue = EditorGUILayout.IntSlider("Frame Rate", m_FrameRate.intValue, 0, MAX_FRAME_RATE);
+            drb.FrameRate = m_FrameRate.intValue;
 
-            float timeScale = EditorGUILayout.Slider("Time Scale", m_TimeScale.floatValue, 0f, MAX_TIME_SCALE);
-            if (timeScale != m_TimeScale.floatValue)
-            {
-                drb.TimeScale = timeScale;
-            }
+            m_TimeScale.floatValue = EditorGUILayout.Slider("Time Scale", m_TimeScale.floatValue, 0f, MAX_TIME_SCALE);
+            drb.TimeScale = m_TimeScale.floatValue;
 
-            bool runInBackground = EditorGUILayout.Toggle("Run In Background", m_RunInBackground.boolValue);
-            if (runInBackground != m_RunInBackground.boolValue)
-            {
-                drb.RunInBackground = runInBackground;
-            }
+            m_RunInBackground.boolValue = EditorGUILayout.Toggle("Run In Background", m_RunInBackground.boolValue);
+            drb.RunInBackground = m_RunInBackground.boolValue;
 
             bool neverSleep = EditorGUILayout.Toggle("Screen Never Sleep", m_SleepTimeout.intValue == SleepTimeout.NeverSleep);
-            int sleepTimeout = 0;
+            int sleepTimeout;
             if (!neverSleep)
             {
                 sleepTimeout = EditorGUILayout.IntField("Screen Sleep Timeout", m_SleepTimeout.intValue);
@@ -327,6 +318,7 @@ namespace DrbFramework.Internal.Editor
             {
                 drb.SleepTimeout = sleepTimeout;
             }
+            m_SleepTimeout.intValue = sleepTimeout;
 
             EndModule();
         }
