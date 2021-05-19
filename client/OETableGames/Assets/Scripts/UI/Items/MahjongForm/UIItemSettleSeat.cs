@@ -18,13 +18,9 @@ public class UIItemSettleSeat : UIItemBase
     [SerializeField]
     protected Text m_TextGold;
     [SerializeField]
-    protected Text m_TotalGold;
-    [SerializeField]
     private Transform m_MahjongContainer;
     [SerializeField]
     private Text m_TextInfo;
-    [SerializeField]
-    private Text m_HuType;
     [SerializeField]
     private GameObject m_MahjongPrefab;
     [SerializeField]
@@ -32,29 +28,11 @@ public class UIItemSettleSeat : UIItemBase
 
 
 
-    public void SetUI(Seat seat, Room room)
+    public void SetUI(Seat seat)
     {
         m_TextNickName.SafeSetText(seat.Nickname);
-        m_TotalGold.SafeSetText(seat.Gold.ToString());
         m_TextGold.SafeSetText(seat.Settle.ToString("+#;-#;0"));
         m_ImageBanker.gameObject.SetActive(seat.IsBanker);
-
-        if (seat.isLoser)
-        {
-            m_HuType.SafeSetText("点炮");
-        }
-        else if (seat.isZiMo && seat.isWiner)
-        {
-            m_HuType.SafeSetText("自摸");
-        }
-        else if (seat.isWiner && !seat.isZiMo)
-        {
-            m_HuType.SafeSetText("胡");
-        }
-        else
-        {
-            m_HuType.SafeSetText("");
-        }
 
         string strInfo = string.Empty;
         if (!string.IsNullOrEmpty(seat.incomesDesc))

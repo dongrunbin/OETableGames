@@ -312,6 +312,8 @@ public class MahjongLogic : MonoBehaviour
         {
             GetSeatCtrlBySeatPos(room.SeatList[i].Pos).Settle(room.SeatList[i]);
         }
+
+        DrbComponent.AudioSystem.PlaySoundEffect(room.PlayerSeat.isWiner ? "mahjong_win" : "mahjong_lose");
     }
 
     private SeatCtrl GetSeatCtrlBySeatPos(int seatPos)
@@ -335,7 +337,7 @@ public class MahjongLogic : MonoBehaviour
         hand.transform.localEulerAngles = new Vector3(0, (seatPos - 1) * -90f, 0);
         yield return new WaitForSeconds(0.5f);
 
-        //AudioEffectManager.Instance.Play("rolldice", Vector3.zero, false);
+        DrbComponent.AudioSystem.PlaySoundEffect("mahjong_rolldice");
 
         Coroutine coroutine = null;
         if (DiceA != 0)

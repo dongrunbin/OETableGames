@@ -4,6 +4,7 @@
 //Description ：
 //===================================================
 
+using DrbFramework.Extensions;
 using DrbFramework.Internal;
 using UnityEngine;
 using UnityEngine.UI;
@@ -26,6 +27,17 @@ public class MainMenuForm : FormBase
     private Button m_BtnSetting;
     [SerializeField]
     private Button m_BtnCredit;
+    [SerializeField]
+    private Button m_BtnExit;
+
+    public override void OnInit()
+    {
+        base.OnInit();
+
+#if !UNITY_EDITOR && !UNITY_STANDALONE_WIN
+        m_BtnExit.SafeSetActive(false);
+#endif
+    }
 
     protected override void OnBtnClick(GameObject go)
     {
@@ -45,6 +57,10 @@ public class MainMenuForm : FormBase
         else if (go == m_BtnCredit.gameObject)
         {
             DrbComponent.UISystem.OpenFormAsync("CreditForm", "Form", null);
+        }
+        else if (go == m_BtnExit.gameObject)
+        {
+            Application.Quit();
         }
     }
 

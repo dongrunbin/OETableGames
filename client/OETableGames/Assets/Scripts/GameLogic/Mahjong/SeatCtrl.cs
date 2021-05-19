@@ -33,12 +33,7 @@ public class SeatCtrl : MonoBehaviour
     private Transform m_DiscardContainer;
     [SerializeField]
     private CameraCtrl m_Camera;
-    [SerializeField]
-    private HandCtrl m_PushHand;
-    [SerializeField]
-    private HandCtrl m_DiceHand;
 
-    private Tweener m_WallTweener;
     private List<MahjongCtrl> m_LightMaJiang = new List<MahjongCtrl>();
     private List<MahjongCtrl> m_HandMahjong = new List<MahjongCtrl>();
     private List<MahjongCtrl> m_DesktopMahjong = new List<MahjongCtrl>();
@@ -60,14 +55,6 @@ public class SeatCtrl : MonoBehaviour
     private void Awake()
     {
         m_HandTween = m_HandContainer.transform.DORotate(new Vector3(-75f, 0f, 0f), INIT_POKER_ANIMATION_DURATION, RotateMode.LocalAxisAdd).SetAutoKill(false).Pause();
-
-        //m_PushHand = MahjongManager.Instance.SpawnHand_Tui().GetComponent<HandCtrl>();
-        //m_PushHand.gameObject.transform.SetParent(transform);
-        //m_PushHand.gameObject.SetActive(false);
-
-        //m_DiceHand = MahjongManager.Instance.SpawnHand_Fang().GetComponent<HandCtrl>();
-        //m_DiceHand.gameObject.transform.SetParent(transform);
-        //m_DiceHand.gameObject.SetActive(false);
     }
 
     public void Settle(Seat seat)
@@ -172,22 +159,6 @@ public class SeatCtrl : MonoBehaviour
                 m_DrawContainer.gameObject.SetLayer("Peng" + m_nSeatPos.ToString());
                 break;
         }
-    }
-
-    private void PlayAudio(OperationType type, int subType, int gender)
-    {
-        string audioName = type.ToString().ToLower();
-        audioName = gender.ToString() + "_" + audioName;
-        audioName = string.Format("mahjong/{0}", audioName);
-        AudioInfo info = new AudioInfo();
-        //DrbComponent.AudioSystem.PlayAudio(audioName, info);
-    }
-
-    private void PlayAudio(int color, int size, int gender)
-    {
-        string audioName = string.Format("{0}_{1}_{2}", gender, color, size);
-        audioName = string.Format("mahjong/{0}", audioName);
-        //DrbComponent.AudioSystem.PlayAudio(audioName);
     }
 
     public List<MahjongCtrl> GetHand()
@@ -423,7 +394,7 @@ public class SeatCtrl : MonoBehaviour
 
         majiang.transform.localPosition = m_DeskTopContainer.GetLocalPos(majiang.transform);
 
-        PlayAudio(discarded.color, discarded.number, seat.Gender);
+        //PlayAudio(discarded.color, discarded.number, seat.Gender);
 
         StartCoroutine(PlayMahjongAnimation(majiang, sourcePos, seat.IsPlayer));
     }
@@ -529,8 +500,10 @@ public class SeatCtrl : MonoBehaviour
                 m_PengCtrls[i].Reset();
             }
         }
-
-        PlayAudio(combination.CombinationType, combination.SubType, seat.Gender);
+        if (combination.CombinationType != OperationType.Win && combination.CombinationType != OperationType.WinBySelf)
+        {
+            DrbComponent.AudioSystem.PlaySoundEffect("mahjong_" + combination.CombinationType.ToString().ToLower());
+        }
 
         List<MahjongCtrl> lst = new List<MahjongCtrl>();
 
@@ -551,54 +524,6 @@ public class SeatCtrl : MonoBehaviour
                 break;
             }
         }
-    }
-
-    public void Hu(Seat seat, bool isZiMo)
-    {
-        if (seat == null) return;
-        MahjongCtrl ctrl = null;
-        if (seat.HitMahjong != null)
-        {
-            for (int i = 0; i < m_DesktopMahjong.Count; ++i)
-            {
-                if (m_DesktopMahjong[i].Mahjong.index == seat.HitMahjong.index)
-                {
-                    ctrl = m_DesktopMahjong[i];
-                    break;
-                }
-            }
-
-            for (int i = 0; i < m_HandMahjong.Count; ++i)
-            {
-                if (m_HandMahjong[i].Mahjong.index == seat.HitMahjong.index)
-                {
-                    ctrl = m_HandMahjong[i];
-                    break;
-                }
-            }
-            for (int i = 0; i < m_UsedMahjong.Count; ++i)
-            {
-                for (int j = 0; j < m_UsedMahjong[i].MahjongList.Count; ++j)
-                {
-                    if (m_UsedMahjong[i].MahjongList[j].Mahjong.index == seat.HitMahjong.index)
-                    {
-                        ctrl = m_UsedMahjong[i].MahjongList[j];
-                        break;
-                    }
-                }
-            }
-        }
-
-        if (ctrl != null)
-        {
-            //Transform effect = EffectManager.Instance.PlayEffect("zimo", 4f);
-            //effect.transform.SetParent(ctrl.transform.parent);
-            //effect.gameObject.SetLayer(ctrl.gameObject.layer);
-            //effect.position = ctrl.transform.position;
-            //effect.eulerAngles = Vector3.zero;
-        }
-        if (seat.Pos != m_nSeatPos) return;
-        PlayAudio(isZiMo ? OperationType.WinBySelf : OperationType.Win, 0, seat.Gender);
     }
 
     public void Sort(Seat seat)

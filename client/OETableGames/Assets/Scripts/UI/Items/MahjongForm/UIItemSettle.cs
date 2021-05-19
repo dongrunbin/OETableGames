@@ -62,7 +62,7 @@ public class UIItemSettle : UIItemBase
             Seat seat = room.SeatList[i];
             UIItemSettleSeat info = m_Seat[i];
             info.gameObject.SetActive(true);
-            info.SetUI(seat, room);
+            info.SetUI(seat);
         }
     }
 }

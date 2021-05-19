@@ -40,7 +40,7 @@ public class MahjongProcedure : Procedure
         DrbComponent.SceneSystem.UnloadScene("MahjongScene");
         if (m_MahjongForm != null)
         {
-            DrbComponent.UISystem.CloseForm(m_MahjongForm);
+            DrbComponent.UISystem.DestroyForm(m_MahjongForm);
         }
 
         MahjongService.Instance.RemoveListener();
