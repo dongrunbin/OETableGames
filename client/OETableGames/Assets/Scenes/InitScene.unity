@@ -290,6 +290,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114670301303842616, guid: e5787b37e8f1ca94d832cd9725b51d4b,
         type: 3}
+      propertyPath: m_DebugFormTypeNames.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114670301303842616, guid: e5787b37e8f1ca94d832cd9725b51d4b,
+        type: 3}
       propertyPath: m_StartProcedureTypeName
       value: LaunchProcedure
       objectReference: {fileID: 0}
@@ -341,7 +346,7 @@ PrefabInstance:
     - target: {fileID: 114670301303842616, guid: e5787b37e8f1ca94d832cd9725b51d4b,
         type: 3}
       propertyPath: m_LuaPackagePaths.Array.data[0]
-      value: Application.dataPath+Downloads/Lua/?.lua.txt
+      value: None+
       objectReference: {fileID: 0}
     - target: {fileID: 114670301303842616, guid: e5787b37e8f1ca94d832cd9725b51d4b,
         type: 3}
@@ -371,6 +376,26 @@ PrefabInstance:
     - target: {fileID: 114670301303842616, guid: e5787b37e8f1ca94d832cd9725b51d4b,
         type: 3}
       propertyPath: m_DebugFormTypeNames.Array.data[5]
+      value: DrbFramework.Internal.Debug.Forms.Console
+      objectReference: {fileID: 0}
+    - target: {fileID: 114670301303842616, guid: e5787b37e8f1ca94d832cd9725b51d4b,
+        type: 3}
+      propertyPath: m_LogLevel
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114670301303842616, guid: e5787b37e8f1ca94d832cd9725b51d4b,
+        type: 3}
+      propertyPath: m_TimeScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114670301303842616, guid: e5787b37e8f1ca94d832cd9725b51d4b,
+        type: 3}
+      propertyPath: m_SleepTimeout
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 114670301303842616, guid: e5787b37e8f1ca94d832cd9725b51d4b,
+        type: 3}
+      propertyPath: m_DebugFormTypeNames.Array.data[0]
       value: DrbFramework.Internal.Debug.Forms.Console
       objectReference: {fileID: 0}
     m_RemovedComponents: []

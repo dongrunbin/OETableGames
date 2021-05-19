@@ -644,7 +644,6 @@ public class MahjongLogic : MonoBehaviour
 
     private IEnumerator PlayDealAnimation(Room room)
     {
-        //AudioEffectManager.Instance.Play("fapai", Vector3.zero, false);
         const int countPerTimes = 4;
         int mahjongCount = room.SeatList[0].MahjongList.Count;
         if (mahjongCount == 0) yield break;

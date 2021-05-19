@@ -10,8 +10,9 @@ local game2Form;
 function Game2Procedure.OnEnter(fsm, userData)
     GameProcedure.Fsm = fsm;
 
-    DrbComponent.UISystem:OpenFormAsync("UI/Forms/Game2Form.prefab","Form", Game2Procedure.OpenFormCallback);
-    DrbComponent.AudioSystem:PlayMusic("audio/bgm/bgm_2.mp3","bgm_2");
+    DrbComponent.SceneSystem:AddSceneAsync("Game2Scene");
+    DrbComponent.UISystem:OpenFormAsync("Game2Form","BackGround", Game2Procedure.OpenFormCallback);
+    DrbComponent.AudioSystem:PlayMusic("bgm_game2");
 end
 
 function Game2Procedure.OnLeave()

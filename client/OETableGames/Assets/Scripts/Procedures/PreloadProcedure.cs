@@ -39,10 +39,12 @@ public class PreloadProcedure : Procedure
         DrbComponent.DataTableSystem.CreateDataTable<SettingsDataEntity>(settings.bytes);
 #endif
 
-
-
-
-        //DrbComponent.LuaSystem.Initialize("require 'Main'", "LuaSystem.Init", "LuaSystem.Update", "LuaSystem.Shutdown");
+#if ASSETBUNDLE
+        DrbComponent.LuaSystem.DoString(string.Format("package.path = '{0}Downloads/Lua/?.lua.txt'", DrbComponent.ResourceSystem.PersistentPath));
+#else
+        DrbComponent.LuaSystem.DoString(string.Format("package.path = '{0}Downloads/Lua/?.lua.txt'", DrbComponent.ResourceSystem.EditorPath));
+#endif
+        DrbComponent.LuaSystem.Initialize("require 'Main'", "LuaSystem.Init", "LuaSystem.Update", "LuaSystem.Shutdown");
         ChangeState<LoginProcedure>();
     }
 

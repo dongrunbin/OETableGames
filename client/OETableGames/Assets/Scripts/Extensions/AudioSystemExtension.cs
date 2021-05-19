@@ -26,9 +26,13 @@ public static class AudioSystemExtension
         info.Loop = false;
         info.Tag = "SoundEffect";
         info.Volume = DrbComponent.SettingSystem.GetFloat("SoundEffectVolume");
+#if ASSETBUNDLE
+        string audioPath = "Downloads/Audio/SoundEffect.wav";
+        UnityEngine.Object audio = DrbComponent.ResourceSystem.LoadAssetFromAssetBundle<UnityEngine.Object>(audioPath, audioName, DrbFramework.Resource.LoadMode.Persistent);
+#else
         string audioPath = string.Format("Downloads/Audio/SoundEffect/{0}.wav", audioName);
-
         UnityEngine.Object audio = DrbComponent.ResourceSystem.LoadAsset<UnityEngine.Object>(audioPath);
+#endif
         audioSystem.PlayAudio(audio, info);
     }
 }

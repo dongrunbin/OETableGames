@@ -21,6 +21,7 @@ public class SplashForm : UGUIForm
         base.OnInit();
 
         m_Text = m_Title.text;
+        m_Title.text = string.Empty;
     }
 
     public override void OnOpen()

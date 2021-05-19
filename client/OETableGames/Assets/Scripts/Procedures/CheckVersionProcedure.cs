@@ -226,7 +226,7 @@ public class CheckVersionProcedure : Procedure
                     //}
                     continue;
                 }
-                if (localDic[serverList[i].FullName.Trim()] != serverList[i].MD5)
+                if (!localDic[serverList[i].FullName.Trim()].Equals(serverList[i].MD5))
                 {
                     needDownloadDataList.Add(serverList[i]);
                 }

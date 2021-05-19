@@ -656,8 +656,6 @@ MonoBehaviour:
   m_nSeatPos: 3
   m_DiscardContainer: {fileID: 1238405961}
   m_Camera: {fileID: 861800626}
-  m_PushHand: {fileID: 0}
-  m_DiceHand: {fileID: 0}
 --- !u!1 &30911393
 GameObject:
   m_ObjectHideFlags: 0
@@ -3400,8 +3398,6 @@ MonoBehaviour:
   m_nSeatPos: 2
   m_DiscardContainer: {fileID: 1391402818}
   m_Camera: {fileID: 861800626}
-  m_PushHand: {fileID: 0}
-  m_DiceHand: {fileID: 0}
 --- !u!1 &394951266
 GameObject:
   m_ObjectHideFlags: 0
@@ -5870,7 +5866,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c780bef5a97d0d4bac21ee4c22aeb25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spacing: {x: 7.2, y: 4, z: 0}
+  spacing: {x: -7.2, y: 4, z: 0}
   offset: {x: 0, y: 0, z: 0}
   childAligment: 6
   constraint: 0
@@ -6228,7 +6224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c780bef5a97d0d4bac21ee4c22aeb25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spacing: {x: 7.2, y: 4, z: 0}
+  spacing: {x: -7.2, y: 4, z: 0}
   offset: {x: 0, y: 0, z: 0}
   childAligment: 6
   constraint: 0
@@ -6552,7 +6548,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c780bef5a97d0d4bac21ee4c22aeb25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spacing: {x: 7.2, y: 4, z: 0}
+  spacing: {x: -7.2, y: 4, z: 0}
   offset: {x: 0, y: 0, z: 0}
   childAligment: 6
   constraint: 0
@@ -7113,8 +7109,6 @@ MonoBehaviour:
   m_nSeatPos: 1
   m_DiscardContainer: {fileID: 1849104880}
   m_Camera: {fileID: 861800626}
-  m_PushHand: {fileID: 0}
-  m_DiceHand: {fileID: 0}
 --- !u!1 &858629439
 GameObject:
   m_ObjectHideFlags: 0
@@ -7998,8 +7992,6 @@ MonoBehaviour:
   m_nSeatPos: 4
   m_DiscardContainer: {fileID: 628370730}
   m_Camera: {fileID: 861800626}
-  m_PushHand: {fileID: 0}
-  m_DiceHand: {fileID: 0}
 --- !u!1 &965846874
 GameObject:
   m_ObjectHideFlags: 0
@@ -13981,7 +13973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c780bef5a97d0d4bac21ee4c22aeb25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spacing: {x: 7.2, y: 4, z: 0}
+  spacing: {x: -7.2, y: 4, z: 0}
   offset: {x: 0, y: 0, z: 0}
   childAligment: 6
   constraint: 0
