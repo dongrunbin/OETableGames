@@ -36,6 +36,7 @@ Win by discard:Win by discard
 MahjongForm.Ready:Ready
 MahjongForm.Leave:Leave
 MahjongForm.AnyTile:Any tile
+MahjongForm.WinWith:Win with
 MahjongForm.AddRobot:Add robot
 MahjongForm.Chow:Chow
 MahjongForm.Pong:Pong
@@ -47,5 +48,6 @@ MahjongForm.Games:Games
 MahjongForm.RoomId:Room Id
 MahjongForm.FinalScore:Final score
 MahjongForm.Gameover:Game over
+
 
 Error:Error

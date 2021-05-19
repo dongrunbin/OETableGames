@@ -36,6 +36,7 @@ Win by discard:点炮
 MahjongForm.Ready:准备
 MahjongForm.Leave:离开
 MahjongForm.AnyTile:任意牌
+MahjongForm.WinWith:胡
 MahjongForm.AddRobot:添加机器人
 MahjongForm.Chow:吃
 MahjongForm.Pong:鹏

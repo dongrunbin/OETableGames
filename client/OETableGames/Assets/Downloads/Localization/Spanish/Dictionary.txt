@@ -17,12 +17,12 @@ CreditForm.Art3D:Arte 3D
 CreditForm.Art2D:Arte 2D
 CreditForm.Audio:Audio
 
-SettingsForm.Language:Lenguage
-SettingsForm.MusicVolume:Volumen de música
-SettingsForm.SoundEffectVolume:Volumen de efecto de sonido
+SettingsForm.Language:Idioma
+SettingsForm.MusicVolume:Música
+SettingsForm.SoundEffectVolume:Efectos de sonido
 
 Mahjong:Mahjong
-rule:regla
+rule:reglas
 Seven pairs:siete pares
 Thirteen orphans:trece huérfanos
 players:jugadores
@@ -36,6 +36,7 @@ Win by discard:Ganar a traves sacar
 MahjongForm.Ready:Listo
 MahjongForm.Leave:Salir
 MahjongForm.AnyTile:Cualquiera
+MahjongForm.WinWith:Ganar con
 MahjongForm.AddRobot:Agregar robot
 MahjongForm.Chow:Chow
 MahjongForm.Pong:Pong
