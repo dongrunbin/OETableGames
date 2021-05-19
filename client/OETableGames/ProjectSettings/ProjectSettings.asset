@@ -572,7 +572,8 @@ PlayerSettings:
     4: MODE_PRODUCTION;ASSETBUNDLE
     7: MODE_PRODUCTION;ASSETBUNDLE
   platformArchitecture: {}
-  scriptingBackend: {}
+  scriptingBackend:
+    Standalone: 0
   il2cppCompilerConfiguration: {}
   managedStrippingLevel: {}
   incrementalIl2cppBuild: {}
