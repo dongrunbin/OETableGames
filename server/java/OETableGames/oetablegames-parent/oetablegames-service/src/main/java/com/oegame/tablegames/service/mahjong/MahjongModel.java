@@ -14,8 +14,8 @@ import java.util.Random;
 import java.util.Set;
 import com.oegame.tablegames.service.mahjong.model.CombinationType;
 import com.oegame.tablegames.service.mahjong.model.FightSet;
-import com.oegame.tablegames.service.mahjong.model.GangGroup;
-import com.oegame.tablegames.service.mahjong.model.GangSubType;
+import com.oegame.tablegames.service.mahjong.model.KongGroup;
+import com.oegame.tablegames.service.mahjong.model.KongSubType;
 import com.oegame.tablegames.service.mahjong.model.Mahjong;
 import com.oegame.tablegames.service.mahjong.model.MahjongGameStatus;
 import com.oegame.tablegames.service.mahjong.model.MahjongGroup;
@@ -122,13 +122,6 @@ public class MahjongModel {
 			}
 		}
 
-//		for (int size = 2; size <= 3; size++) {
-//			for (int i = 1; i <= 4; i++) {
-//				index++;
-//				room.com.oegame.tablegames.service.mahjong.add(new Mahjong(index, 5, size));
-//			}
-//		}
-
 		if (room.roomSetting.isZhong) {
 			// 装填红中
 			for (int i = 1; i <= 4; i++) {
@@ -145,55 +138,23 @@ public class MahjongModel {
 			room.mahjong.get(i).index = i + 1;
 		}
 
-		boolean test = false;
-		if (test) {
+		// 发牌
+		for (int i = 1; i <= room.roomSetting.player; i++) {
+			Seat seat = room.seat.get(i);
+			seat.gameStatus = MahjongSeatStatus.SEAT_STATUS_WAIT;
 
-			HashMap<Integer, ArrayList<Mahjong>> hand = new HashMap<Integer, ArrayList<Mahjong>>();
-			hand.put(1, Tools.mahjong(room.mahjong, "1_万", "1_万", "1_万", "1_万", "5_筒", "6_筒", "7_万", "8_万", "9_万", "9_筒",
-					"9_筒", "9_筒", "4_筒"));
-			hand.put(2, Tools.mahjong(room.mahjong, "2_筒", "2_筒", "4_筒", "7_筒", "2_条", "3_条", "5_条", "5_条", "5_条", "7_条",
-					"8_条", "9_条", "3_万"));
-			hand.put(3, Tools.mahjong(room.mahjong, "1_筒", "2_筒", "3_筒", "4_筒", "5_筒", "6_筒", "7_筒", "7_筒", "7_条", "7_条",
-					"1_条", "2_条", "3_条"));
-			hand.put(4, Tools.mahjong(room.mahjong, "1_条", "4_万", "7_万", "2_筒", "4_条", "7_条", "1_筒", "4_筒", "8_筒", "0_红中",
-					"0_红中", "0_红中", "0_红中"));
+			logger.info("给" + seat.playerId + "发牌：");
+			for (int x = 1; x <= room.roomSetting.mahjongAmount; x++) {
+				Mahjong mahjong = room.mahjong.remove(0);
+				mahjong.pos = seat.pos;
+				logger.info(" , " + Tools.mahjong(mahjong.color, mahjong.size));
 
-			for (int i = 1; i <= room.roomSetting.player; i++) {
-				Seat seat = room.seat.get(i);
-				// seat.init();
-				seat.gameStatus = MahjongSeatStatus.SEAT_STATUS_WAIT;
-
-				logger.info("hand.get(i).size() : " + hand.get(i).size() + " | ");
-				for (int j = 0; j < hand.get(i).size(); j++) {
-					logger.info(", " + hand.get(i).get(j).index + this.format(hand.get(i).get(j)));
-					hand.get(i).get(j).pos = seat.pos;
-					seat.mahjong.put(hand.get(i).get(j).index, hand.get(i).get(j));
-				}
-				logger.info("\n--------------------------");
+				seat.mahjong.put(mahjong.index, mahjong);
 			}
-		} else {
-			// 发牌
-			for (int i = 1; i <= room.roomSetting.player; i++) {
-				Seat seat = room.seat.get(i);
-				// seat.init();
-				seat.gameStatus = MahjongSeatStatus.SEAT_STATUS_WAIT;
-
-				logger.info("给" + seat.playerId + "发牌：");
-				for (int x = 1; x <= room.roomSetting.mahjongAmount; x++) {
-					Mahjong mahjong = room.mahjong.remove(0);
-					mahjong.pos = seat.pos;
-					logger.info(" , " + Tools.mahjong(mahjong.color, mahjong.size));
-
-					seat.mahjong.put(mahjong.index, mahjong);
-				}
-				logger.info("");
-			}
+			logger.info("");
 		}
 	}
 
-	/**
-	 * 确定癞子
-	 */
 	public void getUniversal() {
 
 		if (room.roomSetting.isZhong) {
@@ -205,23 +166,11 @@ public class MahjongModel {
 		}
 	}
 
-	/**
-	 * 发送开局信息
-	 */
-	public void sendBeginInfo() {
+	public void begin() {
 		this.room.gameStatus = MahjongGameStatus.ROOM_STATUS_BEGIN;
 		this.beWait();
-
-		Set<Entry<Long, Player>> set = this.room.player.entrySet();
-		for (Entry<Long, Player> entry : set) {
-			int playerId = (int) entry.getValue().playerId;
-			s2c.sendBeginInfo(playerId);
-		}
 	}
 
-	/**
-	 * 摸一张牌
-	 */
 	public void getMahjong(int pos, boolean isLast) {
 
 		// 获取当前出牌的人的位置
@@ -266,13 +215,10 @@ public class MahjongModel {
 		// 取自己的状态
 		Seat selfSeat = room.seat.get(pos);
 		// 打出的牌
-		Mahjong mahjong = null;
+		Mahjong mahjong;
 
 		// 如果是牌堆里面的牌，删除牌堆里面的，并加入刚摸的
-		boolean returnMahjong = false;
-		// 如果是牌堆里面的牌，删除牌堆里面的，并加入刚摸的
 		if (selfSeat.mahjong.containsKey(index)) {
-			returnMahjong = true;
 			mahjong = selfSeat.mahjong.remove(index);
 			if (selfSeat.hitMahjong != null) {
 				selfSeat.mahjong.put(selfSeat.hitMahjong.index, selfSeat.hitMahjong);
@@ -317,15 +263,6 @@ public class MahjongModel {
 	public void beWait() {
 		for (int i = 1; i <= room.roomSetting.player; i++) {
 			room.seat.get(i).gameStatus = MahjongSeatStatus.SEAT_STATUS_WAIT;
-		}
-	}
-
-	/**
-	 * 重置所有人座位状态都是fight
-	 */
-	public void beFight() {
-		for (int i = 1; i <= room.roomSetting.player; i++) {
-			room.seat.get(i).gameStatus = MahjongSeatStatus.SEAT_STATUS_FIGHT;
 		}
 	}
 
@@ -397,7 +334,7 @@ public class MahjongModel {
 			if (this.isGang(seat.mahjong, seat.hitMahjong, true)) {
 				logger.info(" pos " + seat.pos + " 可以暗杠,暗杠的牌是" + this.format(seat.hitMahjong));
 				ask_mahjong_group.add(new MahjongGroup(CombinationType.POKER_TYPE_GANG,
-						GangSubType.POKER_SUBTYPE_GANG_AN.ordinal(), null));
+						KongSubType.POKER_SUBTYPE_GANG_AN.ordinal(), null));
 			}
 		}
 
@@ -406,7 +343,7 @@ public class MahjongModel {
 			if (this.isBuGang(seat.mahjong, seat.useMahjongGroup, seat.hitMahjong, false)) {
 				logger.info(" pos " + seat.pos + " 可以补杠,补杠的牌是" + this.format(seat.hitMahjong));
 				ask_mahjong_group.add(new MahjongGroup(CombinationType.POKER_TYPE_GANG,
-						GangSubType.POKER_SUBTYPE_GANG_BU.ordinal(), null));
+						KongSubType.POKER_SUBTYPE_GANG_BU.ordinal(), null));
 			}
 		}
 
@@ -451,7 +388,7 @@ public class MahjongModel {
 				if (room.roomSetting.isKong && this.isGang(seat.mahjong, mahjong, false)) {
 					logger.info(" pos " + seat.pos + " 可以明杠,明杠的牌是" + this.format(mahjong));
 					ask_mahjong_group.add(new MahjongGroup(CombinationType.POKER_TYPE_GANG,
-							GangSubType.POKER_SUBTYPE_GANG_MING.ordinal(), mahjong));
+							KongSubType.POKER_SUBTYPE_GANG_MING.ordinal(), mahjong));
 				}
 
 				if (room.roomSetting.isWBD) {
@@ -643,7 +580,7 @@ public class MahjongModel {
 		MahjongGroup pb_group = new MahjongGroup();
 		pb_group.playerId = seat.playerId;
 		pb_group.typeId = CombinationType.POKER_TYPE_GANG;
-		pb_group.subTypeId = GangSubType.POKER_SUBTYPE_GANG_AN.ordinal();
+		pb_group.subTypeId = KongSubType.POKER_SUBTYPE_GANG_AN.ordinal();
 
 		if (seat.hitMahjong != null) {
 			seat.mahjong.put(seat.hitMahjong.index, seat.hitMahjong);
@@ -662,7 +599,7 @@ public class MahjongModel {
 		seat.agangCount++;
 
 		// 暗杠记录收益
-		seat.gangIncomes.add(new GangGroup(1, 0));
+		seat.gangIncomes.add(new KongGroup(1, 0));
 
 		return pb_group;
 
@@ -713,7 +650,7 @@ public class MahjongModel {
 		// 重置所有人的出牌状态都是WAIT
 		this.beWait();
 
-		seat.gameStatus = MahjongSeatStatus.SEAT_STATUS_OPERATE;
+		seat.gameStatus = MahjongSeatStatus.SEAT_STATUS_DISCARD;
 
 		seat.countdown = TimeUtil.millisecond() + SEAT_WAIT_TIME;
 
@@ -751,7 +688,7 @@ public class MahjongModel {
 
 		// 重置所有人的出牌状态都是WAIT
 		this.beWait();
-		seat.gameStatus = MahjongSeatStatus.SEAT_STATUS_OPERATE;
+		seat.gameStatus = MahjongSeatStatus.SEAT_STATUS_DISCARD;
 		seat.countdown = TimeUtil.millisecond() + SEAT_WAIT_TIME;
 		seat.hitMahjong = null;
 		room.nextPos = seat.pos;
@@ -769,7 +706,7 @@ public class MahjongModel {
 		MahjongGroup pb_group = new MahjongGroup();
 		pb_group.playerId = seat.playerId;
 		pb_group.typeId = CombinationType.POKER_TYPE_GANG;
-		pb_group.subTypeId = GangSubType.POKER_SUBTYPE_GANG_MING.ordinal();
+		pb_group.subTypeId = KongSubType.POKER_SUBTYPE_GANG_MING.ordinal();
 
 		pb_group.mahjong.add(leftMahjong);
 
@@ -787,7 +724,7 @@ public class MahjongModel {
 		seat.isGang = true;
 		seat.mgangCount++;
 		// 明杠记录收益
-		seat.gangIncomes.add(new GangGroup(2, room.leftSeatPos));
+		seat.gangIncomes.add(new KongGroup(2, room.leftSeatPos));
 		// 删除上一家的桌面牌
 		room.seat.get(room.leftSeatPos).desktop.remove(room.seat.get(room.leftSeatPos).desktop.size() - 1);
 		return pb_group;
@@ -819,7 +756,7 @@ public class MahjongModel {
 
 		seat.bgangCount++;
 
-		seat.gangIncomes.add(new GangGroup(3, 0));
+		seat.gangIncomes.add(new KongGroup(3, 0));
 	}
 
 	// 询问操作
@@ -830,55 +767,12 @@ public class MahjongModel {
 		Seat seat = this.room.getSeatByPos(pos);
 		if (seat == null || seat.player == null)
 			return;
-		seat.gameStatus = MahjongSeatStatus.SEAT_STATUS_FIGHT;
+		seat.gameStatus = MahjongSeatStatus.SEAT_STATUS_OPERATION;
 		seat.askMahjongGroup = ask_mahjong_group;
 		seat.countdown = TimeUtil.millisecond() + SEAT_WAIT_TIME;
 
 		s2c.operateAsk(seat, ask_mahjong_group);
 		room.fightSet.put(seat.pos, new FightSet(ask_mahjong_group));
-	}
-
-	/**
-	 * 扣除房卡
-	 * 
-	 * @param winer
-	 *            void
-	 */
-	public String costCard(int winer) {
-
-		// HashMap<Long, Integer> playerIds = new HashMap<Long, Integer>();
-
-		String players = "";
-		String nickname = "";
-		String avatar = "";
-
-		for (int i = 1; i <= room.roomSetting.player; i++) {
-			if (room.player.get(room.seat.get(i).playerId) != null) {
-				nickname = room.player.get(room.seat.get(i).playerId).nickname;
-				avatar = room.player.get(room.seat.get(i).playerId).avatar;
-			} else {
-				nickname = "";
-				avatar = "";
-			}
-
-			String mahjongs = "";
-
-			for (Entry<Integer, Mahjong> entry : room.seat.get(i).mahjong.entrySet()) {
-				mahjongs += entry.getValue().color + "|" + entry.getValue().size + ",";
-			}
-
-			for (int p = 0; p < room.seat.get(i).useMahjongGroup.size(); p++) {
-				for (int g = 0; g < room.seat.get(i).useMahjongGroup.get(p).mahjong.size(); g++) {
-					mahjongs += room.seat.get(i).useMahjongGroup.get(p).mahjong.get(g).color + "|"
-							+ room.seat.get(i).useMahjongGroup.get(p).mahjong.get(g).size + ",";
-				}
-			}
-			
-			players += nickname + "|-|" + room.seat.get(i).playerId + "|-|" + room.seat.get(i).settle + "|-|" + mahjongs
-					+ "|-|" + avatar + ";";
-
-		}
-		return players;
 	}
 
 	// 结算
@@ -896,10 +790,10 @@ public class MahjongModel {
 				room.seat.get(i).status = SeatStatus.SEAT_STATUS_IDLE;
 			}
 			
-			for (int i = 1; i <= room.roomSetting.player; i++) {
-				Seat seat = room.seat.get(i);
-				seat.incomesDesc += " " + " score = " + seat.settle;
-			}
+//			for (int i = 1; i <= room.roomSetting.player; i++) {
+//				Seat seat = room.seat.get(i);
+//				seat.incomesDesc += " " + " score = " + seat.settle;
+//			}
 		}
 	}
 

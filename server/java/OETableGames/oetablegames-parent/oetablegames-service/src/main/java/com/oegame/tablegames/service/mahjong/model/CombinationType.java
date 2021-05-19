@@ -2,10 +2,10 @@ package com.oegame.tablegames.service.mahjong.model;
 
 public enum CombinationType 
 {
-	
-	/** 
+
+	/**
 	 * 空
-	 */ 
+	 */
 	POKER_TYPE_NULL,
 	
 	/** 

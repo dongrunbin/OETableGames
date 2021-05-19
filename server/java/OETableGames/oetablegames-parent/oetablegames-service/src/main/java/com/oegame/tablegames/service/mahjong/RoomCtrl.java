@@ -12,7 +12,7 @@ import java.util.Set;
 import java.util.Map.Entry;
 import com.oegame.tablegames.service.mahjong.model.CombinationType;
 import com.oegame.tablegames.service.mahjong.model.FightSet;
-import com.oegame.tablegames.service.mahjong.model.GangSubType;
+import com.oegame.tablegames.service.mahjong.model.KongSubType;
 import com.oegame.tablegames.service.mahjong.model.Mahjong;
 import com.oegame.tablegames.service.mahjong.model.MahjongGameStatus;
 import com.oegame.tablegames.service.mahjong.model.MahjongGroup;
@@ -71,7 +71,14 @@ public class RoomCtrl extends RoomCtrlBase {
 		// 确定癞子
 		model.getUniversal();
 		// 房间状态变更为出牌,给所有人发送房间开局信息
-		model.sendBeginInfo();
+		model.begin();
+
+		Set<Entry<Long, Player>> set = this.room.player.entrySet();
+		for (Entry<Long, Player> entry : set) {
+			int playerId = (int) entry.getValue().playerId;
+			s2c.sendBeginInfo(playerId);
+		}
+
 		// 庄家摸牌
 		this.perflop(false);
 		// 检测自己有没有操作
@@ -79,7 +86,7 @@ public class RoomCtrl extends RoomCtrlBase {
 	}
 
 	// 摸牌逻辑体
-	private void perflopLogic(boolean isLast) {
+	private void drawLogic(boolean isLast) {
 
 		// 判断是否还有牌可以摸，否则就流局
 		if (room.mahjong.size() == 0) {
@@ -116,7 +123,7 @@ public class RoomCtrl extends RoomCtrlBase {
 		// 重置所有人的出牌状态都是WAIT
 		model.beWait();
 		// 设置为要操作
-		seat.gameStatus = MahjongSeatStatus.SEAT_STATUS_OPERATE;
+		seat.gameStatus = MahjongSeatStatus.SEAT_STATUS_DISCARD;
 		// 设置这个座位的操作时间
 		seat.countdown = TimeUtil.millisecond() + SEAT_WAIT_TIME;
 		// 给摸牌的人发消息
@@ -136,9 +143,8 @@ public class RoomCtrl extends RoomCtrlBase {
 		seat.status = SeatStatus.SEAT_STATUS_READY;
 		seat.gameStatus = MahjongSeatStatus.SEAT_STATUS_READY;
 
-		Game_S2C_ReadyProto proto = new Game_S2C_ReadyProto();
-		proto.setPlayerId((int) playerId);
-		this.refreshAll(0, proto.toArray());
+		s2c.sendReady((int)playerId);
+
 
 		if (this.getRoom().getReadyCount() >= this.getRoom().getSeats().size()
 			&& this.getRoom().loopCount <= this.getRoom().getRoomSetting().loop)
@@ -169,7 +175,7 @@ public class RoomCtrl extends RoomCtrlBase {
 			return;
 		}
 		// 判断是否可以出手
-		if (selfSeat.gameStatus != MahjongSeatStatus.SEAT_STATUS_OPERATE) {
+		if (selfSeat.gameStatus != MahjongSeatStatus.SEAT_STATUS_DISCARD) {
 			logger.info(this.roominfo+"不可以出手,你不是出牌状态： " + selfSeat.playerId);
 			return;
 		}
@@ -202,7 +208,7 @@ public class RoomCtrl extends RoomCtrlBase {
 		// 下家摸牌
 		if (room.fightSet.size() == 0) {
 			room.seat.get(room.nextPos).perflop = false;
-			this.perflopLogic(false);
+			this.drawLogic(false);
 		}
 	}
 
@@ -345,7 +351,20 @@ public class RoomCtrl extends RoomCtrlBase {
 			return;
 		}
 
-		if (!model.fight(pos, type, index)) {
+		model.fight(pos, type, index);
+		boolean isWait = false;
+		Set<Entry<Integer, FightSet>> set = room.fightSet.entrySet();
+		for (Entry<Integer, FightSet> entry : set) {
+			if (entry.getValue().typeId == CombinationType.POKER_TYPE_NULL) {
+				if (model.isWait(fightSet.typeId, entry.getValue().group)) {
+					logger.info("我要执行操作，还有人优先级比我高,等待他的操作。");
+					s2c.waitOperate(room.seat.get(pos).playerId);
+					isWait = true;
+				}
+			}
+		}
+
+		if (isWait) {
 			logger.info(this.roominfo+" 等待更高优先级操作,返回");
 			return;
 		}
@@ -443,7 +462,7 @@ public class RoomCtrl extends RoomCtrlBase {
 
 		Seat seat = room.seat.get(pos);
 
-		if (seat.gameStatus != MahjongSeatStatus.SEAT_STATUS_FIGHT) {
+		if (seat.gameStatus != MahjongSeatStatus.SEAT_STATUS_OPERATION) {
 			logger.info(this.roominfo+"你不在吃,碰,杠,胡的状态");
 			return;
 		}
@@ -490,7 +509,7 @@ public class RoomCtrl extends RoomCtrlBase {
 
 					seat.useMahjongGroup.get(usePos).mahjong.add(useMahjong);
 					seat.useMahjongGroup.get(usePos).typeId = CombinationType.POKER_TYPE_GANG;
-					seat.useMahjongGroup.get(usePos).subTypeId = GangSubType.POKER_SUBTYPE_GANG_BU.ordinal();
+					seat.useMahjongGroup.get(usePos).subTypeId = KongSubType.POKER_SUBTYPE_GANG_BU.ordinal();
 					MahjongGroup mahjong_group = seat.useMahjongGroup.get(usePos);
 					s2c.sendOperate(mahjong_group);
 
@@ -511,7 +530,7 @@ public class RoomCtrl extends RoomCtrlBase {
 					s2c.sendOperate(pb_group);
 					// 杠完自己摸牌
 					room.nextPos = seat.pos;
-					this.perflopLogic(true);
+					this.drawLogic(true);
 
 				} else {
 					logger.info(this.roominfo+"要暗杠，没暗杠成！");
@@ -578,7 +597,7 @@ public class RoomCtrl extends RoomCtrlBase {
 					s2c.sendOperate(pb_group);
 					// 杠完自己摸牌
 					room.nextPos = seat.pos;
-					this.perflopLogic(true);
+					this.drawLogic(true);
 				} else {
 					logger.info(this.roominfo+"要杠，没杠成！");
 				}
@@ -653,7 +672,7 @@ public class RoomCtrl extends RoomCtrlBase {
 		model.continueBugang(isHit, seat, pb_mahjong_group, usePos);
 		// 杠完自己摸牌
 		room.nextPos = seat.pos;
-		this.perflopLogic(true);
+		this.drawLogic(true);
 	}
 
 	/**
@@ -674,7 +693,7 @@ public class RoomCtrl extends RoomCtrlBase {
 
 		Seat seat = room.seat.get(pos);
 
-		if (seat.gameStatus != MahjongSeatStatus.SEAT_STATUS_FIGHT) {
+		if (seat.gameStatus != MahjongSeatStatus.SEAT_STATUS_OPERATION) {
 			logger.info(this.roominfo+"你不在吃,碰,杠,胡的状态");
 			return;
 		}
@@ -684,8 +703,8 @@ public class RoomCtrl extends RoomCtrlBase {
 		seat.gameStatus = MahjongSeatStatus.SEAT_STATUS_WAIT;
 
 		// 下一个要出牌的人，和自己是同一个，改变自己的出牌状态
-		if (room.seat.get(room.nextPos).gameStatus != MahjongSeatStatus.SEAT_STATUS_FIGHT) {
-			room.seat.get(room.nextPos).gameStatus = MahjongSeatStatus.SEAT_STATUS_OPERATE;
+		if (room.seat.get(room.nextPos).gameStatus != MahjongSeatStatus.SEAT_STATUS_OPERATION) {
+			room.seat.get(room.nextPos).gameStatus = MahjongSeatStatus.SEAT_STATUS_DISCARD;
 		}
 		room.seat.get(room.nextPos).countdown = TimeUtil.millisecond() + SEAT_WAIT_TIME;
 
@@ -727,17 +746,7 @@ public class RoomCtrl extends RoomCtrlBase {
 		// -------------------------判断抢胡，一炮多响-----------------------------------------//
 
 		// 如果不是自己
-		this.perflopLogic(false);
-	}
-
-	/**
-	 * 扣除房卡
-	 * 
-	 * @param winer
-	 *            void
-	 */
-	private void costCard(int winer) {
-		String players = model.costCard(winer);
+		this.drawLogic(false);
 	}
 
 	private void doSettle(int winer, int loser, boolean last) {
@@ -745,14 +754,8 @@ public class RoomCtrl extends RoomCtrlBase {
 		room.gameStatus = MahjongGameStatus.ROOM_STATUS_SETTLE;
 
 		if (last) {
-			this.costCard(winer);
-			// 牌局加1
 			room.loopCount++;
 		}
-		// if (room.matchId > 0) {
-		// // 比赛场，就算流局，也增加牌局
-		// room.loopCount++;
-		// }
 		s2c.settle();
 
 		// 重置桌面状态
@@ -781,21 +784,6 @@ public class RoomCtrl extends RoomCtrlBase {
 		s2c.result();
 	}
 
-	/**
-	 * 进入
-	 */
-	@Override
-	public synchronized boolean enter(Player player) {
-		if (!super.enter(player)) {
-			return false;
-		};
-//		if (model.playerCount() >= 4 && room.loopCount == 1) {
-//			logger.info(this.roominfo+"房间进入四人,自动开始");
-//			onBegin();
-//		}
-		return true;
-	}
-
 	// 错误执行的处理
 	private void errerHandle(int pos, boolean isSelf) {
 		room.fightSet.remove(pos);
@@ -803,10 +791,10 @@ public class RoomCtrl extends RoomCtrlBase {
 		room.fightSet.remove(pos);
 		room.seat.get(pos).askMahjongGroup.clear();
 		if (isSelf) {
-			room.seat.get(pos).gameStatus = MahjongSeatStatus.SEAT_STATUS_OPERATE;
+			room.seat.get(pos).gameStatus = MahjongSeatStatus.SEAT_STATUS_DISCARD;
 		} else {
 			if (room.fightSet.size() == 0) {
-				this.perflopLogic(false);
+				this.drawLogic(false);
 			}
 		}
 	}

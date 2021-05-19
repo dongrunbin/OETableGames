@@ -65,17 +65,17 @@ public class Settle {
 		if (qxd > 0) {
 			score = 6;
 			desc = "luxurious seven pairs";
-			seat.type = HuSubType.HU_SUBTYPE_HHQXD;
+			seat.type = WinSubType.HU_SUBTYPE_HHQXD;
 			System.out.println("豪华七小对");
 		} else if (qxd == 0) {
 			score = 3;
 			desc = "seven pairs";
-			seat.type = HuSubType.HU_SUBTYPE_QXD;
+			seat.type = WinSubType.HU_SUBTYPE_QXD;
 			System.out.println("七小对");
 		}else {
 			score = 1;
 			System.out.println("Win by discard");
-			seat.type = HuSubType.HU_SUBTYPE_PING;
+			seat.type = WinSubType.HU_SUBTYPE_PING;
 		}
 
 		if (isSelf && room.getHanCount() == 0) {
@@ -122,7 +122,7 @@ public class Settle {
 			int total = 0;
 			for (int x = 1; x <= room.roomSetting.player; x++) {
 				if (x != winer) {
-					room.seat.get(x).incomesDesc = "win by self-drawn-" + String.valueOf(score);
+					room.seat.get(x).incomesDesc = "lose by self-drawn-" + String.valueOf(score);
 					total += score;
 				}
 			}

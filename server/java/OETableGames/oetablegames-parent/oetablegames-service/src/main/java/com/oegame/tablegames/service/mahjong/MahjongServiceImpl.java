@@ -27,7 +27,7 @@ public class MahjongServiceImpl extends GameServiceImpl implements MahjongServic
 	@Override
 	protected String getGameType()
 	{
-		return "com/oegame/tablegames/service/mahjong";
+		return "Mahjong";
 	}
 	
 	@Override

@@ -1,6 +1,6 @@
 package com.oegame.tablegames.service.mahjong.model;
 
-public enum GangSubType 
+public enum KongSubType
 {	
 	/** 
 	 * 明杠

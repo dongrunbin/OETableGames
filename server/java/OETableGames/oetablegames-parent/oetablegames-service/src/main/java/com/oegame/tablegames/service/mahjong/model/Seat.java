@@ -14,7 +14,7 @@ public class Seat extends SeatBase
 	private static final long serialVersionUID = 1L;
 	
 	// 杠记录
-	public ArrayList<GangGroup> gangIncomes = new ArrayList<GangGroup>();
+	public ArrayList<KongGroup> gangIncomes = new ArrayList<KongGroup>();
 	
 	//牌型分数
 	public int dmScore = 0;
@@ -62,7 +62,7 @@ public class Seat extends SeatBase
 	public String incomesDesc = "";
 	
 	//胡牌类型
-	public HuSubType type = HuSubType.HU_SUBTYPE_PING;
+	public WinSubType type = WinSubType.HU_SUBTYPE_PING;
 	
 	
 	/**
@@ -127,7 +127,7 @@ public class Seat extends SeatBase
 		this.bgScore = 0;
 		this.huScore = 0;
 		this.dmScore = 0;
-		this.type = HuSubType.HU_SUBTYPE_PING;
+		this.type = WinSubType.HU_SUBTYPE_PING;
 	}
 
 	public void settle(int gold) {

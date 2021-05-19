@@ -4,16 +4,10 @@ import java.util.ArrayList;
 
 public class FightSet 
 {
-
-	public int cfgId = 0;
-
 	public CombinationType typeId = CombinationType.POKER_TYPE_NULL;
-
 	public ArrayList<Integer> index = new ArrayList<Integer>();
-
 	public int playerId = 0;
-
-	public ArrayList<MahjongGroup> group = new ArrayList<MahjongGroup>();
+	public ArrayList<MahjongGroup> group;
 
 	public FightSet(ArrayList<MahjongGroup> group) {
 		this.group = group;
@@ -28,42 +22,6 @@ public class FightSet
 			}
 		}
 		return null;
-	}
-
-	public boolean isHu() {
-		for (int i = 0; i < this.group.size(); i++) {
-			if (this.group.get(i).typeId == CombinationType.POKER_TYPE_HU_PAO || this.group.get(i).typeId == CombinationType.POKER_TYPE_HU_ZIMO) {
-				return true;
-			}
-		}
-		return false;
-	}
-
-	public boolean isGang() {
-		for (int i = 0; i < this.group.size(); i++) {
-			if (this.group.get(i).typeId == CombinationType.POKER_TYPE_GANG) {
-				return true;
-			}
-		}
-		return false;
-	}
-
-	public boolean isPeng() {
-		for (int i = 0; i < this.group.size(); i++) {
-			if (this.group.get(i).typeId == CombinationType.POKER_TYPE_PENG) {
-				return true;
-			}
-		}
-		return false;
-	}
-
-	public boolean isChi() {
-		for (int i = 0; i < this.group.size(); i++) {
-			if (this.group.get(i).typeId == CombinationType.POKER_TYPE_CHI) {
-				return true;
-			}
-		}
-		return false;
 	}
 }
 

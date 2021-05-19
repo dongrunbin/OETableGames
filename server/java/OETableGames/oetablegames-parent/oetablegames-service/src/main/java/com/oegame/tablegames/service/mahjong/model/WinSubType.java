@@ -1,6 +1,7 @@
 package com.oegame.tablegames.service.mahjong.model;
 
-public enum HuSubType {
+public enum WinSubType
+{
 	
 	/** 
 	 * 平胡

@@ -87,7 +87,7 @@ public abstract class GameServiceImpl implements GameService
 			ServiceUtil.getProxyService().sendError(player.playerId, -1, "room not exists");
 			return false;
 		}
-		return room.enter(player);
+		return room.enter(player, 0);
 	}
 	
 	@Override
@@ -99,7 +99,7 @@ public abstract class GameServiceImpl implements GameService
 		player.isRobot = true;
 		player.nickname = "robot" + pos;
 		player.playerId = -pos;
-		return room.enter(player);
+		return room.enter(player, pos);
 	}
 
 	@Override

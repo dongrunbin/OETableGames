@@ -15,7 +15,7 @@ public enum MahjongSeatStatus {
 	/** 
 	 * 出牌，自己操作出牌 
 	 */ 
-	SEAT_STATUS_OPERATE,
+	SEAT_STATUS_DISCARD,
 	
 	/** 
 	 * 等待，牌局中，等待别人出牌 
@@ -25,5 +25,5 @@ public enum MahjongSeatStatus {
 	/** 
 	 * 是否吃，碰，杠，胡，自摸 
 	 */ 
-	SEAT_STATUS_FIGHT;
+	SEAT_STATUS_OPERATION;
 }

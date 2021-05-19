@@ -168,6 +168,13 @@ public class MahjongS2C {
 
 	}
 
+	public void sendReady(int playerId)
+	{
+		Game_S2C_ReadyProto proto = new Game_S2C_ReadyProto();
+		proto.setPlayerId(playerId);
+		this.refreshAll(0, proto.toArray());
+	}
+
 	public void sendBeginInfo(int playerId) {
 
 		Mahjong_S2C_GameBeginProto pb_room = new Mahjong_S2C_GameBeginProto();
@@ -316,6 +323,7 @@ public class MahjongS2C {
 				pSeat.setHitMahjong(mahjong);
 			}
 			pSeat.setIsLoser(seat.loser);
+			pSeat.setIsWinner(seat.winner);
 			pSeat.setPlayerId((int) seat.playerId);
 			pSeat.setIncomesDesc(seat.incomesDesc);
 			pSeat.setPos(seat.pos);

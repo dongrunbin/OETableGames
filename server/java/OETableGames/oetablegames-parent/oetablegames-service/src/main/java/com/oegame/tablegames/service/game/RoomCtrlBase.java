@@ -8,6 +8,7 @@ import com.oegame.tablegames.protocol.gen.Game_S2C_InRoomProto;
 import com.oegame.tablegames.protocol.gen.Game_S2C_LeaveRoomProto;
 import com.oegame.tablegames.protocol.gen.Game_S2C_ReadyProto;
 import com.oegame.tablegames.service.ServiceUtil;
+import com.oegame.tablegames.service.mahjong.model.Seat;
 import java.util.Set;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -24,8 +25,6 @@ public abstract class RoomCtrlBase {
 	protected static final int SEAT_READY_TIME = 15 * 1000;
 
 	protected Timer timer = new Timer();
-
-	protected TimerTask task;
 
 	protected IGameAI gameAI;
 
@@ -57,14 +56,24 @@ public abstract class RoomCtrlBase {
 		return this.gameService;
 	}
 
-	public synchronized boolean enter(Player player)
+	public synchronized boolean enter(Player player, int pos)
 	{
 		if (this.getRoom().player.containsKey(player.playerId))
 		{
 			return false;
 		}
-
-		int pos = this.getRoom().getFreeSeat();
+		if(pos != 0)
+		{
+			SeatBase seat = this.getRoom().getSeatByPos(pos);
+			if(seat.playerId != 0)
+			{
+				return false;
+			}
+		}
+		else
+		{
+			pos = this.getRoom().getFreeSeat();
+		}
 		if (pos != 0)
 		{
 			this.getRoom().player.put(player.playerId, player);

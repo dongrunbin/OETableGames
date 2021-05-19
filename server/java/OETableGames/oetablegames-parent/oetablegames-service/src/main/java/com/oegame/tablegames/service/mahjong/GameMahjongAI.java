@@ -57,20 +57,12 @@ public class GameMahjongAI implements IGameAI {
 				continue;
 			}
 
-			if (ctrl.getRoom().status != RoomStatus.ROOM_STATUS_BEGIN) {
+			if (!(seat.gameStatus == MahjongSeatStatus.SEAT_STATUS_OPERATION
+					|| seat.gameStatus == MahjongSeatStatus.SEAT_STATUS_DISCARD)) {
 				continue;
 			}
 
-			if (this.ctrl.getRoom().gameStatus != MahjongGameStatus.ROOM_STATUS_BEGIN) {
-				return;
-			}
-
-			if (!(seat.gameStatus == MahjongSeatStatus.SEAT_STATUS_FIGHT
-					|| seat.gameStatus == MahjongSeatStatus.SEAT_STATUS_OPERATE)) {
-				continue;
-			}
-
-			if (seat.askMahjongGroup.size() > 0 && seat.gameStatus == MahjongSeatStatus.SEAT_STATUS_FIGHT) {
+			if (seat.askMahjongGroup.size() > 0 && seat.gameStatus == MahjongSeatStatus.SEAT_STATUS_OPERATION) {
 				ArrayList<Integer> index = new ArrayList<Integer>();
 				if (this.isHu(seat.askMahjongGroup)) {// 胡牌
 					if (ctrl.getRoom().leftSeatPos == seat.pos && seat.hitMahjong != null) {
@@ -220,7 +212,7 @@ public class GameMahjongAI implements IGameAI {
 			}
 
 			// 出牌
-			else if (seat.gameStatus == MahjongSeatStatus.SEAT_STATUS_OPERATE) {
+			else if (seat.gameStatus == MahjongSeatStatus.SEAT_STATUS_DISCARD) {
 				int index = discardAi.discardMahjong(seat, ctrl.getRoom().roomSetting);
 				ctrl.discard(seat.playerId, index);
 				return;
