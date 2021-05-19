@@ -1,6 +1,7 @@
 com\oegame\tablegames\service\game\RoomCtrlBase.class
 com\oegame\tablegames\service\mahjong\MahjongAlgorithm$Card.class
 com\oegame\tablegames\service\game\GameService.class
+com\oegame\tablegames\service\mahjong\model\KongGroup.class
 com\oegame\tablegames\service\player\Player.class
 com\oegame\tablegames\service\mahjong\RoomCtrl$2.class
 com\oegame\tablegames\service\mahjong\RoomCtrl.class
@@ -21,8 +22,9 @@ com\oegame\tablegames\service\mahjong\model\MahjongGroup.class
 com\oegame\tablegames\service\mahjong\MahjongModel.class
 com\oegame\tablegames\service\mahjong\model\MahjongGameStatus.class
 com\oegame\tablegames\service\mahjong\MahjongS2C.class
+com\oegame\tablegames\service\mahjong\model\KongSubType.class
 com\oegame\tablegames\service\mahjong\model\MahjongSeatStatus.class
-com\oegame\tablegames\service\mahjong\model\GangGroup.class
+com\oegame\tablegames\service\mahjong\model\WinSubType.class
 com\oegame\tablegames\service\game\RoomStatus.class
 com\oegame\tablegames\service\proxy\ProxyService.class
 com\oegame\tablegames\service\proxy\SocketRoute.class
@@ -31,14 +33,12 @@ com\oegame\tablegames\service\mahjong\model\Mahjong.class
 com\oegame\tablegames\service\proxy\ClientManager.class
 com\oegame\tablegames\service\mahjong\GameMahjongAI.class
 com\oegame\tablegames\service\proxy\ClientRole.class
-com\oegame\tablegames\service\mahjong\model\GangSubType.class
 com\oegame\tablegames\service\mahjong\model\Settle.class
 com\oegame\tablegames\service\game\RoomCtrlBase$1.class
 com\oegame\tablegames\service\mahjong\MahjongAlgorithm$Result.class
 com\oegame\tablegames\service\mahjong\MahjongDiscardAi$ENUM_SUIT_TYPE.class
 com\oegame\tablegames\service\mahjong\MahjongDiscardAi$2.class
 com\oegame\tablegames\service\mahjong\model\CombinationType.class
-com\oegame\tablegames\service\mahjong\model\HuSubType.class
 com\oegame\tablegames\service\mahjong\MahjongServiceImpl.class
 com\oegame\tablegames\service\proxy\SocketHandler.class
 com\oegame\tablegames\service\ServiceUtil.class

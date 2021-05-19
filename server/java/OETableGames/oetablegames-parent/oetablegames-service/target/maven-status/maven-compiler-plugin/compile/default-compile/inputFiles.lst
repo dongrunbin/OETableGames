@@ -2,10 +2,10 @@ D:\projects\unityProjects\OETableGames\server\java\OETableGames\oetablegames-par
 D:\projects\unityProjects\OETableGames\server\java\OETableGames\oetablegames-parent\oetablegames-service\src\main\java\com\oegame\tablegames\service\game\RoomCtrlBase.java
 D:\projects\unityProjects\OETableGames\server\java\OETableGames\oetablegames-parent\oetablegames-service\src\main\java\com\oegame\tablegames\service\mahjong\GameMahjongAI.java
 D:\projects\unityProjects\OETableGames\server\java\OETableGames\oetablegames-parent\oetablegames-service\src\main\java\com\oegame\tablegames\service\ServiceUtil.java
-D:\projects\unityProjects\OETableGames\server\java\OETableGames\oetablegames-parent\oetablegames-service\src\main\java\com\oegame\tablegames\service\mahjong\model\GangSubType.java
 D:\projects\unityProjects\OETableGames\server\java\OETableGames\oetablegames-parent\oetablegames-service\src\main\java\com\oegame\tablegames\service\mahjong\model\Mahjong.java
 D:\projects\unityProjects\OETableGames\server\java\OETableGames\oetablegames-parent\oetablegames-service\src\main\java\com\oegame\tablegames\service\proxy\ClientManager.java
 D:\projects\unityProjects\OETableGames\server\java\OETableGames\oetablegames-parent\oetablegames-service\src\main\java\com\oegame\tablegames\service\game\RoomStatus.java
+D:\projects\unityProjects\OETableGames\server\java\OETableGames\oetablegames-parent\oetablegames-service\src\main\java\com\oegame\tablegames\service\mahjong\model\WinSubType.java
 D:\projects\unityProjects\OETableGames\server\java\OETableGames\oetablegames-parent\oetablegames-service\src\main\java\com\oegame\tablegames\service\mahjong\model\FightSet.java
 D:\projects\unityProjects\OETableGames\server\java\OETableGames\oetablegames-parent\oetablegames-service\src\main\java\com\oegame\tablegames\service\mahjong\RoomCtrl.java
 D:\projects\unityProjects\OETableGames\server\java\OETableGames\oetablegames-parent\oetablegames-service\src\main\java\com\oegame\tablegames\service\player\PlayerService.java
@@ -14,11 +14,11 @@ D:\projects\unityProjects\OETableGames\server\java\OETableGames\oetablegames-par
 D:\projects\unityProjects\OETableGames\server\java\OETableGames\oetablegames-parent\oetablegames-service\src\main\java\com\oegame\tablegames\service\mahjong\model\SettleVO.java
 D:\projects\unityProjects\OETableGames\server\java\OETableGames\oetablegames-parent\oetablegames-service\src\main\java\com\oegame\tablegames\service\proxy\ProxyService.java
 D:\projects\unityProjects\OETableGames\server\java\OETableGames\oetablegames-parent\oetablegames-service\src\main\java\com\oegame\tablegames\service\mahjong\model\MahjongGroup.java
-D:\projects\unityProjects\OETableGames\server\java\OETableGames\oetablegames-parent\oetablegames-service\src\main\java\com\oegame\tablegames\service\mahjong\model\HuSubType.java
 D:\projects\unityProjects\OETableGames\server\java\OETableGames\oetablegames-parent\oetablegames-service\src\main\java\com\oegame\tablegames\service\game\SeatStatus.java
 D:\projects\unityProjects\OETableGames\server\java\OETableGames\oetablegames-parent\oetablegames-service\src\main\java\com\oegame\tablegames\service\mahjong\model\Room.java
 D:\projects\unityProjects\OETableGames\server\java\OETableGames\oetablegames-parent\oetablegames-service\src\main\java\com\oegame\tablegames\service\mahjong\model\RoomSetting.java
 D:\projects\unityProjects\OETableGames\server\java\OETableGames\oetablegames-parent\oetablegames-service\src\main\java\com\oegame\tablegames\service\mahjong\model\ResultVO.java
+D:\projects\unityProjects\OETableGames\server\java\OETableGames\oetablegames-parent\oetablegames-service\src\main\java\com\oegame\tablegames\service\mahjong\model\KongSubType.java
 D:\projects\unityProjects\OETableGames\server\java\OETableGames\oetablegames-parent\oetablegames-service\src\main\java\com\oegame\tablegames\service\proxy\ClientRole.java
 D:\projects\unityProjects\OETableGames\server\java\OETableGames\oetablegames-parent\oetablegames-service\src\main\java\com\oegame\tablegames\service\mahjong\MahjongServiceImpl.java
 D:\projects\unityProjects\OETableGames\server\java\OETableGames\oetablegames-parent\oetablegames-service\src\main\java\com\oegame\tablegames\service\game\GameService.java
@@ -31,7 +31,6 @@ D:\projects\unityProjects\OETableGames\server\java\OETableGames\oetablegames-par
 D:\projects\unityProjects\OETableGames\server\java\OETableGames\oetablegames-parent\oetablegames-service\src\main\java\com\oegame\tablegames\service\game\RoomBase.java
 D:\projects\unityProjects\OETableGames\server\java\OETableGames\oetablegames-parent\oetablegames-service\src\main\java\com\oegame\tablegames\service\mahjong\MahjongModel.java
 D:\projects\unityProjects\OETableGames\server\java\OETableGames\oetablegames-parent\oetablegames-service\src\main\java\com\oegame\tablegames\service\game\GameServiceImpl.java
-D:\projects\unityProjects\OETableGames\server\java\OETableGames\oetablegames-parent\oetablegames-service\src\main\java\com\oegame\tablegames\service\mahjong\model\GangGroup.java
 D:\projects\unityProjects\OETableGames\server\java\OETableGames\oetablegames-parent\oetablegames-service\src\main\java\com\oegame\tablegames\service\mahjong\model\MahjongSeatStatus.java
 D:\projects\unityProjects\OETableGames\server\java\OETableGames\oetablegames-parent\oetablegames-service\src\main\java\com\oegame\tablegames\service\game\SeatBase.java
 D:\projects\unityProjects\OETableGames\server\java\OETableGames\oetablegames-parent\oetablegames-service\src\main\java\com\oegame\tablegames\service\player\PlayerServiceImpl.java
@@ -42,5 +41,6 @@ D:\projects\unityProjects\OETableGames\server\java\OETableGames\oetablegames-par
 D:\projects\unityProjects\OETableGames\server\java\OETableGames\oetablegames-parent\oetablegames-service\src\main\java\com\oegame\tablegames\service\proxy\ProxyServiceImpl.java
 D:\projects\unityProjects\OETableGames\server\java\OETableGames\oetablegames-parent\oetablegames-service\src\main\java\com\oegame\tablegames\service\mahjong\model\Tools.java
 D:\projects\unityProjects\OETableGames\server\java\OETableGames\oetablegames-parent\oetablegames-service\src\main\java\com\oegame\tablegames\service\game\IGameAI.java
+D:\projects\unityProjects\OETableGames\server\java\OETableGames\oetablegames-parent\oetablegames-service\src\main\java\com\oegame\tablegames\service\mahjong\model\KongGroup.java
 D:\projects\unityProjects\OETableGames\server\java\OETableGames\oetablegames-parent\oetablegames-service\src\main\java\com\oegame\tablegames\service\mahjong\model\Settle.java
 D:\projects\unityProjects\OETableGames\server\java\OETableGames\oetablegames-parent\oetablegames-service\src\main\java\com\oegame\tablegames\service\player\Player.java

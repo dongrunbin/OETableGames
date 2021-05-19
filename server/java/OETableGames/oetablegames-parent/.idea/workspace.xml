@@ -2,34 +2,119 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aee15e99-af13-40e2-a0c7-ee9d425015c2" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../../client/OETableGames/Assets/Downloads/Audio/SoundEffect/mahjong_lose.wav.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../client/OETableGames/Assets/Downloads/Audio/SoundEffect/mahjong_lose.wav.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../client/OETableGames/Assets/Downloads/Audio/SoundEffect/mahjong_win.wav.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../client/OETableGames/Assets/Downloads/Audio/SoundEffect/mahjong_win.wav.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../client/OETableGames/Assets/Downloads/Lua/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../client/OETableGames/Assets/Downloads/Lua/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../client/OETableGames/Assets/Downloads/Lua/Procedure/Game2Procedure.lua.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../client/OETableGames/Assets/Downloads/Lua/Procedure/Game2Procedure.lua.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../client/OETableGames/Assets/Scenes/InitScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../client/OETableGames/Assets/Scenes/InitScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../client/OETableGames/Assets/Scripts/Procedures/PreloadProcedure.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../client/OETableGames/Assets/Scripts/Procedures/PreloadProcedure.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../client/OETableGames/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../client/OETableGames/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../client/OETableGames/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../client/OETableGames/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../client/OETableGames/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../client/OETableGames/ProjectSettings/QualitySettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oetablegames-service/src/main/java/com/oegame/tablegames/service/game/GameServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-service/src/main/java/com/oegame/tablegames/service/game/GameServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oetablegames-service/src/main/java/com/oegame/tablegames/service/game/RoomCtrlBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-service/src/main/java/com/oegame/tablegames/service/game/RoomCtrlBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oetablegames-service/src/main/java/com/oegame/tablegames/service/mahjong/GameMahjongAI.java" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-service/src/main/java/com/oegame/tablegames/service/mahjong/GameMahjongAI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oetablegames-service/src/main/java/com/oegame/tablegames/service/mahjong/MahjongModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-service/src/main/java/com/oegame/tablegames/service/mahjong/MahjongModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oetablegames-service/src/main/java/com/oegame/tablegames/service/mahjong/MahjongS2C.java" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-service/src/main/java/com/oegame/tablegames/service/mahjong/MahjongS2C.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oetablegames-service/src/main/java/com/oegame/tablegames/service/mahjong/MahjongServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-service/src/main/java/com/oegame/tablegames/service/mahjong/MahjongServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oetablegames-service/src/main/java/com/oegame/tablegames/service/mahjong/RoomCtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-service/src/main/java/com/oegame/tablegames/service/mahjong/RoomCtrl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oetablegames-service/src/main/java/com/oegame/tablegames/service/mahjong/model/CombinationType.java" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-service/src/main/java/com/oegame/tablegames/service/mahjong/model/CombinationType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oetablegames-service/src/main/java/com/oegame/tablegames/service/mahjong/model/FightSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-service/src/main/java/com/oegame/tablegames/service/mahjong/model/FightSet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oetablegames-service/src/main/java/com/oegame/tablegames/service/mahjong/model/GangGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-service/src/main/java/com/oegame/tablegames/service/mahjong/model/KongGroup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oetablegames-service/src/main/java/com/oegame/tablegames/service/mahjong/model/GangSubType.java" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-service/src/main/java/com/oegame/tablegames/service/mahjong/model/KongSubType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oetablegames-service/src/main/java/com/oegame/tablegames/service/mahjong/model/HuSubType.java" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-service/src/main/java/com/oegame/tablegames/service/mahjong/model/WinSubType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oetablegames-service/src/main/java/com/oegame/tablegames/service/mahjong/model/MahjongSeatStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-service/src/main/java/com/oegame/tablegames/service/mahjong/model/MahjongSeatStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oetablegames-service/src/main/java/com/oegame/tablegames/service/mahjong/model/Seat.java" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-service/src/main/java/com/oegame/tablegames/service/mahjong/model/Seat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oetablegames-service/src/main/java/com/oegame/tablegames/service/mahjong/model/Settle.java" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-service/src/main/java/com/oegame/tablegames/service/mahjong/model/Settle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oetablegames-service/target/classes/com/oegame/tablegames/service/mahjong/MahjongModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-service/target/classes/com/oegame/tablegames/service/mahjong/MahjongModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oetablegames-service/target/classes/com/oegame/tablegames/service/mahjong/RoomCtrl$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-service/target/classes/com/oegame/tablegames/service/mahjong/RoomCtrl$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oetablegames-service/target/classes/com/oegame/tablegames/service/mahjong/RoomCtrl$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-service/target/classes/com/oegame/tablegames/service/mahjong/RoomCtrl$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oetablegames-service/target/classes/com/oegame/tablegames/service/mahjong/RoomCtrl.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-service/target/classes/com/oegame/tablegames/service/mahjong/RoomCtrl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oetablegames-service/target/classes/com/oegame/tablegames/service/mahjong/model/FightSet.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-service/target/classes/com/oegame/tablegames/service/mahjong/model/FightSet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oetablegames-service/target/classes/com/oegame/tablegames/service/mahjong/model/GangGroup.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oetablegames-service/target/classes/com/oegame/tablegames/service/mahjong/model/GangSubType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oetablegames-service/target/classes/com/oegame/tablegames/service/mahjong/model/HuSubType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oetablegames-service/target/classes/com/oegame/tablegames/service/mahjong/model/Seat.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-service/target/classes/com/oegame/tablegames/service/mahjong/model/Seat.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oetablegames-service/target/classes/com/oegame/tablegames/service/mahjong/model/Settle.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-service/target/classes/com/oegame/tablegames/service/mahjong/model/Settle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/oegame/tablegames/parent/App.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-common/target/incomes.jar" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-common/target/incomes.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-common/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-common/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-main/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-main/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-main/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-main/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-main/target/tablegames.jar" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-main/target/tablegames.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-main/target/tablegames.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-main/target/tablegames.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/incomes.jar" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-model/target/incomes.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-model/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-model/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-model/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/surefire-reports/TEST-com.oegame.tablegames.model.AppTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-model/target/surefire-reports/TEST-com.oegame.tablegames.model.AppTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/surefire-reports/TEST-com.zhenyi.wangque.model.AppTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/surefire-reports/com.oegame.tablegames.model.AppTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-model/target/surefire-reports/com.oegame.tablegames.model.AppTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-model/target/surefire-reports/com.zhenyi.wangque.model.AppTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/incomes.jar" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-protocol/target/incomes.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-protocol/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-protocol/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-protocol/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/surefire-reports/TEST-com.zhenyi.wangque.protocol.AppTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/surefire-reports/com.oegame.tablegames.protocol.AppTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-protocol/target/surefire-reports/com.oegame.tablegames.protocol.AppTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-protocol/target/surefire-reports/com.zhenyi.wangque.protocol.AppTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/cluster/ClusterStrategy.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/cluster/ClusterStrategy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/cluster/engine/ClusterEngine.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/cluster/engine/ClusterEngine.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/cluster/impl/ClusterStrategyEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/cluster/impl/ClusterStrategyEnum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/cluster/impl/HashClusterStrategyImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/cluster/impl/HashClusterStrategyImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/cluster/impl/ParametersClusterStrategyImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/cluster/impl/ParametersClusterStrategyImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/cluster/impl/ParametersHashClusterStrategyImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/cluster/impl/ParametersHashClusterStrategyImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/cluster/impl/PollingClusterStrategyImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/cluster/impl/PollingClusterStrategyImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/cluster/impl/RandomClusterStrategyImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/cluster/impl/RandomClusterStrategyImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/cluster/impl/WeightPollingClusterStrategyImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/cluster/impl/WeightPollingClusterStrategyImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/cluster/impl/WeightRandomClusterStrategyImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/cluster/impl/WeightRandomClusterStrategyImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/consumer/ConsumerFactoryBean$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/consumer/ConsumerFactoryBean$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/consumer/ConsumerFactoryBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/consumer/ConsumerFactoryBean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/consumer/ConsumerInvoker.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/consumer/ConsumerInvoker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/consumer/ConsumerResponseHolder$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/consumer/ConsumerResponseHolder$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/consumer/ConsumerResponseHolder.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/consumer/ConsumerResponseHolder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/consumer/ConsumerServiceCallable.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/consumer/ConsumerServiceCallable.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/consumer/NettyChannelPoolFactory$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/consumer/NettyChannelPoolFactory$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/consumer/NettyChannelPoolFactory$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/consumer/NettyChannelPoolFactory$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/consumer/NettyChannelPoolFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/consumer/NettyChannelPoolFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/consumer/NettyClientInvokeHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/consumer/NettyClientInvokeHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/context/ApplicationContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/context/ApplicationContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/helper/IPHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/helper/IPHelper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/helper/PropertyConfigeHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/helper/PropertyConfigeHelper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/model/ConsumerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/model/ConsumerService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/model/ProviderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/model/ProviderService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/model/RequestEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/model/RequestEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/model/ResponseEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/model/ResponseEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/model/ResponseWrapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/model/ResponseWrapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/provider/NettyServer$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/provider/NettyServer$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/provider/NettyServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/provider/NettyServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/provider/NettyServerInvokeHandler$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/provider/NettyServerInvokeHandler$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/provider/NettyServerInvokeHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/provider/NettyServerInvokeHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/provider/ProviderFactoryBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/provider/ProviderFactoryBean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/serialization/NettyDecoderHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/serialization/NettyDecoderHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/serialization/NettyEncoderHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/serialization/NettyEncoderHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/serialization/common/FDateJsonDeserializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/serialization/common/FDateJsonDeserializer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/serialization/common/FDateJsonSerializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/serialization/common/FDateJsonSerializer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/serialization/common/SerializeType.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/serialization/common/SerializeType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/serialization/engine/SerializerEngine.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/serialization/engine/SerializerEngine.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/serialization/serializer/ISerializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/serialization/serializer/ISerializer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/serialization/serializer/impl/AvroSerializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/serialization/serializer/impl/AvroSerializer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/serialization/serializer/impl/DefaultJavaSerializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/serialization/serializer/impl/DefaultJavaSerializer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/serialization/serializer/impl/HessianSerializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/serialization/serializer/impl/HessianSerializer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/serialization/serializer/impl/JSONSerializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/serialization/serializer/impl/JSONSerializer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/serialization/serializer/impl/MarshallingSerializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/serialization/serializer/impl/MarshallingSerializer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/serialization/serializer/impl/ProtoStuffSerializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/serialization/serializer/impl/ProtoStuffSerializer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/serialization/serializer/impl/ProtocolBufferSerializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/serialization/serializer/impl/ProtocolBufferSerializer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/serialization/serializer/impl/ThriftSerializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/serialization/serializer/impl/ThriftSerializer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/serialization/serializer/impl/XmlSerializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/serialization/serializer/impl/XmlSerializer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/spring/ConsumerFactoryBeanDefinitionParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/spring/ConsumerFactoryBeanDefinitionParser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/spring/ProviderFactoryBeanDefinitionParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/spring/ProviderFactoryBeanDefinitionParser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/spring/ReferenceNamespaceHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/spring/ReferenceNamespaceHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/spring/ServiceNamespaceHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/spring/ServiceNamespaceHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/zookeeper/ConsumerZkChildListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/zookeeper/ConsumerZkChildListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/zookeeper/ConsumerZkStateListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/zookeeper/ConsumerZkStateListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/zookeeper/IConsumerServiceCenter.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/zookeeper/IConsumerServiceCenter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/zookeeper/IGovernanceServiceCenter.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/zookeeper/IGovernanceServiceCenter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/zookeeper/IProviderServiceCenter.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/zookeeper/IProviderServiceCenter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/zookeeper/IServiceListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/zookeeper/IServiceListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/zookeeper/ProviderZkStateListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/zookeeper/ProviderZkStateListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/zookeeper/ServiceCenter$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/zookeeper/ServiceCenter$1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/zookeeper/ServiceCenter$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/zookeeper/ServiceCenter$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/zookeeper/ServiceCenter.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/classes/com/zhenyi/remoting/framework/zookeeper/ServiceCenter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/oetablegames-remoting-release-0.0.1-SNAPSHOT-sources.jar" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/oetablegames-remoting-release-0.0.1-SNAPSHOT-sources.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/oetablegames-remoting-release-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/oetablegames-remoting-release-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/surefire-reports/com.zhenyi.remoting.test.AppTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/surefire-reports/com.zhenyi.remoting.test.AppTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/test-classes/com/zhenyi/remoting/test/AppTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/test-classes/com/zhenyi/remoting/test/AppTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/test-classes/com/zhenyi/remoting/test/Hello2Service.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/test-classes/com/zhenyi/remoting/test/Hello2Service.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/test-classes/com/zhenyi/remoting/test/Hello2ServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/test-classes/com/zhenyi/remoting/test/Hello2ServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/test-classes/com/zhenyi/remoting/test/HelloService.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/test-classes/com/zhenyi/remoting/test/HelloService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/test-classes/com/zhenyi/remoting/test/HelloServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/test-classes/com/zhenyi/remoting/test/HelloServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/test-classes/com/zhenyi/remoting/test/MainClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/test-classes/com/zhenyi/remoting/test/MainClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/test-classes/com/zhenyi/remoting/test/MainServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/test-classes/com/zhenyi/remoting/test/MainServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/test-classes/com/zhenyi/remoting/test/TestEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-remoting/target/test-classes/com/zhenyi/remoting/test/TestEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/wangque-remoting-release-0.0.1-SNAPSHOT-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-remoting/target/wangque-remoting-release-0.0.1-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-service/target/incomes.jar" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-service/target/incomes.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-service/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-service/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oetablegames-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/oetablegames-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/oegame/tablegames/wangque_parent/AppTest.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/oetablegames-main/target/" />
     <ignored path="$PROJECT_DIR$/oetablegames-protocol/target/" />
@@ -54,11 +139,11 @@
     <session id="442703386">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="19" />
+          <entry key="project.closed" value="21" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.10" value="1" />
-          <entry key="project.open.time.11" value="1" />
+          <entry key="project.open.time.11" value="2" />
           <entry key="project.open.time.12" value="2" />
           <entry key="project.open.time.31" value="1" />
           <entry key="project.open.time.34" value="1" />
@@ -72,7 +157,7 @@
           <entry key="project.open.time.52" value="1" />
           <entry key="project.open.time.56" value="1" />
           <entry key="project.open.time.61" value="1" />
-          <entry key="project.opened" value="21" />
+          <entry key="project.opened" value="22" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -118,7 +203,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/oetablegames-service/src/main/java/com/oegame/tablegames/service/mahjong/model/Settle.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
+            <state relative-caret-position="3192">
               <caret line="172" column="28" selection-start-line="172" selection-start-column="21" selection-end-line="172" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -142,7 +227,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/oetablegames-service/src/main/java/com/oegame/tablegames/service/mahjong/MahjongModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
+            <state relative-caret-position="14269">
               <caret line="778" column="19" selection-start-line="778" selection-start-column="19" selection-end-line="778" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -154,7 +239,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/oetablegames-service/src/main/java/com/oegame/tablegames/service/mahjong/MahjongDiscardAi.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1311">
+            <state relative-caret-position="2166">
               <caret line="126" column="64" selection-start-line="126" selection-start-column="53" selection-end-line="126" selection-end-column="64" />
             </state>
           </provider>
@@ -163,7 +248,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/oetablegames-service/src/main/java/com/oegame/tablegames/service/game/RoomCtrlBase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-403">
+            <state relative-caret-position="76">
               <caret line="18" column="22" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -175,7 +260,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/oetablegames-service/src/main/java/com/oegame/tablegames/service/mahjong/RoomCtrl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
+            <state relative-caret-position="10070">
               <caret line="558" column="26" selection-start-line="558" selection-start-column="26" selection-end-line="558" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -187,7 +272,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/oetablegames-service/src/main/java/com/oegame/tablegames/service/game/GameServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="426">
+            <state relative-caret-position="1596">
               <caret line="89" column="36" selection-start-line="89" selection-start-column="36" selection-end-line="89" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -199,7 +284,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/oetablegames-service/src/main/java/com/oegame/tablegames/service/mahjong/GameMahjongAI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
+            <state relative-caret-position="3705">
               <caret line="215" column="47" selection-start-line="215" selection-start-column="47" selection-end-line="215" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -373,6 +458,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -381,77 +467,10 @@
               <item name="oetablegames-parent" type="b2602c69:ProjectViewProjectNode" />
               <item name="oetablegames-parent" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="oetablegames-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="oetablegames-parent" type="462c0819:PsiDirectoryNode" />
-              <item name="oetablegames-service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="oetablegames-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="oetablegames-parent" type="462c0819:PsiDirectoryNode" />
-              <item name="oetablegames-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="oetablegames-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="oetablegames-parent" type="462c0819:PsiDirectoryNode" />
-              <item name="oetablegames-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="oetablegames-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="oetablegames-parent" type="462c0819:PsiDirectoryNode" />
-              <item name="oetablegames-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="oetablegames-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="oetablegames-parent" type="462c0819:PsiDirectoryNode" />
-              <item name="oetablegames-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="oetablegames-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="oetablegames-parent" type="462c0819:PsiDirectoryNode" />
-              <item name="oetablegames-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="game" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="oetablegames-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="oetablegames-parent" type="462c0819:PsiDirectoryNode" />
-              <item name="oetablegames-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="mahjong" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="oetablegames-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="oetablegames-parent" type="462c0819:PsiDirectoryNode" />
-              <item name="oetablegames-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="mahjong" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -460,7 +479,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1621377180094" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1621398627789" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/oetablegames-main/src/main/java/com" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../client/OETableGames/Assets/Downloads/Lua" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -537,18 +556,19 @@
       <workItem from="1620267688481" duration="2542000" />
       <workItem from="1620350645638" duration="2443000" />
       <workItem from="1620955183190" duration="2924000" />
-      <workItem from="1621370545129" duration="4194000" />
+      <workItem from="1621370545129" duration="4958000" />
+      <workItem from="1621398860533" duration="478000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="123564000" />
+    <option name="totallyTimeSpent" value="124806000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27211797" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27546915" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -557,7 +577,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32871014" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.43411928" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.43411928" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -693,9 +713,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="196">
           <caret line="30" column="50" selection-start-line="30" selection-start-column="41" selection-end-line="30" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -855,56 +872,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/oetablegames-service/src/main/java/com/oegame/tablegames/service/mahjong/MahjongServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1159">
-          <caret line="84" column="21" selection-start-line="84" selection-start-column="21" selection-end-line="84" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oetablegames-service/src/main/java/com/oegame/tablegames/service/game/RoomCtrlBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-403">
-          <caret line="18" column="22" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oetablegames-service/src/main/java/com/oegame/tablegames/service/game/GameServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="426">
-          <caret line="89" column="36" selection-start-line="89" selection-start-column="36" selection-end-line="89" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oetablegames-service/src/main/java/com/oegame/tablegames/service/mahjong/GameMahjongAI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="215" column="47" selection-start-line="215" selection-start-column="47" selection-end-line="215" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oetablegames-service/src/main/java/com/oegame/tablegames/service/mahjong/MahjongDiscardAi.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1311">
-          <caret line="126" column="64" selection-start-line="126" selection-start-column="53" selection-end-line="126" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/oetablegames-service/src/main/java/com/oegame/tablegames/service/mahjong/model/Settle.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
+        <state relative-caret-position="3192">
           <caret line="172" column="28" selection-start-line="172" selection-start-column="21" selection-end-line="172" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -914,8 +884,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/oetablegames-service/src/main/java/com/oegame/tablegames/service/mahjong/MahjongModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
+        <state relative-caret-position="14269">
           <caret line="778" column="19" selection-start-line="778" selection-start-column="19" selection-end-line="778" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-service/src/main/java/com/oegame/tablegames/service/mahjong/MahjongDiscardAi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2166">
+          <caret line="126" column="64" selection-start-line="126" selection-start-column="53" selection-end-line="126" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-service/src/main/java/com/oegame/tablegames/service/game/RoomCtrlBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="18" column="22" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -924,8 +911,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/oetablegames-service/src/main/java/com/oegame/tablegames/service/mahjong/RoomCtrl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
+        <state relative-caret-position="10070">
           <caret line="558" column="26" selection-start-line="558" selection-start-column="26" selection-end-line="558" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-service/src/main/java/com/oegame/tablegames/service/game/GameServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1596">
+          <caret line="89" column="36" selection-start-line="89" selection-start-column="36" selection-end-line="89" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-service/src/main/java/com/oegame/tablegames/service/mahjong/GameMahjongAI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3705">
+          <caret line="215" column="47" selection-start-line="215" selection-start-column="47" selection-end-line="215" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oetablegames-service/src/main/java/com/oegame/tablegames/service/mahjong/MahjongServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1159">
+          <caret line="84" column="21" selection-start-line="84" selection-start-column="21" selection-end-line="84" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
